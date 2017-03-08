@@ -10,6 +10,9 @@ router.get('/', function(req, res) {
   }, {
     username: 'bharat@samarthya.com',
     name: 'Bharath'
+  }, {
+    username: 'sagar@samarthya.com',
+    name: 'Sagar'
   }]);
 })
 
