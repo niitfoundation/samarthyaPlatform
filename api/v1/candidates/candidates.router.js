@@ -7,6 +7,9 @@ router.get('/', function(req, res) {
   }, {
     username: 'basav@samarthya.com',
     name: 'Basavaraj'
+  }, {
+    username: 'bharat@samarthya.com',
+    name: 'Bharath'
   }]);
 })
 
