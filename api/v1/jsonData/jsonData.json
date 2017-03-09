@@ -1,0 +1,69 @@
+{
+    "languages": [
+        { "code": "en", "name": "English", "nativeName": "English" },
+        { "code": "fr", "name": "French", "nativeName": "français" },
+        { "code": "ru", "name": "Russian", "nativeName": "русский" },
+        { "code": "es", "name": "Spanish", "nativeName": "español" },
+        { "code": "hi", "name": "Hindi", "nativeName": "हिन्दी" },
+        { "code": "pa", "name": "Panjabi", "nativeName": "ਪੰਜਾਬੀ" },
+        { "code": "bn", "name": "Bengali", "nativeName": "বাংলা" },
+        { "code": "gu", "name": "Gujarati", "nativeName": "ગુજરાતી" },
+        { "code": "it", "name": "Italian", "nativeName": "Italiano" },
+        { "code": "ml", "name": "Malayalam", "nativeName": "മലയാളം" },
+        { "code": "mr", "name": "Marathi", "nativeName": "मराठी" },
+        { "code": "kn", "name": "Kannada", "nativeName": "ಕನ್ನಡ" },
+        { "code": "sd", "name": "Sindhi", "nativeName": "سنڌي" },
+        { "code": "ta", "name": "Tamil", "nativeName": "தமிழ்" },
+        { "code": "ur", "name": "Urdu", "nativeName": "اردو" }
+    ],
+    "profession": [
+        { "name": "BPO", "value": "bpo" },
+        { "name": "Full Stack Developer", "value": "fullStackDev" },
+        { "name": "Civil Aviation", "value": "civilAviation" },
+        { "name": "Retail", "value": "retail" },
+        { "name": "Logistic Coordinator", "value": "logistic" }
+    ],
+    "locations": [
+        { "name": "Electronic City", "value": "electronicCity" },
+        { "name": "Koramangla", "value": "koramangla" },
+        { "name": "Whitefield", "value": "whitefield" },
+        { "name": "Pune", "value": "pune" }
+    ],
+    "placementCenter": [
+        { "name": "Banglore", "value": "bangalore" },
+        { "name": "Pune", "value": "pune" },
+        { "name": "NIIT", "value": "niit" }
+    ],
+    "navList": {
+        "Admin": [
+            { "name": "Home", "path": "/home", "icon": "home" },
+            { "name": "Coordinators", "path": "/home/register/Admin", "icon": "supervisor_account" },
+            { "name": "Import", "path": "/home/register", "icon": "import_export" },
+            { "name": "Placement Centers", "path": "/home/register", "icon": "location_searching" },
+            { "name": "Search Candidate", "path": "/home/candidateSearch", "icon": "search" },
+            { "name": "Events", "path": "/home/eventPost", "icon": "event" },
+            { "name": "Job Post", "path": "/home/jobPost", "icon": "card_travel" },
+            { "name": "About Us", "path": "/home/aboutUs", "icon": "feedback" }
+        ],
+        "coordinator": [
+            { "name": "Home", "path": "/home", "icon": "home" },
+            { "name": "Import", "path": "/home/register", "icon": "import_export" },
+            { "name": "Placement Centers", "path": "/home/register", "icon": "location_searching" },
+            { "name": "Search Candidate", "path": "/home/candidateSearch", "icon": "search" },
+            { "name": "Events", "path": "/home/eventPost", "icon": "event" },
+            { "name": "Job Post", "path": "/home/jobPost", "icon": "card_travel" },
+            { "name": "About Us", "path": "/home/aboutUs", "icon": "feedback" }
+        ],
+        "supervisor": [
+            { "name": "Home", "path": "/home", "icon": "home" },
+            { "name": "Import", "path": "/home/register", "icon": "import_export" },
+            { "name": "Placement Centers", "path": "/home/register", "icon": "location_searching" },
+            { "name": "Search Coordinator", "path": "/home/candidateSearch", "icon": "search" },
+            { "name": "About Us", "path": "/home/aboutUs", "icon": "feedback" }
+        ]
+
+
+    }
+
+
+}
