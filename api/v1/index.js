@@ -1,8 +1,11 @@
-const candidateRoutes = require('./candidates/candidates.router');
 const authenticationRoutes = require('./placements/api.router');
 const emailVerifyRoutes = require('./placements/emailverify.router');
+const candidateEmailRoutes = require('./candidates/emailverify.router');
+const candidateAuthenticationRoutes = require('./candidates/api.router.js');
+
 module.exports = {
-    candidateRoutes: candidateRoutes,
     authenticationRoutes: authenticationRoutes,
-    emailVerifyRoutes: emailVerifyRoutes
+    emailVerifyRoutes: emailVerifyRoutes,
+    candidateEmailRoutes: candidateEmailRoutes,
+    candidateAuthenticationRoutes: candidateAuthenticationRoutes
 }
