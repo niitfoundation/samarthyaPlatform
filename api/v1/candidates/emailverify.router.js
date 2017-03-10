@@ -1,4 +1,4 @@
-var express = require('express');
+﻿var express = require('express');
 var nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -50,7 +50,7 @@ apiRoutes.post('/', function(req, res) {
         to: jsonobj.to,
         subject: jsonobj.subject,
         //  html: "Hello,<br>" + mailBody + "<br><a href=" + link + ">Click here to verify</a>"
-        html: "<h1>SAMARTHYA</h1><br><img src='https://cellpartzone.com/image/catalog/Career.jpg' alt='W3Schools.com'><br><h3 style='color : red'>Confirm your mail and kick start your career by registring youself  with Samarthya<h3> <br><button type='button' style='background-color : green;padding: 14px 25px;'><a style='text-decoration : none;color : white' href=" + link + ">Confirm here</a></button>"
+        html: "<h1>SAMARTHYA</h1><br><img src='https://cellpartzone.com/image/catalog/Career.jpg' alt='career image'><br><h3 style='color : red'>Confirm your mail and kick start your career by registring youself  with Samarthya<h3> <br><button type='button' style='background-color : green;padding: 14px 25px;'><a style='text-decoration : none;color : white' href=" + link + ">Confirm here</a></button>"
     }
     mailOptions1 = mailOptions;
     transporter.sendMail(mailOptions, function(error, response) {
@@ -115,6 +115,39 @@ apiRoutes.post('/welcome', function(req, res) {
         } else {
             console.log("Sending Mail...")
                 //  res.send(link); //send this link to email service to get response
+            res.end("sent");
+        }
+    });
+});
+
+apiRoutes.post('/reset', function(req, res) {
+    var object1 = req.body.json;
+    var jsonobj = JSON.parse(object1);
+    redirectLink = jsonobj.redirect;
+    userMail = jsonobj.to;
+    mailBody = jsonobj.mailBody;
+    //------------verify-----------
+    // expire in 30 min
+    var token = jwt.sign(jsonobj, 'I AM EMAIL TOKEN', { expiresIn: 1800 });
+    console.log(token);
+    console.log("in reset apiRoutes")
+    host = req.get('host');
+    link = "http://" + req.get('host') + "/email/verify?token=" + token;
+    //----------verify------------------
+    var mailOptions = {
+        from: "samarthyawave16@gmail.com",
+        to: jsonobj.to,
+        subject: jsonobj.subject,
+        //  html: "Hello,<br>" + mailBody + "<br><a href=" + link + ">Click here to verify</a>"
+        html: "<h1>SAMARTHYA</h1><br><img src='https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRO8Bkd9-tt76J6zy1bZd8VcR3jKVYr9YvM1KxtndkNlddx9Nr5' alt='password reset image'><br><h3 style='color : red'>Click here to reset your password<h3> <br><button type='button' style='background-color : green;padding: 14px 25px;'><a style='text-decoration : none;color : white' href=" + link + ">Password Reset</a></button>"
+    }
+    mailOptions1 = mailOptions;
+    transporter.sendMail(mailOptions, function(error, response) {
+        if (error) {
+            console.log("sending erroer part ", error);
+            res.end("error");
+        } else {
+            console.log("Sending Mail...")
             res.end("sent");
         }
     });
