@@ -1,6 +1,6 @@
 {
     "users": [{
-        "first Name": "Gowtham",
+        "firstName": "Gowtham",
         "Last Name": "Jeva",
         "Gender": "male",
         "Email": "gowthamjeeva55@gmail.com",
@@ -13,13 +13,13 @@
         "Status": "Active",
         "Language": ["Hindi"]
     }, {
-        "first Name": "Murugavel",
+        "firstName": "Murugavel",
         "Last Name": "AM",
         "Gender": "male",
         "Email": "murugavel.cse1111@gmail.com",
         "Password": "murug@well",
         "MobileNo": "8807876711",
-        "Role": "Supervisor",
+        "Role": "Admin",
         "Profession": ["BPO"],
         "Location": "Erode, Erode, TAMIL NADU",
         "PlacementCenter": "Chennai",

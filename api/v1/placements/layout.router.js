@@ -3,7 +3,8 @@ const jsondata = require("../jsonData/jsonData.json");
 // declare axios for making http requests
 const axios = require('axios');
 menuRouter.get('/navigationlinks', function(req, res) {
-        let role = req.decoded.role;
+        let role = req.decoded.Role;
+console.log(role);
         switch (role) {
             case "Admin":
                 return res.json({ success: true, message: "Authenticated", object: req.decoded, jsondata: jsondata.navList["Admin"] });
