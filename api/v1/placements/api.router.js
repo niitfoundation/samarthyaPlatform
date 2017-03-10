@@ -11,7 +11,7 @@ const user = [{ username: 'pankush@samarthya.com', password: 'pankush@12', role:
 router.get('/languages', function(req, res) {
     return res.json({
         success: true,
-        data: json['languages']
+        data: json.languages
     });
 });
 router.post('/authenticate', function(req, res) {
@@ -43,7 +43,7 @@ router.post('/authenticate', function(req, res) {
 });
 router.use(function(req, res, next) {
     // check header or url parameters or post parameters for token
-    const token = req.body.token || req.query.token || req.headers['authorization'];
+    const token = req.body.token || req.query.token || req.headers.authorization;
     // decode token
     if (token) {
         // verifies secret and checks exp
