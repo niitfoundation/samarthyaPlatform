@@ -11,6 +11,8 @@ app.set('jwtTokenSecret', 'somethinghere');
 // Get our API routes
 const json = require("./../jsonData/jsonData.json");
 const userJson = require("./../jsonData/userDetails.json");
+const pincodeJson = require("./../jsonData/pincode.json");
+
 const user = require('./databaseSchema');
 
 router.get('/languages', function (req, res) {
@@ -19,6 +21,18 @@ router.get('/languages', function (req, res) {
         data: json["languages"]
     });
 
+});
+
+router.post('/pincodeDetails', function (req, res) {
+    let param=req.body.pincode;
+    console.log(pincodeJson["pincodeDetails"].filter(function(item){
+        return item.pincode==param
+    }));
+    return res.json({
+        success: true,
+        pincodeData: pincodeJson["pincodeDetails"].filter(function(item){
+        return item.pincode==param
+    })});
 });
 
 router.post('/addCandidate', function (req, res) {
@@ -38,9 +52,6 @@ router.post('/addCandidate', function (req, res) {
             });
         }
     });
-
-
-
 });
 
 router.post('/authenticate', function (req, res, next) { 

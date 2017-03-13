@@ -4,7 +4,7 @@ const jsondata = require("../jsonData/jsonData.json");
 const axios = require('axios');
 menuRouter.get('/navigationlinks', function(req, res) {
         let role = req.decoded.Role;
-        switch (role) {
+        switch ("Admin") {
             case "Admin":
                 return res.json({ success: true, message: "Authenticated", object: req.decoded, jsondata: jsondata.navList["Admin"] });
             case "Coordinator":
@@ -15,18 +15,5 @@ menuRouter.get('/navigationlinks', function(req, res) {
                 return res.json({ success: false, message: "Role not found.No Authenticated", object: req.decoded, jsondata: null });
         }
     })
-    //Get Token 
-    // Get all posts
-    // router.get('/posts', (req, res) => {
-    //     // Get posts from the mock api
-    //     // This should ideally be replaced with a service that connects to MongoDB
-    //     axios.get(`${API}/posts`)
-    //         .then(posts => {
-    //             res.status(200).json(posts.data);
-    //         })
-    //         .catch(error => {
-    //             res.status(500).send(error)
-    //         });
-    // });
 
 module.exports = menuRouter;
