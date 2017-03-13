@@ -17,22 +17,22 @@ var transporter = nodemailer.createTransport(smtpTransport({
         pass: "Samarthya@wave16"
     }
 }));
-let app = express();
+// let app = express();
 var redirectLink = '';
 var mailBody = '';
 var userMail = '';
-app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(cors());
+// app.use(morgan('dev'));
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
 // app.get('/', function(req, res) {
 //     console.log("Sending the file ", path.resolve(__dirname, 'app', 'app.component.html'));
 //     res.sendFile(path.resolve(__dirname, 'src', 'app', 'app.component.html'));
 // });
 
-var apiRoutes = express.Router();
+var emailRoutes = express.Router();
+emailRoutes.use(cors());
 
-apiRoutes.post('/', function(req, res) {
+emailRoutes.post('/', function (req, res) {
     var object1 = req.body.json;
     var jsonobj = JSON.parse(object1);
     redirectLink = jsonobj.redirect;
@@ -53,7 +53,7 @@ apiRoutes.post('/', function(req, res) {
         html: "<h1>SAMARTHYA</h1><br><img src='https://cellpartzone.com/image/catalog/Career.jpg' alt='career image'><br><h3 style='color : red'>Confirm your mail and kick start your career by registring youself  with Samarthya<h3> <br><button type='button' style='background-color : green;padding: 14px 25px;'><a style='text-decoration : none;color : white' href=" + link + ">Confirm here</a></button>"
     }
     mailOptions1 = mailOptions;
-    transporter.sendMail(mailOptions, function(error, response) {
+    transporter.sendMail(mailOptions, function (error, response) {
         if (error) {
             console.log("sending erroer part ", error);
             res.end("error");
@@ -63,7 +63,7 @@ apiRoutes.post('/', function(req, res) {
         }
     });
 });
-apiRoutes.get('/verify', function(req, res) {
+emailRoutes.get('/verify', function (req, res) {
     console.log(req.protocol + "://" + req.get('host'));
     if ((req.protocol + "://" + req.get('host')) == ("http://" + host)) {
         console.log("Domain is matched. Information is from Authentic email");
@@ -73,7 +73,7 @@ apiRoutes.get('/verify', function(req, res) {
             res.status(403).json();
         }
         if (token) {
-            jwt.verify(token, 'I AM EMAIL TOKEN', function(err, emailData) {
+            jwt.verify(token, 'I AM EMAIL TOKEN', function (err, emailData) {
                 if (err) throw err;
                 console.log(emailData);
                 if (emailData) {
@@ -87,12 +87,12 @@ apiRoutes.get('/verify', function(req, res) {
         res.end("<h1>Request is from unknown source");
     }
 });
-apiRoutes.get('/verifiedmail', function(req, res) {
+emailRoutes.get('/verifiedmail', function (req, res) {
     console.log(usermail2);
     res.send({ "usermail2": usermail2 }); // sending email id to candidate register component
 });
 
-apiRoutes.post('/welcome', function(req, res) {
+emailRoutes.post('/welcome', function (req, res) {
     var object1 = req.body.json;
     var jsonobj = JSON.parse(object1);
     redirectLink = jsonobj.redirect;
@@ -108,19 +108,19 @@ apiRoutes.post('/welcome', function(req, res) {
         <br>Thanks so much for joining us . You’re on your way to super-career and beyond!<br>
        `
     }
-    transporter.sendMail(mailOptions, function(error, response) {
+    transporter.sendMail(mailOptions, function (error, response) {
         if (error) {
             console.log("sending erroer part ", error);
             res.end("error");
         } else {
             console.log("Sending Mail...")
-                //  res.send(link); //send this link to email service to get response
+            //  res.send(link); //send this link to email service to get response
             res.end("sent");
         }
     });
 });
 
-apiRoutes.post('/reset', function(req, res) {
+emailRoutes.post('/reset', function (req, res) {
     var object1 = req.body.json;
     var jsonobj = JSON.parse(object1);
     redirectLink = jsonobj.redirect;
@@ -130,7 +130,7 @@ apiRoutes.post('/reset', function(req, res) {
     // expire in 30 min
     var token = jwt.sign(jsonobj, 'I AM EMAIL TOKEN', { expiresIn: 1800 });
     console.log(token);
-    console.log("in reset apiRoutes")
+    console.log("in reset emailRoutes")
     host = req.get('host');
     link = "http://" + req.get('host') + "/email/verify?token=" + token;
     //----------verify------------------
@@ -142,7 +142,7 @@ apiRoutes.post('/reset', function(req, res) {
         html: "<h1>SAMARTHYA</h1><br><img src='https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRO8Bkd9-tt76J6zy1bZd8VcR3jKVYr9YvM1KxtndkNlddx9Nr5' alt='password reset image'><br><h3 style='color : red'>Click here to reset your password<h3> <br><button type='button' style='background-color : green;padding: 14px 25px;'><a style='text-decoration : none;color : white' href=" + link + ">Password Reset</a></button>"
     }
     mailOptions1 = mailOptions;
-    transporter.sendMail(mailOptions, function(error, response) {
+    transporter.sendMail(mailOptions, function (error, response) {
         if (error) {
             console.log("sending erroer part ", error);
             res.end("error");
@@ -156,4 +156,4 @@ apiRoutes.post('/reset', function(req, res) {
 //     console.log("Express Started on Port 3004");
 // });
 
-module.exports = apiRoutes;
+module.exports = emailRoutes;
