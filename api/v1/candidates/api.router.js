@@ -13,7 +13,7 @@ var cors = require('cors');
 
 
 var apiRoutes = express.Router();
-mongoose.connect(config.database);
+//mongoose.connect(config.database);
 
 app.set('superSecret', config.secret);
 
