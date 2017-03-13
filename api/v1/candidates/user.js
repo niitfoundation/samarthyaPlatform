@@ -12,10 +12,8 @@ module.exports = mongoose.model('User', new Schema({
     // dob:'',
     aadhar: String,
     mob: String,
-
     password: String,
-    conPassword: String,
-
+    // conPassword: String,
     profession: String,
     pincode: String,
     location: String,
