@@ -12,8 +12,8 @@ app.set('jwtTokenSecret', 'somethinghere');
 const json = require("./../jsonData/jsonData.json");
 const userJson = require("./../jsonData/userDetails.json");
 const pincodeJson = require("./../jsonData/pincode.json");
-
-const user = require('./databaseSchema');
+const userData = require('./databaseSchema');
+const userCredentialsData = require('./../usersDBSchema');
 
 router.get('/languages', function (req, res) {
     return res.json({
@@ -24,19 +24,19 @@ router.get('/languages', function (req, res) {
 });
 
 router.post('/pincodeDetails', function (req, res) {
-    let param=req.body.pincode;
-    console.log(pincodeJson["pincodeDetails"].filter(function(item){
-        return item.pincode==param
-    }));
+    let param = req.body.pincode;
     return res.json({
         success: true,
-        pincodeData: pincodeJson["pincodeDetails"].filter(function(item){
-        return item.pincode==param
-    })});
+        pincodeData: pincodeJson["pincodeDetails"].filter(function (item) {
+            return item.pincode == param
+        })
+    });
 });
 
 router.post('/addCandidate', function (req, res) {
-    var userRegister = new user(req.body.userData);
+    let userRegister = new userData(req.body.userData);
+    userRegister.created_at = Date.now();
+    userRegister.updated_at = Date.now();
     userRegister.save(function (err) {
         if (err) {
             console.log(err);
@@ -45,6 +45,18 @@ router.post('/addCandidate', function (req, res) {
                 message: "Constraints failed"
             });
         } else {
+            let userCredData = new userCredentialsData(req.body.userCredentialsData)
+            userCredData.created_at = Date.now();
+            userCredData.updated_at = Date.now();
+            userCredData.save(function (err) {
+                if (err) {
+                    console.log(err);
+                    return res.json({
+                        success: false,
+                        message: "Constraints failed"
+                    });
+                }
+            });
             console.log('User saved successfully!');
             return res.json({
                 success: true,
@@ -56,61 +68,68 @@ router.post('/addCandidate', function (req, res) {
 
 router.post('/authenticate', function (req, res, next) { 
     let params = req.body;
-   user.find({Email:params.username,Password:params.password},function(err,docs){
-       if(err){ 
-           console.log(err)
+    userCredentialsData.find({
+        Email: params.username,
+        Password: params.password
+    }, function (err, docss) {
+        if (err) {
+            console.log(err)
             res.json({
-            success: false,
-            message: 'Technical error ...Please Try later'
-        });
-        }
-       else{
-           if(docs.length==0){
+                success: false,
+                message: 'Technical error ...Please Try later'
+            });
+        } else {
+            if (docss.length == 0) {
                 res.json({
-            success: false,
-            message: 'Authentication failed. UserId or password is wrong'
-        });
-           }
-           else{
-          // if user is found and password is right
-        // create a token
-        const token = jwt.sign(docs[0], app.get('jwtTokenSecret'), {
-            expiresIn: 60 * 30 // expires in 30 minutes
-        });
-        // return the information including token as JSON
-        res.json({
-            
-            success: true,
-            message: 'Welcome! ' + docs[0]["FirstName"],
-            auth_token: token,
-            role: docs[0]["Role"]
-        }); 
-       }
-       }
-   })
+                    success: false,
+                    message: 'Authentication failed. UserId or password is wrong'
+                });
+            } else {
+                // if user is found and password is right
+                // create a token
+                userData.find({
+        Email: params.username
+    }, function (err, docs) {
+                const token = jwt.sign(docs[0], app.get('jwtTokenSecret'), {
+                    expiresIn: 60 * 30 // expires in 30 minutes
+                });
+                // return the information including token as JSON
+                res.json({
+
+                    success: true,
+                    message: 'Welcome! ' + docs[0]["FirstName"],
+                    auth_token: token,
+                    role: docs[0]["Role"]
+                });
+    });
+            }
+        }
+    })
 });
 
 router.post('/passwordReset', function (req, res, next) { 
     let params = req.body;
-    user.update(
-        {"Email":params.Email},
-        {
-             $set: { "Password": params.Password}
-        },function(err,docs){
-            if(err){
-                return res.json({
-                    success:false,
-                    message:"Technical error...Try later"
-                })
-            }
-            else{
-                 return res.json({
-                    success:true,
-                    message:"Password changed successfully.."
-                })
-            }
-        })
-        
+    userCredentialsData.update({
+        "Email": params.Email
+    }, {
+        $set: {
+            "Password": params.Password,
+            "updated_at":Date.now()
+        }
+    }, function (err, docs) {
+        if (err) {
+            return res.json({
+                success: false,
+                message: "Technical error...Try later"
+            })
+        } else {
+            return res.json({
+                success: true,
+                message: "Password changed successfully.."
+            })
+        }
+    })
+
 });
 
 router.use(function (req, res, next) {
