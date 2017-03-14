@@ -15,7 +15,7 @@ var cors = require('cors');
 var apiRoutes = express.Router();
 //mongoose.connect(config.database);
 
-app.set('superSecret', config.secret);
+app.set('superSecret', 'I Love My INDIA');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -23,24 +23,24 @@ app.use(cors());
 
 app.use(morgan('dev'));
 
-apiRoutes.get('/', function(req, res) {
+apiRoutes.get('/', function (req, res) {
     res.send('Hello! we are at ' + port);
 });
 
 // add user to database
-apiRoutes.post('/adduser', function(req, res) {
+apiRoutes.post('/adduser', function (req, res) {
     var user = new User(req.body);
 
-    user.save(function(err) {
+    user.save(function (err) {
         if (err) throw err;
         console.log('User save successfully');
     });
 });
 
 // check Email
-apiRoutes.get('/checkEmail', function(req, res) {
+apiRoutes.get('/checkEmail', function (req, res) {
     console.log("REQQQ : " + req.query['email']);
-    User.findOne({ email: req.query['email'] }, function(err, user) {
+    User.findOne({ email: req.query['email'] }, function (err, user) {
         if (err) {
             console.log('error');
         } else if (!user) {
@@ -55,9 +55,9 @@ apiRoutes.get('/checkEmail', function(req, res) {
 
 
 //authentication
-apiRoutes.post('/authenticate', function(req, res) {
+apiRoutes.post('/authenticate', function (req, res) {
 
-    User.findOne({ email: req.body.email }, function(err, user) {
+    User.findOne({ email: req.body.email }, function (err, user) {
         if (err) { console.log('error'); } //throw err};
 
         if (!user) {
@@ -75,6 +75,7 @@ apiRoutes.post('/authenticate', function(req, res) {
                 };
                 if (user1) {
                     // authentication successful
+                    // console.log('user login : ' + user);
                     res.send(user1);
                 } else {
                     // authentication failed
@@ -85,13 +86,13 @@ apiRoutes.post('/authenticate', function(req, res) {
     });
 });
 
-apiRoutes.get('/', function(req, res) {
+apiRoutes.get('/', function (req, res) {
     res.send('Hello i am here');
 });
 
 //get all users
-apiRoutes.get('/showuser', function(req, res) {
-    User.find({}, function(err, user) {
+apiRoutes.get('/showuser', function (req, res) {
+    User.find({}, function (err, user) {
         res.json(user);
     });
 });

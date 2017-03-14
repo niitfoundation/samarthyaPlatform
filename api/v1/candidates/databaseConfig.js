@@ -1,5 +1,11 @@
-module.exports = {
-    // "database": "mongodb://Prakul:micromax canvas3D@olympia.modulusmongo.net:27017/vuzij4Ax",
-    "database": "mongodb://localhost/candidateDatabase",
-    "secret": "I Love My INDIA"
-}
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/candidateDatabase');
+
+// module.exports = {
+//     // "database": "mongodb://Prakul:micromax canvas3D@olympia.modulusmongo.net:27017/vuzij4Ax",
+//     "database": "mongodb://localhost/candidateDatabase",
+//     "secret": "I Love My INDIA",
+// }
+
+module.exports = mongoose;
