@@ -2,15 +2,14 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
-var config = require('./databaseConfig');
-var User = require('./databaseSchema');
+var UserDetailCandidate = require('./databaseSchema');
+const UserCredentials = require('./../usersDBSchema');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 var xmlhttp = require('http');
 var cors = require('cors');
 
 // var port = process.env.PORT || 4000;
-
 
 var apiRoutes = express.Router();
 //mongoose.connect(config.database);
@@ -29,7 +28,7 @@ apiRoutes.get('/', function (req, res) {
 
 // add user to database
 apiRoutes.post('/adduser', function (req, res) {
-    var user = new User(req.body);
+    var user = new UserCredentials(req.body);
 
     user.save(function (err) {
         if (err) throw err;

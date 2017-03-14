@@ -26,6 +26,114 @@
             "icon": "domain"
         }
     ],
+    "navListPlacement": {
+        "Admin": [
+            {
+                "name": "Home",
+                "path": "/home",
+                "icon": "home"
+            },
+            {
+                "name": "Coordinators",
+                "path": "/home/register/Admin",
+                "icon": "supervisor_account"
+            },
+            {
+                "name": "Import",
+                "path": "/home/register",
+                "icon": "import_export"
+            },
+            {
+                "name": "Placement Centers",
+                "path": "/home/register",
+                "icon": "location_searching"
+            },
+            {
+                "name": "Search Candidate",
+                "path": "/home/candidateSearch",
+                "icon": "search"
+            },
+            {
+                "name": "Events",
+                "path": "/home/eventPost",
+                "icon": "event"
+            },
+            {
+                "name": "Job Post",
+                "path": "/home/jobPost",
+                "icon": "card_travel"
+            },
+            {
+                "name": "About Us",
+                "path": "/home/aboutUs",
+                "icon": "feedback"
+            }
+        ],
+        "coordinator": [
+            {
+                "name": "Home",
+                "path": "/home",
+                "icon": "home"
+            },
+            {
+                "name": "Import",
+                "path": "/home/register",
+                "icon": "import_export"
+            },
+            {
+                "name": "Placement Centers",
+                "path": "/home/register",
+                "icon": "location_searching"
+            },
+            {
+                "name": "Search Candidate",
+                "path": "/home/candidateSearch",
+                "icon": "search"
+            },
+            {
+                "name": "Events",
+                "path": "/home/eventPost",
+                "icon": "event"
+            },
+            {
+                "name": "Job Post",
+                "path": "/home/jobPost",
+                "icon": "card_travel"
+            },
+            {
+                "name": "About Us",
+                "path": "/home/aboutUs",
+                "icon": "feedback"
+            }
+        ],
+        "supervisor": [
+            {
+                "name": "Home",
+                "path": "/home",
+                "icon": "home"
+            },
+            {
+                "name": "Import",
+                "path": "/home/register",
+                "icon": "import_export"
+            },
+            {
+                "name": "Placement Centers",
+                "path": "/home/register",
+                "icon": "location_searching"
+            },
+            {
+                "name": "Search Coordinator",
+                "path": "/home/candidateSearch",
+                "icon": "search"
+            },
+            {
+                "name": "About Us",
+                "path": "/home/aboutUs",
+                "icon": "feedback"
+            }
+        ]
+    },
     "languages": [
         {
             "code": "en",

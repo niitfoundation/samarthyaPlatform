@@ -7,7 +7,7 @@ const cors = require('cors');
 const candidates=require('./../jsonData/userDetails.json')
 const smptp = require('smtp-server');
 const smtpTransport = require('nodemailer-smtp-transport');
-const user = require('./databaseSchema');
+const userData = require('./databaseSchema');
 
 let userEmailDetails=[];
 const transporter = nodemailer.createTransport(smtpTransport({
@@ -24,7 +24,7 @@ emailRouter.use(cors());
 
 emailRouter.get('/checkEmail',function(req,res){
         let param=req.query;
-    user.find({Email:param.Email},function(err,docs){
+    userData.find({Email:param.Email},function(err,docs){
        if(err){ 
            console.log(err)
             res.json({
@@ -54,7 +54,7 @@ emailRouter.post('/sendmail', function (req, res) {
     const mailBody = jsonobj.mailBody;
     //------------verify-----------
     // expire in 30 minredirectLink
-    const token = jwt.sign(jsonobj, 'I AM EMAIL TOKEN', { expiresIn: 600 });
+    const token = jwt.sign(jsonobj, 'I AM EMAIL TOKEN', { expiresIn: 6000 });
     const link = "http://" + req.get('host');
     //----------verify------------------
 
@@ -102,7 +102,6 @@ emailRouter.get('/verify', function (req, res) {
     let validUser=userEmailDetails.filter(function(valid){
             return valid.userEmail==user && valid.token==userToken;
     });
-    console.log(validUser)
     if(validUser.length!=0)
     {
     jwt.verify(userToken,'I AM EMAIL TOKEN', function(err, decoded) {
@@ -164,10 +163,6 @@ emailRouter.post('/passwordResetToken',function(req,res){
 })
 });
 
-// emailRouter.get('/verifiedmail', function (req, res) {
-//     console.log(usermail2);
-//     res.send({ "usermail2": usermail2 }); // sending email id to candidate register component
-// });
 // emailRouter.post('/welcome', function (req, res) {
 //     const jsonobj = JSON.parse(req.body.json);
 //     console.log(jsonobj);
