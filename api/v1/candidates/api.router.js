@@ -14,14 +14,6 @@ var cors = require('cors');
 var apiRoutes = express.Router();
 //mongoose.connect(config.database);
 
-app.set('superSecret', 'I Love My INDIA');
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
-
-app.use(morgan('dev'));
-
 apiRoutes.get('/', function (req, res) {
     res.send('Hello! we are at ' + port);
 });
@@ -52,7 +44,6 @@ apiRoutes.get('/checkEmail', function (req, res) {
     })
 });
 
-
 //authentication
 apiRoutes.post('/authenticate', function (req, res) {
 
@@ -67,7 +58,7 @@ apiRoutes.post('/authenticate', function (req, res) {
                 res.send('passwordError');
                 console.log('Authentication failed. Wrong password.');
             } else {
-                var token = jwt.sign(user, app.get('superSecret'));
+                var token = jwt.sign(user, 'I Love My INDIA');
                 var user1 = {
                     email: user.email,
                     token: token
