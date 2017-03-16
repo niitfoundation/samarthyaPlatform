@@ -1,11 +1,15 @@
-const authenticationRoutes = require('./placements/api.router');
-const emailVerifyRoutes = require('./placements/emailverify.router');
-const candidateEmailRoutes = require('./candidates/emailverify.router');
-const candidateAuthenticationRoutes = require('./candidates/api.router.js');
+const authenticationRoutes = require('./authentication/auth.router');
+const emailVerifyRoutes = require('./emailVerify/emailVerify.router');
+const userRoutes = require('./users/index');
+const uiRoutes = require('./uiResource/uiResource.router');
+const coordinateRoutes = require('./coordinators/coordinators.router');
+const candidateRoutes = require('./candidates/candidates.router');
 
 module.exports = {
     authenticationRoutes: authenticationRoutes,
     emailVerifyRoutes: emailVerifyRoutes,
-    candidateEmailRoutes: candidateEmailRoutes,
-    candidateAuthenticationRoutes: candidateAuthenticationRoutes
+    userRoutes: userRoutes,
+    uiRoutes: uiRoutes,
+    coordinateRoutes: coordinateRoutes,
+    candidateRoutes: candidateRoutes
 }
