@@ -1,8 +1,10 @@
 const jwt = require('jsonwebtoken');
-const authModel = require('./../users/users.entity');
+const userModel = require('./../users/users.entity');
 const appConfig = require('../../../config/appConfig');
+const emailCtrl = require('./../emailUtil/emailUtil.controller')
 
-const validateUser = function(authObj) {
+//authenticate the user with its credentials
+const authenticateUser = function(authObj) {
 
     const token = jwt.sign(authObj, appConfig.secret, {
         expiresIn: 60 * 30 // expires in 30 minutes
@@ -12,7 +14,7 @@ const validateUser = function(authObj) {
         password: authObj.password
     };
     return new Promise((resolve, reject) => {
-        authModel.find(userDetails, function(err, data) {
+        userModel.find(userDetails, function(err, data) {
             if (err) {
                 reject(err);
             } else {
@@ -28,29 +30,77 @@ const validateUser = function(authObj) {
     });
 }
 
-const resetPassword = function(resetObj) {
-    var userDetails = {
-            username: resetObj.username
-        }
-        // let resetData = new authModel(userDetails);
+//find user is already exists or not
+let checkUser = function(objEmail) {
+    let userDetails = {
+        "username": objEmail,
+    };
     return new Promise((resolve, reject) => {
-        authModel.update(userDetails, {
-                $set: {
-                    password: resetObj.password,
-                    updatedOn: Date.now()
-                }
-            },
-            function(err, data) {
+        userModel.find(userDetails, function(err, data) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+
+
+        });
+    });
+}
+
+
+
+// validate if email expired  or not
+let verifyEmailLink = function(objVerify) {
+    try {
+        let userToken = objVerify.token;
+        console.log(userToken);
+        return new Promise((resolve, reject) => {
+            jwt.verify(userToken, emailDetails.emailtokenSecret, function(err, decoded) {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(data);
+                    resolve({
+                        msg: "Email Verified",
+                        data: decoded
+                    })
                 }
-            })
-    });
+            });
+        })
+
+
+    } catch (err) {
+        console.log(err);
+        return err;
+    }
 
 }
-let verifyToken = function(token) {
+
+//password reset updation in database
+const resetPassword = function(resetObj) {
+        var userDetails = {
+                username: resetObj.username
+            }
+            // let resetData = new userModel(userDetails);
+        return new Promise((resolve, reject) => {
+            userModel.update(userDetails, {
+                    $set: {
+                        password: resetObj.password,
+                        updatedOn: Date.now()
+                    }
+                },
+                function(err, data) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(data);
+                    }
+                })
+        });
+
+    }
+    // verify the user token for every request
+let verifyToken = function(token, secret) {
     jwt.verify(token, appConfig.secret, function(err, decoded) {
         if (err) {
             return { result: false };
@@ -62,7 +112,9 @@ let verifyToken = function(token) {
 
 }
 module.exports = {
-    validateUser: validateUser,
+    authenticateUser: authenticateUser,
+    checkUser: checkUser,
+    verifyEmailLink: verifyEmailLink,
     resetPassword: resetPassword,
     verifyToken: verifyToken
 }

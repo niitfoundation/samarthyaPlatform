@@ -2,7 +2,7 @@ const emailDetails = {
     serviceProvide: "Gmail",
     user: "samarthyawave16@gmail.com",
     password: "Samarthya@wave16",
-    emailtokenSecret: "Email Token"
+    emailTokenSecret: "Email Token"
 }
 const userDetails = {
 

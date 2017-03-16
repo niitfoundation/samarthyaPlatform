@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const authCtrl = require('./auth.controller');
+const emailCtrl = require('./../emailUtil/emailUtil.controller');
+
 /*
- *
+ * Authenticate the user 
  */
 router.post('/', function(req, res, next) { 
     let authData = req.body;
@@ -10,7 +12,7 @@ router.post('/', function(req, res, next) { 
             throw new Error("Invalid inputs passed...!");
             return;
         }
-        authCtrl.validateUser(authData).then((successResult) => {
+        authCtrl.authenticateUser(authData).then((successResult) => {
             return res.status(201).send(successResult);
         }, (errResult) => {
             //Log the error for internal use
@@ -22,7 +24,100 @@ router.post('/', function(req, res, next) { 
     }
 });
 
-router.post('/passwordReset', function(req, res, next) { 
+
+/*
+ *if user is not exist send the verification mail
+ */
+router.post('/registerEmail', function(req, res) {
+    try {
+        let param = req.body;
+        //check the user is available or not
+        authCtrl.checkUser(param.username).then((data) => {
+                if (data.length == 0) {
+                    //if user is does not exit send mail
+                    param.host = req.get('host');
+                    emailCtrl.sendEmail(param).then((successResult) => {
+                            return res.status(201).send({ message: "sent successfully" })
+                        },
+                        (err) => {
+                            return res.status(500).send({
+                                error: 'Internal error occurred, please try later..!'
+                            });
+                        });
+                    // return res.status(201).send(data);
+                } else {
+                    return res.status(201).send({
+                        message: "user already exist"
+                    })
+                }
+            }),
+            err => {
+                return res.status(500).send({
+                    error: 'Internal error occurred, please try later..!'
+                })
+            }
+    } catch (error) {
+        return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+    }
+});
+
+
+router.post('/verifyEmail', function(req, res) {
+    try {
+        let objVerify = req.body;
+        authCtrl.verifyEmailLink(objVerify).then((successResult) => {
+
+                return res.status(201).send(successResult);;
+            }),
+            err => {
+                return res.status(500).send({
+                    error: 'Internal error occurred, please try later..!'
+                })
+            }
+    } catch (error) {
+        return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+    }
+});
+
+
+router.post('/resetPasswordEmail', function(req, res) {
+    try {
+        let param = req.body;
+        //check the user is available or not
+        authCtrl.checkUser(param.username).then((data) => {
+                if (data.length == 0) {
+                    //if user is does not exit send mail
+                    return res.status(201).send({
+                        message: "user does not exist"
+                    })
+                } else {
+                    param.host = req.get('host');
+                    emailCtrl.sendEmail(param).then((successResult) => {
+                            return res.status(201).send({ message: "sent successfully" })
+                        },
+                        (err) => {
+                            console.log(err);
+                            return res.status(500).send({
+                                error: 'Internal error occurred, please try later..!'
+                            });
+                        });
+                }
+            }),
+            err => {
+                console.log(err);
+                return res.status(500).send({
+                    error: 'Internal error occurred, please try later..!'
+                })
+            }
+
+    } catch (error) {
+        return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+    }
+});
+
+
+
+router.post('/resetPassword', function(req, res, next) { 
     let resetPassword = req.body;
     try {
         if (!resetPassword) {
@@ -43,6 +138,7 @@ router.post('/passwordReset', function(req, res, next) { 
     }
 });
 
+//middleware to verify user token for authentication and pass the decoded token to other request
 router.use(function(req, res, next) {
     // check header or url parameters or post parameters for token
     const token = req.body.token || req.query.token || req.headers.authorization;

@@ -12,15 +12,13 @@ router.post('/', function(req, res) {
             return;
         }
 
-        coordinateCtrl.registerNewCoordinate(coordinateData).then((successResult) => {
-            console.log(successResult);
+        coordinateCtrl.registerNewCoordinates(coordinateData).then((successResult) => {
             return res.status(201).send(successResult);
         }, (errResult) => {
             //Log the error for internal use
             return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
         });
     } catch (err) {
-        console.log(err);
         //Log the Error for internal use
         return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
     }

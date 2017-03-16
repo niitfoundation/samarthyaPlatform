@@ -1,4 +1,4 @@
-const CandidateModel = require('./../users/users.entity');
+const userModel = require('./../users/users.entity');
 /*
  *
  */
@@ -13,7 +13,7 @@ const registerNewCandidate = function(candidateObj) {
         createdOn: Date.now(),
         updatedOn: Date.now()
     };
-    let candidateData = new CandidateModel(candidateDetails);
+    let candidateData = new userModel(candidateDetails);
 
     //insert the data into db using promise
     return new Promise((resolve, reject) => {

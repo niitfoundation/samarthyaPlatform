@@ -1,5 +1,4 @@
 module.exports = {
-<<<<<<< HEAD
     "env": {
         "browser": true,
         "node": true,
@@ -250,11 +249,3 @@ module.exports = {
         // "no-plusplus": 2, // disallow use of unary operators, ++ and -- (off by default)
     }
 }
-=======
-    "extends": "standard",
-    "plugins": [
-        "standard",
-        "promise"
-    ]
-};
->>>>>>> cc97c464a2d89aae638d08cf192a06a36e4665c0

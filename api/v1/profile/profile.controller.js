@@ -1,34 +1,42 @@
-const userModel = require('./profile.entity');
+const profileModel = require('./profile.entity');
 /*
  *
  */
 
-const addProfileDetails = function(profileObj) {
+const viewProfile = function(profileObj) {
 
-    let profileDetails = {
-        username: profileObj.username,
-        password: profileObj.password,
-        role: profileObj.role,
-        status: "Active",
-        lastLoginOn: Date.now(),
-        createdOn: Date.now(),
-        updatedOn: Date.now()
-    };
-    let profileData = new userModel(profileDetails);
-
-    //insert the data into db using promise
-    return new Promise((resolve, reject) => {
-        profileData.save(function(err, data) {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data);
-            }
-        });
-    });
+    //@TODO 
+    // Get the profile schema and perform get operations
+    //Get the profile data on user demand 
+    // use promise for database operations and return result
 
 }
 
+const createProfile = function(profileObj) {
+
+    //@TODO 
+    // Get the profile schema and perform add operations
+    // use promise for database operations and return result
+
+}
+const editProfile = function(profileObj) {
+
+    //@TODO 
+    // Get the profile schema and perform edit operations
+    // use promise for database operations and return result
+
+}
+
+const deletePerofile = function(profileObj) {
+
+    //@TODO 
+    // Get the profile schema and perform delete operations
+    // use promise for database operations and return result
+
+}
 module.exports = {
-    addProfileDetails: addProfileDetails
+    viewProfile: viewProfile,
+    createProfile: createProfile,
+    editProfile: editProfile,
+    deletePerofile: deletePerofile
 }

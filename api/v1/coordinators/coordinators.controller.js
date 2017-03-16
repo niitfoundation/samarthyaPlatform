@@ -1,9 +1,9 @@
-const coordinateModel = require('./../users/users.entity');
+const userModel = require('./../users/users.entity');
 /*
  *
  */
 
-const registerNewCoordinate = function(coordinateObj) {
+const registerNewCoordinates = function(coordinateObj) {
 
     var coordinateDetails = {
         username: coordinateObj.username,
@@ -14,7 +14,7 @@ const registerNewCoordinate = function(coordinateObj) {
         createdOn: Date.now(),
         updatedOn: Date.now()
     };
-    let coordinateData = new coordinateModel(coordinateDetails);
+    let coordinateData = new userModel(coordinateDetails);
 
     //insert the data into db using promise
     return new Promise((resolve, reject) => {
