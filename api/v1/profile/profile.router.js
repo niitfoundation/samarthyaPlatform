@@ -48,7 +48,7 @@ router.post('/', function(req, res) {
 
 //api to edit  profile 
 router.patch('/', function(req, res) {
-    let profileData = req.query;
+    let profileData = req.body;
     try {
         if (!profileData) {
             throw new Error("Invalid inputs passed...!");
@@ -68,7 +68,7 @@ router.patch('/', function(req, res) {
 
 //api to delete  profile 
 router.delete('/', function(req, res) {
-    let profileData = req.query;
+    let profileData = req.body;
     try {
         if (!profileData) {
             throw new Error("Invalid inputs passed...!");

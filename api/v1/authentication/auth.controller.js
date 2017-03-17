@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const userModel = require('./../users/users.entity');
 const appConfig = require('../../../config/appConfig');
+const emailDetailConfig = require('../../../config/appConfig').emailDetails;
 const emailCtrl = require('./../emailUtil/emailUtil.controller')
 
 //authenticate the user with its credentials
@@ -55,7 +56,7 @@ let verifyEmailLink = function(objVerify) {
     try {
         let userToken = objVerify.token;
         return new Promise((resolve, reject) => {
-            jwt.verify(userToken, emailDetails.emailtokenSecret, function(err, decoded) {
+            jwt.verify(userToken, emailDetailConfig.emailTokenSecret, function(err, decoded) {
                 if (err) {
                     reject(err);
                 } else {

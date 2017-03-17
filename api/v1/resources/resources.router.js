@@ -1,9 +1,9 @@
-const menuRouter = require('express').Router();
+const resourcesRouter = require('express').Router();
 const resourcesCtrl = require('./resources.controller');
 
 
 //get the languages
-menuRouter.get('/languages', function(req, res) {
+resourcesRouter.get('/languages', function(req, res) {
     try {
         resourcesCtrl.getLanguage().then((successResult) => {
             return res.status(201).send(successResult);
@@ -16,4 +16,6 @@ menuRouter.get('/languages', function(req, res) {
         return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
     }
 });
+
+
 module.exports = menuRouter;

@@ -6,41 +6,38 @@ const mongoose = require('../../../config/databaseConfig');
  */
 
 const profileSchema = new schema({
-    username: { type: String, required: true, unique: true, min: 5 },
-    profession: { type: String },
-    centerCode: { type: String },
+    username: { type: String, required: true, unique: true },
+    profession: { type: String, required: true },
+    centerCode: { type: String, required: true },
     pic: { type: String },
-    createdOn: { type: Date, default: Date.now },
-    createdBy: { type: Date, default: Date.now },
-    updatedOn: { type: Date, default: Date.now },
-    updatedBy: { type: Date, default: Date.now },
+    createdOn: { type: Date, required: true, default: Date.now },
+    createdBy: { type: Date, required: true, default: Date.now },
+    updatedOn: { type: Date, required: true, default: Date.now },
+    updatedBy: { type: Date, required: true, default: Date.now },
     personalinfo: {
-        name: { type: String, required: true },
-        fname: { type: String, required: true },
+        displayname: { type: String, required: true, min: 4, max: 15 },
+        fname: { type: String, required: true, min: 4 },
         lname: { type: String, required: true },
         dob: { type: Date, required: true },
-        age: { type: Number, required: true }, //virtual column
+        age: { type: Number, required: true, virtuals: true },
         gender: { type: String, required: true },
-        email: { type: String, required: true, unique },
+        email: { type: String, required: true, unique: true },
         altemail: { type: String },
         contact: [{
-            I: { type: String, required: true, min: 10 },
+            I: { type: String, required: true, min: 10, max: 10 },
             II: { type: String }
         }],
         address: [{
-            line1: { type: String, required: true },
-            line2: { type: String },
             landmark: { type: String, required: true },
             district: { type: String, required: true },
             state: { type: String, required: true },
-            pinCode: { type: String, required: true, max: 6 }
+            pinCode: { type: String, required: true, min: 6, max: 6 }
         }],
-        married: { type: String },
+        married: { type: Boolean },
         identity: [{
-            aadharNumber: { type: String, max: 12 },
+            aadharNumber: { type: String, min: 12, max: 12 },
             registrationID: { type: String }
         }],
-
         preLang: { type: String },
         nativeLang: { type: String },
         lang: [{
@@ -50,8 +47,6 @@ const profileSchema = new schema({
             s: { type: String, required: true },
         }],
     },
-
-    //educational qualification    
     qualification: [{
         name: { type: String },
         subject: { type: String },
@@ -62,50 +57,43 @@ const profileSchema = new schema({
         affiliation: { type: String },
         location: { type: String }
     }],
-    //jobpreferences
     preferences: {
-        looking: { type: Boolean },
+        looking: { type: Boolean, default: true },
         roles: [{
             name: { type: String },
             engagement: { type: String },
             expectedSal: [{
-                min: { type: Number, required: true },
-                max: { type: Number, required: true },
+                min: { type: Number, required: true, default: 0 },
+                max: { type: Number, required: true, default: 0 },
             }],
             skills: [{ type: String }],
-            availablefrom: { type: Date },
+            availablefrom: { type: Date, default: Date.now },
             locations: [{ type: String }]
         }]
     },
-    //experience
     experience: [{
         workplace: { type: String },
         designation: { type: String },
         role: { type: String },
         location: { type: String }
     }],
-    //skill
     skill: [{
         name: { type: String },
-        experience: { type: Number },
+        experience: { type: Number, default: 0 },
         expertise: { type: String }
     }],
-    //project
     project: [{
         name: { type: String },
         description: { type: String },
         duration: {
-            start: { type: Date },
-            end: { type: Date }
+            start: { type: Date, default: Date.now },
+            end: { type: Date, default: Date.now }
         },
         location: { type: String },
         skills: [{ type: String }],
         role: { type: String },
 
-
     }],
-
-    //showcase
     showcase: [{
         contenttype: { type: String },
         title: { type: String },
