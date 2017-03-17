@@ -12,4 +12,4 @@ module.exports = {
     resourcesRoutes: resourcesRoutes,
     coordinateRoutes: coordinateRoutes,
     candidateRoutes: candidateRoutes
-}
+};

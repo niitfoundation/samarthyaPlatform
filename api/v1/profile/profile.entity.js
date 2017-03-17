@@ -1,11 +1,11 @@
 const appConfig = require('../../../config/appConfig');
-const mongoose = require('../../../config/databaseConfig');
+const mongoose = require('mongoose');
 
 /*
  * This is a profile schema, for persisting profile details of each user registered in the system
  */
 
-const profileSchema = new schema({
+const profileSchema = new Schema({
     username: { type: String, required: true, unique: true },
     profession: { type: String, required: true },
     centerCode: { type: String, required: true },
@@ -47,6 +47,7 @@ const profileSchema = new schema({
             s: { type: String, required: true },
         }],
     },
+    // educational qualification
     qualification: [{
         name: { type: String },
         subject: { type: String },
@@ -57,6 +58,7 @@ const profileSchema = new schema({
         affiliation: { type: String },
         location: { type: String }
     }],
+    // jobpreferences
     preferences: {
         looking: { type: Boolean, default: true },
         roles: [{
@@ -71,17 +73,20 @@ const profileSchema = new schema({
             locations: [{ type: String }]
         }]
     },
+    // experience
     experience: [{
         workplace: { type: String },
         designation: { type: String },
         role: { type: String },
         location: { type: String }
     }],
+    // skill
     skill: [{
         name: { type: String },
         experience: { type: Number, default: 0 },
         expertise: { type: String }
     }],
+    // project
     project: [{
         name: { type: String },
         description: { type: String },
@@ -94,13 +99,14 @@ const profileSchema = new schema({
         role: { type: String },
 
     }],
+    // showcase
     showcase: [{
         contenttype: { type: String },
         title: { type: String },
         url: { type: String },
         desc: { type: String }
     }],
-
+    summary: { type: string }
 }, { collection: 'profile' });
 
 module.exports = mongoose.model('profile', profileSchema);
