@@ -1,4 +1,4 @@
-const appConfig = require('../../../config/appConfig');
+const appConstant = require('../common/appConstants');
 const mongoose = require('mongoose');
 
 /*

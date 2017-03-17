@@ -37,28 +37,28 @@ router.post('/register-email', function(req, res) {
         let param = req.body;
         // check the user is available or not
         authCtrl.checkUser(param.username).then((data) => {
-            if (data.length == 0) {
-                // if user is does not exit send mail
-                param.host = req.get('host');
-                emailCtrl.sendEmail(param).then((successResult) => {
-                        return res.status(201).send({ message: 'sent successfully' });
-                    },
-                    (err) => {
-                        return res.status(500).send({
-                            error: 'Internal error occurred, please try later..!'
+                if (data.length == 0) {
+                    // if user is does not exit send mail
+                    param.host = req.get('host');
+                    emailCtrl.sendEmail(param).then((successResult) => {
+                            return res.status(201).send({ message: 'sent successfully' });
+                        },
+                        (err) => {
+                            return res.status(500).send({
+                                error: 'Internal error occurred, please try later..!'
+                            });
                         });
+                } else {
+                    return res.status(201).send({
+                        message: 'user already exist'
                     });
-            } else {
-                return res.status(201).send({
-                    message: 'user already exist'
+                }
+            },
+            err => {
+                return res.status(500).send({
+                    error: 'Internal error occurred, please try later..!'
                 });
-            }
-        });
-        err => {
-            return res.status(500).send({
-                error: 'Internal error occurred, please try later..!'
             });
-        };
     } catch (error) {
         res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
         return;
