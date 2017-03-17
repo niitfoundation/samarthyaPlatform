@@ -10,11 +10,11 @@ const layout = require("./layout.router");
 app.set('jwtTokenSecret', 'somethinghere');
 // Get our API routes
 const json = require("./../jsonData/jsonData.json");
-const userJson = require("./../jsonData/userDetails.json");
 const pincodeJson = require("./../jsonData/pincode.json");
 const userData = require('./databaseSchema');
 const userCredentialsData = require('./../usersDBSchema');
-
+// const passport=require('./../passport.js');
+// const socialAuth=require('./../routes.js')(app, passport);
 router.get('/languages', function (req, res) {
     return res.json({
         success: true,
@@ -34,9 +34,9 @@ router.post('/pincodeDetails', function (req, res) {
 });
 
 router.post('/addCandidate', function (req, res) {
+    req.body.userData.created_at = Date.now();
+    req.body.userData.updated_at= Date.now();
     let userRegister = new userData(req.body.userData);
-    userRegister.created_at = Date.now();
-    userRegister.updated_at = Date.now();
     userRegister.save(function (err) {
         if (err) {
             console.log(err);

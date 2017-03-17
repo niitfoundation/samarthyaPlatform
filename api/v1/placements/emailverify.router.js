@@ -4,7 +4,6 @@ const jwt =require("jsonwebtoken");
 const path = require('path');
 const util = require('util');
 const cors = require('cors');
-const candidates=require('./../jsonData/userDetails.json')
 const smptp = require('smtp-server');
 const smtpTransport = require('nodemailer-smtp-transport');
 const userData = require('./databaseSchema');

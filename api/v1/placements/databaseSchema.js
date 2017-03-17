@@ -5,17 +5,18 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var userSchema = new Schema({
-  FirstName: { type: String, required: true },
-  LastName: { type: String, required: true,},
-  Gender:{type:String,required:true},
-  Email:{type:String,required:true},
-  MobileNumber:{type:Number,required:true},
-  Role:{type:String,required:true},
-  Profession:{type:String,required:true},
+  FirstName: { type: String},
+  LastName: { type: String},
+  Gender:{ type: String},
+  Email:{ type: String},
+  AadharNumber:{type:String},
+  RegistrationID:{type:String},
+  MobileNumber:{type:Number},
+  Role:{ type: String},
+  Profession:{ type: String},
   Location:{type:String},
-  PlacementCenter:{type:String,required:true},
-  Status:{type:String,required:true},
-  Language:{type:String,required:true},
+  PlacementCenter:{ type: String},
+  Language:{ type: String},
   created_at: Date,
   updated_at: Date
 });
