@@ -1,10 +1,10 @@
 module.exports = {
-  'appenders': [
+  appenders: [
     {
-      'type': 'file',
-      'filename': './logs/logger.log',
-      'maxLogSize': 20480,
-      'backups': 10,
+      type: 'file',
+      filename: './logs/logger.log',
+      maxLogSize: 20480,
+      backups: 10,
     }
     // {
     //   'type': 'file',
@@ -21,4 +21,4 @@ module.exports = {
     //   'category': 'info'
     // }
   ]
-}
+};

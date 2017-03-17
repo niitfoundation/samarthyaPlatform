@@ -1,5 +1,6 @@
 const CandidateModel = require('./../users/users.entity');
 const logger = require('./../../../logs/logger');
+const userModel = require('./../users/users.entity');
 /*
  *
  */
@@ -9,18 +10,18 @@ const registerNewCandidate = function(candidateObj) {
         username: candidateObj.username,
         password: candidateObj.password,
         role: candidateObj.role,
-        status: "Active",
+        status: 'Active',
         lastLoginOn: Date.now(),
         createdOn: Date.now(),
         updatedOn: Date.now()
     };
-    let candidateData = new CandidateModel(candidateDetails);
+    let candidateData = new userModel(candidateDetails);
 
-    //insert the data into db using promise
+    // Insert the data into db using promise
     return new Promise((resolve, reject) => {
         candidateData.save(function(err, data) {
             if (err) {
-                logger.error('candidateData not added sucessfully'+err);
+                logger.error('candidateData not added sucessfully' + err);
                 reject(err);
             } else {
                 logger.info('candidateData added sucessfully');
@@ -28,9 +29,8 @@ const registerNewCandidate = function(candidateObj) {
             }
         });
     });
-
-}
+};
 
 module.exports = {
     registerNewCandidate: registerNewCandidate
-}
+};

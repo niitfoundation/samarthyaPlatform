@@ -3,31 +3,92 @@ const prflCtrl = require('./profile.controller');
 const logger = require('./../../../logs/logger');
 
 /*
- * Actual URI will be HTTP POST /users/
+ * Actual URI will be HTTP POST /profiles/
  */
+
+// view profile
+router.get('/', function(req, res) {
+    let profileData = req.query;
+    try {
+        if (!profileData) {
+            throw new Error('Invalid inputs passed...!');
+            return;
+        }
+        prflCtrl.viewProfile(profileData).then((successResult) => {
+            return res.status(201).send(successResult);
+        }, (errResult) => {
+            // Log the error for internal use
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+        });
+    } catch (err) {
+        // Log the Error for internal use
+        return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+    }
+});
+
+// api to create new profile
 router.post('/', function(req, res) {
     let profileData = req.body;
     logger.debug('Get object and store into profileData');
     try {
         if (!profileData) {
             logger.error('profileData not found');
-            throw new Error("Invalid inputs passed...!");
+            throw new Error('Invalid inputs passed...!');
             return;
         }
-
-        prflCtrl.registerNewUser(userData).then((successResult) => {
-            logger.info('Get successResult successfully and return back');
+        prflCtrl.createProfile(profileData).then((successResult) => {
             return res.status(201).send(successResult);
         }, (errResult) => {
-            //Log the error for internal use
+            // Log the error for internal use
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+        });
+    } catch (err) {
+        // Log the Error for internal use
+        return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+    }
+});
+
+// api to edit  profile
+router.patch('/', function(req, res) {
+    let profileData = req.query;
+    try {
+        if (!profileData) {
+            throw new Error('Invalid inputs passed...!');
+            return;
+        }
+        prflCtrl.editProfile(profileData).then((successResult) => {
+            return res.status(201).send(successResult);
+        }, (errResult) => {
+            // Log the error for internal use
             logger.error('Internal error occurred');
             return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
         });
     } catch (err) {
-        //Log the Error for internal use
-        logger.fatal('Exception occurred'+err);
+        // Log the Error for internal use
+        logger.fatal('Exception occurred' + err);
         return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
     }
 });
+
+// api to delete  profile
+router.delete('/', function(req, res) {
+    let profileData = req.query;
+    try {
+        if (!profileData) {
+            throw new Error('Invalid inputs passed...!');
+            return;
+        }
+        prflCtrl.deleteProfile(profileData).then((successResult) => {
+            return res.status(201).send(successResult);
+        }, (errResult) => {
+            // Log the error for internal use
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+        });
+    } catch (err) {
+        // Log the Error for internal use
+        return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+    }
+});
+
 
 module.exports = router;

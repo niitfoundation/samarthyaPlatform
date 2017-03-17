@@ -14,8 +14,8 @@ const usersSchema = new mongoose.Schema({
     updatedOn: { type: Date, default: Date.now }
 }, { collection: 'users' });
 
-//@TODO 
-// Add a virtual column for password encryption, encrypt the pasword before storing 
+// @TODO
+// Add a virtual column for password encryption, encrypt the pasword before storing
 // add a method to compare the password (the incoming password will be encrypted and compared )
 
 module.exports = mongoose.model('users', usersSchema);

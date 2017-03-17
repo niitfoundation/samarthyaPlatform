@@ -10,18 +10,18 @@ const registerNewUser = function(userObj) {
         username: userObj.username,
         password: userObj.password,
         role: userObj.role,
-        status: "Active",
+        status: 'Active',
         lastLoginOn: Date.now(),
         createdOn: Date.now(),
         updatedOn: Date.now()
     };
     let userData = new userModel(userDetails);
 
-    //insert the data into db using promise
+    // insert the data into db using promise
     return new Promise((resolve, reject) => {
         userData.save(function(err, data) {
             if (err) {
-                logger.error('userData not added sucessfully'+err);
+                logger.error('userData not added sucessfully' + err);
                 reject(err);
             } else {
                 logger.info('userData added sucessfully');
@@ -29,9 +29,8 @@ const registerNewUser = function(userObj) {
             }
         });
     });
-
-}
+};
 
 module.exports = {
     registerNewUser: registerNewUser
-}
+};
