@@ -13,4 +13,4 @@
  *
  */
 
-module.export = require('./emailUtil.router');
+module.exports = require('./emailUtil.router');

@@ -54,7 +54,6 @@ let checkUser = function(objEmail) {
 let verifyEmailLink = function(objVerify) {
     try {
         let userToken = objVerify.token;
-        console.log(userToken);
         return new Promise((resolve, reject) => {
             jwt.verify(userToken, emailDetails.emailtokenSecret, function(err, decoded) {
                 if (err) {
@@ -70,7 +69,6 @@ let verifyEmailLink = function(objVerify) {
 
 
     } catch (err) {
-        console.log(err);
         return err;
     }
 

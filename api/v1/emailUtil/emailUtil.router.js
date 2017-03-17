@@ -35,7 +35,6 @@ emailRouter.post('/send', function(req, res) {
                 });
             });
     } catch (error) {
-        console.log(error);
         return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
     }
 
@@ -74,7 +73,6 @@ emailRouter.post('/send', function(req, res) {
 module.exports = emailRouter;
 // emailRouter.post('/welcome', function (req, res) {
 //     const jsonobj = JSON.parse(req.body.json);
-//     console.log(jsonobj);
 //     redirectLink = jsonobj.redirect;
 //     mailBody = jsonobj.mailBody;
 //     const mailOptions = {
@@ -90,10 +88,8 @@ module.exports = emailRouter;
 //     }
 //     transporter.sendMail(mailOptions, function (error, response) {
 //         if (error) {
-//             console.log("sending erroer part ", error);
 //             res.end("error");
 //         } else {
-//             console.log("Sending Mail...")
 //             //  res.send(link); //send this link to email service to get response
 //             res.end("sent");
 //         }

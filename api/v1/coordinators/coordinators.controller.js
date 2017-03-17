@@ -30,5 +30,5 @@ const registerNewCoordinates = function(coordinateObj) {
 }
 
 module.exports = {
-    registerNewCoordinate: registerNewCoordinate
+    registerNewCoordinates: registerNewCoordinates
 }

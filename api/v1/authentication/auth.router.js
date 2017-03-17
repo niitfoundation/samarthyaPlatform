@@ -96,7 +96,6 @@ router.post('/resetPasswordEmail', function(req, res) {
                             return res.status(201).send({ message: "sent successfully" })
                         },
                         (err) => {
-                            console.log(err);
                             return res.status(500).send({
                                 error: 'Internal error occurred, please try later..!'
                             });
@@ -104,7 +103,6 @@ router.post('/resetPasswordEmail', function(req, res) {
                 }
             }),
             err => {
-                console.log(err);
                 return res.status(500).send({
                     error: 'Internal error occurred, please try later..!'
                 })
@@ -132,7 +130,6 @@ router.post('/resetPassword', function(req, res, next) { 
             }
 
     } catch (err) {
-        console.log(err);
         //Log the Error for internal use
         return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
     }

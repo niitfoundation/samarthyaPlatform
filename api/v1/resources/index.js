@@ -10,4 +10,4 @@
  *
  */
 
-module.export = require('./resources.router');
+module.exports = require('./resources.router');

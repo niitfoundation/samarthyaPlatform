@@ -8,20 +8,17 @@ router.post('/', function(req, res) {
     let userData = req.body;
     try {
         if (!userData) {
-            throw new Error("Invalid inputs passed...!");
-            return;
+            throw new Error('Invalid inputs passed...!');
         }
 
         usrCtrl.registerNewUser(userData).then((successResult) => {
-            console.log(successResult);
             return res.status(201).send(successResult);
         }, (errResult) => {
-            //Log the error for internal use
-            return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: "user Already Exist" });
+            // Log the error for internal use
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'user Already Exist' });
         });
     } catch (err) {
-        console.log(err);
-        //Log the Error for internal use
+        // Log the Error for internal use
         return res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
     }
 });
