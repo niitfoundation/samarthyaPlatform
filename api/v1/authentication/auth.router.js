@@ -28,7 +28,7 @@ router.post('/', function(req, res, next) { 
 /*
  *if user is not exist send the verification mail
  */
-router.post('/registerEmail', function(req, res) {
+router.post('/register-email', function(req, res) {
     try {
         let param = req.body;
         //check the user is available or not
@@ -62,7 +62,7 @@ router.post('/registerEmail', function(req, res) {
 });
 
 
-router.post('/verifyEmail', function(req, res) {
+router.post('/verify-email', function(req, res) {
     try {
         let objVerify = req.body;
         authCtrl.verifyEmailLink(objVerify).then((successResult) => {
@@ -80,7 +80,7 @@ router.post('/verifyEmail', function(req, res) {
 });
 
 
-router.post('/resetPasswordEmail', function(req, res) {
+router.post('/verify-reset-email', function(req, res) {
     try {
         let param = req.body;
         //check the user is available or not
@@ -115,7 +115,7 @@ router.post('/resetPasswordEmail', function(req, res) {
 
 
 
-router.post('/resetPassword', function(req, res, next) { 
+router.post('/reset-password', function(req, res, next) { 
     let resetPassword = req.body;
     try {
         if (!resetPassword) {
