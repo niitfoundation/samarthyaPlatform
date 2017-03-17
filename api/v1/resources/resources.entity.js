@@ -1,5 +1,5 @@
-const appConfig = require('../../../config/appConfig');
-const mongoose = require('../../../config/databaseConfig');
+const appConstant = require('./../common/appConstants');
+const mongoose = require('mongoose');
 
 /*
  * This is a user interface schema, for getting ui components for each user registered in the system

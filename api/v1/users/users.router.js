@@ -1,28 +1,32 @@
 const router = require('express').Router();
 const usrCtrl = require('./users.controller');
-
+const logger = require('./../../../logs/logger');
 /*
  * Actual URI will be HTTP POST /users/
  */
 router.post('/', function(req, res) {
     let userData = req.body;
+    logger.debug('Get object and store into userData');
     try {
         if (!userData) {
-            throw new Error("Invalid inputs passed...!");
-            return;
+            logger.error('userData not found');
+            throw new Error('Invalid inputs passed...!');
         }
 
         usrCtrl.registerNewUser(userData).then((successResult) => {
-            console.log(successResult);
-            return res.status(201).send({ success:true, message: "user Register successfully" });
+
+            logger.info('Get successResult successfully and return back');
+            return res.status(201).send(successResult);
         }, (errResult) => {
-            //Log the error for internal use
-            return res.status(500).send({ success:false,error: 'Internal error occurred, please try later..!', message: "user Already Exist" });
+            // Log the error for internal use
+            logger.error('Internal error occurred');
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'user Already Exist' });
         });
     } catch (err) {
-        console.log(err);
-        //Log the Error for internal use
-        return res.send({success:false, error: 'Failed to complete successfully, please check the request and try again..!' ,message: "Technical Error..Try again later"});
+        // Log the Error for internal use
+        logger.fatal('Exception occurred' + err);
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        return;
     }
 });
 
