@@ -1,4 +1,5 @@
 const resourcesModel = require('./resources.entity');
+const logger = require('./../../../../applogger');
 /*
  *
  */

@@ -1,8 +1,8 @@
 const resourcesRouter = require('express').Router();
 const resourcesCtrl = require('./resources.controller');
+const logger = require('./../../../../applogger');
 
-
-//get the languages
+// get the languages
 resourcesRouter.get('/languages', function(req, res) {
     try {
         resourcesCtrl.getLanguage().then((successResult) => {

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const coordinateCtrl = require('./coordinators.controller');
-const logger = require('./../../../../logs/logger');
+const logger = require('./../../../../applogger');
 const UserCtrl = require('./../users/users.controller');
 /*
 /*

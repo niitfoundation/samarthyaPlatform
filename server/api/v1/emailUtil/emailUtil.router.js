@@ -1,6 +1,7 @@
 const emailRouter = require('express').Router();
 const cors = require('cors');
 const emailCtrl = require('./emailUtil.controller');
+const logger = require('./../../../../applogger');
 
 
 emailRouter.use(cors());

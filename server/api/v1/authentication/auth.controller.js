@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const userModel = require('./../users/users.entity');
 const resourcesModel = require('./../resources/resources.entity');
 const appConstant = require('../common/appConstants');
-const logger = require('./../../../../logs/logger');
+const logger = require('./../../../../applogger');
 
 
 // authenticate the user with its credentials

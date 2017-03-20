@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const authCtrl = require('./auth.controller');
-const logger = require('./../../../../logs/logger');
 const emailCtrl = require('./../emailUtil/emailUtil.controller');
+const logger = require('./../../../../applogger');
 /*
  * Authenticate the user
  */

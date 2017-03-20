@@ -1,4 +1,4 @@
-const logger = require('./../../../../logs/logger');
+const logger = require('./../../../../applogger');
 const UserModel = require('./../users/users.entity');
 /*
  *

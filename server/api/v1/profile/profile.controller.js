@@ -1,5 +1,5 @@
 const UserModel = require('./../users/users.entity');
-const logger = require('./../../../../logs/logger');
+const logger = require('./../../../../applogger');
 const profileModel = require('./profile.entity');
 /*
  *

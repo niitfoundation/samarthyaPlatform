@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const logger = require('./../../../../logs/logger');
+const logger = require('./../../../../applogger');
 const candidateCtrl = require('./candidates.controller');
 const UserCtrl = require('./../users/users.controller');
 /*

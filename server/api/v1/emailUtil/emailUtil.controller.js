@@ -4,6 +4,7 @@ const smptp = require('smtp-server');
 const smtpTransport = require('nodemailer-smtp-transport');
 const appConstant = require('./../common/appConstants');
 const userModel = require('./../users/users.entity');
+const logger = require('./../../../../applogger');
 
 const transporter = nodemailer.createTransport(smtpTransport({
     service: appConstant.emailDetails.serviceProvide,
