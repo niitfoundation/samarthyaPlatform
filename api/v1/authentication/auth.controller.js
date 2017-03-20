@@ -1,34 +1,29 @@
 const jwt = require('jsonwebtoken');
 const userModel = require('./../users/users.entity');
 
-
 const resourcesModel = require('./../resources/resources.entity');
 const appConstant = require('../common/appConstants');
-const logger = require('./../../../logs/logger');
-
+const logger = require('./../../../logger/logger');
 
 // authenticate the user with its credentials
-const authenticateUser = function(authObj) {
+const authenticateUser = function (authObj) {
     logger.debug('Token is generated');
     var userDetails = {
         username: authObj.username,
         password: authObj.password
     };
-
-
     return new Promise((resolve, reject) => {
-        userModel.find(userDetails, function(err, data) {
+        userModel.find(userDetails, function (err, data) {
             if (err) {
                 logger.error('userDetails data not found' + err);
                 reject(err);
             } else if (data.length == 0) {
-                logger.debug('Invalid Credentials');
+                logger.error('Invalid Credentials');
                 reject({ msg: 'Invalid Credentials' });
             } else {
-                 let userDetails = {username: data[0].username, role: data[0].role};
-                   let userToken = jwt.sign(userDetails, appConstant.secret, { expiresIn: appConstant.expireTime });
-                logger.debug('Data find and resolve here');
-                resolve({authToken: userToken});
+                let userDetails = { username: data[0].username, role: data[0].role };
+                let userToken = jwt.sign(userDetails, appConstant.secret, { expiresIn: appConstant.expireTime });
+                resolve({ authToken: userToken });
             }
         });
     });
@@ -36,13 +31,15 @@ const authenticateUser = function(authObj) {
 
 
 // find user is already exists or not
-let checkUser = function(objEmail) {
+let checkUser = function (objEmail) {
+    console.log("dsfsa" + objEmail)
     let userDetails = {
         username: objEmail,
     };
     return new Promise((resolve, reject) => {
-        userModel.find(userDetails, function(err, data) {
+        userModel.find(userDetails, function (err, data) {
             if (err) {
+                logger.error('data not found' + err);
                 reject(err);
             } else {
                 resolve(data);
@@ -53,15 +50,14 @@ let checkUser = function(objEmail) {
 
 
 // validate if email expired  or not
-let verifyEmailLink = function(objVerify) {
+let verifyEmailLink = function (objVerify) {
     let userToken = objVerify.token;
     return new Promise((resolve, reject) => {
-        jwt.verify(userToken, appConstant.emailDetails.emailTokenSecret, function(err, decoded) {
+        jwt.verify(userToken, appConstant.emailDetails.emailTokenSecret, function (err, decoded) {
             if (err) {
                 logger.error('Updated password data is not found');
                 reject(err);
             } else {
-                logger.debug('Updated password data found and resolved');
                 resolve({
                     msg: 'Email Verified',
                     data: decoded
@@ -72,7 +68,7 @@ let verifyEmailLink = function(objVerify) {
 };
 
 // password reset updation in database
-const resetPassword = function(resetObj) {
+const resetPassword = function (resetObj) {
     var userDetails = {
         username: resetObj.username
     };
@@ -80,42 +76,42 @@ const resetPassword = function(resetObj) {
     // let resetData = new userModel(userDetails);
     return new Promise((resolve, reject) => {
         userModel.update(userDetails, {
-                $set: {
-                    password: resetObj.password,
-                    updatedOn: Date.now()
-                }
-            },
-            function(err, data) {
+            $set: {
+                password: resetObj.password,
+                updatedOn: Date.now()
+            }
+        },
+            function (err, data) {
                 if (err) {
+                    logger.error('data not found');
                     reject(err);
                 } else {
-                    resolve({msg: 'Successfully Updated'});
+                    resolve({ msg: 'Successfully Updated' });
                 }
             });
     });
 };
 
 // verify the user token for every request
-let verifyToken = function(usertoken) {
-    return new Promise((resolve, reject)=>{
-         jwt.verify(usertoken, appConstant.secret, function(err, decoded) {
-        if (err) {
-            logger.error('Token not matched');
-           reject(err);
-        }else{
-        // if everything is good, save to request for use in other routes
-        logger.debug('Token matched');
-        resolve({decoded: decoded });
-        }
-    });
+let verifyToken = function (usertoken) {
+    return new Promise((resolve, reject) => {
+        jwt.verify(usertoken, appConstant.secret, function (err, decoded) {
+            if (err) {
+                logger.error('Token not matched');
+                reject(err);
+            } else {
+                // if everything is good, save to request for use in other routes
+                resolve({ decoded: decoded });
+            }
+        });
     });
 };
 
-let getMenus = function(role)
-{
- return new Promise((resolve, reject) => {
-        resourcesModel.distinct('navList.'+role.toLowerCase(), function(err, data) {
+let getMenus = function (role) {
+    return new Promise((resolve, reject) => {
+        resourcesModel.distinct('navList.' + role.toLowerCase(), function (err, data) {
             if (err) {
+                logger.error('data not found');
                 reject(err);
             } else {
                 resolve(data);

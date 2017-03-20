@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const logger = require('./../../../logs/logger');
+const logger = require('./../../../logger/logger');
 const candidateCtrl = require('./candidates.controller');
 /*
  * Actual URI will be HTTP POST /candidates/
@@ -34,14 +34,15 @@ router.post('/', function(req, res) {
             throw new Error('Invalid inputs passed...!');
         }
         candidateCtrl.registerNewCandidate(candidateData).then((successResult) => {
-            logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);
         }, (errResult) => {
             // Log the error for internal use
+            logger.error('Internal error occurred');
             return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
         });
     } catch (err) {
         // Log the Error for internal use
+        logger.fatal('Exception occurred');
         res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
         return;
     }

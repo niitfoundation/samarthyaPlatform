@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const usrCtrl = require('./users.controller');
-const logger = require('./../../../logs/logger');
+const logger = require('./../../../logger/logger');
 /*
  * Actual URI will be HTTP POST /users/
  */
 router.post('/', function(req, res) {
+    console.log(req.body);
     let userData = req.body;
     logger.debug('Get object and store into userData');
     try {
@@ -14,8 +15,6 @@ router.post('/', function(req, res) {
         }
 
         usrCtrl.registerNewUser(userData).then((successResult) => {
-
-            logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);
         }, (errResult) => {
             // Log the error for internal use

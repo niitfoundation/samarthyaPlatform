@@ -1,5 +1,4 @@
 {
-
   "name": "samarthyaPlatform",
   "version": "1.0.1",
   "description": "",
@@ -32,8 +31,12 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
     "eslint": "^3.17.1",
     "gulp-nodemon": "^2.2.1",
-    "log4js": "^1.1.1"
+    "log4js": "^1.1.1",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
   }
 }

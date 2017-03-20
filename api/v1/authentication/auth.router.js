@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const authCtrl = require('./auth.controller');
-const logger = require('./../../../logs/logger');
+const logger = require('./../../../logger/logger');
 const emailCtrl = require('./../emailUtil/emailUtil.controller');
 /*
  * Authenticate the user
@@ -68,6 +68,7 @@ router.post('/register-email', function(req, res) {
 
 router.post('/verify-email', function(req, res) {
     try {
+        console.log(req.body);
         let objVerify = req.body;
         authCtrl.verifyEmailLink(objVerify).then((successResult) => {
                 return res.status(201).send(successResult);
@@ -147,7 +148,7 @@ router.use(function(req, res, next) {
         // check header or url parameters or post parameters for token
         logger.debug('Authorization begin by getting token from http request');
         const token = req.body.token || req.headers.authorization;
-
+            console.log("tok  "+token+"dcgb"+req.body.token)
         // decode token
         if (token) {
            authCtrl.verifyToken(token).then((successResult) => {
@@ -158,8 +159,6 @@ router.use(function(req, res, next) {
              logger.error('Internal error occurred');
             return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'UnAuthorised User' });
         });
-
-
         } else {
             // if there is no token
             // return an error
@@ -176,7 +175,7 @@ router.get('/nav-menus', function (req, res) {
    let role = req.decoded.role;
     try {
         authCtrl.getMenus(role).then((successResult) => {
-            return res.status(201).send({success:true,data:successResult});
+            return res.status(201).send({success: true, data: successResult});
         }, (errResult) => {
             // Log the error for internal use
             return res.status(500).send({ error: 'Internal error occurred, please try later..!' });

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const coordinateCtrl = require('./coordinators.controller');
-const logger = require('./../../../logs/logger');
+const logger = require('./../../../logger/logger');
 /*
 /*
  * Actual URI will be HTTP POST /users/
@@ -12,11 +12,9 @@ router.post('/', function(req, res) {
         if (!coordinateData) {
             logger.error('coordinateData not found');
             throw new Error('Invalid inputs passed...!');
-
         }
 
         coordinateCtrl.registerNewCoordinate(coordinateData).then((successResult) => {
-            logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);
         }, (errResult) => {
             // Log the error for internal use
