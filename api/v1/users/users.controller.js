@@ -7,9 +7,9 @@ const registerNewUser = function(userObj) {
 
     logger.debug('Get userObj and store into userDetails');
     var userDetails = {
-        username: userObj.username,
-        password: userObj.password,
-        role: userObj.role,
+        username: userObj.userCredentialsData.username,
+        password: userObj.userCredentialsData.password,
+        role: userObj.userCredentialsData.role,
         status: 'Active',
         lastLoginOn: Date.now(),
         createdOn: Date.now(),
@@ -25,7 +25,7 @@ const registerNewUser = function(userObj) {
                 reject(err);
             } else {
                 logger.info('userData added sucessfully');
-                resolve(data);
+                resolve({msg:"User Added Successfully",data:data,success:true});
             }
         });
     });

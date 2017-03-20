@@ -131,12 +131,12 @@ router.post('/reset-password', function(req, res, next) {
             },
             (err) => {
                 logger.error('Internal error occurred');
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+                return res.status(500).send({ error: 'Internal error occurred, please try later..!',msg:"Error..Try later" });
             });
     } catch (err) {
         logger.fatal('Exception occur' + err);
         // Log the Error for internal use
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' ,msg:"Error..Try later"});
         return;
     }
 });
