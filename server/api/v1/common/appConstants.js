@@ -9,10 +9,11 @@ const userDetails = {
     USER_STATUS: ['Active', 'InActive', 'Suspended'],
     USER_ROLE: ['Admin', 'Supervisor', 'Coordinator'],
 };
-const secret = 'somethinghere';
+const secret ='somethinghere';
 const expireTime = 60 * 30;
 module.exports = {
     emailDetails: emailDetails,
     userDetails: userDetails,
-    secret: secret
+    secret: secret,
+    expireTime: expireTime
 };

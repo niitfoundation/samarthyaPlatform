@@ -1,27 +1,26 @@
 const router = require('express').Router();
-const coordinateCtrl = require('./coordinators.controller');
-const logger = require('./../../../logs/logger');
-/*
+const usrCtrl = require('./users.controller');
+const logger = require('./../../../../logs/logger');
 /*
  * Actual URI will be HTTP POST /users/
  */
 router.post('/', function(req, res) {
-    let coordinateData = req.body;
-    logger.debug('Get object and store into coordinateData');
+    let userData = req.body;
+    logger.debug('Get object and store into userData');
     try {
-        if (!coordinateData) {
-            logger.error('coordinateData not found');
+        if (!userData) {
+            logger.error('userData not found');
             throw new Error('Invalid inputs passed...!');
-
         }
 
-        coordinateCtrl.registerNewCoordinate(coordinateData).then((successResult) => {
+        usrCtrl.registerNewUser(userData).then((successResult) => {
+
             logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
-            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'user Already Exist' });
         });
     } catch (err) {
         // Log the Error for internal use

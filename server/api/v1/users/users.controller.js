@@ -1,9 +1,10 @@
 const UserModel = require('./users.entity');
-const logger = require('./../../../logs/logger');
+const logger = require('./../../../../logs/logger');
 /*
  *
  */
 const registerNewUser = function(userObj) {
+
     logger.debug('Get userObj and store into userDetails');
     var userDetails = {
         username: userObj.username,

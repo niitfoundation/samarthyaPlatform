@@ -9,7 +9,7 @@ const profileSchema = new Schema({
     username: { type: String, required: true, unique: true },
     profession: { type: String, required: true },
     centerCode: { type: String, required: true },
-    pic: { type: String },
+    pic: { type: String, default: '', },
     createdOn: { type: Date, required: true, default: Date.now },
     createdBy: { type: Date, required: true, default: Date.now },
     updatedOn: { type: Date, required: true, default: Date.now },
@@ -22,10 +22,10 @@ const profileSchema = new Schema({
         age: { type: Number, required: true, virtuals: true },
         gender: { type: String, required: true },
         email: { type: String, required: true, unique: true },
-        altemail: { type: String },
+        altemail: { type: String, default: '', },
         contact: [{
             I: { type: String, required: true, min: 10, max: 10 },
-            II: { type: String }
+            II: { type: String, default: '', }
         }],
         address: [{
             landmark: { type: String, required: true },
@@ -35,11 +35,11 @@ const profileSchema = new Schema({
         }],
         married: { type: Boolean },
         identity: [{
-            aadharNumber: { type: String, min: 12, max: 12 },
-            registrationID: { type: String }
+            aadharNumber: { type: String, default: '', min: 12, max: 12 },
+            registrationID: { type: String, default: '', }
         }],
-        preLang: { type: String },
-        nativeLang: { type: String },
+        preLang: { type: String, default: '', },
+        nativeLang: { type: String, default: '', },
         lang: [{
             name: { type: String, required: true },
             r: { type: String, required: true },
@@ -49,64 +49,64 @@ const profileSchema = new Schema({
     },
     // educational qualification
     qualification: [{
-        name: { type: String },
-        subject: { type: String },
-        academictype: { type: String },
-        batch: { type: String },
-        result: { score: { type: String }, unit: { type: String } },
-        institute: { type: String },
-        affiliation: { type: String },
-        location: { type: String }
+        name: { type: String, default: '', },
+        subject: { type: String, default: '', },
+        academictype: { type: String, default: '', },
+        batch: { type: String, default: '', },
+        result: { score: { type: String, default: '', }, unit: { type: String, default: '', } },
+        institute: { type: String, default: '', },
+        affiliation: { type: String, default: '', },
+        location: { type: String, default: '', }
     }],
     // jobpreferences
     preferences: {
         looking: { type: Boolean, default: true },
         roles: [{
-            name: { type: String },
-            engagement: { type: String },
+            name: { type: String, default: '', },
+            engagement: { type: String, default: '', },
             expectedSal: [{
                 min: { type: Number, required: true, default: 0 },
                 max: { type: Number, required: true, default: 0 },
             }],
-            skills: [{ type: String }],
+            skills: [{ type: String, default: '', }],
             availablefrom: { type: Date, default: Date.now },
-            locations: [{ type: String }]
+            locations: [{ type: String, default: '', }]
         }]
     },
     // experience
     experience: [{
-        workplace: { type: String },
-        designation: { type: String },
-        role: { type: String },
-        location: { type: String }
+        workplace: { type: String, default: '', },
+        designation: { type: String, default: '', },
+        role: { type: String, default: '', },
+        location: { type: String, default: '', }
     }],
     // skill
     skill: [{
-        name: { type: String },
+        name: { type: String, default: '', },
         experience: { type: Number, default: 0 },
-        expertise: { type: String }
+        expertise: { type: String, default: '', }
     }],
     // project
     project: [{
-        name: { type: String },
-        description: { type: String },
+        name: { type: String, default: '', },
+        description: { type: String, default: '', },
         duration: {
             start: { type: Date, default: Date.now },
             end: { type: Date, default: Date.now }
         },
-        location: { type: String },
-        skills: [{ type: String }],
-        role: { type: String },
+        location: { type: String, default: '', },
+        skills: [{ type: String, default: '', }],
+        role: { type: String, default: '', },
 
     }],
     // showcase
     showcase: [{
-        contenttype: { type: String },
-        title: { type: String },
-        url: { type: String },
-        desc: { type: String }
+        contenttype: { type: String, default: '', },
+        title: { type: String, default: '', },
+        url: { type: String, default: '', },
+        desc: { type: String, default: '', }
     }],
-    summary: { type: string }
+    summary: { type: String, default: '', }
 }, { collection: 'profile' });
 
 module.exports = mongoose.model('profile', profileSchema);

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const prflCtrl = require('./profile.controller');
-const logger = require('./../../../logs/logger');
+const logger = require('./../../../../logs/logger');
 
 /*
  * Actual URI will be HTTP POST /profiles/

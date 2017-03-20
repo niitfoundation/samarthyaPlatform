@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const logger = require('./../../../logs/logger');
+const logger = require('./../../../../logs/logger');
 const candidateCtrl = require('./candidates.controller');
+const UserCtrl = require('./../users/users.controller');
 /*
  * Actual URI will be HTTP POST /candidates/
  */
@@ -33,7 +34,7 @@ router.post('/', function(req, res) {
             logger.error('candidateData not found');
             throw new Error('Invalid inputs passed...!');
         }
-        candidateCtrl.registerNewCandidate(candidateData).then((successResult) => {
+        UserCtrl.registerNewUser(candidateData).then((successResult) => {
             logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);
         }, (errResult) => {
