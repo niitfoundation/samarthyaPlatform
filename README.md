@@ -1,3 +1,0 @@
-# samarthyaPlatform
-
-samarthya platfrom routing 
