@@ -1,6 +1,6 @@
 const path = require('path');
 
-const apiBasePath = require(path.resolve(__dirname, '../', 'api', 'v1/index.js'));
+const apiBasePath = require(path.resolve(__dirname, '../', 'api', 'v1/index.js '));
 
 const useRoutes = function(app) {
 

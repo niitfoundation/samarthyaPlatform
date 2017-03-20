@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const usrCtrl = require('./users.controller');
 const logger = require('./../../../../logs/logger');
+const prflCtrl = require('./../profile/profile.controller');
 /*
  * Actual URI will be HTTP POST /users/
  */
@@ -14,7 +15,6 @@ router.post('/', function(req, res) {
         }
 
         usrCtrl.registerNewUser(userData).then((successResult) => {
-
             logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);
         }, (errResult) => {

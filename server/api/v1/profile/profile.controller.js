@@ -7,18 +7,22 @@ const profileModel = require('./profile.entity');
 
 const viewProfile = function(profileObj) {
 
-    // @TODO
-    // Get the profile schema and perform get operations
-    // Get the profile data on user demand
-    // use promise for database operations and return result
-
 };
 
 const createProfile = function(profileObj) {
 
-    // @TODO
-    // Get the profile schema and perform add operations
-    // use promise for database operations and return result
+    return new Promise((resolve, reject) => {
+        userData.save(function(err, data) {
+            if (err) {
+                logger.error('profile data not added sucessfully' + err);
+                reject(err);
+            } else {
+                logger.error('profile data added successfully' + err);
+                // inserts profile details
+                resolve(data);
+            }
+        });
+    });
 
 };
 const editProfile = function(profileObj) {
