@@ -4,7 +4,6 @@ const logger = require('./../../../../applogger');
  *
  */
 const registerNewUser = function(userObj) {
-
     logger.debug('Get userObj and store into userDetails');
     var userDetails = {
         username: userObj.userCredentialsData.username,
@@ -24,8 +23,12 @@ const registerNewUser = function(userObj) {
                 logger.error('userData not added sucessfully' + err);
                 reject(err);
             } else {
+<<<<<<< HEAD
                 logger.info('userData added sucessfully');
                 resolve({msg:"User Added Successfully",data:data,success:true});
+=======
+                resolve(data);
+>>>>>>> a04d161a2ae3e1c73c1a16bb719f831e7f224320
             }
         });
     });

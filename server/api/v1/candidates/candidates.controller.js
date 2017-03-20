@@ -23,7 +23,6 @@ const registerNewCandidate = function(candidateObj) {
                 logger.error('candidateData not added sucessfully' + err);
                 reject(err);
             } else {
-                logger.info('candidateData added sucessfully');
                 resolve(data);
             }
         });
