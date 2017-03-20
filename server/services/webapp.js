@@ -18,6 +18,10 @@ module.exports = function(appName) {
     let app = service.createApp();
 
     app.use(express.static(path.resolve(__dirname, '../../', 'webclient', appName+"/dist")));
+    // Catch all other routes and return the index file
+app.get('*', (req, res) => {
+   res.sendFile(path.join(__dirname, '../../', 'webclient', appName+'/dist/index.html'));
+});
 
     app = service.setupMiddlewares(app);
 

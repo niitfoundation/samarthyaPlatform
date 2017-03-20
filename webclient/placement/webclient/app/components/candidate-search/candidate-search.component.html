@@ -1,0 +1,60 @@
+<app-login-header></app-login-header>
+
+
+<md-grid-list cols="1" rowHeight="1750">
+  <md-grid-tile>
+
+  </md-grid-tile>
+  
+  <md-card class="loginCard">
+      
+      <md-card-content>
+    <form [formGroup]="searchForm">
+       
+          <!--Email-->
+          <div fxLayout="row" >
+            <div fxFlex="99" fxFlex.xs="77" fxFlex.sm="82">
+              <md-input-container class="full-width">
+
+                <input formControlName="searchControl" mdInput placeholder="Search Candidate" (keyup.enter)="getSearch()"/>
+                <md-hint align="start" class="full-width">
+                 
+  <!-- Search required validation-->
+                  <div class="errorStyle" *ngIf="searchForm.get('searchControl').hasError('required') && searchForm.get('searchControl').touched">
+                    Search field is required
+                  </div>
+<!--<div *ngFor="let abou of [1,2,3]" class="container container-padding about-item " fxLayout fxLayout.md="row" fxLayoutGap.md="10px" fxLayout.sm="column" fxLayoutGap.sm="10px" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="10px">
+
+<div class="profile" *ngFor="let num of [1,2,3]">
+<profile-card></profile-card>
+</div>
+</div>-->
+                </md-hint>
+              </md-input-container>
+               <!--<a  class="search-icon">
+       <i class="material-icons">search</i>
+    </a>-->
+            </div>
+                <!--<div fxFlex="7" fxFlex.xs="4" fxFlex.sm="6">
+                    <button md-raised-button color="accent" ><i class="material-icons">search</i></button>
+                </div>-->
+          </div>
+          <div fxLayout="row" >
+            <div fxFlex="99" fxFlex.xs="77" fxFlex.sm="82">
+                    
+            </div>
+          </div>
+         
+    </form>
+      </md-card-content>
+  </md-card>
+  <div fxLayout="row" >
+<div class="view" fxFlex>
+  View as:
+                <button md-raised-button color="accent" >Detail</button>
+                <button md-raised-button color="accent" >Thumbnail</button>
+
+  </div>
+  </div>
+
+</md-grid-list>

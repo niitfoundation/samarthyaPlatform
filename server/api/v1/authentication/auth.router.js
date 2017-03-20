@@ -45,7 +45,7 @@ router.post('/register-email', function(req, res) {
             },
             (err) => {
               return res.status(500).send({
-                error: 'Internal error occurred, please try later..!'
+                error: 'Internal error occurred, please try later..!',msg:"User Doesn't exist"
               });
             });
         } else {
@@ -96,21 +96,21 @@ router.post('/verify-reset-email', function(req, res) {
         }
         param.host = req.get('host');
         emailCtrl.sendEmail(param).then((successResult) => {
-            return res.status(201).send({ message: 'sent successfully' });
+            return res.status(201).send({ msg: 'sent successfully' });
           },
           (err) => {
             return res.status(500).send({
-              error: 'Internal error occurred, please try later..!'
+              error: 'Internal error occurred, please try later..!',msg:"User doesn't exist"
             });
           });
       },
       err => {
         return res.status(500).send({
-          error: 'Internal error occurred, please try later..!'
+          msg: 'Internal error occurred, please try later..!'
         });
       });
   } catch (error) {
-    res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+    res.send({ msg: 'Failed to complete successfully, please check the request and try again..!' });
     return;
   }
 });

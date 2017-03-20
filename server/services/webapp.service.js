@@ -3,7 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const appRoutes = require('./webapp.routes');
-const logger = require('./../../logs/logger');
+const logger = require('./../../applogger');
 
 
 function createApp() {
