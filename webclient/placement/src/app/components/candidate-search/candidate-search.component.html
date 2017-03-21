@@ -1,0 +1,23 @@
+
+<div class="container paddings"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+         fxLayoutGap.xs="0">
+
+  <div  fxFlex  fxFlexOffset.xs="0" class="full-width form-style">
+    
+ <form [formGroup]="searchForm" class={{cls}}>
+
+                <md-input-container class="full-width">
+                    <input formControlName="searchControl" mdInput placeholder="Search Candidate" (focus)="change()" (blur)="fullView()" (keyup.enter)="getSearch() " />
+                    <md-hint>
+                    <p class="error-style">
+                    {{message}}
+                  </p>
+                  </md-hint>
+                  </md-input-container>
+                </form>
+              </div>
+
+</div>
