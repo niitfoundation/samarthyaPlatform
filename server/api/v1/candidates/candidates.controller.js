@@ -1,35 +1,21 @@
-const logger = require('./../../../../logs/logger');
+const logger = require('./../../../../applogger');
 const UserModel = require('./../users/users.entity');
+const UserCtrl = require('./../users/users.controller');
 /*
  *
  */
-const registerNewCandidate = function(candidateObj) {
-    logger.debug('Get candidateObj and store into candidateDetails');
-    var candidateDetails = {
-        username: candidateObj.username,
-        password: candidateObj.password,
-        role: candidateObj.role,
-        status: 'Active',
-        lastLoginOn: Date.now(),
-        createdOn: Date.now(),
-        updatedOn: Date.now()
-    };
-    let candidateData = new UserModel(candidateDetails);
-
-    // Insert the data into db using promise
-    return new Promise((resolve, reject) => {
-        candidateData.save(function(err, data) {
-            if (err) {
-                logger.error('candidateData not added sucessfully' + err);
-                reject(err);
-            } else {
-                logger.info('candidateData added sucessfully');
-                resolve(data);
-            }
-        });
-    });
+const getCandidates = function(candidateObj) {
+    // @TODO
+};
+const editCandidates = function(candidateObj) {
+    // @TODO
+};
+const deleteCandidates = function(candidateObj) {
+    // @TODO
 };
 
 module.exports = {
-    registerNewCandidate: registerNewCandidate
+    getCandidates: getCandidates,
+    editCandidates: editCandidates,
+    deleteCandidates: deleteCandidates
 };

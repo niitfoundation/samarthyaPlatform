@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const authCtrl = require('./auth.controller');
-const logger = require('./../../../../logs/logger');
 const emailCtrl = require('./../emailUtil/emailUtil.controller');
+const logger = require('./../../../../applogger');
 /*
  * Authenticate the user
  */
@@ -54,9 +54,10 @@ router.post('/register-email', function(req, res) {
                     });
                 }
             },
-            err => {
+            (err) => {
                 return res.status(500).send({
-                    error: 'Internal error occurred, please try later..!'
+                    error: 'Internal error occurred, please try later..!',
+                    msg: "User Doesn't exist"
                 });
             });
     } catch (error) {
@@ -90,8 +91,8 @@ router.post('/verify-reset-email', function(req, res) {
         authCtrl.checkUser(param.username).then((data) => {
                 if (data.length == 0) {
                     // if user is does not exit send mail
-                    return res.status(403).send({
-                        msg: 'user does not exist'
+                    return res.status(201).send({
+                        message: 'user does not exist'
                     });
                 }
                 param.host = req.get('host');
@@ -100,17 +101,18 @@ router.post('/verify-reset-email', function(req, res) {
                     },
                     (err) => {
                         return res.status(500).send({
-                            error: 'Internal error occurred, please try later..!'
+                            error: 'Internal error occurred, please try later..!',
+                            msg: "User doesn't exist"
                         });
                     });
             },
             err => {
                 return res.status(500).send({
-                    error: 'Internal error occurred, please try later..!'
+                    msg: 'Internal error occurred, please try later..!'
                 });
             });
     } catch (error) {
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ msg: 'Failed to complete successfully, please check the request and try again..!' });
         return;
     }
 });

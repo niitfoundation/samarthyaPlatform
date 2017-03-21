@@ -1,4 +1,4 @@
-const logger = require('./../../../../logs/logger');
+const logger = require('./../../../../applogger');
 const UserCtrl = require('./../users/users.controller');
 
 const registerNewCoordinate = function(coordinateObj) {

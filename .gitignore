@@ -1,7 +1,7 @@
 # Logs
-*.log*
+logs
+*.log
 npm-debug.log*
-yarn.lock
 
 # Runtime data
 pids
@@ -28,6 +28,8 @@ build/Release
 
 # Dependency directories
 node_modules
+webclient/node_modules
+
 jspm_packages
 
 # Optional npm cache directory

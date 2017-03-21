@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const coordinateCtrl = require('./coordinators.controller');
-const logger = require('./../../../../logs/logger');
+const logger = require('./../../../../applogger');
 const UserCtrl = require('./../users/users.controller');
 /*
 /*
@@ -14,7 +14,6 @@ router.post('/', function(req, res) {
             logger.error('coordinateData not found');
             throw new Error('Invalid inputs passed...!');
         }
-
         UserCtrl.registerNewUser(coordinateData).then((successResult) => {
             logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);

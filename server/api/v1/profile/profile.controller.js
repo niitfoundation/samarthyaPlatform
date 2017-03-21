@@ -1,6 +1,8 @@
 const UserModel = require('./../users/users.entity');
-const logger = require('./../../../../logs/logger');
-const profileModel = require('./profile.entity');
+const logger = require('./../../../../applogger');
+const ProfileModel = require('./profile.entity');
+const profileDataModel = require('./profile.model');
+
 /*
  *
  */
@@ -9,7 +11,11 @@ const viewProfile = function(profileObj) {
 
 };
 
+
+// Add profile details
 const createProfile = function(profileObj) {
+    // Add/modify profile model
+    let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
 
     return new Promise((resolve, reject) => {
         userData.save(function(err, data) {
@@ -19,7 +25,7 @@ const createProfile = function(profileObj) {
             } else {
                 logger.error('profile data added successfully' + err);
                 // inserts profile details
-                resolve(data);
+                resolve({ msg: 'Profile data Added successfully' });
             }
         });
     });

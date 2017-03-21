@@ -1,15 +1,15 @@
 const UserModel = require('./users.entity');
-const logger = require('./../../../../logs/logger');
 const prflCtrl = require('./../profile/profile.controller');
+const logger = require('./../../../../applogger');
 /*
  *authenticate new user and adding profile details
  */
 const registerNewUser = function(userObj) {
     logger.debug('Get userObj and store into userDetails');
     var userDetails = {
-        username: userObj.username,
-        password: userObj.password,
-        role: userObj.role,
+        username: userObj.userCredentialsData.username,
+        password: userObj.userCredentialsData.password,
+        role: userObj.userCredentialsData.role,
         status: 'Active',
         lastLoginOn: Date.now(),
         createdOn: Date.now(),
@@ -25,17 +25,29 @@ const registerNewUser = function(userObj) {
                 reject(err);
             } else {
                 logger.info('Adding user credentials and profile details');
+
                 // after successful enter the credentials data inserts profile details
-                prflCtrl.createProfile().then((successResult) => {
-                    resolve(data);
+                prflCtrl.createProfile(userObj.profileData).then((successResult) => {
+                    resolve(successResult);
                 }, (errresult) => {
-                    logger.error('userData not added sucessfully' + err);
-                    reject(err);
+                    logger.error('profile data not added Successfully' + err);
+                    // if profile data not inserted delete the credentials data
+                    userData.remove(function(err, data) {
+                        if (err) {
+                            logger.error('failed adding profile data and failed removing userCredential data' + err);
+                        } else {
+                            logger.debug('failed adding profile data and removed userCredential data');
+                            reject({ msg: 'failed adding profile data and removed userCredential data' });
+                        }
+
+                    });
                 });
+                logger.info('userData added sucessfully');
+                resolve({ msg: "User Added Successfully", data: data, success: true });
             }
         });
     });
-};
+}
 
 module.exports = {
     registerNewUser: registerNewUser

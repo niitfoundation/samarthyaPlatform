@@ -6,8 +6,8 @@
 
 // Create instance of express based web app
 let appName = 'placement';
-let logger = require('./../logs/logger');
 let app = require('../server/services/webapp')(appName);
+const logger=require('../applogger');
 // let config = require('../config');
 let debug = require('debug')('dataDisplayApp:server');
 let http = require('http');

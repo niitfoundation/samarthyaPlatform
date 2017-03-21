@@ -1,0 +1,45 @@
+[2017-03-20 18:23:13.532] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 18:23:13.563] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 18:23:15.904] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-20 18:23:17.730] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 18:23:17.752] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 18:24:07.372] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com',
+  password: 'dsakjkjdsaf' }
+[2017-03-20 18:24:07.374] [DEBUG] [default] - Get object and store into authData
+[2017-03-20 18:24:07.374] [DEBUG] [default] - Token is generated
+[2017-03-20 18:24:07.457] [DEBUG] [default] - Invalid Credentials
+[2017-03-20 18:24:07.458] [ERROR] [default] - Internal error occurred
+[2017-03-20 18:24:11.953] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'samarthya' }
+[2017-03-20 18:24:11.953] [DEBUG] [default] - Get object and store into authData
+[2017-03-20 18:24:11.954] [DEBUG] [default] - Token is generated
+[2017-03-20 18:24:11.963] [DEBUG] [default] - Data find and resolve here
+[2017-03-20 18:24:11.963] [INFO] [default] - Get successResult successfully and return back
+[2017-03-20 18:24:12.029] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-20 18:24:12.032] [DEBUG] [default] - Token matched
+[2017-03-20 18:24:12.033] [INFO] [default] - Token verified
+[2017-03-20 18:31:27.025] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-20 18:31:29.592] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 18:31:29.608] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 18:34:54.180] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-20 18:34:56.620] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 18:34:56.635] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 18:38:19.387] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-20 18:38:36.224] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 18:38:36.238] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 18:51:35.906] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-20 18:51:37.416] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 18:51:37.432] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 19:04:19.026] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 19:04:19.042] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 19:04:29.134] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-20 19:17:29.613] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 19:17:29.628] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 20:45:38.104] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 20:45:38.144] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 20:50:08.434] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 11:48:13.002] [DEBUG] [default] - Server running  on 3000
+[2017-03-21 11:48:13.048] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 12:11:31.721] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 12:11:33.523] [DEBUG] [default] - Server running  on 3000
+[2017-03-21 12:11:33.543] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 12:11:35.410] [DEBUG] [default] - Mongoose is now disconnected..!
