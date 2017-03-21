@@ -11,7 +11,7 @@ gulp.task('browser-sync', ['nodemon'], function() {
 });
 
 gulp.task('default', ['browser-sync'], function() {
-    gulp.watch(["./webclient/**/*"], reload);
+    gulp.watch(["./src/**/*"], reload);
 });
 
 gulp.task('nodemon', function(cb) {

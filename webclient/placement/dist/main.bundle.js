@@ -44,7 +44,7 @@ var EmailService = (function () {
     return EmailService;
     var _a;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/email.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/email.service.js.map
 
 /***/ }),
 
@@ -54,7 +54,7 @@ var EmailService = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authentication_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authentication_service__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__(543);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(20);
@@ -83,7 +83,6 @@ var UiDetails = (function () {
     }
     ;
     UiDetails.prototype.getMenuDetails = function (token) {
-        console.log("menu");
         return this.http.get(this.url, this.authoriZation(token))
             .map(function (response) {
             var body = response.json();
@@ -104,7 +103,7 @@ var UiDetails = (function () {
     return UiDetails;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/uidetails.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/uidetails.service.js.map
 
 /***/ }),
 
@@ -139,7 +138,7 @@ var AboutUsComponent = (function () {
     ], AboutUsComponent);
     return AboutUsComponent;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/about-us.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/about-us.component.js.map
 
 /***/ }),
 
@@ -153,8 +152,9 @@ var AboutUsComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_switchMap__ = __webpack_require__(542);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_services_json_data_service__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_app_services_data_service__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_services_json_data_service__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_app_services_authentication_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_app_services_data_service__ = __webpack_require__(53);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminRegistrationComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -175,8 +175,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 
+
 var AdminRegistrationComponent = (function () {
-    function AdminRegistrationComponent(fb, data, JsonDataService, PlacementRegisterService, route, router) {
+    function AdminRegistrationComponent(fb, authenticationService, data, JsonDataService, PlacementRegisterService, route, router) {
+        this.authenticationService = authenticationService;
         this.data = data;
         this.JsonDataService = JsonDataService;
         this.PlacementRegisterService = PlacementRegisterService;
@@ -185,11 +187,6 @@ var AdminRegistrationComponent = (function () {
         this.disabled = "false";
         this.areaList = [];
         this.emailDisable = false;
-        //Dropdown values.Should be data driven
-        this.roles = ['Admin', 'Coorinator', 'Supervisor'];
-        this.professions = ['FullStackDeveloper', 'BPO'];
-        this.placementCenters = ['Pune', 'Bangalore', 'Chennai'];
-        this.languages = ['English', 'Hindi', 'Tamizh'];
         //building the form using FormBuilder and FormGroup
         this.userForm = fb.group({
             firstNameControl: ['', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].pattern('[A-Za-z]{2,}')]],
@@ -211,6 +208,9 @@ var AdminRegistrationComponent = (function () {
     }
     AdminRegistrationComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.JsonDataService.getPlacementCenter().subscribe(function (resJsonData) { return _this.placementCenters = resJsonData; });
+        this.JsonDataService.getJsonData().subscribe(function (resJsonData) { return _this.languages = resJsonData.name; });
+        this.JsonDataService.getProfession().subscribe(function (resJsonData) { return _this.professions = resJsonData; });
         this.PlacementRegisterService.verifyToken(this.route.snapshot.queryParams['confirm']).subscribe(function (res) {
             if (res.msg != 'Session Expired') {
                 if (res.data.username) {
@@ -251,6 +251,8 @@ var AdminRegistrationComponent = (function () {
             _this.router.navigate(['/login']);
             _this.data.openSnackBar("Session Expired", "OK");
         });
+        var createdUser = this.authenticationService.getCreatedBy();
+        createdUser == null ? this.createdBy = this.userForm.value.email : this.createdBy = createdUser;
     };
     //password validation which is calling from form building of passwordControl
     AdminRegistrationComponent.prototype.passwordValidator = function () {
@@ -310,16 +312,24 @@ var AdminRegistrationComponent = (function () {
     };
     AdminRegistrationComponent.prototype.save = function (userdata) {
         var _this = this;
+        this.landmark = userdata.get('locationControl').value.split(',')[0];
+        this.district = userdata.get('locationControl').value.split(',')[1];
+        this.state = userdata.get('locationControl').value.split(',')[2];
         var userData = {
-            profileData: { name: userdata.get('firstNameControl').value, lastName: userdata.get('lastNameControl').value,
+            profileData: { fname: userdata.get('firstNameControl').value, lName: userdata.get('lastNameControl').value,
                 gender: userdata.get('genderControl').value, email: userdata.get('emailControl').value,
                 mobileNumber: userdata.get('mobileControl').value, role: userdata.get('roleControl').value,
                 profession: userdata.get('professionControl').value,
+                pincode: userdata.get('pincodeControl').value,
+                district: this.district,
+                landmark: this.landmark,
+                state: this.state,
                 location: userdata.get('locationControl').value,
                 placementCenter: userdata.get('placementControl').value,
                 language: userdata.get('languageControl').value,
                 aadharNumber: userdata.get('aadharControl').value,
-                registerID: userdata.get('registrationControl').value
+                registerID: userdata.get('registrationControl').value,
+                createdBy: this.createdBy
             },
             userCredentialsData: {
                 username: userdata.get('emailControl').value, password: userdata.get('passwordControl').value,
@@ -349,12 +359,12 @@ var AdminRegistrationComponent = (function () {
             providers: [__WEBPACK_IMPORTED_MODULE_2__services_placement_register_service__["a" /* PlacementRegisterService */]]
         }),
         __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */])), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6_app_services_data_service__["a" /* Data */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6_app_services_data_service__["a" /* Data */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5_app_services_json_data_service__["a" /* JsonDataService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5_app_services_json_data_service__["a" /* JsonDataService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_placement_register_service__["a" /* PlacementRegisterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_placement_register_service__["a" /* PlacementRegisterService */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _f) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6_app_services_authentication_service__["a" /* AuthenticationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6_app_services_authentication_service__["a" /* AuthenticationService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7_app_services_data_service__["a" /* Data */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7_app_services_data_service__["a" /* Data */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5_app_services_json_data_service__["a" /* JsonDataService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5_app_services_json_data_service__["a" /* JsonDataService */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__services_placement_register_service__["a" /* PlacementRegisterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_placement_register_service__["a" /* PlacementRegisterService */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === 'function' && _f) || Object, (typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _g) || Object])
     ], AdminRegistrationComponent);
     return AdminRegistrationComponent;
-    var _a, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/admin-registration.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/admin-registration.component.js.map
 
 /***/ }),
 
@@ -389,7 +399,7 @@ var CandidateRegisterComponent = (function () {
     ], CandidateRegisterComponent);
     return CandidateRegisterComponent;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/candidate-register.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/candidate-register.component.js.map
 
 /***/ }),
 
@@ -416,12 +426,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 var CandidateSearchComponent = (function () {
     function CandidateSearchComponent(fb) {
+        this.cls = 'search-box big-res';
         this.lengthOfProfile = 10;
         this.loopingCount = Math.ceil(10 / 3);
         this.resultProfile = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         this.arr = new Array(this.loopingCount);
         this.count = 0;
         this.loops = -1;
+        this.message = "";
         this.searchForm = fb.group({
             searchControl: ['', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required]],
         });
@@ -442,6 +454,12 @@ var CandidateSearchComponent = (function () {
     CandidateSearchComponent.prototype.getSearch = function () {
         console.log(this.searchForm.value.searchControl);
     };
+    CandidateSearchComponent.prototype.change = function () {
+        this.cls = 'expand-out search-box big-res';
+    };
+    CandidateSearchComponent.prototype.fullView = function () {
+        this.cls = 'expand search-box big-res';
+    };
     CandidateSearchComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-candidate-search',
@@ -454,7 +472,7 @@ var CandidateSearchComponent = (function () {
     return CandidateSearchComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/candidate-search.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/candidate-search.component.js.map
 
 /***/ }),
 
@@ -518,7 +536,7 @@ var DashboardComponent = (function () {
     return DashboardComponent;
     var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/dashboard.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/dashboard.component.js.map
 
 /***/ }),
 
@@ -553,7 +571,7 @@ var EventPostComponent = (function () {
     ], EventPostComponent);
     return EventPostComponent;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/event-post.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/event-post.component.js.map
 
 /***/ }),
 
@@ -564,7 +582,7 @@ var EventPostComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_email_service__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(22);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ForgotPasswordComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -655,7 +673,7 @@ var ForgotPasswordComponent = (function () {
     return ForgotPasswordComponent;
     var _a, _b, _c, _d, _e, _f;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/forgetPassword.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/forgetPassword.component.js.map
 
 /***/ }),
 
@@ -690,7 +708,7 @@ var JobPostComponent = (function () {
     ], JobPostComponent);
     return JobPostComponent;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/job-post.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/job-post.component.js.map
 
 /***/ }),
 
@@ -726,7 +744,7 @@ var LandingPageComponent = (function () {
     ], LandingPageComponent);
     return LandingPageComponent;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/landing-page.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/landing-page.component.js.map
 
 /***/ }),
 
@@ -737,10 +755,10 @@ var LandingPageComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_email_service__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_services_json_data_service__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_services_json_data_service__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_authentication_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_authentication_service__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_uidetails_service__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_data_service__ = __webpack_require__(53);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
@@ -835,7 +853,7 @@ var LoginComponent = (function () {
     return LoginComponent;
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/login.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/login.component.js.map
 
 /***/ }),
 
@@ -845,11 +863,11 @@ var LoginComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_json_data_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_json_data_service__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_services_email_service__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_services_data_service__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_app_services_authentication_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_app_services_authentication_service__ = __webpack_require__(68);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordResetComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -973,7 +991,7 @@ var PasswordResetComponent = (function () {
     return PasswordResetComponent;
     var _a, _b, _c, _d, _e, _f, _g;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/passwordReset.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/passwordReset.component.js.map
 
 /***/ }),
 
@@ -982,8 +1000,8 @@ var PasswordResetComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_json_data_service__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_authentication_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_json_data_service__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_authentication_service__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_services_data_service__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(22);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AfterLoginHeaderComponent; });
@@ -1056,7 +1074,7 @@ var AfterLoginHeaderComponent = (function () {
     return AfterLoginHeaderComponent;
     var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/headerLayout.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/headerLayout.component.js.map
 
 /***/ }),
 
@@ -1107,7 +1125,7 @@ var ProfileCardComponent = (function () {
     ], ProfileCardComponent);
     return ProfileCardComponent;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/profileCard.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/profileCard.component.js.map
 
 /***/ }),
 
@@ -1118,7 +1136,7 @@ var ProfileCardComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_email_service__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_app_services_data_service__ = __webpack_require__(53);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VerifyEmailComponent; });
@@ -1187,7 +1205,7 @@ var VerifyEmailComponent = (function () {
     return VerifyEmailComponent;
     var _a, _b, _c, _d, _e, _f;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/verifyEmail.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/verifyEmail.component.js.map
 
 /***/ }),
 
@@ -1234,7 +1252,7 @@ var AuthGuard = (function () {
     return AuthGuard;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/auth.guard.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/auth.guard.js.map
 
 /***/ }),
 
@@ -1267,7 +1285,7 @@ var PlacementRegisterService = (function () {
         this.url = '';
     }
     PlacementRegisterService.prototype.add = function (userdata) {
-        this.url = '/users';
+        this.url = '/coordinates';
         return this.http.post(this.url, userdata).map(function (response) { return response.json(); });
     };
     PlacementRegisterService.prototype.verifyToken = function (token) {
@@ -1284,7 +1302,7 @@ var PlacementRegisterService = (function () {
     return PlacementRegisterService;
     var _a;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/placement-register.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/placement-register.service.js.map
 
 /***/ }),
 
@@ -1293,7 +1311,7 @@ var PlacementRegisterService = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(87);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Data; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1323,7 +1341,7 @@ var Data = (function () {
     return Data;
     var _a;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/data.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/data.service.js.map
 
 /***/ }),
 
@@ -1358,7 +1376,7 @@ if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["enableProdMode"])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/main.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/main.js.map
 
 /***/ }),
 
@@ -1368,9 +1386,134 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+// this service is used to authenticate the current user is logged in or not
+var AuthenticationService = (function () {
+    function AuthenticationService(http, router) {
+        this.http = http;
+        this.router = router;
+        this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Content-Type': 'application/json' });
+        // set token if saved in local storage
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.token = currentUser && currentUser.token;
+    }
+    AuthenticationService.prototype.login = function (username, password) {
+        var _this = this;
+        return this.http.post('/auth', { username: username, password: password })
+            .map(function (response) {
+            // login successful if there's a jwt token in the response
+            var token = response.json().authToken;
+            if (token) {
+                console.log(token);
+                // set token property
+                _this.token = token;
+                // store username and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token, role: response.json().role }));
+                // return true to indicate successful login
+                return response.json();
+            }
+            else {
+                // return false to indicate failed login
+                return response.json();
+            }
+        });
+    };
+    AuthenticationService.prototype.logout = function () {
+        // clear token remove user from local storage to log user out
+        this.token = null;
+        localStorage.removeItem('currentUser');
+        this.router.navigate(['/']);
+    };
+    AuthenticationService.prototype.getPasswordResetToken = function (token, username) {
+        var _this = this;
+        return this.http.post('/emailverify/passwordResetToken', { username: username, token: token })
+            .map(function (response) {
+            // login successful if there's a jwt token in the response
+            var token = response.json().authToken;
+            if (token) {
+                // set token property
+                _this.token = token;
+                // return true to indicate successful login
+                return response.json();
+            }
+            else {
+                // return false to indicate failed login
+                return response.json();
+            }
+        });
+    };
+    //change password for existing placement role user
+    AuthenticationService.prototype.passwordChange = function (email, password) {
+        return this.http.post('/auth/reset-password', { username: email, password: password })
+            .map(function (response) {
+            // login successful if there's a jwt token in the response
+            return response.json();
+        });
+    };
+    AuthenticationService.prototype.socialAuthentication = function (socialSite) {
+        return this.http.get('/auth/facebook', this.authoriZation())
+            .map(function (response) {
+            // login successful if there's a jwt token in the response
+            return response.json();
+        });
+    };
+    AuthenticationService.prototype.getEmail = function (token) {
+        return this.http.post('/auth/verify-email', { token: token })
+            .map(function (response) {
+            // login successful if there's a jwt token in the response
+            return response.json();
+        });
+    };
+    AuthenticationService.prototype.getCreatedBy = function () {
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser) {
+            return currentUser.username;
+        }
+        else {
+            return currentUser;
+        }
+    };
+    AuthenticationService.prototype.authoriZation = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Access-Control-Allow-Origin': "*", "Access-Control-Allow-Headers": "X-Requested-With" });
+        return new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+    };
+    AuthenticationService = __decorate([
+        // map operatror for observable
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
+    ], AuthenticationService);
+    return AuthenticationService;
+    var _a, _b;
+}());
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/authentication.service.js.map
+
+/***/ }),
+
+/***/ 69:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(22);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JsonDataService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1399,6 +1542,12 @@ var JsonDataService = (function () {
         this.mygovKey = 'bb69790db92cb17b4b5c8b3bf4f9fc02';
         this.urlPincode = 'https://data.gov.in/api/datastore/resource.json?resource_id=6176ee09-3d56-4a3b-8115-21841576b2f6&api-key='
             + this.mygovKey + '&filters[pincode]=';
+        // url to get profession
+        this.urlProfession = 'resources/profession';
+        // url to get locations
+        this.urlLocations = 'resources/locations';
+        // url to get placementCenter
+        this.urlPlacementCenter = 'resources/placementCenter';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Content-Type': 'application/json' });
     }
     //snackBar for notification
@@ -1424,11 +1573,11 @@ var JsonDataService = (function () {
     };
     ;
     JsonDataService.prototype.getJsonNavList = function (tokenVerification) {
+        console.log(tokenVerification);
         this.url = '/auth/nav-menus';
         return this.http.get(this.url, this.authoriZation(tokenVerification))
             .map(function (response) {
-            var body = response.json();
-            return body;
+            response.json();
         });
     };
     JsonDataService.prototype.authoriZation = function (userToken) {
@@ -1438,9 +1587,17 @@ var JsonDataService = (function () {
         }
     };
     JsonDataService.prototype.getPincode = function (pincode) {
-        console.log(pincode);
         return this.http.get(this.urlPincode + pincode)
             .map(function (response) { return response.json(); });
+    };
+    ;
+    JsonDataService.prototype.getProfession = function () {
+        return this.http.get(this.urlProfession).map(function (response) { return response.json(); });
+    };
+    ;
+    // get json data for placementCenter
+    JsonDataService.prototype.getPlacementCenter = function () {
+        return this.http.get(this.urlPlacementCenter).map(function (response) { return response.json(); });
     };
     ;
     JsonDataService = __decorate([
@@ -1450,7 +1607,7 @@ var JsonDataService = (function () {
     return JsonDataService;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/json-data.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/json-data.service.js.map
 
 /***/ }),
 
@@ -1542,7 +1699,7 @@ var AppRoutingModule = (function () {
     return AppRoutingModule;
 }());
 ;
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/app-routing.module.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/app-routing.module.js.map
 
 /***/ }),
 
@@ -1551,7 +1708,7 @@ var AppRoutingModule = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_authentication_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_authentication_service__ = __webpack_require__(68);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1585,7 +1742,7 @@ var AppComponent = (function () {
     return AppComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/app.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/app.component.js.map
 
 /***/ }),
 
@@ -1597,7 +1754,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_hammerjs__ = __webpack_require__(795);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_hammerjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_md2__ = __webpack_require__(824);
@@ -1613,11 +1770,11 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_job_post_job_post_component__ = __webpack_require__(476);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dashboard_dashboard_component__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_admin_registration_admin_registration_component__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_authentication_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_authentication_service__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_placement_register_service__ = __webpack_require__(484);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_auth_guard__ = __webpack_require__(483);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_app_services_email_service__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_app_services_json_data_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_app_services_json_data_service__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_app_services_uidetails_service__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_app_services_data_service__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angular2_google_maps_core__ = __webpack_require__(738);
@@ -1724,7 +1881,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/app.module.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/app.module.js.map
 
 /***/ }),
 
@@ -1759,7 +1916,7 @@ var EmployersComponent = (function () {
     ], EmployersComponent);
     return EmployersComponent;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/employers.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/employers.component.js.map
 
 /***/ }),
 
@@ -1794,7 +1951,7 @@ var FooterComponent = (function () {
     ], FooterComponent);
     return FooterComponent;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/footer.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/footer.component.js.map
 
 /***/ }),
 
@@ -1803,7 +1960,7 @@ var FooterComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_json_data_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_json_data_service__ = __webpack_require__(69);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginFooterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1839,7 +1996,7 @@ var LoginFooterComponent = (function () {
     return LoginFooterComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/login-footer.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/login-footer.component.js.map
 
 /***/ }),
 
@@ -1848,7 +2005,7 @@ var LoginFooterComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_json_data_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_json_data_service__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(22);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginHeaderComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1898,7 +2055,7 @@ var LoginHeaderComponent = (function () {
     return LoginHeaderComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/login-header.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/login-header.component.js.map
 
 /***/ }),
 
@@ -1914,7 +2071,7 @@ var LoginHeaderComponent = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/environment.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/src/environment.js.map
 
 /***/ }),
 
@@ -1949,7 +2106,7 @@ module.exports = ""
 /***/ 837:
 /***/ (function(module, exports) {
 
-module.exports = "md-card {\n    max-width: 700px;\n    margin: auto;\n    background: #ebebe0;\n}\n.full-width {\n    width: 100%;\n    margin-top: 10px;\n    margin-bottom: 10px;\n    padding: 0px;\n}\n.errorStyle {\n    position: absolute;\n    font-size: 12px;\n    -webkit-transition: all .7s;\n    transition: all .7s;\n    color: #F44336;\n}\n.view{\n    position: fixed;\n\n}\n.search-icon {\n    position: absolute;\n    top: 50%;\n    right: 25px;\n    margin-top: -10px;\n}\n\n.loginCard{\n    text-align: center;\n}\nbutton{\n    position: absolute;\n   margin-top:20px;\n   padding:0px; \n   margin-left: -10px;\n\n}\n\n@media (min-width: 10px) {\n    md-card {\n        top: 56px;\n        width:200px;\n    }\n    .loading {\n        padding-left: 40%;\n        padding-top: 50%;\n    }\n}\n\n@media (min-width: 320px) {\n\n    md-card {\n        top: 56px;\n        width:310px;\n    }\n    \n    \n}\n\n\n\n\n/*for Medium screens*/\n\n\n@media (min-width: 350px) {\n    md-card {\n        top: 70px;\n                width:300px;\n\n    }\n    .loading {\n        padding-left: 40%;\n        padding-top: 50%;\n    }\n}\n@media (min-width: 400px) {\n\n    md-card {\n        top: 56px;\n        width:260px;\n    }\n    \n    \n}\n\n\n@media (min-width: 480px) {\n    md-card {\n        top: 70px;\n                width:450px;\n\n    }\n    .loading {\n        padding-left: 40%;\n        padding-top: 50%;\n    }\n}\n\n/*for large screens*/\n\n@media (min-width: 768px) {\n    md-card {\n        top: 100px;\n                width:550px;\n\n    }\n    .loading {\n        padding-left: 47%;\n        padding-top: 10%;\n    }\n}\n\n\n"
+module.exports = "\n.full-width {\n    width: 100%;\n    margin: auto;\n}\n.error-style {\n    \n    font-size: 12px;\n    -webkit-transition: all .7s;\n    transition: all .7s;\n    color: #F44336;\n}\n.view{\n    position: fixed;\n\n}\n.search-icon {\n    position: absolute;\n    top: 50%;\n    right: 25px;\n    margin-top: -10px;\n}\n\n.loginCard{\n    text-align: center;\n}\n\nbutton\n{\n    margin:0px 5px;\n}\n.pull-right\n{\n    float: right;\n\n}\n.search-box\n{\n    width:80%;\n    margin:auto;\n        }\n\n.width-75\n{\n    width:75%;\n    margin:auto;\n}\n.pull-left\n{\n    float: left;\n}\n.expand{\n\n  -webkit-animation: moveDown 1s .1s ease forwards;\n  animation: moveDown 1s .1s ease forwards;\n}\n\n \n@-webkit-keyframes moveDown {\n  \n  \n  100% {\n   width:65%;\n  }\n}\n\n@keyframes moveDown {\n\n  100% {\n   width:65%;\n  }\n}\n\n.expand-out{\n\n  -webkit-animation: moveDowns 1s .1s ease forwards;\n  animation: moveDowns 1s .1s ease forwards;\n}\n\n\n@-webkit-keyframes moveDowns {\n  0% {\n   }\n  50% {\n    \n  }\n  100% {\n   width:100%;\n  }\n}\n\n@keyframes moveDowns {\n  0% {\n   }\n  50% {\n    \n  }\n  100% {\n\n   width:100%;\n  }\n}\n \n.paddings\n{\n    padding:1% 5%;\n    \n}\n.big-res\n{\n    font-size: 40px;\n}\n.form-style\n{  \n  box-shadow:         3px 3px 5px 6px #ccc; \n  -webkit-animation: blink 1s linear infinite; \n          animation: blink 1s linear infinite;\n}\n\n@-webkit-keyframes blink\n{\n    50%{  \n  box-shadow:         3px 3px 5px 6px #6d587a; \n    }\n}\n\n@keyframes blink\n{\n    50%{  \n  box-shadow:         3px 3px 5px 6px #6d587a; \n    }\n}\n\n\n@media (max-width: 400px) {\n.big-res\n    {\n    font-size: 25px;\n}\n    \n}\n\n@media (max-width: 551px) {\n.big-res\n    {\n    font-size: 30px;\n}\n    \n}\n\n\n\n\n"
 
 /***/ }),
 
@@ -2082,7 +2239,7 @@ module.exports = "<p>\n    Candidate Register page\n</p>\n<p>\n    Coming soon..
 /***/ 856:
 /***/ (function(module, exports) {
 
-module.exports = "<app-login-header></app-login-header>\n\n\n<md-grid-list cols=\"1\" rowHeight=\"1750\">\n  <md-grid-tile>\n\n  </md-grid-tile>\n  \n  <md-card class=\"loginCard\">\n      \n      <md-card-content>\n    <form [formGroup]=\"searchForm\">\n       \n          <!--Email-->\n          <div fxLayout=\"row\" >\n            <div fxFlex=\"99\" fxFlex.xs=\"77\" fxFlex.sm=\"82\">\n              <md-input-container class=\"full-width\">\n\n                <input formControlName=\"searchControl\" mdInput placeholder=\"Search Candidate\" (keyup.enter)=\"getSearch()\"/>\n                <md-hint align=\"start\" class=\"full-width\">\n                 \n  <!-- Search required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"searchForm.get('searchControl').hasError('required') && searchForm.get('searchControl').touched\">\n                    Search field is required\n                  </div>\n<!--<div *ngFor=\"let abou of [1,2,3]\" class=\"container container-padding about-item \" fxLayout fxLayout.md=\"row\" fxLayoutGap.md=\"10px\" fxLayout.sm=\"column\" fxLayoutGap.sm=\"10px\" fxLayout.xs=\"column\" fxLayoutGap=\"10px\" fxLayoutGap.xs=\"10px\">\n\n<div class=\"profile\" *ngFor=\"let num of [1,2,3]\">\n<profile-card></profile-card>\n</div>\n</div>-->\n                </md-hint>\n              </md-input-container>\n               <!--<a  class=\"search-icon\">\n       <i class=\"material-icons\">search</i>\n    </a>-->\n            </div>\n                <!--<div fxFlex=\"7\" fxFlex.xs=\"4\" fxFlex.sm=\"6\">\n                    <button md-raised-button color=\"accent\" ><i class=\"material-icons\">search</i></button>\n                </div>-->\n          </div>\n          <div fxLayout=\"row\" >\n            <div fxFlex=\"99\" fxFlex.xs=\"77\" fxFlex.sm=\"82\">\n                    \n            </div>\n          </div>\n         \n    </form>\n      </md-card-content>\n  </md-card>\n  <div fxLayout=\"row\" >\n<div class=\"view\" fxFlex>\n  View as:\n                <button md-raised-button color=\"accent\" >Detail</button>\n                <button md-raised-button color=\"accent\" >Thumbnail</button>\n\n  </div>\n  </div>\n\n</md-grid-list>\n"
+module.exports = "\r\n<div class=\"container paddings\"\r\n     fxLayout\r\n     fxLayout.xs=\"column\"\r\n     fxLayoutAlign=\"center\"\r\n         fxLayoutGap.xs=\"0\">\r\n\r\n  <div  fxFlex  fxFlexOffset.xs=\"0\" class=\"full-width form-style\">\r\n    \r\n <form [formGroup]=\"searchForm\" class={{cls}}>\r\n\r\n                <md-input-container class=\"full-width\">\r\n                    <input formControlName=\"searchControl\" mdInput placeholder=\"Search Candidate\" (focus)=\"change()\" (blur)=\"fullView()\" (keyup.enter)=\"getSearch() \" />\r\n                    <md-hint>\r\n                    <p class=\"error-style\">\r\n                    {{message}}\r\n                  </p>\r\n                  </md-hint>\r\n                  </md-input-container>\r\n                </form>\r\n              </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2181,122 +2338,6 @@ module.exports = "<div [class]=\"flip1\">\n\n    <md-card class=\"cardColor prof
 /***/ (function(module, exports) {
 
 module.exports = "<!--login Header-->\n<app-login-header></app-login-header>\n\n<!--login card-->\n<md-grid-list cols=\"1\" rowHeight=\"600px\">\n    <md-grid-tile>\n        <md-card class=\"loginCard\">\n            <md-card-title>Verify Email</md-card-title>\n            <md-card-content>\n                <form class=\"col s12\" [formGroup]=\"userForm\" (ngSubmit)=\"onVerifyLink()\">\n                    <div fxLayout=\"row\" fxLayoutAlign=\"start none\">\n                        <div fxFlex>\n                            <i class=\"material-icons formIcons\">supervisor_account</i>\n                        </div>\n                        <div fxFlex=\"93\" >\n                            <md-radio-group formControlName=\"role\" class=\"full-width\">\n                                <md-radio-button value=\"Coordinator\">Coordinator</md-radio-button>\n                                <md-radio-button value=\"Supervisor\">Supervisor</md-radio-button>\n                            </md-radio-group>\n                        <div *ngIf=\"userForm.get('role').hasError('required') && userForm.get('role').touched\" class=\"errorStyle full-width\">\n                            Email is required\n                        </div>\n                          </div>\n                    </div>\n                    <!--Email input-->\n                    <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n                        <div fxFlex>\n                            <i class=\"material-icons formIcons\">email</i>\n                        </div>\n                        <div fxFlex=\"93\">\n                            <md-input-container class=\"full-width\">\n                                <input mdInput formControlName=\"email\" id=\"email\" type=\"text\" class=\"validate\" placeholder=\"Email\" />\n                                <md-hint align=\"start\" class=\"full-width\">\n                                    <div *ngIf=\"userForm.get('email').hasError('required') && userForm.get('email').touched\" class=\"errorStyle\">\n                                        Email is required\n                                    </div>\n                                    <div *ngIf=\"userForm.get('email').hasError('pattern') && userForm.get('email')\" class=\"errorStyle\">\n                                        Invalid email\n                                    </div>\n                                </md-hint>\n                            </md-input-container>\n                        </div>\n                    </div>\n\n                    <!--Reset in button-->\n                    <div fxLayout=\"row\" fxLayout.xs=\"column\">\n                        <div fxFlex=\"48\">\n                            <button md-raised-button color=\"primary\" class=\"full-width\" type=\"submit\" [disabled]=\"!userForm.valid\">Verify</button>\n                        </div>\n                        <div fxFlex></div>\n                        <div fxFlex=\"48\">\n                            <button md-raised-button color=\"warn\" class=\"full-width\" (click)=onBack()>Back</button>\n                        </div>\n                    </div>\n                </form>\n            </md-card-content>\n        </md-card>\n        <!--card-ends-->\n    </md-grid-tile>\n</md-grid-list>\n\n<!--footer-->\n<app-login-footer></app-login-footer>"
-
-/***/ }),
-
-/***/ 89:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-// this service is used to authenticate the current user is logged in or not
-var AuthenticationService = (function () {
-    function AuthenticationService(http, router) {
-        this.http = http;
-        this.router = router;
-        this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Content-Type': 'application/json' });
-        // set token if saved in local storage
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.token;
-    }
-    AuthenticationService.prototype.login = function (username, password) {
-        var _this = this;
-        return this.http.post('/auth', { username: username, password: password })
-            .map(function (response) {
-            // login successful if there's a jwt token in the response
-            var token = response.json().authToken;
-            if (token) {
-                console.log(token);
-                // set token property
-                _this.token = token;
-                // store username and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token, role: response.json().role }));
-                // return true to indicate successful login
-                return response.json();
-            }
-            else {
-                // return false to indicate failed login
-                return response.json();
-            }
-        });
-    };
-    AuthenticationService.prototype.logout = function () {
-        // clear token remove user from local storage to log user out
-        this.token = null;
-        localStorage.removeItem('currentUser');
-        this.router.navigate(['/']);
-    };
-    AuthenticationService.prototype.getPasswordResetToken = function (token, username) {
-        var _this = this;
-        return this.http.post('/emailverify/passwordResetToken', { username: username, token: token })
-            .map(function (response) {
-            // login successful if there's a jwt token in the response
-            var token = response.json().authToken;
-            if (token) {
-                // set token property
-                _this.token = token;
-                // return true to indicate successful login
-                return response.json();
-            }
-            else {
-                // return false to indicate failed login
-                return response.json();
-            }
-        });
-    };
-    //change password for existing placement role user
-    AuthenticationService.prototype.passwordChange = function (email, password) {
-        return this.http.post('/auth/reset-password', { username: email, password: password })
-            .map(function (response) {
-            // login successful if there's a jwt token in the response
-            return response.json();
-        });
-    };
-    AuthenticationService.prototype.socialAuthentication = function (socialSite) {
-        return this.http.get('/auth/facebook', this.authoriZation())
-            .map(function (response) {
-            // login successful if there's a jwt token in the response
-            return response.json();
-        });
-    };
-    AuthenticationService.prototype.getEmail = function (token) {
-        return this.http.post('/auth/verify-email', { token: token })
-            .map(function (response) {
-            // login successful if there's a jwt token in the response
-            return response.json();
-        });
-    };
-    AuthenticationService.prototype.authoriZation = function () {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Access-Control-Allow-Origin': "*", "Access-Control-Allow-Headers": "X-Requested-With" });
-        return new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
-    };
-    AuthenticationService = __decorate([
-        // map operatror for observable
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
-    ], AuthenticationService);
-    return AuthenticationService;
-    var _a, _b;
-}());
-//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/samarthyaPlatform/webclient/placement/webclient/authentication.service.js.map
 
 /***/ }),
 

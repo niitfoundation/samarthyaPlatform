@@ -143,6 +143,7 @@ router.post('/reset-password', function(req, res, next) {
 // middleware to verify user token for authentication and pass the decoded token to other request
 router.use(function(req, res, next) {
   try {
+    console.log("adsf");
     // check header or url parameters or post parameters for token
     logger.debug('Authorization begin by getting token from http request');
     const token = req.body.token || req.headers.authorization;
@@ -170,6 +171,7 @@ router.use(function(req, res, next) {
   }
 });
 router.get('/nav-menus', function(req, res) {
+  console.log("re" +req.decoded.role)
   let role = req.decoded.role;
   try {
     authCtrl.getMenus(role).then((successResult) => {
