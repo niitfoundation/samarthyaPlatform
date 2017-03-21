@@ -1,24 +1,34 @@
 const UserModel = require('./../users/users.entity');
 const logger = require('./../../../../applogger');
-const profileModel = require('./profile.entity');
+const ProfileModel = require('./profile.entity');
+const profileDataModel = require('./profile.model');
+
 /*
  *
  */
 
 const viewProfile = function(profileObj) {
 
-    // @TODO
-    // Get the profile schema and perform get operations
-    // Get the profile data on user demand
-    // use promise for database operations and return result
-
 };
 
-const createProfile = function(profileObj) {
 
-    // @TODO
-    // Get the profile schema and perform add operations
-    // use promise for database operations and return result
+// Add profile details
+const createProfile = function(profileObj) {
+    // Add/modify profile model
+    let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
+
+    return new Promise((resolve, reject) => {
+        userData.save(function(err, data) {
+            if (err) {
+                logger.error('profile data not added sucessfully' + err);
+                reject(err);
+            } else {
+                logger.error('profile data added successfully' + err);
+                // inserts profile details
+                resolve({ msg: 'Profile data Added successfully' });
+            }
+        });
+    });
 
 };
 const editProfile = function(profileObj) {

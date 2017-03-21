@@ -5,15 +5,15 @@ const mongoose = require('mongoose');
  * This is a profile schema, for persisting profile details of each user registered in the system
  */
 
-const profileSchema = new Schema({
+const profileSchema = mongoose.Schema({
     username: { type: String, required: true, unique: true },
     profession: { type: String, required: true },
     centerCode: { type: String, required: true },
     pic: { type: String, default: '', },
     createdOn: { type: Date, required: true, default: Date.now },
-    createdBy: { type: Date, required: true, default: Date.now },
+    createdBy: { type: String, required: true },
     updatedOn: { type: Date, required: true, default: Date.now },
-    updatedBy: { type: Date, required: true, default: Date.now },
+    updatedBy: { type: String, required: true },
     personalinfo: {
         displayname: { type: String, required: true, min: 4, max: 15 },
         fname: { type: String, required: true, min: 4 },
@@ -22,7 +22,8 @@ const profileSchema = new Schema({
         age: { type: Number, required: true, virtuals: true },
         gender: { type: String, required: true },
         email: { type: String, required: true, unique: true },
-        altemail: { type: String, default: '', },
+        altemail: { type: String, default: '' },
+        role: { type: String, default: '' },
         contact: [{
             I: { type: String, required: true, min: 10, max: 10 },
             II: { type: String, default: '', }

@@ -1,10 +1,16 @@
-
+md-card {
+    max-width: 700px;
+    margin: auto;
+    background: #ebebe0;
+}
 .full-width {
     width: 100%;
-    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0px;
 }
-.error-style {
-    
+.errorStyle {
+    position: absolute;
     font-size: 12px;
     transition: all .7s;
     color: #F44336;
@@ -23,127 +29,87 @@
 .loginCard{
     text-align: center;
 }
-
-button
-{
-    margin:0px 5px;
-}
-.pull-right
-{
-    float: right;
+button{
+    position: absolute;
+   margin-top:20px;
+   padding:0px; 
+   margin-left: -10px;
 
 }
-.search-box
-{
-    width:80%;
-    margin:auto;
-        }
 
-.width-75
-{
-    width:75%;
-    margin:auto;
-}
-.pull-left
-{
-    float: left;
-}
-.expand{
-
-  -webkit-animation: moveDown 1s .1s ease forwards;
-  animation: moveDown 1s .1s ease forwards;
-}
-
- 
-@-webkit-keyframes moveDown {
-  
-  
-  100% {
-   width:65%;
-  }
-}
-
-@keyframes moveDown {
-
-  100% {
-   width:65%;
-  }
-}
-
-.expand-out{
-
-  -webkit-animation: moveDowns 1s .1s ease forwards;
-  animation: moveDowns 1s .1s ease forwards;
-}
-
-
-@-webkit-keyframes moveDowns {
-  0% {
-   }
-  50% {
-    
-  }
-  100% {
-   width:100%;
-  }
-}
-
-@keyframes moveDowns {
-  0% {
-   }
-  50% {
-    
-  }
-  100% {
-
-   width:100%;
-  }
-}
- 
-.paddings
-{
-    padding:1% 5%;
-    
-}
-.big-res
-{
-    font-size: 40px;
-}
-.form-style
-{
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;  
-  box-shadow:         3px 3px 5px 6px #ccc; 
-  animation: blink 1s linear infinite;
-}
-
-@keyframes blink
-{
-    50%{
-
-    -webkit-box-shadow: 3px 3px 5px 6px #6d587a;  
-  -moz-box-shadow:    3px 3px 5px 6px #6d587a;  
-  box-shadow:         3px 3px 5px 6px #6d587a; 
+@media (min-width: 10px) {
+    md-card {
+        top: 56px;
+        width:200px;
+    }
+    .loading {
+        padding-left: 40%;
+        padding-top: 50%;
     }
 }
 
+@media (min-width: 320px) {
 
-@media (max-width: 400px) {
-.big-res
-    {
-    font-size: 25px;
-}
+    md-card {
+        top: 56px;
+        width:310px;
+    }
     
-}
-
-@media (max-width: 551px) {
-.big-res
-    {
-    font-size: 30px;
-}
     
 }
 
 
+
+
+/*for Medium screens*/
+
+
+@media (min-width: 350px) {
+    md-card {
+        top: 70px;
+                width:300px;
+
+    }
+    .loading {
+        padding-left: 40%;
+        padding-top: 50%;
+    }
+}
+@media (min-width: 400px) {
+
+    md-card {
+        top: 56px;
+        width:260px;
+    }
+    
+    
+}
+
+
+@media (min-width: 480px) {
+    md-card {
+        top: 70px;
+                width:450px;
+
+    }
+    .loading {
+        padding-left: 40%;
+        padding-top: 50%;
+    }
+}
+
+/*for large screens*/
+
+@media (min-width: 768px) {
+    md-card {
+        top: 100px;
+                width:550px;
+
+    }
+    .loading {
+        padding-left: 47%;
+        padding-top: 10%;
+    }
+}
 
 

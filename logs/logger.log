@@ -34,6 +34,7 @@
 [2017-03-20 19:04:29.134] [DEBUG] [default] - Mongoose is now disconnected..!
 [2017-03-20 19:17:29.613] [DEBUG] [default] - Server running  on 3000
 [2017-03-20 19:17:29.628] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+<<<<<<< HEAD
 [2017-03-20 20:43:54.312] [DEBUG] [default] - Server running  on 3000
 [2017-03-20 20:43:54.327] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
 [2017-03-20 21:13:53.026] [DEBUG] [default] - Mongoose is now disconnected..!
@@ -69,3 +70,14 @@
 [2017-03-21 12:13:09.299] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
 [2017-03-21 12:24:42.448] [DEBUG] [default] - Server running  on 3000
 [2017-03-21 12:24:42.464] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+=======
+[2017-03-20 20:45:38.104] [DEBUG] [default] - Server running  on 3000
+[2017-03-20 20:45:38.144] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-20 20:50:08.434] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 11:48:13.002] [DEBUG] [default] - Server running  on 3000
+[2017-03-21 11:48:13.048] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 12:11:31.721] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 12:11:33.523] [DEBUG] [default] - Server running  on 3000
+[2017-03-21 12:11:33.543] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 12:11:35.410] [DEBUG] [default] - Mongoose is now disconnected..!
+>>>>>>> 2a0e77bbead66a8d1f1e8deea9341859924bd885

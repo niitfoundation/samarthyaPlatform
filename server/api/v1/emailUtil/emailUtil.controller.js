@@ -38,7 +38,6 @@ let sendEmail = function(jsonobj) {
                 from: appConstant.emailDetails.user,
                 to: jsonobj.username,
                 subject: jsonobj.subject,
-
                 html: '<h1>SAMARTHYA</h1><br><img src=\'https://cellpartzone.com/image/catalog/Career.jpg\' alt=\'Samarthya.com\'><br><h3 style=\'color : red\'>Please click below to reset password with Samarthya<h3> <br><button type=\'button\' style=\'background-color : green;padding: 14px 25px;\'><a style=\'text-decoration : none;color : white\' href=' + link + '/passwordReset?confirm=' + token + '>Change Password</a></button>'
             };
         } else {
