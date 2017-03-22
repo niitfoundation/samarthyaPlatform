@@ -5,7 +5,7 @@ const logger = require('./../../../../applogger');
 /*
  * Authenticate the user
  */
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
     let authData = req.body;
     logger.debug(authData);
     logger.debug('Get object and store into authData');
@@ -32,28 +32,28 @@ router.post('/', function(req, res, next) {
 /*
  *if user is not exist send the verification mail
  */
-router.post('/register-email', function(req, res) {
+router.post('/register-email', function (req, res) {
     try {
         let param = req.body;
         // check the user is available or not
         authCtrl.checkUser(param.username).then((data) => {
-                if (data.length == 0) {
-                    // if user is does not exit send mail
-                    param.host = req.get('host');
-                    emailCtrl.sendEmail(param).then((successResult) => {
-                            return res.status(201).send(successResult.msg);
-                        },
-                        (err) => {
-                            return res.status(500).send({
-                                error: 'Internal error occurred, please try later..!'
-                            });
+            if (data.length == 0) {
+                // if user is does not exit send mail
+                param.host = req.get('host');
+                emailCtrl.sendEmail(param).then((successResult) => {
+                    return res.status(201).send(successResult);
+                },
+                    (err) => {
+                        return res.status(500).send({
+                            error: 'Internal error occurred, please try later..!'
                         });
-                } else {
-                    return res.status(403).send({
-                        msg: 'user already exist'
                     });
-                }
-            },
+            } else {
+                return res.status(403).send({
+                    msg: 'user already exist'
+                });
+            }
+        },
             (err) => {
                 return res.status(500).send({
                     error: 'Internal error occurred, please try later..!',
@@ -66,12 +66,12 @@ router.post('/register-email', function(req, res) {
     }
 });
 
-router.post('/verify-email', function(req, res) {
+router.post('/verify-email', function (req, res) {
     try {
         let objVerify = req.body;
         authCtrl.verifyEmailLink(objVerify).then((successResult) => {
-                return res.status(201).send(successResult);
-            },
+            return res.status(201).send(successResult);
+        },
             err => {
                 return res.status(403).send({
                     msg: 'Session Expired'
@@ -84,28 +84,28 @@ router.post('/verify-email', function(req, res) {
 });
 
 
-router.post('/verify-reset-email', function(req, res) {
+router.post('/verify-reset-email', function (req, res) {
     try {
         let param = req.body;
         // check the user is available or not
         authCtrl.checkUser(param.username).then((data) => {
-                if (data.length == 0) {
-                    // if user is does not exit send mail
-                    return res.status(201).send({
-                        message: 'user does not exist'
-                    });
-                }
-                param.host = req.get('host');
-                emailCtrl.sendEmail(param).then((successResult) => {
-                        return res.status(201).send({ msg: 'sent successfully' });
-                    },
-                    (err) => {
-                        return res.status(500).send({
-                            error: 'Internal error occurred, please try later..!',
-                            msg: "User doesn't exist"
-                        });
-                    });
+            if (data.length == 0) {
+                // if user is does not exit send mail
+                return res.status(201).send({
+                    message: 'user does not exist'
+                });
+            }
+            param.host = req.get('host');
+            emailCtrl.sendEmail(param).then((successResult) => {
+                return res.status(201).send({ msg: 'sent successfully' });
             },
+                (err) => {
+                    return res.status(500).send({
+                        error: 'Internal error occurred, please try later..!',
+                        msg: "User doesn't exist"
+                    });
+                });
+        },
             err => {
                 return res.status(500).send({
                     msg: 'Internal error occurred, please try later..!'
@@ -118,7 +118,7 @@ router.post('/verify-reset-email', function(req, res) {
 });
 
 
-router.post('/reset-password', function(req, res, next) {
+router.post('/reset-password', function (req, res, next) {
     let resetPassword = req.body;
     logger.debug('Get object and store into resetPassword');
     try {
@@ -127,9 +127,9 @@ router.post('/reset-password', function(req, res, next) {
             throw new Error('Invalid inputs passed...!');
         }
         authCtrl.resetPassword(resetPassword).then((successResult) => {
-                logger.info('Get successResult successfully and return back');
-                return res.status(201).send(successResult);
-            },
+            logger.info('Get successResult successfully and return back');
+            return res.status(201).send(successResult);
+        },
             (err) => {
                 logger.error('Internal error occurred');
                 return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
@@ -143,7 +143,7 @@ router.post('/reset-password', function(req, res, next) {
 });
 
 // middleware to verify user token for authentication and pass the decoded token to other request
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
     try {
         // check header or url parameters or post parameters for token
         logger.debug('Authorization begin by getting token from http request');
@@ -170,7 +170,7 @@ router.use(function(req, res, next) {
         return error;
     }
 });
-router.get('/nav-menus', function(req, res) {
+router.get('/nav-menus', function (req, res) {
     let role = req.decoded.role;
     try {
         authCtrl.getMenus(role).then((successResult) => {

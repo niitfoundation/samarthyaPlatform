@@ -1,83 +1,89 @@
-[2017-03-20 18:23:13.532] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 18:23:13.563] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 18:23:15.904] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 18:23:17.730] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 18:23:17.752] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 18:24:07.372] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com',
-  password: 'dsakjkjdsaf' }
-[2017-03-20 18:24:07.374] [DEBUG] [default] - Get object and store into authData
-[2017-03-20 18:24:07.374] [DEBUG] [default] - Token is generated
-[2017-03-20 18:24:07.457] [DEBUG] [default] - Invalid Credentials
-[2017-03-20 18:24:07.458] [ERROR] [default] - Internal error occurred
-[2017-03-20 18:24:11.953] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'samarthya' }
-[2017-03-20 18:24:11.953] [DEBUG] [default] - Get object and store into authData
-[2017-03-20 18:24:11.954] [DEBUG] [default] - Token is generated
-[2017-03-20 18:24:11.963] [DEBUG] [default] - Data find and resolve here
-[2017-03-20 18:24:11.963] [INFO] [default] - Get successResult successfully and return back
-[2017-03-20 18:24:12.029] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-20 18:24:12.032] [DEBUG] [default] - Token matched
-[2017-03-20 18:24:12.033] [INFO] [default] - Token verified
-[2017-03-20 18:31:27.025] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 18:31:29.592] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 18:31:29.608] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 18:34:54.180] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 18:34:56.620] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 18:34:56.635] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 18:38:19.387] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 18:38:36.224] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 18:38:36.238] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 18:51:35.906] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 18:51:37.416] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 18:51:37.432] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 19:04:19.026] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 19:04:19.042] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 19:04:29.134] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 19:17:29.613] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 19:17:29.628] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-<<<<<<< HEAD
-[2017-03-20 20:43:54.312] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 20:43:54.327] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 21:13:53.026] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 21:13:55.858] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 21:13:56.004] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 21:14:15.562] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'samarthya' }
-[2017-03-20 21:14:15.566] [DEBUG] [default] - Get object and store into authData
-[2017-03-20 21:14:15.566] [DEBUG] [default] - Token is generated
-[2017-03-20 21:14:15.594] [DEBUG] [default] - Data find and resolve here
-[2017-03-20 21:14:15.595] [INFO] [default] - Get successResult successfully and return back
-[2017-03-20 21:16:34.710] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 21:16:36.479] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 21:16:36.496] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 21:17:38.275] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 21:17:39.797] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 21:17:39.813] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 21:18:30.202] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 21:18:32.150] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 21:18:32.166] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 21:19:24.053] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 21:19:25.559] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 21:19:25.575] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 21:20:49.516] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-20 21:20:50.813] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 21:20:50.829] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 12:00:27.219] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'samarthya' }
-[2017-03-21 12:00:27.224] [DEBUG] [default] - Get object and store into authData
-[2017-03-21 12:00:27.225] [DEBUG] [default] - Token is generated
-[2017-03-21 12:00:27.306] [DEBUG] [default] - Data find and resolve here
-[2017-03-21 12:00:27.307] [INFO] [default] - Get successResult successfully and return back
-[2017-03-21 12:12:59.261] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 12:13:09.230] [DEBUG] [default] - Server running  on 3000
-[2017-03-21 12:13:09.299] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 12:24:42.448] [DEBUG] [default] - Server running  on 3000
-[2017-03-21 12:24:42.464] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-=======
-[2017-03-20 20:45:38.104] [DEBUG] [default] - Server running  on 3000
-[2017-03-20 20:45:38.144] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-20 20:50:08.434] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 11:48:13.002] [DEBUG] [default] - Server running  on 3000
-[2017-03-21 11:48:13.048] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 12:11:31.721] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 12:11:33.523] [DEBUG] [default] - Server running  on 3000
-[2017-03-21 12:11:33.543] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 12:11:35.410] [DEBUG] [default] - Mongoose is now disconnected..!
->>>>>>> 2a0e77bbead66a8d1f1e8deea9341859924bd885
+[2017-03-21 16:52:57.398] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 16:53:04.208] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:53:04.234] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:53:05.310] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:53:05.321] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:53:14.646] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-21 16:53:17.857] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:53:17.874] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:55:33.314] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 16:55:34.532] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 16:55:39.136] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:55:39.205] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:55:40.944] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:55:40.954] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:55:46.166] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-21 16:55:49.678] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:55:49.692] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:57:25.394] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 16:57:26.671] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 16:57:31.124] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:57:31.164] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:57:35.105] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:57:35.116] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:57:41.328] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-21 16:57:44.789] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:57:44.801] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:58:17.060] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 16:58:18.297] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 16:58:22.810] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:58:22.857] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:58:24.262] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:58:24.274] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:58:42.835] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-21 16:58:46.335] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:58:46.345] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:59:25.233] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 16:59:26.705] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 16:59:30.576] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:59:30.614] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:59:36.012] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:59:36.021] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:59:41.421] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-21 16:59:44.335] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 16:59:44.352] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 17:01:34.841] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 17:01:34.848] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 17:01:40.271] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-21 17:01:48.539] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 17:01:48.554] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 17:02:06.801] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-21 17:02:06.805] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 17:02:06.882] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 18:37:34.630] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-21 18:37:34.645] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 18:37:34.759] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 18:38:10.219] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-21 18:38:10.232] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 18:38:10.327] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 18:38:40.207] [DEBUG] [default] - Get object and store into candidateData
+[2017-03-21 18:38:40.208] [DEBUG] [default] - Get userObj and store into userDetails
+[2017-03-21 18:38:40.249] [INFO] [default] - Adding user credentials and profile details
+[2017-03-21 18:38:40.253] [INFO] [default] - userData added sucessfully
+[2017-03-21 18:38:40.254] [ERROR] [default] - profile data not added Successfullynull
+[2017-03-21 18:38:40.258] [INFO] [default] - Get successResult successfully and return back
+[2017-03-21 18:38:40.263] [DEBUG] [default] - failed adding profile data and removed userCredential data
+[2017-03-21 19:03:00.674] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 19:03:55.529] [DEBUG] [default] - Server running  on 3000
+[2017-03-21 19:03:55.565] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 19:04:10.060] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 19:04:10.103] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 19:04:14.189] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 19:04:14.203] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 19:04:17.000] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
+[2017-03-21 19:04:17.004] [DEBUG] [default] - Get object and store into authData
+[2017-03-21 19:04:17.004] [DEBUG] [default] - Token is generated
+[2017-03-21 19:04:17.014] [DEBUG] [default] - Invalid Credentials
+[2017-03-21 19:04:17.015] [ERROR] [default] - Internal error occurred
+[2017-03-21 19:04:39.660] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 19:04:39.674] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 19:04:42.269] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 19:04:42.279] [DEBUG] [default] - getLanguage function invoke
+[2017-03-21 19:05:04.602] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 23:27:38.393] [DEBUG] [default] - Server running  on 3000
+[2017-03-21 23:27:38.418] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 23:29:30.465] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 23:30:22.658] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 23:30:43.194] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-21 23:30:45.884] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-21 23:31:02.302] [DEBUG] [default] - Mongoose is now disconnected..!

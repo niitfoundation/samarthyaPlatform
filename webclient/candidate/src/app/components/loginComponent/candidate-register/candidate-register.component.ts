@@ -228,7 +228,7 @@ export class CandidateRegisterComponent implements OnInit {
     this.JsonDataService.registerUser(userData).subscribe(res => {
       if (res['success'] == true) {
         this.openSnackBar('Successfully Register', 'Please Login');
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       } else {
         this.openSnackBar('Failed', 'Please Try Again');
         // this.router.navigate(['/']);

@@ -44,7 +44,7 @@ let checkUser = function(objEmail) {
             if (err) {
                 reject({ err: err, msg: 'user already exist' });
             } else {
-                resolve({ msg: 'sent successfully' });
+                resolve(data);
             }
         });
     });

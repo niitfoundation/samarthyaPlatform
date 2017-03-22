@@ -7,7 +7,7 @@
 //Create instance of express based web app
 let appName = 'candidate';
 let app = require('../server/services/webapp')(appName);
-let config = require('../config');
+// let config = require('../config');
 let debug = require('debug')('dataDisplayApp:server');
 let http = require('http');
 
@@ -15,8 +15,8 @@ let http = require('http');
  * Get port from environment and store in Express.
  */
 
-// let port = normalizePort(process.env.PORT || '8080');
-let port = normalizePort(config.SAMARTHYA.WWW_PORT_CANDIDATE);
+let port = normalizePort(process.env.PORT || '8080');
+// let port = normalizePort(config.SAMARTHYA.WWW_PORT_CANDIDATE);
 
 /**
  * Create HTTP server.

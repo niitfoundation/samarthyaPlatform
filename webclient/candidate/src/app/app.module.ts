@@ -16,6 +16,8 @@ import { LayoutComponent } from 'app/components/layout/layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonDataService } from 'app/services/json-data.service';
 import { EmailService } from 'app/services/email.service';
+import { Data } from 'app/services/data.service';
+
 import { PasswordResetComponent } from 'app/components/loginComponent/password-reset/password-reset.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ForgotPasswordComponent } from 'app/components/loginComponent/forgot-password/forgot-password.component';
@@ -44,6 +46,7 @@ import { Md2Module } from 'md2';
     AuthGuard,
     UserService,
     AuthenticationService,
+    Data,
     Logger
   ],
   bootstrap: [AppComponent],

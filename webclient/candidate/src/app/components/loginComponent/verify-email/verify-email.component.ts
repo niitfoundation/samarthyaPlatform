@@ -30,7 +30,6 @@ export class VerifyEmailComponent implements OnInit {
 
   ngOnInit() { }
 
-
   // on create account submit
   onVerifyLink() {
     this.infoobj = {
@@ -38,13 +37,13 @@ export class VerifyEmailComponent implements OnInit {
       'username': this.userForm.value.email,
       'subject': 'Email verification'
     };
-    console.log(this.infoobj)
+    // console.log(this.infoobj)
     this.emailservice.sendEmail(this.infoobj).subscribe(resJsonData => {
-
-      this.data.openSnackBar('mail sent succefully', 'Please Check your MAIL');
+      this.data.openSnackBar(resJsonData.msg, 'Please Check your MAIL');
       this.timer = setTimeout(() => this.router.navigate(['/login']), 500);
     },
       error => {
+        console.log(error)
         this.data.openSnackBar('TECHNICAL ISSUE', 'Please Try after some time');
         this.timer = setTimeout(() => this.router.navigate(['/login']), 500);
       });
