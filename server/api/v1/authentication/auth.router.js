@@ -29,6 +29,38 @@ router.post('/', function (req, res, next) {
     }
 });
 
+router.post('/verify-user', function (req, res) {
+    try {
+         logger.info('verifying user');
+        let param = req.body;
+        // check the user is available or not
+        authCtrl.checkUser(param.username).then((data) => {
+            if (data.length == 0) {
+                   logger.debug('user not exits');
+                // if user is does not exit send mail
+                return res.status(201).send({
+                    msg: 'user not exist'
+                });
+            } else {
+                logger.debug('user exits');
+                return res.status(201).send({
+                    msg: 'user already exist'
+                });
+            }
+        },
+            (err) => {
+                return res.status(500).send({
+                    error: 'Internal error occurred, please try later..!',
+                    msg: 'User not exist'
+                });
+            });
+    } catch (error) {
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        return;
+    }
+});
+
+
 /*
  *if user is not exist send the verification mail
  */
@@ -57,7 +89,7 @@ router.post('/register-email', function (req, res) {
             (err) => {
                 return res.status(500).send({
                     error: 'Internal error occurred, please try later..!',
-                    msg: "User Doesn't exist"
+                    msg: 'User Doesn\'t exist'
                 });
             });
     } catch (error) {
@@ -83,7 +115,7 @@ router.post('/verify-email', function (req, res) {
     }
 });
 
-
+// If user is exits then only send reset email
 router.post('/verify-reset-email', function (req, res) {
     try {
         let param = req.body;
@@ -102,7 +134,7 @@ router.post('/verify-reset-email', function (req, res) {
                 (err) => {
                     return res.status(500).send({
                         error: 'Internal error occurred, please try later..!',
-                        msg: "User doesn't exist"
+                        msg: 'User doesn\'t exist'
                     });
                 });
         },

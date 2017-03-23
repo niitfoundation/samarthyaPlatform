@@ -14,16 +14,17 @@ const viewProfile = function(profileObj) {
 
 // Add profile details
 const createProfile = function(profileObj) {
+    console.log(profileObj);    
     // Add/modify profile model
     let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
 
     return new Promise((resolve, reject) => {
-        userData.save(function(err, data) {
+        profileData.save(function(err, data) {
             if (err) {
                 logger.error('profile data not added sucessfully' + err);
                 reject(err);
             } else {
-                logger.error('profile data added successfully' + err);
+                logger.debug('profile data added successfully');
                 // inserts profile details
                 resolve({ msg: 'Profile data Added successfully' });
             }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response ,Headers, RequestOptions} from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
@@ -10,7 +10,7 @@ export class JsonDataService {
 
   // url to store data from json file for Registration details
 
-     private urlRegister: string = '';
+  private urlRegister: string = '';
 
   // url to retrive data from json file for languages
   private url: string = "";
@@ -19,7 +19,7 @@ export class JsonDataService {
 
   private urlPincode = 'https://data.gov.in/api/datastore/resource.json?resource_id=6176ee09-3d56-4a3b-8115-21841576b2f6&api-key='
   + this.mygovKey + '&filters[pincode]=';
- // url to get profession
+  // url to get profession
   private urlProfession = 'resources/profession';
 
   // url to get locations
@@ -28,7 +28,7 @@ export class JsonDataService {
   // url to get placementCenter
   private urlPlacementCenter = 'resources/placementCenter';
 
-private headers = new Headers({ 'Content-Type': 'application/json' });
+  private headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(private http: Http, private snackBar: MdSnackBar, private router: Router) { }
 
@@ -41,8 +41,6 @@ private headers = new Headers({ 'Content-Type': 'application/json' });
 
   // Store Registration details in json file
   create(formData) {
-
-
     this.http.post(this.urlRegister, formData).subscribe(data => {
       this.openSnackBar(formData.email, 'Register Successfully');
       this.timer = setTimeout(() => this.router.navigate(['/login']), 4000);
@@ -57,7 +55,7 @@ private headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http.get(this.url).map((response: Response) => response.json());
   };
 
-  getJsonNavList(tokenVerification):any {
+  getJsonNavList(tokenVerification): any {
     console.log(tokenVerification)
     this.url = '/auth/nav-menus';
     return this.http.get(this.url, this.authoriZation(tokenVerification))
@@ -65,7 +63,7 @@ private headers = new Headers({ 'Content-Type': 'application/json' });
         response.json();
       });
   }
- private authoriZation(userToken) {
+  private authoriZation(userToken) {
     if (userToken) {
       let headers = new Headers({ 'Authorization': userToken });
       return new RequestOptions({ headers: headers });
@@ -75,8 +73,8 @@ private headers = new Headers({ 'Content-Type': 'application/json' });
 
 
   getPincode(pincode) {
-    return this.http.get(this.urlPincode+pincode)
-      .map((response: Response) => {return response.json();});
+    return this.http.get(this.urlPincode + pincode)
+      .map((response: Response) => { return response.json(); });
 
   };
 
@@ -89,7 +87,7 @@ private headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http.get(this.urlPlacementCenter).map((response: Response) => response.json());
   };
 
-  
+
 
 }
 

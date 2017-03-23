@@ -28,7 +28,7 @@ const registerNewUser = function(userObj) {
 
                 // after successful enter the credentials data inserts profile details
                 prflCtrl.createProfile(userObj.profileData).then((successResult) => {
-                    resolve(successResult);
+                    resolve({msg:' Successfully Registered'});
                 }, (errresult) => {
                     logger.error('profile data not added Successfully' + err);
                     // if profile data not inserted delete the credentials data
