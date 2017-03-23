@@ -1,244 +1,88 @@
-[2017-03-23 20:20:52.259] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:20:52.283] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:20:52.333] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:21:01.183] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:21:01.224] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:21:01.302] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:21:10.152] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:21:10.164] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:21:10.282] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:25:23.315] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-23 20:25:24.944] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 20:25:31.362] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:25:31.369] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:25:31.448] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:25:31.764] [INFO] [default] - verifying user
-[2017-03-23 20:25:31.775] [DEBUG] [default] - user not exits
-[2017-03-23 20:25:43.812] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:25:43.822] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:25:43.921] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:25:44.176] [INFO] [default] - verifying user
-[2017-03-23 20:25:44.182] [DEBUG] [default] - user not exits
-[2017-03-23 20:25:53.393] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:25:53.411] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:25:53.561] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:25:53.824] [INFO] [default] - verifying user
-[2017-03-23 20:25:53.834] [DEBUG] [default] - user exits
-[2017-03-23 20:26:11.032] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:26:11.042] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:26:11.140] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:26:11.424] [INFO] [default] - verifying user
-[2017-03-23 20:26:11.430] [DEBUG] [default] - user exits
-[2017-03-23 20:26:51.145] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-23 20:26:52.214] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 20:27:03.556] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:27:03.575] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:27:03.643] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:27:03.828] [INFO] [default] - verifying user
-[2017-03-23 20:27:03.862] [DEBUG] [default] - user exits
-[2017-03-23 20:27:17.175] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:27:17.196] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:27:17.339] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:27:17.711] [INFO] [default] - verifying user
-[2017-03-23 20:27:17.715] [DEBUG] [default] - user not exits
-[2017-03-23 20:28:34.535] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:28:34.540] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:28:34.578] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:28:34.808] [INFO] [default] - verifying user
-[2017-03-23 20:28:34.814] [DEBUG] [default] - user not exits
-[2017-03-23 20:29:31.046] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:29:31.051] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:29:31.136] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:29:31.447] [INFO] [default] - verifying user
-[2017-03-23 20:29:31.448] [DEBUG] [default] - user not exits
-[2017-03-23 20:30:47.572] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:30:47.581] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:30:47.668] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:30:47.932] [INFO] [default] - verifying user
-[2017-03-23 20:30:47.936] [DEBUG] [default] - user not exits
-[2017-03-23 20:30:59.388] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:30:59.394] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:30:59.502] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:30:59.777] [INFO] [default] - verifying user
-[2017-03-23 20:30:59.785] [DEBUG] [default] - user not exits
-[2017-03-23 20:32:29.848] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:32:29.857] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:32:29.982] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:32:30.194] [INFO] [default] - verifying user
-[2017-03-23 20:32:30.200] [DEBUG] [default] - user exits
-[2017-03-23 20:33:09.685] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:33:09.698] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:09.794] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:10.010] [INFO] [default] - verifying user
-[2017-03-23 20:33:10.014] [DEBUG] [default] - user exits
-[2017-03-23 20:33:10.401] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:10.412] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:20.649] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:20.678] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:26.195] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:33:26.198] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:26.273] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:26.454] [INFO] [default] - verifying user
-[2017-03-23 20:33:26.460] [DEBUG] [default] - user exits
-[2017-03-23 20:33:26.795] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:26.802] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:33.404] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:33:33.410] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:33.486] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:33.662] [INFO] [default] - verifying user
-[2017-03-23 20:33:33.665] [DEBUG] [default] - user exits
-[2017-03-23 20:33:33.889] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:33.901] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:42.709] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-23 20:33:42.715] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:42.787] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:33:42.941] [INFO] [default] - verifying user
-[2017-03-23 20:33:42.942] [DEBUG] [default] - user not exits
-[2017-03-23 20:34:09.917] [DEBUG] [default] - Get object and store into candidateData
-[2017-03-23 20:34:09.918] [DEBUG] [default] - Get userObj and store into userDetails
-[2017-03-23 20:34:09.954] [INFO] [default] - Adding user credentials and profile details
-[2017-03-23 20:34:09.967] [INFO] [default] - userData added sucessfully
-[2017-03-23 20:34:09.978] [INFO] [default] - Get successResult successfully and return back
-[2017-03-23 20:34:09.982] [DEBUG] [default] - profile data added successfully
-[2017-03-23 20:34:10.057] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:34:10.064] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 20:34:22.979] [DEBUG] [default] - { username: 'sankhlasaini2@gmail.com', password: 'asd123' }
-[2017-03-23 20:34:22.981] [DEBUG] [default] - Get object and store into authData
-[2017-03-23 20:34:22.981] [DEBUG] [default] - Token is generated
-[2017-03-23 20:34:22.992] [DEBUG] [default] - Data find and resolve here
-[2017-03-23 20:34:22.993] [INFO] [default] - Get successResult successfully and return back
-[2017-03-23 20:34:23.121] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:34:23.124] [DEBUG] [default] - Token matched
-[2017-03-23 20:34:23.124] [INFO] [default] - Token verified
-[2017-03-23 20:36:51.829] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:36:51.829] [DEBUG] [default] - Token matched
-[2017-03-23 20:36:51.830] [INFO] [default] - Token verified
-[2017-03-23 20:37:20.268] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:37:20.269] [DEBUG] [default] - Token matched
-[2017-03-23 20:37:20.269] [INFO] [default] - Token verified
-[2017-03-23 20:37:45.664] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:37:45.665] [DEBUG] [default] - Token matched
-[2017-03-23 20:37:45.665] [INFO] [default] - Token verified
-[2017-03-23 20:37:50.663] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:37:50.663] [DEBUG] [default] - Token matched
-[2017-03-23 20:37:50.663] [INFO] [default] - Token verified
-[2017-03-23 20:38:03.048] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:38:03.048] [DEBUG] [default] - Token matched
-[2017-03-23 20:38:03.048] [INFO] [default] - Token verified
-[2017-03-23 20:38:10.037] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:38:10.039] [DEBUG] [default] - Token matched
-[2017-03-23 20:38:10.039] [INFO] [default] - Token verified
-[2017-03-23 20:38:18.301] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:38:18.302] [DEBUG] [default] - Token matched
-[2017-03-23 20:38:18.302] [INFO] [default] - Token verified
-[2017-03-23 20:39:58.592] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:39:58.592] [DEBUG] [default] - Token matched
-[2017-03-23 20:39:58.593] [INFO] [default] - Token verified
-[2017-03-23 20:42:28.471] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:42:28.472] [DEBUG] [default] - Token matched
-[2017-03-23 20:42:28.472] [INFO] [default] - Token verified
-[2017-03-23 20:43:17.455] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:43:17.460] [DEBUG] [default] - Token matched
-[2017-03-23 20:43:17.461] [INFO] [default] - Token verified
-[2017-03-23 20:43:31.467] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:43:31.468] [DEBUG] [default] - Token matched
-[2017-03-23 20:43:31.468] [INFO] [default] - Token verified
-[2017-03-23 20:43:52.612] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:43:52.612] [DEBUG] [default] - Token matched
-[2017-03-23 20:43:52.613] [INFO] [default] - Token verified
-[2017-03-23 20:45:01.824] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:45:01.826] [DEBUG] [default] - Token matched
-[2017-03-23 20:45:01.826] [INFO] [default] - Token verified
-[2017-03-23 20:45:11.523] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:45:11.524] [DEBUG] [default] - Token matched
-[2017-03-23 20:45:11.524] [INFO] [default] - Token verified
-[2017-03-23 20:46:03.948] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:46:03.948] [DEBUG] [default] - Token matched
-[2017-03-23 20:46:03.949] [INFO] [default] - Token verified
-[2017-03-23 20:46:39.848] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:46:39.849] [DEBUG] [default] - Token matched
-[2017-03-23 20:46:39.849] [INFO] [default] - Token verified
-[2017-03-23 20:47:49.547] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:47:49.547] [DEBUG] [default] - Token matched
-[2017-03-23 20:47:49.548] [INFO] [default] - Token verified
-[2017-03-23 20:48:24.751] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:48:24.761] [DEBUG] [default] - Token matched
-[2017-03-23 20:48:24.762] [INFO] [default] - Token verified
-[2017-03-23 20:49:15.265] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:49:15.266] [DEBUG] [default] - Token matched
-[2017-03-23 20:49:15.266] [INFO] [default] - Token verified
-[2017-03-23 20:50:45.852] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:50:45.855] [DEBUG] [default] - Token matched
-[2017-03-23 20:50:45.855] [INFO] [default] - Token verified
-[2017-03-23 20:51:07.397] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:51:07.403] [DEBUG] [default] - Token matched
-[2017-03-23 20:51:07.403] [INFO] [default] - Token verified
-[2017-03-23 20:52:11.589] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:52:11.590] [DEBUG] [default] - Token matched
-[2017-03-23 20:52:11.591] [INFO] [default] - Token verified
-[2017-03-23 20:52:49.697] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:52:49.699] [DEBUG] [default] - Token matched
-[2017-03-23 20:52:49.700] [INFO] [default] - Token verified
-[2017-03-23 20:55:07.075] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:55:07.077] [DEBUG] [default] - Token matched
-[2017-03-23 20:55:07.077] [INFO] [default] - Token verified
-[2017-03-23 20:55:31.228] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:55:31.229] [DEBUG] [default] - Token matched
-[2017-03-23 20:55:31.229] [INFO] [default] - Token verified
-[2017-03-23 20:56:56.977] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:56:56.978] [DEBUG] [default] - Token matched
-[2017-03-23 20:56:56.979] [INFO] [default] - Token verified
-[2017-03-23 20:57:11.953] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:57:11.954] [DEBUG] [default] - Token matched
-[2017-03-23 20:57:11.954] [INFO] [default] - Token verified
-[2017-03-23 20:57:40.111] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:57:40.114] [DEBUG] [default] - Token matched
-[2017-03-23 20:57:40.114] [INFO] [default] - Token verified
-[2017-03-23 20:58:09.217] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:58:09.218] [DEBUG] [default] - Token matched
-[2017-03-23 20:58:09.218] [INFO] [default] - Token verified
-[2017-03-23 20:58:18.305] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:58:18.306] [DEBUG] [default] - Token matched
-[2017-03-23 20:58:18.306] [INFO] [default] - Token verified
-[2017-03-23 20:58:23.321] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:58:23.322] [DEBUG] [default] - Token matched
-[2017-03-23 20:58:23.322] [INFO] [default] - Token verified
-[2017-03-23 20:58:43.596] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:58:43.597] [DEBUG] [default] - Token matched
-[2017-03-23 20:58:43.597] [INFO] [default] - Token verified
-[2017-03-23 20:59:51.407] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 20:59:51.407] [DEBUG] [default] - Token matched
-[2017-03-23 20:59:51.408] [INFO] [default] - Token verified
-[2017-03-23 21:02:49.652] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 21:02:49.652] [DEBUG] [default] - Token matched
-[2017-03-23 21:02:49.652] [INFO] [default] - Token verified
-[2017-03-23 21:03:00.753] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 21:03:00.755] [DEBUG] [default] - Token matched
-[2017-03-23 21:03:00.756] [INFO] [default] - Token verified
-[2017-03-23 21:03:09.552] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 21:03:09.553] [DEBUG] [default] - Token matched
-[2017-03-23 21:03:09.553] [INFO] [default] - Token verified
-[2017-03-23 21:03:22.670] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 21:03:22.671] [DEBUG] [default] - Token matched
-[2017-03-23 21:03:22.671] [INFO] [default] - Token verified
-[2017-03-23 21:03:32.139] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 21:03:32.140] [DEBUG] [default] - Token matched
-[2017-03-23 21:03:32.142] [INFO] [default] - Token verified
-[2017-03-23 21:03:46.370] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 21:03:46.371] [DEBUG] [default] - Token matched
-[2017-03-23 21:03:46.371] [INFO] [default] - Token verified
-[2017-03-23 21:04:54.481] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 21:04:54.484] [ERROR] [default] - Token not matched
-[2017-03-23 21:04:54.485] [ERROR] [default] - Internal error occurred
-[2017-03-23 21:05:15.274] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-23 21:05:17.195] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 21:05:21.997] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 21:05:22.027] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 21:05:34.262] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
-[2017-03-23 21:05:34.266] [DEBUG] [default] - Get object and store into authData
-[2017-03-23 21:05:34.266] [DEBUG] [default] - Token is generated
-[2017-03-23 21:05:34.287] [DEBUG] [default] - Data find and resolve here
-[2017-03-23 21:05:34.287] [INFO] [default] - Get successResult successfully and return back
-[2017-03-23 21:05:34.360] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-23 21:05:34.364] [DEBUG] [default] - Token matched
-[2017-03-23 21:05:34.364] [INFO] [default] - Token verified
+[2017-03-23 22:19:31.135] [INFO] [default] - Token verified
+[2017-03-23 22:19:38.110] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:19:38.111] [DEBUG] [default] - Token matched
+[2017-03-23 22:19:38.111] [INFO] [default] - Token verified
+[2017-03-23 22:20:18.971] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:20:18.972] [DEBUG] [default] - Token matched
+[2017-03-23 22:20:18.972] [INFO] [default] - Token verified
+[2017-03-23 22:20:32.984] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:20:32.985] [DEBUG] [default] - Token matched
+[2017-03-23 22:20:32.987] [INFO] [default] - Token verified
+[2017-03-23 22:26:37.889] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-23 22:26:42.426] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-23 22:26:48.324] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:26:48.334] [DEBUG] [default] - Token matched
+[2017-03-23 22:26:48.335] [INFO] [default] - Token verified
+[2017-03-23 22:27:04.259] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:27:04.262] [DEBUG] [default] - Token matched
+[2017-03-23 22:27:04.263] [INFO] [default] - Token verified
+[2017-03-23 22:27:48.130] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:27:48.132] [DEBUG] [default] - Token matched
+[2017-03-23 22:27:48.132] [INFO] [default] - Token verified
+[2017-03-23 22:27:56.931] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:27:56.932] [DEBUG] [default] - Token matched
+[2017-03-23 22:27:56.933] [INFO] [default] - Token verified
+[2017-03-23 22:29:20.384] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:29:20.385] [DEBUG] [default] - Token matched
+[2017-03-23 22:29:20.385] [INFO] [default] - Token verified
+[2017-03-23 22:30:48.159] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:30:48.162] [DEBUG] [default] - Token matched
+[2017-03-23 22:30:48.163] [INFO] [default] - Token verified
+[2017-03-23 22:32:23.874] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:32:23.875] [DEBUG] [default] - Token matched
+[2017-03-23 22:32:23.875] [INFO] [default] - Token verified
+[2017-03-23 22:32:36.100] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:32:36.101] [DEBUG] [default] - Token matched
+[2017-03-23 22:32:36.101] [INFO] [default] - Token verified
+[2017-03-23 22:34:35.472] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:34:35.474] [DEBUG] [default] - Token matched
+[2017-03-23 22:34:35.474] [INFO] [default] - Token verified
+[2017-03-23 22:34:56.689] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:34:56.690] [DEBUG] [default] - Token matched
+[2017-03-23 22:34:56.691] [INFO] [default] - Token verified
+[2017-03-23 22:35:43.613] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:35:43.614] [DEBUG] [default] - Token matched
+[2017-03-23 22:35:43.615] [INFO] [default] - Token verified
+[2017-03-23 22:40:57.738] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:40:57.738] [DEBUG] [default] - Token matched
+[2017-03-23 22:40:57.739] [INFO] [default] - Token verified
+[2017-03-23 22:41:05.127] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:41:05.128] [DEBUG] [default] - Token matched
+[2017-03-23 22:41:05.128] [INFO] [default] - Token verified
+[2017-03-23 22:41:17.320] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:41:17.320] [DEBUG] [default] - Token matched
+[2017-03-23 22:41:17.321] [INFO] [default] - Token verified
+[2017-03-23 22:41:45.568] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:41:45.570] [DEBUG] [default] - Token matched
+[2017-03-23 22:41:45.570] [INFO] [default] - Token verified
+[2017-03-23 22:42:36.141] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:42:36.143] [DEBUG] [default] - Token matched
+[2017-03-23 22:42:36.143] [INFO] [default] - Token verified
+[2017-03-23 22:42:45.741] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:42:45.741] [DEBUG] [default] - Token matched
+[2017-03-23 22:42:45.742] [INFO] [default] - Token verified
+[2017-03-23 22:43:54.030] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:43:54.031] [DEBUG] [default] - Token matched
+[2017-03-23 22:43:54.031] [INFO] [default] - Token verified
+[2017-03-23 22:48:02.583] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:48:02.585] [ERROR] [default] - Token not matched
+[2017-03-23 22:48:02.586] [ERROR] [default] - Internal error occurred
+[2017-03-23 22:48:19.193] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:48:19.196] [ERROR] [default] - Token not matched
+[2017-03-23 22:48:19.197] [ERROR] [default] - Internal error occurred
+[2017-03-23 22:48:24.163] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 22:48:24.201] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 22:48:33.594] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
+[2017-03-23 22:48:33.597] [DEBUG] [default] - Get object and store into authData
+[2017-03-23 22:48:33.597] [DEBUG] [default] - Token is generated
+[2017-03-23 22:48:33.670] [DEBUG] [default] - Data find and resolve here
+[2017-03-23 22:48:33.671] [INFO] [default] - Get successResult successfully and return back
+[2017-03-23 22:48:33.742] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:48:33.744] [DEBUG] [default] - Token matched
+[2017-03-23 22:48:33.745] [INFO] [default] - Token verified
+[2017-03-23 22:48:42.802] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-23 22:48:42.806] [DEBUG] [default] - Token matched
+[2017-03-23 22:48:42.811] [INFO] [default] - Token verified
+[2017-03-23 22:56:06.118] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-23 22:56:10.450] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-23 22:59:50.686] [DEBUG] [default] - Mongoose is now disconnected..!
