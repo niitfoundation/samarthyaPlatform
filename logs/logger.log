@@ -87,3 +87,10 @@
 [2017-03-21 23:30:43.194] [DEBUG] [default] - Mongoose is now disconnected..!
 [2017-03-21 23:30:45.884] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
 [2017-03-21 23:31:02.302] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-23 14:32:55.828] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-23 14:33:19.405] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 14:33:19.435] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 14:33:23.025] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 14:33:23.042] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 14:33:24.977] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 14:33:24.999] [DEBUG] [default] - getLanguage function invoke

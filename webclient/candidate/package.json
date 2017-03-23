@@ -39,7 +39,8 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "rxjs": "^5.0.1",
-    "samarthyaPlatform": "git+https://github.com/stackroute/samarthyaPlatform.git#dev-wave-16",
+    
+    "candidatemodule"  : "git+https://github.com/sheenamnarula/candidatemodule.git",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.2"
   },
