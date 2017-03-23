@@ -1,4 +1,6 @@
-import { AuthGuard } from './services/auth.guard';
+import { AuthenticationService } from 'placementmodule/services/authentication.service';
+import { AuthGuard } from 'placementmodule/services/auth.guard';
+
 import { Component, OnInit } from '@angular/core';
 import {
   Router,
@@ -8,7 +10,7 @@ import {
   NavigationCancel,
   NavigationError
 } from '@angular/router';
-import { AuthenticationService } from './services/authentication.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

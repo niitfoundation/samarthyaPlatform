@@ -94,3 +94,51 @@
 [2017-03-23 14:33:23.042] [DEBUG] [default] - getLanguage function invoke
 [2017-03-23 14:33:24.977] [DEBUG] [default] - getLanguage function invoke
 [2017-03-23 14:33:24.999] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 15:35:20.192] [DEBUG] [default] - Server running  on 3000
+[2017-03-23 15:35:20.219] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-23 15:35:42.541] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 15:35:42.593] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 15:36:14.459] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 15:36:14.490] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 15:36:17.187] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 15:36:17.205] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 15:36:30.175] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-23 15:36:33.858] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 15:36:33.874] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 16:56:36.906] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-23 17:50:56.025] [DEBUG] [default] - Server running  on 3000
+[2017-03-23 17:50:56.046] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-23 17:51:13.641] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 17:51:13.686] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 17:58:57.772] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-23 18:14:32.818] [DEBUG] [default] - Server running  on 3000
+[2017-03-23 18:14:32.839] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-23 18:14:55.486] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:14:55.530] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:15:50.603] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-23 18:15:54.729] [DEBUG] [default] - Server running  on 3000
+[2017-03-23 18:15:54.750] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-23 18:16:10.980] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:16:11.017] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:22:02.612] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:22:02.642] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:22:03.284] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:22:03.300] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:22:04.963] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:22:04.978] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:22:05.353] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:22:05.362] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:27:32.641] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-23 18:27:35.518] [DEBUG] [default] - Server running  on 3000
+[2017-03-23 18:27:35.539] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-23 18:28:00.636] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:28:00.679] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:29:57.486] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 18:29:57.517] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 19:12:59.919] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 19:12:59.962] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 19:20:22.255] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-23 19:20:29.857] [DEBUG] [default] - Server running  on 3000
+[2017-03-23 19:20:29.878] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-23 19:20:46.324] [DEBUG] [default] - getLanguage function invoke
+[2017-03-23 19:20:46.367] [DEBUG] [default] - getLanguage function invoke

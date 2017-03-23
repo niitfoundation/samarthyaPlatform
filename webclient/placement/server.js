@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
-const samarthyaPlatform = require('samarthyaPlatform');
+//const samarthyaPlatform = require('samarthyaPlatform');
 
 // Get our API routes
 const app = express();
@@ -17,12 +17,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
-app.use('/auth', samarthyaPlatform.authenticationRoutes);
-app.use('/users', samarthyaPlatform.userRoutes);
-app.use('/resources', samarthyaPlatform.resourcesRoutes);
-app.use('/email', samarthyaPlatform.emailUtilRoutes);
-app.use('/coordinates', samarthyaPlatform.coordinateRoutes);
-app.use('/candidates', samarthyaPlatform.candidateRoutes);
+//app.use('/auth', samarthyaPlatform.authenticationRoutes);
+//app.use('/users', samarthyaPlatform.userRoutes);
+//app.use('/resources', samarthyaPlatform.resourcesRoutes);
+//app.use('/email', samarthyaPlatform.emailUtilRoutes);
+//app.use('/coordinates', samarthyaPlatform.coordinateRoutes);
+//app.use('/candidates', samarthyaPlatform.candidateRoutes);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

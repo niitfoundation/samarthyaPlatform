@@ -1,6 +1,6 @@
 webpackJsonp([2,4],{
 
-/***/ 503:
+/***/ 486:
 /***/ (function(module, exports) {
 
 /*
@@ -57,7 +57,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 554:
+/***/ 539:
 /***/ (function(module, exports) {
 
 /*
@@ -73,7 +73,7 @@ var stylesInDom = {},
 		};
 	},
 	isOldIE = memoize(function() {
-		return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
 	}),
 	getHeadElement = memoize(function () {
 		return document.head || document.getElementsByTagName("head")[0];
@@ -310,23 +310,23 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 558:
+/***/ 543:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(793);
+var content = __webpack_require__(774);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(554)(content, {});
+var update = __webpack_require__(539)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!./../node_modules/css-loader/index.js?{\"sourceMap\":false}!./../node_modules/postcss-loader/index.js!./../node_modules/sass-loader/index.js!./theme.scss", function() {
-			var newContent = require("!!./../node_modules/css-loader/index.js?{\"sourceMap\":false}!./../node_modules/postcss-loader/index.js!./../node_modules/sass-loader/index.js!./theme.scss");
+		module.hot.accept("!!../node_modules/css-loader/index.js?{\"sourceMap\":false}!../node_modules/postcss-loader/index.js!../node_modules/sass-loader/index.js!./theme.scss", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js?{\"sourceMap\":false}!../node_modules/postcss-loader/index.js!../node_modules/sass-loader/index.js!./theme.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -337,23 +337,23 @@ if(false) {
 
 /***/ }),
 
-/***/ 559:
+/***/ 544:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(794);
+var content = __webpack_require__(775);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(554)(content, {});
+var update = __webpack_require__(539)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!./../node_modules/css-loader/index.js?{\"sourceMap\":false}!./../node_modules/postcss-loader/index.js!./styles.css", function() {
-			var newContent = require("!!./../node_modules/css-loader/index.js?{\"sourceMap\":false}!./../node_modules/postcss-loader/index.js!./styles.css");
+		module.hot.accept("!!../node_modules/css-loader/index.js?{\"sourceMap\":false}!../node_modules/postcss-loader/index.js!./styles.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js?{\"sourceMap\":false}!../node_modules/postcss-loader/index.js!./styles.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -364,10 +364,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 793:
+/***/ 774:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(503)();
+exports = module.exports = __webpack_require__(486)();
 // imports
 
 
@@ -379,10 +379,10 @@ exports.push([module.i, "/**\n * Applies styles for users in high contrast mode.
 
 /***/ }),
 
-/***/ 794:
+/***/ 775:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(503)();
+exports = module.exports = __webpack_require__(486)();
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/icon?family=Material+Icons);", ""]);
 
@@ -394,14 +394,14 @@ exports.push([module.i, "/*Theme Files for material design*/\n\n.myFont {\n    f
 
 /***/ }),
 
-/***/ 912:
+/***/ 892:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(559);
-module.exports = __webpack_require__(558);
+__webpack_require__(544);
+module.exports = __webpack_require__(543);
 
 
 /***/ })
 
-},[912]);
+},[892]);
 //# sourceMappingURL=styles.bundle.map
