@@ -14,7 +14,7 @@ const profileSchema = mongoose.Schema({
     createdBy: { type: String, required: true },
     updatedOn: { type: Date, required: true, default: Date.now },
     updatedBy: { type: String, required: true },
-    personalinfo: {
+    personalInfo: {
         displayname: { type: String, required: true, min: 4, max: 15 },
         fname: { type: String, required: true, min: 4 },
         lname: { type: String, required: true },

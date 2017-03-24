@@ -23,7 +23,6 @@ let sendEmail = function(jsonobj) {
         logger.debug('sendEmail function is invoke');
         let tokenPaylod = { username: jsonobj.username, title: jsonobj.title };
         const token = jwt.sign(tokenPaylod, appConstant.emailDetails.emailTokenSecret, { expiresIn: 6000 });
-
         const link = 'http://' + jsonobj.host;
         // ----------verify------------------
         const mailOptions = {
@@ -43,6 +42,8 @@ let sendEmail = function(jsonobj) {
         } else {
             mail = mailOptions;
         }
+                console.log(mail)
+
 
         return new Promise((resolve, reject) => {
             transporter.sendMail(mail, function(err, response) {

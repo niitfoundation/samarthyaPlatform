@@ -387,7 +387,7 @@ exports = module.exports = __webpack_require__(486)();
 exports.push([module.i, "@import url(https://fonts.googleapis.com/icon?family=Material+Icons);", ""]);
 
 // module
-exports.push([module.i, "/*Theme Files for material design*/\n\n.myFont {\n    font-family: 'Noto Serif', serif;\n}\nbody{\n    margin: 0px;\n    font-family: \"Roboto\",\"Helvetica Neue\",sans-serif;\n}\n\n/*userIcon and notification menus*/\n.mat-menu-panel{\n   \n   top: 40px;\n    right: 10px;\n    position: absolute;\n    \n}\nmd-input-container{\n    bottom: 0;\n     margin: 0;\n    padding: 0;\n}\nsmall{\n    margin: 0;\n    padding: 0;\n    top: 0;\n}", ""]);
+exports.push([module.i, "/*Theme Files for material design*/\n\n.myFont {\n    font-family: 'Noto Serif', serif;\n}\nbody{\n    margin: 0px;\n    min-height: 600px;\n    font-family: \"Roboto\",\"Helvetica Neue\",sans-serif;\n}\n\n/*userIcon and notification menus*/\n.mat-menu-panel{\n   \n   top: 40px;\n    right: 10px;\n    position: absolute;\n    \n}\nmd-input-container{\n    bottom: 0;\n     margin: 0;\n    padding: 0;\n}\nsmall{\n    margin: 0;\n    padding: 0;\n    top: 0;\n}", ""]);
 
 // exports
 

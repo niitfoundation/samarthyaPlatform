@@ -55,7 +55,7 @@ var UiDetails = (function () {
     return UiDetails;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/uidetails.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/uidetails.service.js.map
 
 /***/ }),
 
@@ -90,10 +90,12 @@ var AuthGuard = (function () {
             //logged in user return true
             return true;
         }
-        // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-        //this.data.openSnackBar('Please Login!!',"OK");
-        return false;
+        else {
+            // not logged in so redirect to login page with the return url
+            this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+            //this.data.openSnackBar('Please Login!!',"OK");
+            return false;
+        }
     };
     AuthGuard = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Injectable */])(), 
@@ -102,7 +104,7 @@ var AuthGuard = (function () {
     return AuthGuard;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/auth.guard.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/auth.guard.js.map
 
 /***/ }),
 
@@ -152,7 +154,7 @@ var PlacementRegisterService = (function () {
     return PlacementRegisterService;
     var _a;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/placement-register.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/placement-register.service.js.map
 
 /***/ }),
 
@@ -191,7 +193,7 @@ var Data = (function () {
     return Data;
     var _a;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/data.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/data.service.js.map
 
 /***/ }),
 
@@ -226,7 +228,7 @@ var AboutUsComponent = (function () {
     ], AboutUsComponent);
     return AboutUsComponent;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/about-us.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/about-us.component.js.map
 
 /***/ }),
 
@@ -297,7 +299,7 @@ var AdminRegistrationComponent = (function () {
     AdminRegistrationComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.JsonDataService.getPlacementCenter().subscribe(function (resJsonData) { return _this.placementCenters = resJsonData; });
-        this.JsonDataService.getJsonData().subscribe(function (resJsonData) { return _this.languages = resJsonData.name; });
+        this.JsonDataService.getJsonData().subscribe(function (resJsonData) { return _this.languages = resJsonData; });
         this.JsonDataService.getProfession().subscribe(function (resJsonData) { return _this.professions = resJsonData; });
         this.PlacementRegisterService.verifyToken(this.route.snapshot.queryParams['confirm']).subscribe(function (res) {
             if (res.msg != 'Session Expired') {
@@ -339,8 +341,8 @@ var AdminRegistrationComponent = (function () {
             _this.router.navigate(['/login']);
             _this.data.openSnackBar("Session Expired", "OK");
         });
-        var createdUser = this.authenticationService.getCreatedBy();
-        createdUser == null ? this.createdBy = this.userForm.value.email : this.createdBy = createdUser;
+        this.createdUser = this.authenticationService.getCreatedBy();
+        //createdUser==null?this.createdBy=this.userForm.value.email:this.createdBy=createdUser;
     };
     //password validation which is calling from form building of passwordControl
     AdminRegistrationComponent.prototype.passwordValidator = function () {
@@ -400,6 +402,13 @@ var AdminRegistrationComponent = (function () {
     };
     AdminRegistrationComponent.prototype.save = function (userdata) {
         var _this = this;
+        if (this.createdUser) {
+            this.createdBy = this.createdUser;
+        }
+        else {
+            this.createdBy = userdata.get('emailControl').value;
+            console.log(userdata.get('emailControl').value);
+        }
         this.landmark = userdata.get('locationControl').value.split(',')[0];
         this.district = userdata.get('locationControl').value.split(',')[1];
         this.state = userdata.get('locationControl').value.split(',')[2];
@@ -452,7 +461,7 @@ var AdminRegistrationComponent = (function () {
     return AdminRegistrationComponent;
     var _a, _b, _c, _d, _e, _f, _g;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/admin-registration.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/admin-registration.component.js.map
 
 /***/ }),
 
@@ -487,7 +496,7 @@ var CandidateRegisterComponent = (function () {
     ], CandidateRegisterComponent);
     return CandidateRegisterComponent;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/candidate-register.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/candidate-register.component.js.map
 
 /***/ }),
 
@@ -560,7 +569,7 @@ var CandidateSearchComponent = (function () {
     return CandidateSearchComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/candidate-search.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/candidate-search.component.js.map
 
 /***/ }),
 
@@ -596,22 +605,23 @@ var DashboardComponent = (function () {
         //  this.title=this.dataByRole;
     }
     DashboardComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        var tokenVerification = JSON.parse(localStorage.getItem('currentUser'))["token"];
-        this.uiDetails.getMenuDetails(tokenVerification)
-            .subscribe(function (role) {
-            if (role["success"]) {
-                _this.title = role["object"].Role;
-            }
-            else {
-                tokenVerification = null;
-                localStorage.removeItem('currentUser');
-                _this.router.navigate(['/login']);
-                _this.data.openSnackBar(role["message"], 'Ok');
-            }
-        }, function (error) {
-            console.log(error);
-        });
+        // let tokenVerification=JSON.parse(localStorage.getItem('currentUser'))["token"];
+        //  this.uiDetails.getMenuDetails(tokenVerification)
+        //     .subscribe(
+        //     role => {
+        //       if (role["success"]) {
+        //         this.title = role["object"].Role;
+        //       }
+        //       else {
+        //         tokenVerification=null;
+        //          localStorage.removeItem('currentUser');
+        //           this.router.navigate(['/login']);
+        //        this.data.openSnackBar(role["message"], 'Ok');
+        //       }
+        //     }, error => {
+        //       console.log(error);
+        //     }
+        //     )
     };
     DashboardComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
@@ -624,7 +634,7 @@ var DashboardComponent = (function () {
     return DashboardComponent;
     var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/dashboard.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/dashboard.component.js.map
 
 /***/ }),
 
@@ -659,7 +669,7 @@ var EventPostComponent = (function () {
     ], EventPostComponent);
     return EventPostComponent;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/event-post.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/event-post.component.js.map
 
 /***/ }),
 
@@ -761,7 +771,7 @@ var ForgotPasswordComponent = (function () {
     return ForgotPasswordComponent;
     var _a, _b, _c, _d, _e, _f;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/forgetPassword.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/forgetPassword.component.js.map
 
 /***/ }),
 
@@ -796,7 +806,7 @@ var JobPostComponent = (function () {
     ], JobPostComponent);
     return JobPostComponent;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/job-post.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/job-post.component.js.map
 
 /***/ }),
 
@@ -832,7 +842,7 @@ var LandingPageComponent = (function () {
     ], LandingPageComponent);
     return LandingPageComponent;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/landing-page.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/landing-page.component.js.map
 
 /***/ }),
 
@@ -914,7 +924,7 @@ var LoginComponent = (function () {
             _this.router.navigate(['/home']);
         }, function (error) {
             _this.data.openSnackBar("Invalid username or password", 'Try again');
-            _this.router.navigate(['/home']);
+            _this.router.navigate(['/login']);
         });
     };
     LoginComponent.prototype.socialAuthentication = function (socialSite) {
@@ -941,7 +951,7 @@ var LoginComponent = (function () {
     return LoginComponent;
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/login.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/login.component.js.map
 
 /***/ }),
 
@@ -1079,7 +1089,7 @@ var PasswordResetComponent = (function () {
     return PasswordResetComponent;
     var _a, _b, _c, _d, _e, _f, _g;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/passwordReset.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/passwordReset.component.js.map
 
 /***/ }),
 
@@ -1162,7 +1172,7 @@ var AfterLoginHeaderComponent = (function () {
     return AfterLoginHeaderComponent;
     var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/headerLayout.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/headerLayout.component.js.map
 
 /***/ }),
 
@@ -1213,7 +1223,7 @@ var ProfileCardComponent = (function () {
     ], ProfileCardComponent);
     return ProfileCardComponent;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/profileCard.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/profileCard.component.js.map
 
 /***/ }),
 
@@ -1293,7 +1303,7 @@ var VerifyEmailComponent = (function () {
     return VerifyEmailComponent;
     var _a, _b, _c, _d, _e, _f;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/verifyEmail.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/verifyEmail.component.js.map
 
 /***/ }),
 
@@ -1418,7 +1428,7 @@ var AuthenticationService = (function () {
     return AuthenticationService;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/authentication.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/authentication.service.js.map
 
 /***/ }),
 
@@ -1453,7 +1463,7 @@ if (__WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/main.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/main.js.map
 
 /***/ }),
 
@@ -1529,7 +1539,7 @@ var JsonDataService = (function () {
         this.url = '/auth/nav-menus';
         return this.http.get(this.url, this.authoriZation(tokenVerification))
             .map(function (response) {
-            response.json();
+            return response.json();
         });
     };
     JsonDataService.prototype.authoriZation = function (userToken) {
@@ -1559,7 +1569,7 @@ var JsonDataService = (function () {
     return JsonDataService;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/json-data.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/json-data.service.js.map
 
 /***/ }),
 
@@ -1583,7 +1593,7 @@ var JsonDataService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_forget_password_forgetPassword_component__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_password_reset_passwordReset_component__ = __webpack_require__(471);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_landing_page_landing_page_component__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_profile_card_profileCard_component__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_import_candidates_importCandidates_component__ = __webpack_require__(893);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1613,20 +1623,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 // routes
 var routes = [
-    { path: 'profileCard', component: __WEBPACK_IMPORTED_MODULE_16__components_profile_card_profileCard_component__["a" /* ProfileCardComponent */] },
     { path: '', redirectTo: '/samarthya', pathMatch: 'full' },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__components_login_login_component__["a" /* LoginComponent */] },
     { path: 'samarthya', component: __WEBPACK_IMPORTED_MODULE_15__components_landing_page_landing_page_component__["a" /* LandingPageComponent */] },
     { path: 'verifyEmail', component: __WEBPACK_IMPORTED_MODULE_12__components_verify_email_verifyEmail_component__["a" /* VerifyEmailComponent */] },
     { path: 'forgotPassword', component: __WEBPACK_IMPORTED_MODULE_13__components_forget_password_forgetPassword_component__["a" /* ForgotPasswordComponent */] },
     { path: 'passwordResetOut/:confirm', component: __WEBPACK_IMPORTED_MODULE_14__components_password_reset_passwordReset_component__["a" /* PasswordResetComponent */] },
-    { path: 'candidateSearch', component: __WEBPACK_IMPORTED_MODULE_5__components_candidate_search_candidate_search_component__["a" /* CandidateSearchComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_9__components_admin_registration_admin_registration_component__["a" /* AdminRegistrationComponent */] },
     {
         path: 'home', component: __WEBPACK_IMPORTED_MODULE_11__components_postlogin_registration_layout_header_layout_headerLayout_component__["a" /* AfterLoginHeaderComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_auth_guard__["a" /* AuthGuard */]],
         children: [
+            { path: 'import', component: __WEBPACK_IMPORTED_MODULE_16__components_import_candidates_importCandidates_component__["a" /* ImportComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_auth_guard__["a" /* AuthGuard */]] },
             { path: 'aboutUs', component: __WEBPACK_IMPORTED_MODULE_3__components_about_us_about_us_component__["a" /* AboutUsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'candidateRegister', component: __WEBPACK_IMPORTED_MODULE_6__components_candidate_register_candidate_register_component__["a" /* CandidateRegisterComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'candidateRegister/:location', component: __WEBPACK_IMPORTED_MODULE_6__components_candidate_register_candidate_register_component__["a" /* CandidateRegisterComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_auth_guard__["a" /* AuthGuard */]] },
             { path: 'candidateSearch', component: __WEBPACK_IMPORTED_MODULE_5__components_candidate_search_candidate_search_component__["a" /* CandidateSearchComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_auth_guard__["a" /* AuthGuard */]] },
             { path: 'eventPost', component: __WEBPACK_IMPORTED_MODULE_7__components_event_post_event_post_component__["a" /* EventPostComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_auth_guard__["a" /* AuthGuard */]] },
             { path: 'jobPost', component: __WEBPACK_IMPORTED_MODULE_8__components_job_post_job_post_component__["a" /* JobPostComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_auth_guard__["a" /* AuthGuard */]] },
@@ -1642,7 +1651,7 @@ var AppRoutingModule = (function () {
     AppRoutingModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes),
+                __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes, { useHash: true }),
             ],
             exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
         }), 
@@ -1651,7 +1660,7 @@ var AppRoutingModule = (function () {
     return AppRoutingModule;
 }());
 ;
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/app-routing.module.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/app-routing.module.js.map
 
 /***/ }),
 
@@ -1686,7 +1695,7 @@ var EmployersComponent = (function () {
     ], EmployersComponent);
     return EmployersComponent;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/employers.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/employers.component.js.map
 
 /***/ }),
 
@@ -1721,7 +1730,7 @@ var FooterComponent = (function () {
     ], FooterComponent);
     return FooterComponent;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/footer.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/footer.component.js.map
 
 /***/ }),
 
@@ -1766,7 +1775,7 @@ var LoginFooterComponent = (function () {
     return LoginFooterComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/login-footer.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/login-footer.component.js.map
 
 /***/ }),
 
@@ -1825,7 +1834,7 @@ var LoginHeaderComponent = (function () {
     return LoginHeaderComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/login-header.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/login-header.component.js.map
 
 /***/ }),
 
@@ -1858,7 +1867,7 @@ var placementComponent = (function () {
     ], placementComponent);
     return placementComponent;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/placementComponent.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/placementComponent.js.map
 
 /***/ }),
 
@@ -1901,6 +1910,7 @@ var placementComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_candidate_register_candidate_register_component__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_admin_registration_admin_registration_component__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_about_us_about_us_component__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_import_candidates_importCandidates_component__ = __webpack_require__(893);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return placementmodule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1911,6 +1921,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1996,6 +2007,7 @@ var placementmodule = (function () {
                 __WEBPACK_IMPORTED_MODULE_17__components_profile_card_profileCard_component__["a" /* ProfileCardComponent */],
                 __WEBPACK_IMPORTED_MODULE_16__components_verify_email_verifyEmail_component__["a" /* VerifyEmailComponent */],
                 __WEBPACK_IMPORTED_MODULE_30__placementComponent__["a" /* placementComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__components_import_candidates_importCandidates_component__["a" /* ImportComponent */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_30__placementComponent__["a" /* placementComponent */]],
             exports: [
@@ -2017,14 +2029,15 @@ var placementmodule = (function () {
                 __WEBPACK_IMPORTED_MODULE_18__components_prelogin_registration_layout_login_header_login_header_component__["a" /* LoginHeaderComponent */],
                 __WEBPACK_IMPORTED_MODULE_17__components_profile_card_profileCard_component__["a" /* ProfileCardComponent */],
                 __WEBPACK_IMPORTED_MODULE_16__components_verify_email_verifyEmail_component__["a" /* VerifyEmailComponent */],
-                __WEBPACK_IMPORTED_MODULE_30__placementComponent__["a" /* placementComponent */]
+                __WEBPACK_IMPORTED_MODULE_30__placementComponent__["a" /* placementComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__components_import_candidates_importCandidates_component__["a" /* ImportComponent */]
             ]
         }), 
         __metadata('design:paramtypes', [])
     ], placementmodule);
     return placementmodule;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/placementmodule.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/placementmodule.js.map
 
 /***/ }),
 
@@ -2067,7 +2080,7 @@ var AppComponent = (function () {
     return AppComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/app.component.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/app.component.js.map
 
 /***/ }),
 
@@ -2145,7 +2158,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/app.module.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/app.module.js.map
 
 /***/ }),
 
@@ -2161,7 +2174,7 @@ var AppModule = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/environment.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/environment.js.map
 
 /***/ }),
 
@@ -2175,7 +2188,7 @@ module.exports = "<p>\n    About us\n</p>\n<app-footer></app-footer>"
 /***/ 814:
 /***/ (function(module, exports) {
 
-module.exports = "<app-login-header *ngIf=\"title=='Coordinator' || title=='Supervisor'\">\n</app-login-header>\n<app-header *ngIf=\"title=='Admin'\"></app-header>\n\n<!--Register card-->\n<md-grid-list cols=\"1\" rowHeight=\"1750\">\n  <md-grid-tile>\n    <!--card Start-->\n    <md-card class=\"loginCard\">\n      <md-card-title>\n        <h2 class=\"text-center title\">{{title}} Registration</h2>\n      </md-card-title>\n      <md-card-content>\n        <form [formGroup]=\"userForm\">\n          <!--Credentials division-->\n          <div class=\"division\">\n            Credential Details\n          </div>\n          <!--Email-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">mail</i>\n            </div>\n\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n\n                <input formControlName=\"emailControl\" mdInput placeholder=\"Email\" [readonly]=\"emailDisable\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Email required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('emailControl').hasError('required') && userForm.get('emailControl').touched\">\n                    Email is required\n                  </div>\n                  <!-- Email pattern validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('emailControl').hasError('pattern') && userForm.get('emailControl').touched\">\n                    Invalid email\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--passowrd-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">lock</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"passwordControl\" minlength=\"8\" type=\"password\" class=\"validate\" placeholder=\"Password\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Password required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('passwordControl').hasError('required') && userForm.get('passwordControl').touched\">\n                    Password is required\n                  </div>\n                  <!--Password length validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('passwordControl').hasError('minlength') && userForm.get('passwordControl').touched\">\n                    Password should more than 7 character\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--confirm password-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">lock</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"confirmPasswordControl\" minlength=\"8\" type=\"password\" class=\"validate\" placeholder=\"Confirm Password\"\n                />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Confirm password required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('confirmPasswordControl').hasError('required') && userForm.get('confirmPasswordControl').touched\">\n                    Confirm Password is required\n                  </div>\n                  <!--Confirm Password length validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('confirmPasswordControl').hasError('minlength') && userForm.get('confirmPasswordControl').touched\">\n                    Password should more than 7 character\n                  </div>\n                  <!-- Matching password  validation-->\n                  <div class=\"errorStyle\" *ngIf=\"(!userForm.get('confirmPasswordControl').valid) && !userForm.get('confirmPasswordControl').hasError('required') &&!userForm.get('passwordControl').hasError('required') && userForm.get('confirmPasswordControl').touched\">\n                    Mismatch Password\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n\n          <!--Personal info division-->\n          <div class=\"division\">\n            Personal Details\n          </div>\n\n          <!--First Name-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">perm_identity</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"firstNameControl\" id=\"fname\" type=\"text\" class=\"validate\" placeholder=\"First Name\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Name required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('firstNameControl').hasError('required') && userForm.get('firstNameControl').touched\">\n                    Name is required\n                  </div>\n                  <!-- Name pattern validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('firstNameControl').hasError('pattern') && userForm.get('firstNameControl').touched\">\n                    Name should be more than 2 alphabets\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--Last Name-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">perm_identity</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"lastNameControl\" type=\"text\" class=\"validate\" placeholder=\"Last Name\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Name pattern validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('lastNameControl').hasError('pattern') && userForm.get('lastNameControl').touched\">\n                    Name should be more than 2 alphabets\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--Gender-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"gender\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons levelIcon\">wc</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\" class=\"full-width\">\n              <md-radio-group formControlName=\"genderControl\">\n                <md-radio-button value=\"male\">Male</md-radio-button>\n                <md-radio-button value=\"female\">Female</md-radio-button>\n              </md-radio-group><br>\n              <!-- Name required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('genderControl').hasError('required') && userForm.get('genderControl').touched\">\n                Gender is required\n              </div>\n            </div>\n          </div>\n\n          <!--Adhar-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">chrome_reader_mode</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"aadharControl\" type=\"text\" class=\"validate\" placeholder=\"Aadhar No. (Optional)\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!--<div *ngIf=\"userForm.get('aadharControl').hasError('pattern')\" class=\"errorStyle\">Invaild Aadhar</div>-->\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n\n\n          <!--Date of Birth-->\n          <!--<div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex>\n              <md2-datepicker formControlName=\"dob\" [(ngModel)]=\"date\" class=\"full-width\">date</md2-datepicker>\n            </div>\n          </div>-->\n\n          <!--Contact info division-->\n          <div class=\"division\">\n            Contact Details\n          </div>\n\n          <!--Mobile No-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">call</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"mobileControl\" type=\"text\" class=\"validate\" placeholder=\"Mobile No.\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Mobile number required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('mobileControl').hasError('required') && userForm.get('mobileControl').touched\">\n                    Mobile Number is required\n                  </div>\n                  <!-- Mobile number pattern validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('mobileControl').hasError('pattern') && userForm.get('mobileControl').touched\">\n                    Mobile Number should be 10 digit\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--location Pincode-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">dialpad</i>\n            </div>\n            <div fxFlex>\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"pincodeControl\" type=\"text\" class=\"validate\" placeholder=\"Pincode\" (keyup)=\"getPincode()\"\n                />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <div *ngIf=\"userForm.get('pincodeControl').hasError('pattern')\" class=\"errorStyle\">Invaild Pincode</div>\n                  <div *ngIf=\"userForm.get('pincodeControl').hasError('required') && userForm.get('pincodeControl').touched\" class=\"errorStyle\">\n                    Pincode is required\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--location area-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons levelIcon\">my_location</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-select formControlName=\"locationControl\" placeholder=\"Select Area*\" class=\"full-width\">\n                <md-option *ngFor=\"let area of areaList\" [value]=\"area\">\n                  {{ area }}\n                </md-option>\n              </md-select>\n              <!-- Location required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('locationControl').hasError('required') && userForm.get('locationControl').touched\">\n                Location is required\n              </div>\n            </div>\n          </div>\n\n          <!--Placement division-->\n          <div class=\"division\">\n            Placement Details\n          </div>\n          <!--Profession-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons \">layers</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md2-select formControlName=\"professionControl\" placeholder=\"Profession*\" [multiple]=\"true\" #selectMultipleControl>\n                <md2-option color=\"accent\" *ngFor=\"let currentProfession of professions\" value=\"{{currentProfession}}\">{{currentProfession}}</md2-option>\n              </md2-select>\n              <!-- Profession required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('professionControl').hasError('required') && userForm.get('professionControl').touched\">\n                Profession is required\n              </div>\n\n\n            </div>\n          </div>\n\n          <div [hidden]=\"hiddenParticularRole\">\n            <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n              <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n                <i class=\"material-icons formIcons levelIcon\">supervisor_account</i>\n              </div>\n              <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n                <md-input-container class=\"full-width\">\n                  <input formControlName=\"roleControl\" mdInput placeholder=\"Role*\" [readonly]=\"disabled\" />\n                </md-input-container>\n                <!-- Role required validation-->\n                <div class=\"errorStyle\" *ngIf=\"userForm.get('roleControl').hasError('required') && userForm.get('roleControl').touched\">\n                  Role is required\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <div [hidden]=\"hiddenRole\">\n            <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n              <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n                <i class=\"material-icons formIcons levelIcon\">supervisor_account</i>\n              </div>\n              <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n                <md2-select formControlName=\"roleControl\" placeholder=\"Role*\" [multiple]=\"true\" #selectMultipleControl>\n                  <md2-option *ngFor=\"let currentRole of roles\" value=\"{{currentRole}}\">{{currentRole}}</md2-option>\n                </md2-select>\n\n                <!-- Role required validation-->\n                <div class=\"errorStyle\" *ngIf=\"userForm.get('roleControl').hasError('required') && userForm.get('roleControl').touched\">\n                  Role is required\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <!--Registration ID-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">assignment_ind</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"registrationControl\" type=\"text\" class=\"validate\" placeholder=\"Registration Id\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <div *ngIf=\"userForm.get('registrationControl').hasError('required') && userForm.get('registrationControl').touched\" class=\"errorStyle\">\n                    Registration ID is required\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--placementCenter-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons levelIcon\">person_pin_circle</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-select formControlName=\"placementControl\" ng-model=\"placementSelect\" #placementCenterId class=\"full-width\" placeholder=\"Placement Center*\">\n                <md-option *ngFor=\"let center of placementCenters\" value=\"{{center}}\">{{center}}</md-option>\n              </md-select>\n              <!-- Placement center required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('placementControl').hasError('required') && userForm.get('placementControl').touched\">\n                Placement is required\n              </div>\n            </div>\n          </div>\n\n          <!--Langyuage-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">language</i>\n            </div>\n            <div fxFlex>\n              <md2-select formControlName=\"languageControl\" placeholder=\"Language*\" [multiple]=\"true\" #selectMultipleControl>\n                <md2-option *ngFor=\"let language of languages\" value=\"{{language}}\">{{language}}\n\n                </md2-option>\n              </md2-select>\n              <!-- Name required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('languageControl').hasError('required') && userForm.get('languageControl').touched\">\n                Language is required\n              </div>\n            </div>\n          </div>\n\n          <!--Register Button-->\n          <div fxLayout=\"row\">\n            <button md-raised-button color=\"primary\" class=\"full-width registerBtn\" type=\"button\" (click)=\"save(userForm)\" [disabled]=\"!userForm.valid\">Register</button>\n          </div>\n        </form>\n      </md-card-content>\n    </md-card>\n  </md-grid-tile>\n</md-grid-list>\n\n<app-footer *ngIf=\"title=='Admin'\"></app-footer>\n<app-login-footer *ngIf=\"title=='Coordinator' || title=='Supervisor'\"></app-login-footer>"
+module.exports = "<app-login-header *ngIf=\"title=='Coordinator' || title=='Supervisor'\">\n</app-login-header>\n<app-header *ngIf=\"title=='Admin'\"></app-header>\n\n<!--Register card-->\n<md-grid-list cols=\"1\" rowHeight=\"1750\">\n  <md-grid-tile>\n    <!--card Start-->\n    <md-card class=\"loginCard\">\n      <md-card-title>\n        <h2 class=\"text-center title\">{{title}} Registration</h2>\n      </md-card-title>\n      <md-card-content>\n        <form [formGroup]=\"userForm\">\n          <!--Credentials division-->\n          <div class=\"division\">\n            Credential Details\n          </div>\n          <!--Email-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">mail</i>\n            </div>\n\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n\n                <input formControlName=\"emailControl\" mdInput placeholder=\"Email\" [readonly]=\"emailDisable\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Email required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('emailControl').hasError('required') && userForm.get('emailControl').touched\">\n                    Email is required\n                  </div>\n                  <!-- Email pattern validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('emailControl').hasError('pattern') && userForm.get('emailControl').touched\">\n                    Invalid email\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--passowrd-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">lock</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"passwordControl\" minlength=\"8\" type=\"password\" class=\"validate\" placeholder=\"Password\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Password required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('passwordControl').hasError('required') && userForm.get('passwordControl').touched\">\n                    Password is required\n                  </div>\n                  <!--Password length validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('passwordControl').hasError('minlength') && userForm.get('passwordControl').touched\">\n                    Password should more than 7 character\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--confirm password-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">lock</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"confirmPasswordControl\" minlength=\"8\" type=\"password\" class=\"validate\" placeholder=\"Confirm Password\"\n                />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Confirm password required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('confirmPasswordControl').hasError('required') && userForm.get('confirmPasswordControl').touched\">\n                    Confirm Password is required\n                  </div>\n                  <!--Confirm Password length validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('confirmPasswordControl').hasError('minlength') && userForm.get('confirmPasswordControl').touched\">\n                    Password should more than 7 character\n                  </div>\n                  <!-- Matching password  validation-->\n                  <div class=\"errorStyle\" *ngIf=\"(!userForm.get('confirmPasswordControl').valid) && !userForm.get('confirmPasswordControl').hasError('required') &&!userForm.get('passwordControl').hasError('required') && userForm.get('confirmPasswordControl').touched\">\n                    Mismatch Password\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n\n          <!--Personal info division-->\n          <div class=\"division\">\n            Personal Details\n          </div>\n\n          <!--First Name-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">perm_identity</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"firstNameControl\" id=\"fname\" type=\"text\" class=\"validate\" placeholder=\"First Name\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Name required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('firstNameControl').hasError('required') && userForm.get('firstNameControl').touched\">\n                    Name is required\n                  </div>\n                  <!-- Name pattern validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('firstNameControl').hasError('pattern') && userForm.get('firstNameControl').touched\">\n                    Name should be more than 2 alphabets\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--Last Name-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">perm_identity</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"lastNameControl\" type=\"text\" class=\"validate\" placeholder=\"Last Name\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Name pattern validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('lastNameControl').hasError('pattern') && userForm.get('lastNameControl').touched\">\n                    Name should be more than 2 alphabets\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--Gender-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"gender\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons levelIcon\">wc</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\" class=\"full-width\">\n              <md-radio-group formControlName=\"genderControl\">\n                <md-radio-button value=\"male\">Male</md-radio-button>\n                <md-radio-button value=\"female\">Female</md-radio-button>\n              </md-radio-group><br>\n              <!-- Name required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('genderControl').hasError('required') && userForm.get('genderControl').touched\">\n                Gender is required\n              </div>\n            </div>\n          </div>\n\n          <!--Adhar-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">chrome_reader_mode</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"aadharControl\" type=\"text\" class=\"validate\" placeholder=\"Aadhar No. (Optional)\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!--<div *ngIf=\"userForm.get('aadharControl').hasError('pattern')\" class=\"errorStyle\">Invaild Aadhar</div>-->\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n\n\n          <!--Date of Birth-->\n          <!--<div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex>\n              <md2-datepicker formControlName=\"dob\" [(ngModel)]=\"date\" class=\"full-width\">date</md2-datepicker>\n            </div>\n          </div>-->\n\n          <!--Contact info division-->\n          <div class=\"division\">\n            Contact Details\n          </div>\n\n          <!--Mobile No-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">call</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"mobileControl\" type=\"text\" class=\"validate\" placeholder=\"Mobile No.\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <!-- Mobile number required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('mobileControl').hasError('required') && userForm.get('mobileControl').touched\">\n                    Mobile Number is required\n                  </div>\n                  <!-- Mobile number pattern validation-->\n                  <div class=\"errorStyle\" *ngIf=\"userForm.get('mobileControl').hasError('pattern') && userForm.get('mobileControl').touched\">\n                    Mobile Number should be 10 digit\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--location Pincode-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">dialpad</i>\n            </div>\n            <div fxFlex>\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"pincodeControl\" type=\"text\" class=\"validate\" placeholder=\"Pincode\" (keyup)=\"getPincode()\"\n                />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <div *ngIf=\"userForm.get('pincodeControl').hasError('pattern')\" class=\"errorStyle\">Invaild Pincode</div>\n                  <div *ngIf=\"userForm.get('pincodeControl').hasError('required') && userForm.get('pincodeControl').touched\" class=\"errorStyle\">\n                    Pincode is required\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--location area-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons levelIcon\">my_location</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-select formControlName=\"locationControl\" placeholder=\"Select Area*\" class=\"full-width\">\n                <md-option *ngFor=\"let area of areaList\" [value]=\"area\">\n                  {{ area }}\n                </md-option>\n              </md-select>\n              <!-- Location required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('locationControl').hasError('required') && userForm.get('locationControl').touched\">\n                Location is required\n              </div>\n            </div>\n          </div>\n\n          <!--Placement division-->\n          <div class=\"division\">\n            Placement Details\n          </div>\n          <!--Profession-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons \">layers</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md2-select formControlName=\"professionControl\" placeholder=\"Profession*\" [multiple]=\"true\" #selectMultipleControl>\n                <md2-option color=\"accent\" *ngFor=\"let currentProfession of professions\" value=\"{{currentProfession.name}}\">{{currentProfession.name}}</md2-option>\n              </md2-select>\n              <!-- Profession required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('professionControl').hasError('required') && userForm.get('professionControl').touched\">\n                Profession is required\n              </div>\n\n\n            </div>\n          </div>\n\n          <div [hidden]=\"hiddenParticularRole\">\n            <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n              <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n                <i class=\"material-icons formIcons levelIcon\">supervisor_account</i>\n              </div>\n              <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n                <md-input-container class=\"full-width\">\n                  <input formControlName=\"roleControl\" mdInput placeholder=\"Role*\" [readonly]=\"disabled\" />\n                </md-input-container>\n                <!-- Role required validation-->\n                <div class=\"errorStyle\" *ngIf=\"userForm.get('roleControl').hasError('required') && userForm.get('roleControl').touched\">\n                  Role is required\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <div [hidden]=\"hiddenRole\">\n            <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n              <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n                <i class=\"material-icons formIcons levelIcon\">supervisor_account</i>\n              </div>\n              <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n                <md2-select formControlName=\"roleControl\" placeholder=\"Role*\" [multiple]=\"true\" #selectMultipleControl>\n                  <md2-option *ngFor=\"let currentRole of roles\" value=\"{{currentRole}}\">{{currentRole}}</md2-option>\n                </md2-select>\n\n                <!-- Role required validation-->\n                <div class=\"errorStyle\" *ngIf=\"userForm.get('roleControl').hasError('required') && userForm.get('roleControl').touched\">\n                  Role is required\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <!--Registration ID-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">assignment_ind</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-input-container class=\"full-width\">\n                <input mdInput formControlName=\"registrationControl\" type=\"text\" class=\"validate\" placeholder=\"Registration Id\" />\n                <md-hint align=\"start\" class=\"full-width\">\n                  <div *ngIf=\"userForm.get('registrationControl').hasError('required') && userForm.get('registrationControl').touched\" class=\"errorStyle\">\n                    Registration ID is required\n                  </div>\n                </md-hint>\n              </md-input-container>\n            </div>\n          </div>\n\n          <!--placementCenter-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons levelIcon\">person_pin_circle</i>\n            </div>\n            <div fxFlex.xs=\"90\" fxFlex.gt-xs=\"93\">\n              <md-select formControlName=\"placementControl\" ng-model=\"placementSelect\" #placementCenterId class=\"full-width\" placeholder=\"Placement Center*\">\n                <md-option *ngFor=\"let center of placementCenters\" value=\"{{center.name}}\">{{center.name}}</md-option>\n              </md-select>\n              <!-- Placement center required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('placementControl').hasError('required') && userForm.get('placementControl').touched\">\n                Placement is required\n              </div>\n            </div>\n          </div>\n\n          <!--Langyuage-->\n          <div fxLayout=\"row\" fxLayoutAlign=\"start end\" class=\"dropdown\">\n            <div fxFlex.xs=\"10\" fxFlex.gt-xs=\"7\">\n              <i class=\"material-icons formIcons\">language</i>\n            </div>\n            <div fxFlex>\n              <md2-select formControlName=\"languageControl\" placeholder=\"Language*\" [multiple]=\"true\" #selectMultipleControl>\n                <md2-option *ngFor=\"let language of languages\" value=\"{{language.name}}\">{{language.name}}\n\n                </md2-option>\n              </md2-select>\n              <!-- Name required validation-->\n              <div class=\"errorStyle\" *ngIf=\"userForm.get('languageControl').hasError('required') && userForm.get('languageControl').touched\">\n                Language is required\n              </div>\n            </div>\n          </div>\n\n          <!--Register Button-->\n          <div fxLayout=\"row\">\n            <button md-raised-button color=\"primary\" class=\"full-width registerBtn\" type=\"button\" (click)=\"save(userForm)\" [disabled]=\"!userForm.valid\">Register</button>\n          </div>\n        </form>\n      </md-card-content>\n    </md-card>\n  </md-grid-tile>\n</md-grid-list>\n\n<app-footer *ngIf=\"title=='Admin'\"></app-footer>\n<app-login-footer *ngIf=\"title=='Coordinator' || title=='Supervisor'\"></app-login-footer>"
 
 /***/ }),
 
@@ -2189,7 +2202,7 @@ module.exports = "<p>\n    Candidate Register page\n</p>\n<p>\n    Coming soon..
 /***/ 816:
 /***/ (function(module, exports) {
 
-module.exports = "<app-login-header></app-login-header>\n\n\n<md-grid-list cols=\"1\" rowHeight=\"1750\">\n  <md-grid-tile>\n\n  </md-grid-tile>\n  \n  <md-card class=\"loginCard\">\n      \n      <md-card-content>\n    <form [formGroup]=\"searchForm\">\n       \n          <!--Email-->\n          <div fxLayout=\"row\" >\n            <div fxFlex=\"99\" fxFlex.xs=\"77\" fxFlex.sm=\"82\">\n              <md-input-container class=\"full-width\">\n\n                <input formControlName=\"searchControl\" mdInput placeholder=\"Search Candidate\" (keyup.enter)=\"getSearch()\"/>\n                <md-hint align=\"start\" class=\"full-width\">\n                 \n  <!-- Search required validation-->\n                  <div class=\"errorStyle\" *ngIf=\"searchForm.get('searchControl').hasError('required') && searchForm.get('searchControl').touched\">\n                    Search field is required\n                  </div>\n<!--<div *ngFor=\"let abou of [1,2,3]\" class=\"container container-padding about-item \" fxLayout fxLayout.md=\"row\" fxLayoutGap.md=\"10px\" fxLayout.sm=\"column\" fxLayoutGap.sm=\"10px\" fxLayout.xs=\"column\" fxLayoutGap=\"10px\" fxLayoutGap.xs=\"10px\">\n\n<div class=\"profile\" *ngFor=\"let num of [1,2,3]\">\n<profile-card></profile-card>\n</div>\n</div>-->\n                </md-hint>\n              </md-input-container>\n               <!--<a  class=\"search-icon\">\n       <i class=\"material-icons\">search</i>\n    </a>-->\n            </div>\n                <!--<div fxFlex=\"7\" fxFlex.xs=\"4\" fxFlex.sm=\"6\">\n                    <button md-raised-button color=\"accent\" ><i class=\"material-icons\">search</i></button>\n                </div>-->\n          </div>\n          <div fxLayout=\"row\" >\n            <div fxFlex=\"99\" fxFlex.xs=\"77\" fxFlex.sm=\"82\">\n                    \n            </div>\n          </div>\n         \n    </form>\n      </md-card-content>\n  </md-card>\n  <div fxLayout=\"row\" >\n<div class=\"view\" fxFlex>\n  View as:\n                <button md-raised-button color=\"accent\" >Detail</button>\n                <button md-raised-button color=\"accent\" >Thumbnail</button>\n\n  </div>\n  </div>\n\n</md-grid-list>\n"
+module.exports = "\n<div class=\"container paddings\"\n     fxLayout\n     fxLayout.xs=\"column\"\n     fxLayoutAlign=\"center\"\n         fxLayoutGap.xs=\"0\">\n\n  <div  fxFlex  fxFlexOffset.xs=\"0\" class=\"full-width form-style\">\n    \n <form [formGroup]=\"searchForm\" class={{cls}}>\n\n                <md-input-container class=\"full-width\">\n                    <input formControlName=\"searchControl\" mdInput placeholder=\"Search Candidate\" (focus)=\"change()\" (blur)=\"fullView()\" (keyup.enter)=\"getSearch() \" />\n                    <md-hint>\n                    <p class=\"error-style\">\n                    {{message}}\n                  </p>\n                  </md-hint>\n                  </md-input-container>\n                </form>\n              </div>\n\n</div>\n\n\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -2315,7 +2328,7 @@ module.exports = ""
 /***/ 834:
 /***/ (function(module, exports) {
 
-module.exports = "md-card {\n    max-width: 700px;\n    margin: auto;\n    background: #ebebe0;\n}\n.full-width {\n    width: 100%;\n    margin-top: 10px;\n    margin-bottom: 10px;\n    padding: 0px;\n}\n.errorStyle {\n    position: absolute;\n    font-size: 12px;\n    -webkit-transition: all .7s;\n    transition: all .7s;\n    color: #F44336;\n}\n.view{\n    position: fixed;\n\n}\n.search-icon {\n    position: absolute;\n    top: 50%;\n    right: 25px;\n    margin-top: -10px;\n}\n\n.loginCard{\n    text-align: center;\n}\nbutton{\n    position: absolute;\n   margin-top:20px;\n   padding:0px; \n   margin-left: -10px;\n\n}\n\n@media (min-width: 10px) {\n    md-card {\n        top: 56px;\n        width:200px;\n    }\n    .loading {\n        padding-left: 40%;\n        padding-top: 50%;\n    }\n}\n\n@media (min-width: 320px) {\n\n    md-card {\n        top: 56px;\n        width:310px;\n    }\n    \n    \n}\n\n\n\n\n/*for Medium screens*/\n\n\n@media (min-width: 350px) {\n    md-card {\n        top: 70px;\n                width:300px;\n\n    }\n    .loading {\n        padding-left: 40%;\n        padding-top: 50%;\n    }\n}\n@media (min-width: 400px) {\n\n    md-card {\n        top: 56px;\n        width:260px;\n    }\n    \n    \n}\n\n\n@media (min-width: 480px) {\n    md-card {\n        top: 70px;\n                width:450px;\n\n    }\n    .loading {\n        padding-left: 40%;\n        padding-top: 50%;\n    }\n}\n\n/*for large screens*/\n\n@media (min-width: 768px) {\n    md-card {\n        top: 100px;\n                width:550px;\n\n    }\n    .loading {\n        padding-left: 47%;\n        padding-top: 10%;\n    }\n}\n\n\n"
+module.exports = "\n.full-width {\n    width: 100%;\n    margin: auto;\n}\n.error-style {\n    \n    font-size: 12px;\n    -webkit-transition: all .7s;\n    transition: all .7s;\n    color: #F44336;\n}\n.view{\n    position: fixed;\n\n}\n.search-icon {\n    position: absolute;\n    top: 50%;\n    right: 25px;\n    margin-top: -10px;\n}\n\n.loginCard{\n    text-align: center;\n}\n\nbutton\n{\n    margin:0px 5px;\n}\n.pull-right\n{\n    float: right;\n\n}\n.search-box\n{\n    width:80%;\n    margin:auto;\n        }\n\n.width-75\n{\n    width:75%;\n    margin:auto;\n}\n.pull-left\n{\n    float: left;\n}\n.expand{\n\n  -webkit-animation: moveDown 1s .1s ease forwards;\n  animation: moveDown 1s .1s ease forwards;\n}\n\n \n@-webkit-keyframes moveDown {\n  \n  \n  100% {\n   width:65%;\n  }\n}\n\n@keyframes moveDown {\n\n  100% {\n   width:65%;\n  }\n}\n\n.expand-out{\n\n  -webkit-animation: moveDowns 1s .1s ease forwards;\n  animation: moveDowns 1s .1s ease forwards;\n}\n\n\n@-webkit-keyframes moveDowns {\n  0% {\n   }\n  50% {\n    \n  }\n  100% {\n   width:100%;\n  }\n}\n\n@keyframes moveDowns {\n  0% {\n   }\n  50% {\n    \n  }\n  100% {\n\n   width:100%;\n  }\n}\n \n.paddings\n{\n    padding:1% 5%;\n    \n}\n.big-res\n{\n    font-size: 40px;\n}\n.form-style\n{  \n  box-shadow:         3px 3px 5px 6px #ccc; \n  -webkit-animation: blink 1s linear infinite; \n          animation: blink 1s linear infinite;\n}\n\n@-webkit-keyframes blink\n{\n    50%{  \n  box-shadow:         3px 3px 5px 6px #6d587a; \n    }\n}\n\n@keyframes blink\n{\n    50%{  \n  box-shadow:         3px 3px 5px 6px #6d587a; \n    }\n}\n\n\n@media (max-width: 400px) {\n.big-res\n    {\n    font-size: 25px;\n}\n    \n}\n\n@media (max-width: 551px) {\n.big-res\n    {\n    font-size: 30px;\n}\n    \n}\n\n\n\n"
 
 /***/ }),
 
@@ -2378,7 +2391,7 @@ module.exports = "md-card {\n    width: 500px;\n}\n\n.formIcons {\n    padding-b
 /***/ 843:
 /***/ (function(module, exports) {
 
-module.exports = ".copyright {\n   \n  position: relative;\n  \n  bottom: 0;\n  text-align: center;\n}\n   \n  \n\n\n.copyright p {\n    font-size: 15px;\n    padding: 0px;\n    margin: auto;\n}\n\n"
+module.exports = ".copyright {\n   \n  position: absolute;\n  \n  bottom: 0;\n  text-align: center;\n}\n   \n  \n\n\n.copyright p {\n    font-size: 15px;\n    padding: 0px;\n    margin: auto;\n}\n\n"
 
 /***/ }),
 
@@ -2475,7 +2488,7 @@ var EmailService = (function () {
     return EmailService;
     var _a;
 }());
-//# sourceMappingURL=/home/user/Desktop/SamarthyaGit/samarthyaPlatform/webclient/placement/src/email.service.js.map
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/email.service.js.map
 
 /***/ }),
 
@@ -2484,6 +2497,137 @@ var EmailService = (function () {
 
 module.exports = __webpack_require__(541);
 
+
+/***/ }),
+
+/***/ 893:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(38);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ImportComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ImportComponent = (function () {
+    function ImportComponent(http) {
+        this.http = http;
+        this.importButton = true;
+        this.filesToUpload = [];
+    }
+    ImportComponent.prototype.ngOnInit = function () {
+    };
+    ImportComponent.prototype.upload = function () {
+        console.log(this.formFileData);
+        this.http.post('/coordinates/upload', this.formFileData)
+            .map(function (resp) { return resp.json(); })
+            .subscribe(function (data) { return console.log('response', data); });
+    };
+    //  return this.http.post('/coordinates/upload',this.filesToUpload)
+    //          .subscribe((response) => {
+    //         // login successful if there's a jwt token in the response
+    //       console.log(response.json());
+    //     });
+    //  this.makeFileRequest("/coordinates/upload", [], this.filesToUpload).then((result) => {
+    //         console.log(result);
+    //     }, (error) => {
+    //         console.error(error);
+    //     });
+    ImportComponent.prototype.openFile = function (event) {
+        var _this = this;
+        console.log("ggg" + event.target.files + "ss");
+        var files = event.target.files;
+        if (files.length > 0) {
+            var file = void 0;
+            var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                file = files[i];
+                formData.append('userfile', file, file.name);
+            }
+            this.formFileData = formData;
+            var input = event.target;
+            var text = "";
+            var _loop_1 = function() {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    // this 'text' is the content of the file
+                    text = reader.result;
+                    try {
+                        var res = JSON.parse(text);
+                        _this.importButton = false;
+                        _this.error = "";
+                    }
+                    catch (e) {
+                        _this.error = e;
+                        _this.importButton = true;
+                    }
+                };
+                reader.readAsText(input.files[index]);
+            };
+            for (var index = 0; index < input.files.length; index++) {
+                _loop_1();
+            }
+        }
+        //  fileChangeEvent(fileInput: any){
+        //         this.filesToUpload = <Array<File>> fileInput.target.files;
+        //     }
+        //      makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
+        //         return new Promise((resolve, reject) => {
+        //             var formData: any = new FormData();
+        //             var xhr = new XMLHttpRequest();
+        //             for(var i = 0; i < files.length; i++) {
+        //                 formData.append("uploads[]", files[i], files[i].name);
+        //             }
+        //             xhr.onreadystatechange = function () {
+        //                 if (xhr.readyState == 4) {
+        //                     if (xhr.status == 200) {
+        //                         resolve(JSON.parse(xhr.response));
+        //                     } else {
+        //                         reject(xhr.response);
+        //                     }
+        //                 }
+        //             }
+        //             console.log(formData+"sendddd");
+        //             xhr.open("POST", url, true);
+        //             xhr.send(formData);
+        //         });
+        //     }
+    };
+    ImportComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+            selector: 'app-job-post',
+            template: __webpack_require__(894),
+            styles: [__webpack_require__(895)]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === 'function' && _a) || Object])
+    ], ImportComponent);
+    return ImportComponent;
+    var _a;
+}());
+//# sourceMappingURL=/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/webclient/placement/src/importCandidates.component.js.map
+
+/***/ }),
+
+/***/ 894:
+/***/ (function(module, exports) {
+
+module.exports = "<!--<input type=\"file\" (change)=\"openFile($event)\" placeholder=\"Upload file...\" />\n<button type=\"button\" [disabled]=\"importButton\" (click)=\"upload()\">Import Candidates</button>\n<div *ngIf=\"error\">{{error}}</div>-->\n\n\n<!--\n<form method=\"post\"  enctype=\"multipart/form-data\">\n    <input type=\"file\" (change)=\"openFile($event)\" placeholder=\"Upload file...\" />\n<button type=\"button\" [disabled]=\"importButton\"  (click)=\"upload()\">Import Candidates</button>\n<div *ngIf=\"error\">{{error}}</div>\n  </form>-->\n<div class=\"container width-75 margin-auto paddings margin-top\" fxLayout fxLayout.xs=\"column\" fxLayoutAlign=\"center\" fxLayoutGap.xs=\"0\">\n    <div fxFlex class=\"margin-auto import-file \">\n        <form method=\"post\" enctype=\"multipart/form-data\">\n            <input class=\"file-style\" type=\"file\" (change)=\"openFile($event)\" placeholder=\"Choose file...\" />\n        </form>\n    </div>\n</div>\n<!--import-button-->\n<div class=\"container width-75 margin-auto paddings\" fxLayout fxLayout.xs=\"column\" fxLayoutAlign=\"center\" fxLayoutGap.xs=\"0\">\n    <div fxFlex class=\"margin-auto  text-center \">\n        <button md-button type=\"button\" [disabled]=\"importButton\" (click)=\"upload()\">Import Candidates</button>\n    </div>\n</div>\n<!--error message-->\n<div class=\"container width-75  margin-auto paddings\" fxLayout fxLayout.xs=\"column\" fxLayoutAlign=\"center\" fxLayoutGap.xs=\"0\">\n    <div fxFlex class=\"margin-auto  error-style\"  *ngIf=\"error\">{{error}}\n    \n</div>\n</div>\n\n<app-footer></app-footer>"
+
+/***/ }),
+
+/***/ 895:
+/***/ (function(module, exports) {
+
+module.exports = ".full-width {\n    width: 100%;\n    margin: auto;\n}\n.pull-right\n{\n    float: right;\n\n}\n.width-35\n{\n\n    width:35%;\n    margin:auto;\n\n}\n.width-75\n{\n    width:75%;\n    margin:auto;\n}\n.pull-left\n{\n    float: left;\n}\n\n.box-style\n{  \n  box-shadow:         3px 3px 5px 6px #ccc; \n\n  /*animation: blink 1s linear infinite;*/\n}\n\n@-webkit-keyframes blink\n{\n    50%{  \n  box-shadow:         3px 3px 5px 6px #6d587a; \n    }\n}\n\n@keyframes blink\n{\n    50%{  \n  box-shadow:         3px 3px 5px 6px #6d587a; \n    }\n}\n\n.paddings\n{\n  padding: 5px 1%;\n\n}\nmd-card\n{\n  width:25%;\n}\n\n\n.text-center\n{\n  text-align: center;\n}\n.margin-auto\n{\n  margin: auto;\n\n}\n.none\n{\n  display: none;\n}\n.import-file\n{  \n box-shadow:         3px 3px 5px 6px #6d587a; \n  border: 1px dotted #6d587a ;\n  \n}\n.file-style\n{\n   outline: none;\n   font-size:30px;\n   text-align: center; \n     opacity:5;\n     width:100%;\n}\n.font-size-big\n{\n  font-size: 80px;\n  padding: 5px;\n  text-align:center;\n  margin: 10px;\n}\n.z-index\n{\n  z-index:-111;\n  position: relative;\n  top:0;\n}\nform,input\n{\n  margin:0;\n  padding: 0;\n}\n.margin-top\n{\n  margin-top: 1%;\n}\n.error-style\n{\n  color: #D8000C;\n  background-color: #FFBABA;\n  word-wrap: break-word;\n  font-size: 22px;\n  padding: 10px;\n  border-radius:20px; \n}"
 
 /***/ })
 

@@ -1,144 +1,88 @@
-[2017-03-21 16:52:57.398] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 16:53:04.208] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:53:04.234] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:53:05.310] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:53:05.321] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:53:14.646] [DEBUG] [default] - sendEmail function is invoke
-[2017-03-21 16:53:17.857] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:53:17.874] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:55:33.314] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 16:55:34.532] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 16:55:39.136] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:55:39.205] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:55:40.944] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:55:40.954] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:55:46.166] [DEBUG] [default] - sendEmail function is invoke
-[2017-03-21 16:55:49.678] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:55:49.692] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:57:25.394] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 16:57:26.671] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 16:57:31.124] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:57:31.164] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:57:35.105] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:57:35.116] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:57:41.328] [DEBUG] [default] - sendEmail function is invoke
-[2017-03-21 16:57:44.789] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:57:44.801] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:58:17.060] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 16:58:18.297] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 16:58:22.810] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:58:22.857] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:58:24.262] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:58:24.274] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:58:42.835] [DEBUG] [default] - sendEmail function is invoke
-[2017-03-21 16:58:46.335] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:58:46.345] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:59:25.233] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 16:59:26.705] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 16:59:30.576] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:59:30.614] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:59:36.012] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:59:36.021] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:59:41.421] [DEBUG] [default] - sendEmail function is invoke
-[2017-03-21 16:59:44.335] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 16:59:44.352] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 17:01:34.841] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 17:01:34.848] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 17:01:40.271] [DEBUG] [default] - sendEmail function is invoke
-[2017-03-21 17:01:48.539] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 17:01:48.554] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 17:02:06.801] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-21 17:02:06.805] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 17:02:06.882] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 18:37:34.630] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-21 18:37:34.645] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 18:37:34.759] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 18:38:10.219] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-21 18:38:10.232] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 18:38:10.327] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 18:38:40.207] [DEBUG] [default] - Get object and store into candidateData
-[2017-03-21 18:38:40.208] [DEBUG] [default] - Get userObj and store into userDetails
-[2017-03-21 18:38:40.249] [INFO] [default] - Adding user credentials and profile details
-[2017-03-21 18:38:40.253] [INFO] [default] - userData added sucessfully
-[2017-03-21 18:38:40.254] [ERROR] [default] - profile data not added Successfullynull
-[2017-03-21 18:38:40.258] [INFO] [default] - Get successResult successfully and return back
-[2017-03-21 18:38:40.263] [DEBUG] [default] - failed adding profile data and removed userCredential data
-[2017-03-21 19:03:00.674] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 19:03:55.529] [DEBUG] [default] - Server running  on 3000
-[2017-03-21 19:03:55.565] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 19:04:10.060] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 19:04:10.103] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 19:04:14.189] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 19:04:14.203] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 19:04:17.000] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
-[2017-03-21 19:04:17.004] [DEBUG] [default] - Get object and store into authData
-[2017-03-21 19:04:17.004] [DEBUG] [default] - Token is generated
-[2017-03-21 19:04:17.014] [DEBUG] [default] - Invalid Credentials
-[2017-03-21 19:04:17.015] [ERROR] [default] - Internal error occurred
-[2017-03-21 19:04:39.660] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 19:04:39.674] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 19:04:42.269] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 19:04:42.279] [DEBUG] [default] - getLanguage function invoke
-[2017-03-21 19:05:04.602] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 23:27:38.393] [DEBUG] [default] - Server running  on 3000
-[2017-03-21 23:27:38.418] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 23:29:30.465] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 23:30:22.658] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 23:30:43.194] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-21 23:30:45.884] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-21 23:31:02.302] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-23 14:32:55.828] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 14:33:19.405] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 14:33:19.435] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 14:33:23.025] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 14:33:23.042] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 14:33:24.977] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 14:33:24.999] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 15:35:20.192] [DEBUG] [default] - Server running  on 3000
-[2017-03-23 15:35:20.219] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 15:35:42.541] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 15:35:42.593] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 15:36:14.459] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 15:36:14.490] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 15:36:17.187] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 15:36:17.205] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 15:36:30.175] [DEBUG] [default] - sendEmail function is invoke
-[2017-03-23 15:36:33.858] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 15:36:33.874] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 16:56:36.906] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-23 17:50:56.025] [DEBUG] [default] - Server running  on 3000
-[2017-03-23 17:50:56.046] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 17:51:13.641] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 17:51:13.686] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 17:58:57.772] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-23 18:14:32.818] [DEBUG] [default] - Server running  on 3000
-[2017-03-23 18:14:32.839] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 18:14:55.486] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:14:55.530] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:15:50.603] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-23 18:15:54.729] [DEBUG] [default] - Server running  on 3000
-[2017-03-23 18:15:54.750] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 18:16:10.980] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:16:11.017] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:22:02.612] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:22:02.642] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:22:03.284] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:22:03.300] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:22:04.963] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:22:04.978] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:22:05.353] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:22:05.362] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:27:32.641] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-23 18:27:35.518] [DEBUG] [default] - Server running  on 3000
-[2017-03-23 18:27:35.539] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 18:28:00.636] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:28:00.679] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:29:57.486] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 18:29:57.517] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 19:12:59.919] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 19:12:59.962] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 19:20:22.255] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-23 19:20:29.857] [DEBUG] [default] - Server running  on 3000
-[2017-03-23 19:20:29.878] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-23 19:20:46.324] [DEBUG] [default] - getLanguage function invoke
-[2017-03-23 19:20:46.367] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:27:05.809] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:27:05.821] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:33:58.164] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:33:58.174] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:33:58.521] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:33:58.530] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:34:48.511] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:34:48.521] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:34:48.806] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:34:48.818] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:35:31.373] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:35:31.384] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:35:31.697] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:35:31.712] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:36:30.851] [DEBUG] [default] - Get object and store into coordinateData
+[2017-03-24 11:36:30.852] [DEBUG] [default] - Get userObj and store into userDetails
+[2017-03-24 11:36:30.875] [INFO] [default] - Adding user credentials and profile details
+[2017-03-24 11:36:30.880] [INFO] [default] - userData added sucessfully
+[2017-03-24 11:36:30.880] [ERROR] [default] - profile data not added Successfullynull
+[2017-03-24 11:36:30.882] [INFO] [default] - Get successResult successfully and return back
+[2017-03-24 11:36:30.884] [DEBUG] [default] - failed adding profile data and removed userCredential data
+[2017-03-24 11:36:30.957] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:36:30.968] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:38:06.819] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:38:06.822] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:38:07.054] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:38:07.061] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:39:23.405] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:39:23.415] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:39:23.725] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:39:23.738] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:39:28.049] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:39:28.055] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:39:28.357] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:39:28.368] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:39:44.811] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:39:44.819] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:39:45.145] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:39:45.155] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:06.233] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:06.245] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:40:06.578] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:06.587] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:11.081] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:11.090] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:40:11.392] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:11.402] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:34.813] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:34.820] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:40:35.125] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:35.137] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:39.912] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:39.920] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:40:40.203] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:40.220] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:47.520] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:47.532] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:40:47.856] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:40:47.870] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:41:59.852] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:41:59.868] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:42:00.233] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:42:00.245] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:42:55.407] [DEBUG] [default] - Get object and store into coordinateData
+[2017-03-24 11:42:55.407] [DEBUG] [default] - Get userObj and store into userDetails
+[2017-03-24 11:42:55.414] [INFO] [default] - Adding user credentials and profile details
+[2017-03-24 11:42:55.417] [INFO] [default] - userData added sucessfully
+[2017-03-24 11:42:55.417] [ERROR] [default] - profile data not added Successfullynull
+[2017-03-24 11:42:55.418] [INFO] [default] - Get successResult successfully and return back
+[2017-03-24 11:42:55.420] [DEBUG] [default] - failed adding profile data and removed userCredential data
+[2017-03-24 11:42:55.502] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:42:55.517] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:48:15.271] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-24 11:48:16.583] [DEBUG] [default] - Server running  on 3000
+[2017-03-24 11:48:16.610] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-24 11:48:20.755] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:48:20.785] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-24 11:48:20.893] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:48:20.901] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:49:06.175] [DEBUG] [default] - Get object and store into coordinateData
+[2017-03-24 11:49:06.177] [DEBUG] [default] - Get userObj and store into userDetails
+[2017-03-24 11:49:06.214] [INFO] [default] - Adding user credentials and profile details
+[2017-03-24 11:49:06.223] [INFO] [default] - userData added sucessfully
+[2017-03-24 11:49:06.224] [ERROR] [default] - profile data not added Successfullynull
+[2017-03-24 11:49:06.225] [INFO] [default] - Get successResult successfully and return back
+[2017-03-24 11:49:06.232] [DEBUG] [default] - failed adding profile data and removed userCredential data
+[2017-03-24 11:49:06.305] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 11:49:06.315] [DEBUG] [default] - getLanguage function invoke
