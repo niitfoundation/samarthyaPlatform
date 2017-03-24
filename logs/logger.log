@@ -212,3 +212,19 @@
 [2017-03-25 01:09:16.747] [DEBUG] [default] - getLanguage function invoke
 [2017-03-25 01:09:17.392] [DEBUG] [default] - getLanguage function invoke
 [2017-03-25 01:09:17.400] [DEBUG] [default] - getLanguage function invoke
+[2017-03-25 01:52:21.148] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-25 02:00:02.544] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-25 02:00:07.767] [DEBUG] [default] - getLanguage function invoke
+[2017-03-25 02:00:07.786] [DEBUG] [default] - getLanguage function invoke
+[2017-03-25 02:00:16.822] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
+[2017-03-25 02:00:16.825] [DEBUG] [default] - Get object and store into authData
+[2017-03-25 02:00:16.826] [DEBUG] [default] - Token is generated
+[2017-03-25 02:00:16.849] [DEBUG] [default] - Data find and resolve here
+[2017-03-25 02:00:16.849] [INFO] [default] - Get successResult successfully and return back
+[2017-03-25 02:00:16.936] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-25 02:00:16.939] [DEBUG] [default] - Token matched
+[2017-03-25 02:00:16.939] [INFO] [default] - Token verified
+[2017-03-25 02:00:16.949] [DEBUG] [default] - getLanguage function invoke
+[2017-03-25 02:00:16.999] [DEBUG] [default] - Got Profile Datanull
+[2017-03-25 02:00:21.232] [DEBUG] [default] - getLanguage function invoke
+[2017-03-25 02:00:21.254] [DEBUG] [default] - getLanguage function invoke

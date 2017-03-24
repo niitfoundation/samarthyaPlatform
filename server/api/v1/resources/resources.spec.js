@@ -12,9 +12,7 @@ describe('language', function() {
         supertest
             .post('/languages')
             .set('Accept', 'application/x-www-form-urlencoded')
-            .send({
-               
-            })
+            .send({})
             .expect(201)
             .end(function(err, res) {
                 if(err) done(err);

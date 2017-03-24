@@ -66,8 +66,6 @@ const deletePerofile = function (profileObj) {
 };
 
 
-
-
 module.exports = {
     viewProfile: viewProfile,
     createProfile: createProfile,
