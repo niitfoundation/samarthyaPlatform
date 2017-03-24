@@ -8,8 +8,6 @@ const logger = require('./../../../../applogger');
 
 // view profile
 router.get('/', function (req, res) {
-    console.log('asdasdasdasd');
-    console.log(req);
     let profileData = req.query;
     try {
         if (!profileData) {
@@ -101,5 +99,5 @@ router.delete('/', function (req, res) {
     }
 });
 
-
 module.exports = router;
+

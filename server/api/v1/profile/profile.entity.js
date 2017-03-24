@@ -8,12 +8,13 @@ const mongoose = require('mongoose');
 const profileSchema = mongoose.Schema({
     username: { type: String, required: true, unique: true },
     profession: { type: String, required: true },
-    centerCode: { type: String},
+    centerCode: { type: String },
     pic: { type: String, default: '', },
     createdOn: { type: Date, required: true, default: Date.now },
     createdBy: { type: String, required: true },
     updatedOn: { type: Date, required: true, default: Date.now },
     updatedBy: { type: String },
+    // Personal info
     personalinfo: {
         displayname: { type: String, min: 4, max: 15 },
         fname: { type: String, required: true, min: 4 },
@@ -54,7 +55,10 @@ const profileSchema = mongoose.Schema({
         subject: { type: String, default: '', },
         academictype: { type: String, default: '', },
         batch: { type: String, default: '', },
-        result: { score: { type: String, default: '', }, unit: { type: String, default: '', } },
+        result: {
+            score: { type: String, default: '', },
+            unit: { type: String, default: '', }
+        },
         institute: { type: String, default: '', },
         affiliation: { type: String, default: '', },
         location: { type: String, default: '', }

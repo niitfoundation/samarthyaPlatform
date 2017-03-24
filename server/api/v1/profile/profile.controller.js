@@ -8,19 +8,19 @@ const profileDataModel = require('./profile.model');
  */
 
 const viewProfile = function (profileObj) {
-    // return new Promise((resolve, reject) => {
-    //     ProfileModel.find({ username: profileObj.username }, function (err, data) {
-    //         if (err) {
-    //             logger.error('Profile data error' + err);
-    //             reject(err);
-    //         } else {
-    //             logger.debug('Got Profile Data' + err);
-    //             // inserts profile details
-    //             resolve({ data: data });
-    //             console.log(data);
-    //         }
-    //     });
-    // });
+    console.log(profileObj);
+    return new Promise((resolve, reject) => {
+        ProfileModel.find({ username: profileObj.username }, function (err, data) {
+            if (err) {
+                logger.error('Profile data error' + err);
+                reject(err);
+            } else {
+                logger.debug('Got Profile Data' + err);
+                // inserts profile details
+                resolve({ data: data });
+            }
+        });
+    });
 };
 // const multipleProfileCardDetails = function (profileObj) {
 //     return new Promise((resolve, reject) => {
@@ -64,6 +64,10 @@ const deletePerofile = function (profileObj) {
     // use promise for database operations and return result
 
 };
+
+
+
+
 module.exports = {
     viewProfile: viewProfile,
     createProfile: createProfile,

@@ -17,6 +17,7 @@ import { SamProfileSectionPersonalinfoService } from 'candidatemodule/sam-profil
 import { SamProfileCardService } from 'candidatemodule/sam-profile-section-services/sam-profile-card.service';
 import { SamProfileSectionSkillsService } from 'candidatemodule/sam-profile-section-services/sam-profile-section-skills.service';
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -41,7 +42,7 @@ import { SamProfileSectionSkillsService } from 'candidatemodule/sam-profile-sect
     Data,
     SamProfileSectionPersonalinfoService,
     SamProfileSectionSkillsService,
-    SamProfileCardService,
+    SamProfileCardService
   ],
   bootstrap: [AppComponent],
   declarations: [
