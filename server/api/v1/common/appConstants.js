@@ -11,9 +11,14 @@ const userDetails = {
 };
 const secret = 'somethinghere';
 const expireTime = 60 * 30;
+const profileDetails = {
+    IDENTITY_TYPES: ['Aadhaar', 'RegNumber', 'EmpNum']
+}
+
 module.exports = {
     emailDetails: emailDetails,
     userDetails: userDetails,
     secret: secret,
-    expireTime: expireTime
+    expireTime: expireTime,
+    profileDetails: profileDetails
 };
