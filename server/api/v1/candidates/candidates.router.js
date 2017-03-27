@@ -8,7 +8,7 @@ const UserCtrl = require('./../users/users.controller');
  */
 
 // get candidates details
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     let candidateData = req.query || req.params;
     try {
         if (!candidateData) {
@@ -28,7 +28,7 @@ router.get('/', function(req, res) {
 });
 
 // add candidates details
-router.post('/', function(req, res) {
+router.post('/', function (req, res) {
     let candidateData = req.body;
     logger.debug('Get object and store into candidateData');
     try {
@@ -38,11 +38,11 @@ router.post('/', function(req, res) {
         }
         UserCtrl.registerNewUser(candidateData).then((successResult) => {
             logger.info('Get successResult successfully and return back');
-            return res.status(201).send({success:true,data:successResult,msg:'Added successfully'});
+            return res.status(201).send({ success: true, data: successResult, msg: 'Added successfully' });
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
-            return res.send({success:false, msg: 'Internal error occurred, please try later..!' });
+            return res.send({ success: false, msg: 'Internal error occurred, please try later..!' });
         });
     } catch (err) {
         // Log the Error for internal use
@@ -52,7 +52,7 @@ router.post('/', function(req, res) {
     }
 });
 // edit candidates details
-router.patch('/', function(req, res) {
+router.patch('/', function (req, res) {
     let candidateData = req.body;
     try {
         if (!candidateData) {
@@ -72,7 +72,7 @@ router.patch('/', function(req, res) {
     }
 });
 // // delete candidates details
-router.delete('/', function(req, res) {
+router.delete('/', function (req, res) {
     let candidateData = req.body;
     try {
         if (!candidateData) {

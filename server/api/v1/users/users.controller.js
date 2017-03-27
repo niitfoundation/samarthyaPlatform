@@ -28,7 +28,7 @@ const registerNewUser = function(userObj) {
 
                 // after successful enter the credentials data inserts profile details
                 prflCtrl.createProfile(userObj.profileData).then((successResult) => {
-                    resolve({msg:' Successfully Registered'});
+                    resolve({msg: ' Successfully Registered'});
                 }, (errresult) => {
                     logger.error('profile data not added Successfully' + err);
                     // if profile data not inserted delete the credentials data
@@ -39,15 +39,14 @@ const registerNewUser = function(userObj) {
                             logger.debug('failed adding profile data and removed userCredential data');
                             reject({ msg: 'failed adding profile data and removed userCredential data' });
                         }
-
                     });
                 });
                 logger.info('userData added sucessfully');
-                resolve({ msg: "User Added Successfully", data: data, success: true });
+                resolve({ msg: 'User Added Successfully', data: data, success: true });
             }
         });
     });
-}
+};
 
 module.exports = {
     registerNewUser: registerNewUser

@@ -31,12 +31,12 @@ router.post('/', function (req, res, next) {
 
 router.post('/verify-user', function (req, res) {
     try {
-         logger.info('verifying user');
+        logger.info('verifying user');
         let param = req.body;
         // check the user is available or not
         authCtrl.checkUser(param.username).then((data) => {
             if (data.length == 0) {
-                   logger.debug('user not exits');
+                logger.debug('user not exits');
                 // if user is does not exit send mail
                 return res.status(201).send({
                     msg: 'user not exist'
@@ -81,7 +81,7 @@ router.post('/register-email', function (req, res) {
                         });
                     });
             } else {
-                return res.status(403).send({
+                return res.status(201).send({
                     msg: 'user already exist'
                 });
             }
@@ -124,12 +124,12 @@ router.post('/verify-reset-email', function (req, res) {
             if (data.length == 0) {
                 // if user is does not exit send mail
                 return res.status(201).send({
-                    message: 'user does not exist'
+                    msg: 'user does not exist'
                 });
             }
             param.host = req.get('host');
             emailCtrl.sendEmail(param).then((successResult) => {
-                return res.status(201).send({ msg: 'sent successfully' });
+                return res.status(201).send(successResult);
             },
                 (err) => {
                     return res.status(500).send({

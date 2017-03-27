@@ -72,7 +72,4 @@ resourcesRouter.get('/profession', function(req, res) {
     }
 });
 
-
-
-
 module.exports = resourcesRouter;

@@ -8,40 +8,39 @@ const mongoose = require('mongoose');
 const profileSchema = mongoose.Schema({
     username: { type: String, required: true, unique: true },
     profession: { type: String, required: true },
-    centerCode: { type: String},
-    pic: { type: String, default: '', },
+    centerCode: { type: String },
+    pic: { type: String },
     createdOn: { type: Date, required: true, default: Date.now },
     createdBy: { type: String, required: true },
     updatedOn: { type: Date, required: true, default: Date.now },
-
-    updatedBy: { type: String },
+    updatedBy: { type: String, required: true },
     personalInfo: {
         displayname: { type: String, min: 4, max: 15 },
         fname: { type: String, required: true, min: 4 },
         lname: { type: String, required: true },
         dob: { type: Date },
-        age: { type: Number, virtuals: true },
         gender: { type: String, required: true },
         email: { type: String, required: true, unique: true },
-        altemail: { type: String, default: '' },
-        role: { type: String, default: '' },
-        contact: [{
+        altemail: { type: String },
+        contact: {
             I: { type: String, required: true, min: 10, max: 10 },
-            II: { type: String, default: '', }
-        }],
+            II: { type: String }
+        },
         address: [{
-            landmark: { type: String, required: true },
-            district: { type: String, required: true },
+            address1: { type: String },
+            address2: { type: String },
+            landmark: { type: String },
+            district: { type: String },
             state: { type: String, required: true },
-            pinCode: { type: String, required: true, min: 6, max: 6 }
+            pincode: { type: String, required: true, min: 6, max: 6 }
         }],
         married: { type: Boolean },
         identity: [{
-            aadharNumber: { type: String, default: '', min: 12, max: 12 },
-            registrationID: { type: String, default: '', }
+            type: { type: String, required: true, enum: appConstant.profileDetails.IDENTITY_TYPES },
+            value: { type: String }
         }],
-        preLang: { type: String, default: '', },
-        nativeLang: { type: String, default: '', },
+        preLang: { type: String },
+        nativeLang: { type: String },
         lang: [{
             name: { type: String },
             r: { type: String },
@@ -50,65 +49,69 @@ const profileSchema = mongoose.Schema({
         }],
     },
     // educational qualification
-    qualification: [{
-        name: { type: String, default: '', },
-        subject: { type: String, default: '', },
-        academictype: { type: String, default: '', },
-        batch: { type: String, default: '', },
-        result: { score: { type: String, default: '', }, unit: { type: String, default: '', } },
-        institute: { type: String, default: '', },
-        affiliation: { type: String, default: '', },
-        location: { type: String, default: '', }
+    qualifications: [{
+        name: { type: String },
+        subject: { type: String },
+        academictype: { type: String },
+        batch: { type: String },
+        result: { score: { type: String }, unit: { type: String } },
+        institute: { type: String },
+        affiliation: { type: String },
+        location: { type: String }
     }],
     // jobpreferences
-    preferences: {
+    jobPreferences: {
         looking: { type: Boolean, default: true },
         roles: [{
-            name: { type: String, default: '', },
-            engagement: { type: String, default: '', },
+            name: { type: String },
+            engagement: { type: String },
             expectedSal: [{
                 min: { type: Number, default: 0 },
                 max: { type: Number, default: 0 },
             }],
-            skills: [{ type: String, default: '', }],
+            skills: [{ type: String }],
             availablefrom: { type: Date, default: Date.now },
-            locations: [{ type: String, default: '', }]
+            locations: [{ type: String }]
         }]
     },
     // experience
-    experience: [{
-        workplace: { type: String, default: '', },
-        designation: { type: String, default: '', },
-        role: { type: String, default: '', },
-        location: { type: String, default: '', }
-    }],
-    // skill
-    skill: [{
-        name: { type: String, default: '', },
-        experience: { type: Number, default: 0 },
-        expertise: { type: String, default: '', }
-    }],
-    // project
-    project: [{
-        name: { type: String, default: '', },
-        description: { type: String, default: '', },
+    experiences: [{
+        workplace: { type: String },
+        designation: { type: String },
+        role: { type: String },
+        location: { type: String },
         duration: {
             start: { type: Date, default: Date.now },
             end: { type: Date, default: Date.now }
         },
-        location: { type: String, default: '', },
-        skills: [{ type: String, default: '', }],
-        role: { type: String, default: '', },
-
+        iscurrent: { type: Boolean }
+    }],
+    // skill
+    skills: [{
+        name: { type: String },
+        experience: { type: Number, default: 0 },
+        expertise: { type: String }
+    }],
+    // project
+    projects: [{
+        name: { type: String },
+        description: { type: String },
+        duration: {
+            start: { type: Date, default: Date.now },
+            end: { type: Date, default: Date.now }
+        },
+        location: { type: String },
+        skills: [{ type: String }],
+        role: { type: String }
     }],
     // showcase
     showcase: [{
-        contenttype: { type: String, default: '', },
-        title: { type: String, default: '', },
-        url: { type: String, default: '', },
-        desc: { type: String, default: '', }
+        contenttype: { type: String },
+        title: { type: String },
+        url: { type: String },
+        desc: { type: String }
     }],
-    summary: { type: String, default: '', }
+    summary: { type: String }
 }, { collection: 'profile' });
 
 module.exports = mongoose.model('profile', profileSchema);

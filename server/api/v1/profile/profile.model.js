@@ -1,7 +1,7 @@
 /*
  * Add/modify profile schema values
  */
-var profileDataModel = function (profileObj) {
+var profileDataModel = function(profileObj) {
     var profileDetails = {
         username: profileObj.email,
         profession: profileObj.profession,
@@ -14,14 +14,13 @@ var profileDataModel = function (profileObj) {
             gender: profileObj.gender,
             email: profileObj.email,
             role: profileObj.role,
-            contact: [{
+            contact: {
                 I: profileObj.mobileNumber,
-            }],
-            identity: [{
-                aadharNumber: profileObj.aadharNumber,
-                registrationID: profileObj.registerID,
-            }],
+            },
+            identity: profileObj.identity,
             address: [{
+                address1: profileObj.address1,
+                address2: profileObj.address2,
                 landmark: profileObj.landmark,
                 district: profileObj.district,
                 state: profileObj.state,
@@ -30,9 +29,8 @@ var profileDataModel = function (profileObj) {
         },
     };
     return profileDetails;
-}
-
+};
 
 module.exports = {
     profileDataModel: profileDataModel
-}
+};

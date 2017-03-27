@@ -4,6 +4,7 @@ const userRoutes = require('./users/index');
 const resourcesRoutes = require('./resources/index');
 const coordinateRoutes = require('./coordinators/index');
 const candidateRoutes = require('./candidates/index');
+const profileRoutes = require('./profile/index');
 
 module.exports = {
     authenticationRoutes: authenticationRoutes,
@@ -11,5 +12,6 @@ module.exports = {
     userRoutes: userRoutes,
     resourcesRoutes: resourcesRoutes,
     coordinateRoutes: coordinateRoutes,
-    candidateRoutes: candidateRoutes
+    candidateRoutes: candidateRoutes,
+    profileRoutes: profileRoutes
 };
