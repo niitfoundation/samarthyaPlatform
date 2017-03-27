@@ -5,7 +5,6 @@ const logger = require('../../../../applogger');
 router.get('/', function (req, res) {
     try {
         let param = req.query;
-        console.log(param);
         roleCtrl.findRoles(param.name, param.limit)
             .then((successResult) => {
                 return res.status(201).send(successResult);

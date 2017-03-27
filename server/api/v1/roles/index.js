@@ -14,4 +14,3 @@
  *
  */
 module.exports = require('./role.router');
-

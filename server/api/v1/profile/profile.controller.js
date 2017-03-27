@@ -8,7 +8,6 @@ const profileDataModel = require('./profile.model');
  */
 
 const viewProfile = function (profileObj) {
-    console.log(profileObj);
     return new Promise((resolve, reject) => {
         ProfileModel.find({ username: profileObj.username }, function (err, data) {
             if (err) {
@@ -31,7 +30,6 @@ const viewProfile = function (profileObj) {
 
 // Add profile details
 const createProfile = function (profileObj) {
-    console.log(profileObj);
     // Add/modify profile model
     let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
 
@@ -47,8 +45,8 @@ const createProfile = function (profileObj) {
             }
         });
     });
-
 };
+
 const editProfile = function (profileObj) {
 
     // @TODO
