@@ -42,8 +42,6 @@ let sendEmail = function(jsonobj) {
         } else {
             mail = mailOptions;
         }
-                console.log(mail)
-
 
         return new Promise((resolve, reject) => {
             transporter.sendMail(mail, function(err, response) {

@@ -8,3 +8,12 @@ $custom-app-theme: mat-light-theme($custom-app-primary, $custom-app-accent, $cus
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($custom-app-theme);
+
+// dark theme
+.m2app-dark {
+    $dark-primary: mat-palette($mat-pink, 700, 500, 900);
+    $dark-accent: mat-palette($mat-blue-grey, A200, A100, A400);
+    $dark-warn: mat-palette($mat-deep-orange);
+    $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+    @include angular-material-theme($dark-theme);
+}

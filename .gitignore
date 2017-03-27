@@ -29,6 +29,12 @@ build/Release
 # Dependency directories
 node_modules
 webclient/node_modules
+webclient/candidate/node_modules
+webclient/candidate/dist
+
+
+webclient/placement/node_modules
+webclient/placement/dist
 
 jspm_packages
 

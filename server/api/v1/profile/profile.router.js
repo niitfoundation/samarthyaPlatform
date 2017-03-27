@@ -7,7 +7,9 @@ const logger = require('./../../../../applogger');
  */
 
 // view profile
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
+    console.log('asdasdasdasd');
+    console.log(req);
     let profileData = req.query;
     try {
         if (!profileData) {
@@ -30,7 +32,7 @@ router.get('/', function(req, res) {
 });
 
 // api to create new profile
-router.post('/', function(req, res) {
+router.post('/', function (req, res) {
     let profileData = req.body;
     logger.debug('Get object and store into profileData');
     try {
@@ -54,7 +56,7 @@ router.post('/', function(req, res) {
 });
 
 // api to edit  profile
-router.patch('/', function(req, res) {
+router.patch('/', function (req, res) {
     let profileData = req.body;
     try {
         if (!profileData) {
@@ -77,7 +79,7 @@ router.patch('/', function(req, res) {
 });
 
 // api to delete  profile
-router.delete('/', function(req, res) {
+router.delete('/', function (req, res) {
     let profileData = req.body;
     try {
         if (!profileData) {

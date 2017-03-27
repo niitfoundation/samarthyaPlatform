@@ -7,31 +7,49 @@ const profileDataModel = require('./profile.model');
  *
  */
 
-const viewProfile = function(profileObj) {
-
+const viewProfile = function (profileObj) {
+    // return new Promise((resolve, reject) => {
+    //     ProfileModel.find({ username: profileObj.username }, function (err, data) {
+    //         if (err) {
+    //             logger.error('Profile data error' + err);
+    //             reject(err);
+    //         } else {
+    //             logger.debug('Got Profile Data' + err);
+    //             // inserts profile details
+    //             resolve({ data: data });
+    //             console.log(data);
+    //         }
+    //     });
+    // });
 };
+// const multipleProfileCardDetails = function (profileObj) {
+//     return new Promise((resolve, reject) => {
+//         //  Neo4j code
+//     });
+// };
 
 
 // Add profile details
-const createProfile = function(profileObj) {
+const createProfile = function (profileObj) {
+    console.log(profileObj);
     // Add/modify profile model
     let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
 
     return new Promise((resolve, reject) => {
-        userData.save(function(err, data) {
+        profileData.save(function (err, data) {
             if (err) {
                 logger.error('profile data not added sucessfully' + err);
                 reject(err);
             } else {
                 logger.info('profile data added successfully');
-                // inserts profile details
+             // inserts profile details
                 resolve({ msg: 'Profile data Added successfully' });
             }
         });
     });
 
 };
-const editProfile = function(profileObj) {
+const editProfile = function (profileObj) {
 
     // @TODO
     // Get the profile schema and perform edit operations
@@ -39,7 +57,7 @@ const editProfile = function(profileObj) {
 
 };
 
-const deletePerofile = function(profileObj) {
+const deletePerofile = function (profileObj) {
 
     // @TODO
     // Get the profile schema and perform delete operations

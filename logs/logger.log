@@ -1,88 +1,97 @@
-[2017-03-24 11:27:05.809] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:27:05.821] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:33:58.164] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:33:58.174] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:33:58.521] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:33:58.530] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:34:48.511] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:34:48.521] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:34:48.806] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:34:48.818] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:35:31.373] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:35:31.384] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:35:31.697] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:35:31.712] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:36:30.851] [DEBUG] [default] - Get object and store into coordinateData
-[2017-03-24 11:36:30.852] [DEBUG] [default] - Get userObj and store into userDetails
-[2017-03-24 11:36:30.875] [INFO] [default] - Adding user credentials and profile details
-[2017-03-24 11:36:30.880] [INFO] [default] - userData added sucessfully
-[2017-03-24 11:36:30.880] [ERROR] [default] - profile data not added Successfullynull
-[2017-03-24 11:36:30.882] [INFO] [default] - Get successResult successfully and return back
-[2017-03-24 11:36:30.884] [DEBUG] [default] - failed adding profile data and removed userCredential data
-[2017-03-24 11:36:30.957] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:36:30.968] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:38:06.819] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:38:06.822] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:38:07.054] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:38:07.061] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:39:23.405] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:39:23.415] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:39:23.725] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:39:23.738] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:39:28.049] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:39:28.055] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:39:28.357] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:39:28.368] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:39:44.811] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:39:44.819] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:39:45.145] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:39:45.155] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:06.233] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:06.245] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:40:06.578] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:06.587] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:11.081] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:11.090] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:40:11.392] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:11.402] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:34.813] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:34.820] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:40:35.125] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:35.137] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:39.912] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:39.920] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:40:40.203] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:40.220] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:47.520] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:47.532] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:40:47.856] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:40:47.870] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:41:59.852] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:41:59.868] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:42:00.233] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:42:00.245] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:42:55.407] [DEBUG] [default] - Get object and store into coordinateData
-[2017-03-24 11:42:55.407] [DEBUG] [default] - Get userObj and store into userDetails
-[2017-03-24 11:42:55.414] [INFO] [default] - Adding user credentials and profile details
-[2017-03-24 11:42:55.417] [INFO] [default] - userData added sucessfully
-[2017-03-24 11:42:55.417] [ERROR] [default] - profile data not added Successfullynull
-[2017-03-24 11:42:55.418] [INFO] [default] - Get successResult successfully and return back
-[2017-03-24 11:42:55.420] [DEBUG] [default] - failed adding profile data and removed userCredential data
-[2017-03-24 11:42:55.502] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:42:55.517] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:48:15.271] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-24 11:48:16.583] [DEBUG] [default] - Server running  on 3000
-[2017-03-24 11:48:16.610] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-24 11:48:20.755] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:48:20.785] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-24 11:48:20.893] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:48:20.901] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:49:06.175] [DEBUG] [default] - Get object and store into coordinateData
-[2017-03-24 11:49:06.177] [DEBUG] [default] - Get userObj and store into userDetails
-[2017-03-24 11:49:06.214] [INFO] [default] - Adding user credentials and profile details
-[2017-03-24 11:49:06.223] [INFO] [default] - userData added sucessfully
-[2017-03-24 11:49:06.224] [ERROR] [default] - profile data not added Successfullynull
-[2017-03-24 11:49:06.225] [INFO] [default] - Get successResult successfully and return back
-[2017-03-24 11:49:06.232] [DEBUG] [default] - failed adding profile data and removed userCredential data
-[2017-03-24 11:49:06.305] [DEBUG] [default] - getLanguage function invoke
-[2017-03-24 11:49:06.315] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:14:00.088] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-24 16:14:00.089] [DEBUG] [default] - Token matched
+[2017-03-24 16:14:00.089] [INFO] [default] - Token verified
+[2017-03-24 16:15:53.163] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:15:53.178] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-24 16:15:53.180] [DEBUG] [default] - Token matched
+[2017-03-24 16:15:53.181] [INFO] [default] - Token verified
+[2017-03-24 16:15:53.286] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:15:53.402] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:15:53.416] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-24 16:15:53.416] [DEBUG] [default] - Token matched
+[2017-03-24 16:15:53.416] [INFO] [default] - Token verified
+[2017-03-24 16:17:09.850] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:17:09.865] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:17:12.868] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:17:12.901] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:20:13.487] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:20:13.516] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:20:19.104] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'samarthya' }
+[2017-03-24 16:20:19.106] [DEBUG] [default] - Get object and store into authData
+[2017-03-24 16:20:19.106] [DEBUG] [default] - Token is generated
+[2017-03-24 16:20:19.109] [DEBUG] [default] - Data find and resolve here
+[2017-03-24 16:20:19.109] [INFO] [default] - Get successResult successfully and return back
+[2017-03-24 16:20:19.220] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:20:19.228] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-24 16:20:19.229] [DEBUG] [default] - Token matched
+[2017-03-24 16:20:19.229] [INFO] [default] - Token verified
+[2017-03-24 16:20:28.072] [DEBUG] [default] - Get object and store into resetPassword
+[2017-03-24 16:20:28.073] [DEBUG] [default] - Username stored into userDetails
+[2017-03-24 16:20:28.091] [INFO] [default] - Get successResult successfully and return back
+[2017-03-24 16:37:07.826] [DEBUG] [default] - Get object and store into resetPassword
+[2017-03-24 16:37:07.828] [DEBUG] [default] - Username stored into userDetails
+[2017-03-24 16:37:07.834] [INFO] [default] - Get successResult successfully and return back
+[2017-03-24 16:37:28.510] [DEBUG] [default] - Get object and store into resetPassword
+[2017-03-24 16:37:28.510] [DEBUG] [default] - Username stored into userDetails
+[2017-03-24 16:37:28.511] [INFO] [default] - Get successResult successfully and return back
+[2017-03-24 16:59:22.260] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 16:59:22.273] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-24 16:59:22.275] [ERROR] [default] - Token not matched
+[2017-03-24 16:59:22.277] [ERROR] [default] - Internal error occurred
+[2017-03-24 17:01:18.088] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:01:18.093] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-24 17:01:18.094] [ERROR] [default] - Token not matched
+[2017-03-24 17:01:18.095] [ERROR] [default] - Internal error occurred
+[2017-03-24 17:03:35.073] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:03:35.087] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-24 17:03:35.089] [ERROR] [default] - Token not matched
+[2017-03-24 17:03:35.090] [ERROR] [default] - Internal error occurred
+[2017-03-24 17:03:37.080] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:03:37.104] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:03:38.623] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:03:38.636] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:03:45.734] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'samarthya' }
+[2017-03-24 17:03:45.735] [DEBUG] [default] - Get object and store into authData
+[2017-03-24 17:03:45.735] [DEBUG] [default] - Token is generated
+[2017-03-24 17:03:45.737] [DEBUG] [default] - Invalid Credentials
+[2017-03-24 17:03:45.738] [ERROR] [default] - Internal error occurred
+[2017-03-24 17:03:49.903] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'samarthya' }
+[2017-03-24 17:03:49.903] [DEBUG] [default] - Get object and store into authData
+[2017-03-24 17:03:49.903] [DEBUG] [default] - Token is generated
+[2017-03-24 17:03:49.907] [DEBUG] [default] - Invalid Credentials
+[2017-03-24 17:03:49.908] [ERROR] [default] - Internal error occurred
+[2017-03-24 17:03:55.716] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'samarthya' }
+[2017-03-24 17:03:55.717] [DEBUG] [default] - Get object and store into authData
+[2017-03-24 17:03:55.717] [DEBUG] [default] - Token is generated
+[2017-03-24 17:03:55.720] [DEBUG] [default] - Invalid Credentials
+[2017-03-24 17:03:55.720] [ERROR] [default] - Internal error occurred
+[2017-03-24 17:04:01.109] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'SAMARTHYA' }
+[2017-03-24 17:04:01.110] [DEBUG] [default] - Get object and store into authData
+[2017-03-24 17:04:01.110] [DEBUG] [default] - Token is generated
+[2017-03-24 17:04:01.112] [DEBUG] [default] - Invalid Credentials
+[2017-03-24 17:04:01.113] [ERROR] [default] - Internal error occurred
+[2017-03-24 17:05:52.385] [DEBUG] [default] - { username: 'gowthamjeeva55@gmail.com', password: 'SAMARTHYA' }
+[2017-03-24 17:05:52.386] [DEBUG] [default] - Get object and store into authData
+[2017-03-24 17:05:52.386] [DEBUG] [default] - Token is generated
+[2017-03-24 17:05:52.389] [DEBUG] [default] - Invalid Credentials
+[2017-03-24 17:05:52.389] [ERROR] [default] - Internal error occurred
+[2017-03-24 17:05:57.562] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:05:57.595] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:06:39.452] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:06:39.462] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:06:43.320] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-24 17:06:47.517] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:06:47.529] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:09:56.480] [DEBUG] [default] - { username: 'samarthya@gmail.com', password: 'samarthya' }
+[2017-03-24 17:09:56.480] [DEBUG] [default] - Get object and store into authData
+[2017-03-24 17:09:56.481] [DEBUG] [default] - Token is generated
+[2017-03-24 17:09:56.486] [DEBUG] [default] - Data find and resolve here
+[2017-03-24 17:09:56.488] [INFO] [default] - Get successResult successfully and return back
+[2017-03-24 17:09:56.587] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:09:56.595] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-24 17:09:56.598] [DEBUG] [default] - Token matched
+[2017-03-24 17:09:56.599] [INFO] [default] - Token verified
+[2017-03-24 17:10:28.265] [DEBUG] [default] - getLanguage function invoke
+[2017-03-24 17:10:28.276] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-24 17:10:28.280] [DEBUG] [default] - Token matched
+[2017-03-24 17:10:28.281] [INFO] [default] - Token verified

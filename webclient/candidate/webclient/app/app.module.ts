@@ -4,34 +4,31 @@ import { AuthenticationService } from 'candidatemodule/services/authentication.s
 import { EmailService } from 'candidatemodule/services/email.service';
 import { Data } from 'candidatemodule/services/data.service';
 import { JsonDataService } from 'candidatemodule/services/json-data.service';
-
 import { CandidateModule } from 'candidatemodule/candidate.module';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { AppComponent } from './app.component';
-
-
 import { Logger } from 'angular2-logger/core';
 import { Md2Module } from 'md2';
-
-
+import { SamProfileSectionPersonalinfoService } from 'candidatemodule/sam-profile-section-services/sam-profile-section-personalinfo.service';
+import { SamProfileCardService } from 'candidatemodule/sam-profile-section-services/sam-profile-card.service';
+import { SamProfileSectionSkillsService } from 'candidatemodule/sam-profile-section-services/sam-profile-section-skills.service';
 
 @NgModule({
   imports: [
     BrowserModule,
-   // FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
     Md2Module.forRoot(),
     // AppRoutingModule,
     // ReactiveFormsModule,
     // FlexLayoutModule,
+
     CandidateModule
-  ],exports: [
+  ], exports: [
     MaterialModule
   ],
   providers: [
@@ -40,7 +37,11 @@ import { Md2Module } from 'md2';
     AuthGuard,
     UserService,
     AuthenticationService,
-    Logger
+    Logger,
+    Data,
+    SamProfileSectionPersonalinfoService,
+    SamProfileSectionSkillsService,
+    SamProfileCardService,
   ],
   bootstrap: [AppComponent],
   declarations: [
