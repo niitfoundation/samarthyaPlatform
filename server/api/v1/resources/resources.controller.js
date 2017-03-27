@@ -47,9 +47,23 @@ const getProfession = function() {
     });
 };
 
+// get Roles
+const getRoles = function() {
+    return new Promise((resolve, reject) => {
+        resourcesModel.distinct('roles', function(err, data) {
+            if (err) {
+                logger.error('data not found');
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+};
 
 module.exports = { getLanguage: getLanguage,
 getPlacementCenter: getPlacementCenter,
-getProfession: getProfession
+getProfession: getProfession,
+getRoles: getRoles
 
  };

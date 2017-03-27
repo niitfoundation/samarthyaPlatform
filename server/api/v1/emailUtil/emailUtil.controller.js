@@ -23,7 +23,6 @@ let sendEmail = function(jsonobj) {
         logger.debug('sendEmail function is invoke');
         let tokenPaylod = { username: jsonobj.username, title: jsonobj.title };
         const token = jwt.sign(tokenPaylod, appConstant.emailDetails.emailTokenSecret, { expiresIn: 6000 });
-
         const link = 'http://' + jsonobj.host;
         // ----------verify------------------
         const mailOptions = {
@@ -50,7 +49,7 @@ let sendEmail = function(jsonobj) {
                     logger.error('response not found');
                     reject(err);
                 } else {
-                    resolve({response:response,msg:"Mail sent Successfully"});
+                    resolve({response: response, msg: 'Mail sent Successfully'});
                 }
             });
         });
