@@ -8,6 +8,7 @@ var profileDataModel = function(profileObj) {
         centerCode: profileObj.placementCenter,
         createdOn: Date.now(),
         createdBy: profileObj.createdBy,
+        updatedBy: profileObj.updatedBy,
         personalInfo: {
             fname: profileObj.fname,
             lname: profileObj.lname,
@@ -24,7 +25,7 @@ var profileDataModel = function(profileObj) {
                 landmark: profileObj.landmark,
                 district: profileObj.district,
                 state: profileObj.state,
-                pinCode: profileObj.pincode
+                pincode: profileObj.pincode
             }],
         },
     };

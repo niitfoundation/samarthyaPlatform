@@ -1,230 +1,222 @@
-[2017-03-25 00:16:24.271] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:24.306] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:16:24.306] [DEBUG] [default] - Token matched
-[2017-03-25 00:16:24.307] [INFO] [default] - Token verified
-[2017-03-25 00:16:24.310] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:24.341] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:16:24.413] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:24.420] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:24.447] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:16:24.447] [DEBUG] [default] - Token matched
-[2017-03-25 00:16:24.448] [INFO] [default] - Token verified
-[2017-03-25 00:16:24.452] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:24.481] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:16:25.069] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.076] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.109] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:16:25.110] [DEBUG] [default] - Token matched
-[2017-03-25 00:16:25.110] [INFO] [default] - Token verified
-[2017-03-25 00:16:25.118] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.145] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:16:25.194] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.201] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.231] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:16:25.232] [DEBUG] [default] - Token matched
-[2017-03-25 00:16:25.232] [INFO] [default] - Token verified
-[2017-03-25 00:16:25.235] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.285] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:16:25.680] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.691] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.735] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:16:25.736] [DEBUG] [default] - Token matched
-[2017-03-25 00:16:25.736] [INFO] [default] - Token verified
-[2017-03-25 00:16:25.754] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.793] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:16:25.857] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.864] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.888] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:16:25.889] [DEBUG] [default] - Token matched
-[2017-03-25 00:16:25.889] [INFO] [default] - Token verified
-[2017-03-25 00:16:25.895] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:25.925] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:16:31.254] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:31.277] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:35.219] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:35.233] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:40.185] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:40.216] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:46.114] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
-[2017-03-25 00:16:46.115] [DEBUG] [default] - Get object and store into authData
-[2017-03-25 00:16:46.115] [DEBUG] [default] - Token is generated
-[2017-03-25 00:16:46.119] [DEBUG] [default] - Data find and resolve here
-[2017-03-25 00:16:46.119] [INFO] [default] - Get successResult successfully and return back
-[2017-03-25 00:16:46.193] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:16:46.194] [DEBUG] [default] - Token matched
-[2017-03-25 00:16:46.194] [INFO] [default] - Token verified
-[2017-03-25 00:16:46.198] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:46.241] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:16:52.829] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:52.862] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:52.966] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:16:52.968] [DEBUG] [default] - Token matched
-[2017-03-25 00:16:52.970] [INFO] [default] - Token verified
-[2017-03-25 00:16:52.975] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:16:53.038] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:17:20.258] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:17:20.343] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:17:25.462] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
-[2017-03-25 00:17:25.463] [DEBUG] [default] - Get object and store into authData
-[2017-03-25 00:17:25.463] [DEBUG] [default] - Token is generated
-[2017-03-25 00:17:25.467] [DEBUG] [default] - Data find and resolve here
-[2017-03-25 00:17:25.467] [INFO] [default] - Get successResult successfully and return back
-[2017-03-25 00:17:25.999] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:17:26.000] [DEBUG] [default] - Token matched
-[2017-03-25 00:17:26.000] [INFO] [default] - Token verified
-[2017-03-25 00:17:26.017] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:17:26.164] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:17:57.436] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:17:57.461] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:18:34.451] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:18:34.469] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:18:53.274] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:18:53.316] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:19:11.330] [DEBUG] [default] - { username: 'sankhlsaini@gmail.com', password: 'asd123' }
-[2017-03-25 00:19:11.331] [DEBUG] [default] - Get object and store into authData
-[2017-03-25 00:19:11.331] [DEBUG] [default] - Token is generated
-[2017-03-25 00:19:11.333] [DEBUG] [default] - Invalid Credentials
-[2017-03-25 00:19:11.334] [ERROR] [default] - Internal error occurred
-[2017-03-25 00:19:14.338] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
-[2017-03-25 00:19:14.339] [DEBUG] [default] - Get object and store into authData
-[2017-03-25 00:19:14.339] [DEBUG] [default] - Token is generated
-[2017-03-25 00:19:14.344] [DEBUG] [default] - Data find and resolve here
-[2017-03-25 00:19:14.344] [INFO] [default] - Get successResult successfully and return back
-[2017-03-25 00:19:14.500] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:19:14.501] [DEBUG] [default] - Token matched
-[2017-03-25 00:19:14.501] [INFO] [default] - Token verified
-[2017-03-25 00:19:14.516] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:19:14.571] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:19:21.081] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 00:19:21.081] [DEBUG] [default] - Token matched
-[2017-03-25 00:19:21.081] [INFO] [default] - Token verified
-[2017-03-25 00:19:21.093] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:19:21.141] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 00:32:56.310] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:32:56.319] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:32:56.393] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:32:56.576] [INFO] [default] - verifying user
-[2017-03-25 00:32:56.578] [DEBUG] [default] - user not exits
-[2017-03-25 00:33:19.628] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:33:19.652] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:33:19.734] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:33:19.932] [INFO] [default] - verifying user
-[2017-03-25 00:33:19.935] [DEBUG] [default] - user not exits
-[2017-03-25 00:39:16.528] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:39:16.546] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:39:16.650] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:39:16.864] [INFO] [default] - verifying user
-[2017-03-25 00:39:16.867] [DEBUG] [default] - user not exits
-[2017-03-25 00:39:28.151] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:39:28.164] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:39:28.250] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:39:28.465] [INFO] [default] - verifying user
-[2017-03-25 00:39:28.467] [DEBUG] [default] - user not exits
-[2017-03-25 00:39:32.866] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:39:32.875] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:39:32.964] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:39:33.165] [INFO] [default] - verifying user
-[2017-03-25 00:39:33.169] [DEBUG] [default] - user not exits
-[2017-03-25 00:39:40.888] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:39:40.896] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:39:40.984] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:39:41.230] [INFO] [default] - verifying user
-[2017-03-25 00:39:41.233] [DEBUG] [default] - user not exits
-[2017-03-25 00:41:47.894] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:41:47.901] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:41:47.994] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:41:48.232] [INFO] [default] - verifying user
-[2017-03-25 00:41:48.234] [DEBUG] [default] - user not exits
-[2017-03-25 00:42:01.182] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:42:01.196] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:42:01.314] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:42:01.586] [INFO] [default] - verifying user
-[2017-03-25 00:42:01.588] [DEBUG] [default] - user not exits
-[2017-03-25 00:42:19.666] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:42:19.682] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:42:19.776] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:42:20.026] [INFO] [default] - verifying user
-[2017-03-25 00:42:20.035] [DEBUG] [default] - user not exits
-[2017-03-25 00:54:36.717] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:54:36.729] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:54:36.814] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:54:37.021] [INFO] [default] - verifying user
-[2017-03-25 00:54:37.023] [DEBUG] [default] - user not exits
-[2017-03-25 00:54:40.923] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:54:40.937] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:54:41.026] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:54:41.248] [INFO] [default] - verifying user
-[2017-03-25 00:54:41.249] [DEBUG] [default] - user not exits
-[2017-03-25 00:58:37.544] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:58:37.555] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:58:37.641] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:58:37.909] [INFO] [default] - verifying user
-[2017-03-25 00:58:37.911] [DEBUG] [default] - user not exits
-[2017-03-25 00:58:41.587] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 00:58:41.601] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:58:41.687] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 00:58:41.906] [INFO] [default] - verifying user
-[2017-03-25 00:58:41.907] [DEBUG] [default] - user not exits
-[2017-03-25 01:06:48.813] [DEBUG] [default] - Updated password data found and resolved
-[2017-03-25 01:06:48.822] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:06:48.919] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:06:49.159] [INFO] [default] - verifying user
-[2017-03-25 01:06:49.161] [DEBUG] [default] - user not exits
-[2017-03-25 01:07:19.096] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:19.113] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:28.863] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
-[2017-03-25 01:07:28.863] [DEBUG] [default] - Get object and store into authData
-[2017-03-25 01:07:28.863] [DEBUG] [default] - Token is generated
-[2017-03-25 01:07:28.868] [DEBUG] [default] - Data find and resolve here
-[2017-03-25 01:07:28.868] [INFO] [default] - Get successResult successfully and return back
-[2017-03-25 01:07:28.951] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 01:07:28.951] [DEBUG] [default] - Token matched
-[2017-03-25 01:07:28.951] [INFO] [default] - Token verified
-[2017-03-25 01:07:28.955] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:28.989] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 01:07:40.524] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:40.535] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:41.755] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:41.760] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:43.128] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:43.140] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:44.873] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:44.881] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:46.803] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:46.813] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:56.042] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:07:56.046] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:08:07.496] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:08:07.509] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:08:09.941] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:08:09.950] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:08:11.758] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:08:11.768] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:13.691] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:13.696] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:14.780] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:14.787] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:15.372] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:15.377] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:16.074] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:16.086] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:16.743] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:16.747] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:17.392] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:09:17.400] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 01:52:21.148] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-03-25 02:00:02.544] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-03-25 02:00:07.767] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 02:00:07.786] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 02:00:16.822] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
-[2017-03-25 02:00:16.825] [DEBUG] [default] - Get object and store into authData
-[2017-03-25 02:00:16.826] [DEBUG] [default] - Token is generated
-[2017-03-25 02:00:16.849] [DEBUG] [default] - Data find and resolve here
-[2017-03-25 02:00:16.849] [INFO] [default] - Get successResult successfully and return back
-[2017-03-25 02:00:16.936] [DEBUG] [default] - Authorization begin by getting token from http request
-[2017-03-25 02:00:16.939] [DEBUG] [default] - Token matched
-[2017-03-25 02:00:16.939] [INFO] [default] - Token verified
-[2017-03-25 02:00:16.949] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 02:00:16.999] [DEBUG] [default] - Got Profile Datanull
-[2017-03-25 02:00:21.232] [DEBUG] [default] - getLanguage function invoke
-[2017-03-25 02:00:21.254] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:33:15.098] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:35:53.777] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:35:53.778] [DEBUG] [default] - Token matched
+[2017-03-27 21:35:53.778] [INFO] [default] - Token verified
+[2017-03-27 21:35:53.794] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:35:57.937] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:35:57.938] [DEBUG] [default] - Token matched
+[2017-03-27 21:35:57.938] [INFO] [default] - Token verified
+[2017-03-27 21:35:57.954] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:37:16.272] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:37:16.273] [DEBUG] [default] - Token matched
+[2017-03-27 21:37:16.275] [INFO] [default] - Token verified
+[2017-03-27 21:37:16.298] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:37:20.955] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:37:20.955] [DEBUG] [default] - Token matched
+[2017-03-27 21:37:20.956] [INFO] [default] - Token verified
+[2017-03-27 21:37:20.969] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:37:41.387] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:37:41.387] [DEBUG] [default] - Token matched
+[2017-03-27 21:37:41.387] [INFO] [default] - Token verified
+[2017-03-27 21:37:41.402] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:39:00.147] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:39:00.147] [DEBUG] [default] - Token matched
+[2017-03-27 21:39:00.148] [INFO] [default] - Token verified
+[2017-03-27 21:39:00.164] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:39:07.801] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:39:07.802] [DEBUG] [default] - Token matched
+[2017-03-27 21:39:07.802] [INFO] [default] - Token verified
+[2017-03-27 21:39:07.817] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:40:04.528] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:40:04.529] [DEBUG] [default] - Token matched
+[2017-03-27 21:40:04.530] [INFO] [default] - Token verified
+[2017-03-27 21:40:04.543] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:41:41.107] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:41:41.107] [DEBUG] [default] - Token matched
+[2017-03-27 21:41:41.107] [INFO] [default] - Token verified
+[2017-03-27 21:41:41.125] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:41:57.157] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:41:57.158] [DEBUG] [default] - Token matched
+[2017-03-27 21:41:57.158] [INFO] [default] - Token verified
+[2017-03-27 21:41:57.178] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:42:01.597] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:42:01.597] [DEBUG] [default] - Token matched
+[2017-03-27 21:42:01.598] [INFO] [default] - Token verified
+[2017-03-27 21:42:01.614] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:44:52.594] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:44:52.596] [ERROR] [default] - Token not matched
+[2017-03-27 21:44:52.597] [ERROR] [default] - Internal error occurred
+[2017-03-27 21:44:52.609] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:44:57.022] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:44:57.043] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:07.223] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
+[2017-03-27 21:45:07.228] [DEBUG] [default] - Get object and store into authData
+[2017-03-27 21:45:07.229] [DEBUG] [default] - Token is generated
+[2017-03-27 21:45:07.262] [DEBUG] [default] - Data find and resolve here
+[2017-03-27 21:45:07.263] [INFO] [default] - Get successResult successfully and return back
+[2017-03-27 21:45:07.373] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:45:07.374] [DEBUG] [default] - Token matched
+[2017-03-27 21:45:07.374] [INFO] [default] - Token verified
+[2017-03-27 21:45:07.384] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:12.956] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:12.982] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:13.065] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:45:13.070] [DEBUG] [default] - Token matched
+[2017-03-27 21:45:13.071] [INFO] [default] - Token verified
+[2017-03-27 21:45:13.077] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:30.597] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:30.619] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:30.700] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:45:30.701] [DEBUG] [default] - Token matched
+[2017-03-27 21:45:30.701] [INFO] [default] - Token verified
+[2017-03-27 21:45:30.710] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:35.154] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:35.174] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:35.256] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:45:35.260] [DEBUG] [default] - Token matched
+[2017-03-27 21:45:35.261] [INFO] [default] - Token verified
+[2017-03-27 21:45:35.280] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:54.060] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:54.084] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:54.162] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:45:54.163] [DEBUG] [default] - Token matched
+[2017-03-27 21:45:54.163] [INFO] [default] - Token verified
+[2017-03-27 21:45:54.171] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:58.983] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:59.004] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:45:59.081] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:45:59.082] [DEBUG] [default] - Token matched
+[2017-03-27 21:45:59.083] [INFO] [default] - Token verified
+[2017-03-27 21:45:59.090] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:46:40.283] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:46:40.306] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:46:40.387] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:46:40.388] [DEBUG] [default] - Token matched
+[2017-03-27 21:46:40.388] [INFO] [default] - Token verified
+[2017-03-27 21:46:40.401] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:47:14.610] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:47:14.611] [DEBUG] [default] - Token matched
+[2017-03-27 21:47:14.611] [INFO] [default] - Token verified
+[2017-03-27 21:47:14.626] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:47:44.077] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:47:44.082] [DEBUG] [default] - Token matched
+[2017-03-27 21:47:44.082] [INFO] [default] - Token verified
+[2017-03-27 21:47:44.094] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:48:29.326] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:48:29.329] [DEBUG] [default] - Token matched
+[2017-03-27 21:48:29.329] [INFO] [default] - Token verified
+[2017-03-27 21:48:29.351] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:48:46.089] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:48:46.089] [DEBUG] [default] - Token matched
+[2017-03-27 21:48:46.089] [INFO] [default] - Token verified
+[2017-03-27 21:48:46.112] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:49:25.745] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:49:25.745] [DEBUG] [default] - Token matched
+[2017-03-27 21:49:25.746] [INFO] [default] - Token verified
+[2017-03-27 21:49:25.763] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:49:35.315] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:49:35.316] [DEBUG] [default] - Token matched
+[2017-03-27 21:49:35.316] [INFO] [default] - Token verified
+[2017-03-27 21:49:35.328] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:49:52.459] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:49:52.460] [DEBUG] [default] - Token matched
+[2017-03-27 21:49:52.460] [INFO] [default] - Token verified
+[2017-03-27 21:49:52.475] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:50:09.263] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:50:09.263] [DEBUG] [default] - Token matched
+[2017-03-27 21:50:09.263] [INFO] [default] - Token verified
+[2017-03-27 21:50:09.286] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:50:15.405] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:50:15.405] [DEBUG] [default] - Token matched
+[2017-03-27 21:50:15.405] [INFO] [default] - Token verified
+[2017-03-27 21:50:15.435] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:50:44.926] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:50:44.926] [DEBUG] [default] - Token matched
+[2017-03-27 21:50:44.926] [INFO] [default] - Token verified
+[2017-03-27 21:50:44.945] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:52:15.142] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:52:15.143] [DEBUG] [default] - Token matched
+[2017-03-27 21:52:15.143] [INFO] [default] - Token verified
+[2017-03-27 21:52:15.157] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:52:37.643] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:52:37.643] [DEBUG] [default] - Token matched
+[2017-03-27 21:52:37.643] [INFO] [default] - Token verified
+[2017-03-27 21:52:37.659] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:52:45.841] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:52:45.841] [DEBUG] [default] - Token matched
+[2017-03-27 21:52:45.842] [INFO] [default] - Token verified
+[2017-03-27 21:52:45.860] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:53:12.100] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:53:12.101] [DEBUG] [default] - Token matched
+[2017-03-27 21:53:12.101] [INFO] [default] - Token verified
+[2017-03-27 21:53:12.117] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:53:17.360] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:53:17.362] [DEBUG] [default] - Token matched
+[2017-03-27 21:53:17.363] [INFO] [default] - Token verified
+[2017-03-27 21:53:17.390] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:53:31.662] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:53:31.667] [DEBUG] [default] - Token matched
+[2017-03-27 21:53:31.667] [INFO] [default] - Token verified
+[2017-03-27 21:53:31.681] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:53:54.346] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:53:54.347] [DEBUG] [default] - Token matched
+[2017-03-27 21:53:54.347] [INFO] [default] - Token verified
+[2017-03-27 21:53:54.364] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:57:11.541] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:57:11.541] [DEBUG] [default] - Token matched
+[2017-03-27 21:57:11.541] [INFO] [default] - Token verified
+[2017-03-27 21:57:11.561] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:57:21.243] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:57:21.246] [DEBUG] [default] - Token matched
+[2017-03-27 21:57:21.247] [INFO] [default] - Token verified
+[2017-03-27 21:57:21.259] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:57:47.444] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:57:47.445] [DEBUG] [default] - Token matched
+[2017-03-27 21:57:47.445] [INFO] [default] - Token verified
+[2017-03-27 21:57:47.461] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:57:52.420] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:57:52.420] [DEBUG] [default] - Token matched
+[2017-03-27 21:57:52.424] [INFO] [default] - Token verified
+[2017-03-27 21:57:52.436] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:58:18.473] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:58:18.473] [DEBUG] [default] - Token matched
+[2017-03-27 21:58:18.473] [INFO] [default] - Token verified
+[2017-03-27 21:58:18.491] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:58:32.233] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:58:32.233] [DEBUG] [default] - Token matched
+[2017-03-27 21:58:32.233] [INFO] [default] - Token verified
+[2017-03-27 21:58:32.254] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:58:37.014] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:58:37.014] [DEBUG] [default] - Token matched
+[2017-03-27 21:58:37.014] [INFO] [default] - Token verified
+[2017-03-27 21:58:37.034] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:59:32.060] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:59:32.060] [DEBUG] [default] - Token matched
+[2017-03-27 21:59:32.060] [INFO] [default] - Token verified
+[2017-03-27 21:59:32.088] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 21:59:37.213] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 21:59:37.214] [DEBUG] [default] - Token matched
+[2017-03-27 21:59:37.214] [INFO] [default] - Token verified
+[2017-03-27 21:59:37.232] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 22:00:13.814] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 22:00:13.816] [DEBUG] [default] - Token matched
+[2017-03-27 22:00:13.817] [INFO] [default] - Token verified
+[2017-03-27 22:00:13.835] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 22:30:18.803] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-27 23:12:21.498] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-27 23:12:31.089] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 23:12:31.096] [ERROR] [default] - Token not matched
+[2017-03-27 23:12:31.097] [ERROR] [default] - Internal error occurred
+[2017-03-27 23:12:31.111] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 23:12:31.348] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 23:12:31.369] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 23:12:39.426] [DEBUG] [default] - { username: 'sankhlasaini@gmail.com', password: 'asd123' }
+[2017-03-27 23:12:39.430] [DEBUG] [default] - Get object and store into authData
+[2017-03-27 23:12:39.430] [DEBUG] [default] - Token is generated
+[2017-03-27 23:12:39.471] [DEBUG] [default] - Data find and resolve here
+[2017-03-27 23:12:39.471] [INFO] [default] - Get successResult successfully and return back
+[2017-03-27 23:12:39.539] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 23:12:39.540] [DEBUG] [default] - Token matched
+[2017-03-27 23:12:39.541] [INFO] [default] - Token verified
+[2017-03-27 23:12:39.549] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 23:12:47.183] [DEBUG] [default] - Mongoose is now disconnected..!

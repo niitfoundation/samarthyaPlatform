@@ -37,12 +37,11 @@ router.post('/', function (req, res) {
             throw new Error('Invalid inputs passed...!');
         }
         UserCtrl.registerNewUser(candidateData).then((successResult) => {
-            logger.info('Get successResult successfully and return back');
-            return res.status(201).send({ success: true, data: successResult, msg: 'Added successfully' });
+                return res.status(201).send({ success: true, data: successResult });
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
-            return res.send({ success: false, msg: 'Internal error occurred, please try later..!' });
+            return res.status(500).send({error: 'Internal error occurred, please try later..!'});
         });
     } catch (err) {
         // Log the Error for internal use
