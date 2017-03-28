@@ -8,7 +8,7 @@ const findLanguages = function (name, limit) {
         query = query + 'MATCH (la:' + graphConst.NODE_LANGUAGE + ')';
 
         if (name !== 'undifined' && name.length > 0) {
-            query = query + 'WHERE la.name = "' + name + '"';
+            query = query + 'WHERE la.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
         }
 
         query = query + ' RETURN la';
@@ -19,7 +19,7 @@ const findLanguages = function (name, limit) {
                 result.records.forEach(function (record) {
                     data.push(record._fields[0].properties);
                 });
-                resolve(JSON.stringify(data));
+                resolve(data);
             })
             .catch(function (err) {
                 reject(err);

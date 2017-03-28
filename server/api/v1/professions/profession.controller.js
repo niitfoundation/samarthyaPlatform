@@ -7,8 +7,8 @@ const findProfessions = function (name, limit) {
         let query = '';
         query = query + 'MATCH (p:' + graphConst.NODE_PROFESSION + ')';
 
-        if (name !== 'undifined' && name.length > 0) {
-            query = query + 'WHERE p.name = "' + name + '"';
+        if (name !== 'undefined' && name.length > 0) {
+            query = query + 'WHERE p.' + graphConst.NODE_PROPERTY_NAME + ' = "' + name + '"';
         }
 
         query = query + ' RETURN p';
@@ -20,7 +20,7 @@ const findProfessions = function (name, limit) {
                 result.records.forEach(function (record) {
                     data.push(record._fields[0].properties);
                 });
-                resolve(JSON.stringify(data));
+                resolve(data);
             })
             .catch(function (err) {
                 reject(err);

@@ -8,7 +8,7 @@ const findRoles = function (name, limit) {
         query = query + 'MATCH (r:' + graphConst.NODE_ROLE + ')';
 
         if (name !== 'undifined' && name.length > 0) {
-            query = query + 'WHERE r.name = "' + name + '"';
+            query = query + 'WHERE r.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
         }
 
         query = query + ' RETURN r';
@@ -20,7 +20,7 @@ const findRoles = function (name, limit) {
                 result.records.forEach(function (record) {
                     data.push(record._fields[0].properties);
                 });
-                resolve(JSON.stringify(data));
+                resolve(data);
             })
             .catch(function (err) {
                 reject(err);

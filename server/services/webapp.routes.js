@@ -16,7 +16,7 @@ const useRoutes = function (app) {
     app.use('/qualifications', apiBasePath.qualificationRoutes);
     app.use('/skills', apiBasePath.skillRoutes);
     app.use('/languages', apiBasePath.languageRoutes);
-    app.use('/centers', apiBasePath.centerRoutes);
+    app.use('/centres', apiBasePath.centreRoutes);
 };
 
 module.exports = {

@@ -11,7 +11,7 @@ const locationRoutes = require('./locations/index');
 const qualificationRoutes = require('./qualifications/index');
 const skillRoutes = require('./skills/index');
 const languageRoutes = require('./languages/index');
-const centerRoutes = require('./centers/index');
+const centreRoutes = require('./centres/index');
 
 module.exports = {
     authenticationRoutes: authenticationRoutes,
@@ -27,5 +27,5 @@ module.exports = {
     qualificationRoutes: qualificationRoutes,
     skillRoutes: skillRoutes,
     languageRoutes: languageRoutes,
-    centerRoutes: centerRoutes
+    centreRoutes: centreRoutes
 };

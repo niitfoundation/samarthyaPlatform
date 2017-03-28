@@ -8,7 +8,7 @@ const findQualification = function (name, limit) {
         query = query + 'MATCH (q:' + graphConst.NODE_QUALIFICATION + ')';
 
         if (name !== 'undifined' && name.length > 0) {
-            query = query + 'WHERE q.name = "' + name + '"';
+            query = query + 'WHERE q.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
         }
 
         query = query + ' RETURN q';
@@ -20,7 +20,7 @@ const findQualification = function (name, limit) {
                 result.records.forEach(function (record) {
                     data.push(record._fields[0].properties);
                 });
-                resolve(JSON.stringify(data));
+                resolve(data);
             })
             .catch(function (err) {
                 reject(err);

@@ -8,7 +8,7 @@ const findLocations = function (name, limit) {
         query = query + 'MATCH (lo:' + graphConst.NODE_LOCATION + ')';
 
         if (name !== 'undifined' && name.length > 0) {
-            query = query + 'WHERE lo.name = "' + name + '"';
+            query = query + 'WHERE lo.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
         }
 
         query = query + ' RETURN lo';
@@ -20,7 +20,7 @@ const findLocations = function (name, limit) {
                 result.records.forEach(function (record) {
                     data.push(record._fields[0].properties);
                 });
-                resolve(JSON.stringify(data));
+                resolve(data);
             })
             .catch(function (err) {
                 reject(err);
