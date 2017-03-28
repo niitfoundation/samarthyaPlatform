@@ -9,7 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+// import 'hammerjs';
 import { AppComponent } from './app.component';
 import { Logger } from 'angular2-logger/core';
 import { Md2Module } from 'md2';
