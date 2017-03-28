@@ -621,7 +621,6 @@ var CentresComponent = (function () {
             _this.data.forEach(function (element) {
                 _this.showData.push(element.name);
             });
-            console.log(_this.showData);
         }, function (err) {
             console.log(err);
         });
@@ -1054,11 +1053,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var LanguagesComponent = (function () {
     function LanguagesComponent(customnodeService) {
         this.customnodeService = customnodeService;
+        this.showData = [];
     }
     LanguagesComponent.prototype.ngOnInit = function () {
     };
     LanguagesComponent.prototype.getLanguages = function (languagesObj) {
-        return this.customnodeService.readLanguages(languagesObj);
+        var _this = this;
+        this.showData = [];
+        this.customnodeService.readLanguages(languagesObj).subscribe(function (res) {
+            _this.data = JSON.parse(res["_body"]);
+            _this.data.forEach(function (element) {
+                _this.showData.push(element.name);
+            });
+        }, function (err) {
+            console.log(err);
+        });
     };
     LanguagesComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["c" /* Component */])({
@@ -1919,7 +1928,7 @@ var CustomnodeService = (function () {
     };
     CustomnodeService.prototype.readLanguages = function (languagesObj) {
         this.url = '/languages';
-        return this.http.get(this.url, languagesObj).map(function (response) { return response.json; });
+        return this.http.get(this.url + '?name=' + languagesObj.name + '&limit=' + languagesObj.limit).map(function (response) { return response; });
     };
     CustomnodeService.prototype.readLocations = function (locationsObj) {
         this.url = '/locations';
@@ -2901,7 +2910,7 @@ module.exports = "<app-login-header></app-login-header>\n<!-- container for hero
 /***/ 834:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n    languages\n</p>\n<app-footer></app-footer>"
+module.exports = "<p>\n    Languages\n</p>\n<div>\n    Search Languages: <input type=\"text\" [(ngModel)]=\"LanguageName\">\n</div>\n\n<div>\n    <button md-raised-button (click)=\"getLanguages({name:LanguageName,limit:5})\">Languages</button>\n</div>\n\n<div>\n    <ul>\n    <li *ngFor=\"let item of showData\">{{item}}</li>\n</ul>\n</div>\n\n<app-footer></app-footer>"
 
 /***/ }),
 

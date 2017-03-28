@@ -50,3 +50,39 @@
 [2017-03-28 22:23:08.271] [DEBUG] [default] - Authorization begin by getting token from http request
 [2017-03-28 22:23:08.276] [DEBUG] [default] - Token matched
 [2017-03-28 22:23:08.277] [INFO] [default] - Token verified
+[2017-03-28 22:41:07.307] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:41:07.324] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-28 22:41:07.327] [ERROR] [default] - Token not matched
+[2017-03-28 22:41:07.328] [ERROR] [default] - Internal error occurred
+[2017-03-28 22:41:10.972] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:41:11.005] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:41:12.989] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:41:13.002] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:41:14.356] [DEBUG] [default] - { username: 'samarthya@gmail.com', password: 'samarthya' }
+[2017-03-28 22:41:14.361] [DEBUG] [default] - Get object and store into authData
+[2017-03-28 22:41:14.361] [DEBUG] [default] - Token is generated
+[2017-03-28 22:41:14.381] [DEBUG] [default] - Data find and resolve here
+[2017-03-28 22:41:14.381] [INFO] [default] - Get successResult successfully and return back
+[2017-03-28 22:41:14.463] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:41:14.474] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-28 22:41:14.475] [DEBUG] [default] - Token matched
+[2017-03-28 22:41:14.475] [INFO] [default] - Token verified
+[2017-03-28 22:41:20.150] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:41:20.158] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-28 22:41:20.159] [DEBUG] [default] - Token matched
+[2017-03-28 22:41:20.159] [INFO] [default] - Token verified
+[2017-03-28 22:42:23.023] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:42:23.036] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-28 22:42:23.036] [DEBUG] [default] - Token matched
+[2017-03-28 22:42:23.036] [INFO] [default] - Token verified
+[2017-03-28 22:43:23.977] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-28 22:43:26.052] [DEBUG] [default] - Server running  on 3000
+[2017-03-28 22:43:26.073] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-28 22:44:06.853] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:44:06.895] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-28 22:44:06.900] [DEBUG] [default] - Token matched
+[2017-03-28 22:44:06.900] [INFO] [default] - Token verified
+[2017-03-28 22:45:27.236] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 22:45:27.246] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-28 22:45:27.247] [DEBUG] [default] - Token matched
+[2017-03-28 22:45:27.247] [INFO] [default] - Token verified
