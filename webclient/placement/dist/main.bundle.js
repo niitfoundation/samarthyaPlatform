@@ -609,11 +609,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CentresComponent = (function () {
     function CentresComponent(customnodeService) {
         this.customnodeService = customnodeService;
+        this.showData = [];
     }
     CentresComponent.prototype.ngOnInit = function () {
     };
     CentresComponent.prototype.getCentres = function (centresObj) {
-        return this.customnodeService.readCentres(centresObj);
+        var _this = this;
+        this.showData = [];
+        this.customnodeService.readCentres(centresObj).subscribe(function (res) {
+            _this.data = JSON.parse(res["_body"]);
+            _this.data.forEach(function (element) {
+                _this.showData.push(element.name);
+            });
+            console.log(_this.showData);
+        }, function (err) {
+            console.log(err);
+        });
     };
     CentresComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["c" /* Component */])({
@@ -1471,17 +1482,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ProfessionsComponent = (function () {
     function ProfessionsComponent(customnodeService) {
         this.customnodeService = customnodeService;
-        this.show = [];
+        this.showData = [];
     }
     ProfessionsComponent.prototype.ngOnInit = function () {
     };
     ProfessionsComponent.prototype.getProfessions = function (professionsObj) {
         var _this = this;
-        this.show = [];
+        this.showData = [];
         this.customnodeService.readProfessions(professionsObj).subscribe(function (res) {
             _this.data = JSON.parse(res["_body"]);
             _this.data.forEach(function (element) {
-                _this.show.push(element.name);
+                _this.showData.push(element.name);
             });
         }, function (err) {
             console.log(err);
@@ -1900,8 +1911,6 @@ var CustomnodeService = (function () {
     }
     CustomnodeService.prototype.readProfessions = function (professionsObj) {
         this.url = '/professions';
-        console.log(professionsObj);
-        console.log(this.url + '?name=' + professionsObj.name + '&limit=' + professionsObj.limit);
         return this.http.get(this.url + '?name=' + professionsObj.name + '&limit=' + professionsObj.limit).map(function (response) { return response; });
     };
     CustomnodeService.prototype.readSkills = function (skillsObj) {
@@ -1922,7 +1931,7 @@ var CustomnodeService = (function () {
     };
     CustomnodeService.prototype.readCentres = function (centresObj) {
         this.url = '/centres';
-        return this.http.get(this.url, centresObj).map(function (response) { return response.json; });
+        return this.http.get(this.url + '?name=' + centresObj.name + '&limit=' + centresObj.limit).map(function (response) { return response; });
     };
     CustomnodeService.prototype.readRoles = function (rolesObj) {
         this.url = '/roles';
@@ -2836,7 +2845,7 @@ module.exports = "\n<div class=\"container paddings\"\n     fxLayout\n     fxLay
 /***/ 826:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n    Centers\n</p>\n<app-footer></app-footer>"
+module.exports = "<p>\n    Centres\n</p>\n<div>\n    Search Centres: <input type=\"text\" [(ngModel)]=\"centreName\">\n</div>\n\n<div>\n    <button md-raised-button (click)=\"getCentres({name:centreName,limit:5})\">Centres</button>\n</div>\n\n<div>\n    <ul>\n    <li *ngFor=\"let item of showData\">{{item}}</li>\n</ul>\n</div>\n\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -2948,7 +2957,7 @@ module.exports = "<!--Header start-->\n<md-toolbar color=\"primary\" class=\"mai
 /***/ 842:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n    Professions\n</p>\n<div>\n    Search Professions: <input type=\"text\" [(ngModel)]=\"professionName\">\n</div>\n\n<div>\n    <button md-raised-button (click)=\"getProfessions({name:professionName,limit:5})\">professions</button>\n</div>\n\n<div>\n    <ul>\n    <li *ngFor=\"let item of show\">{{item}}</li>\n</ul>\n</div>\n\n<app-footer></app-footer>"
+module.exports = "<p>\n    Professions\n</p>\n<div>\n    Search Professions: <input type=\"text\" [(ngModel)]=\"professionName\">\n</div>\n\n<div>\n    <button md-raised-button (click)=\"getProfessions({name:professionName,limit:5})\">professions</button>\n</div>\n\n<div>\n    <ul>\n    <li *ngFor=\"let item of showData\">{{item}}</li>\n</ul>\n</div>\n\n<app-footer></app-footer>"
 
 /***/ }),
 

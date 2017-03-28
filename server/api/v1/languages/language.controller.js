@@ -7,7 +7,7 @@ const findLanguages = function (name, limit) {
         let query = '';
         query = query + 'MATCH (la:' + graphConst.NODE_LANGUAGE + ')';
 
-        if (name !== 'undifined' && name.length > 0) {
+        if (name !== 'undefined' && name.length > 0) {
             query = query + 'WHERE la.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
         }
 

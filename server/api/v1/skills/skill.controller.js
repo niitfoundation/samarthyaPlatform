@@ -7,7 +7,7 @@ const findSkills = function (name, limit) {
         let query = '';
         query = query + 'MATCH (s:' + graphConst.NODE_SKILL + ')';
 
-        if (name !== 'undifined' && name.length > 0) {
+        if (name !== 'undefined' && name.length > 0) {
             query = query + 'WHERE s.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
         }
 

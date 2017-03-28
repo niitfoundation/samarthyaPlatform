@@ -7,7 +7,7 @@ const findRoles = function (name, limit) {
         let query = '';
         query = query + 'MATCH (r:' + graphConst.NODE_ROLE + ')';
 
-        if (name !== 'undifined' && name.length > 0) {
+        if (name !== 'undefined' && name.length > 0) {
             query = query + 'WHERE r.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
         }
 

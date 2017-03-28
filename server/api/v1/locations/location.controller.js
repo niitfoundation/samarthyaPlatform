@@ -7,7 +7,7 @@ const findLocations = function (name, limit) {
         let query = '';
         query = query + 'MATCH (lo:' + graphConst.NODE_LOCATION + ')';
 
-        if (name !== 'undifined' && name.length > 0) {
+        if (name !== 'undefined' && name.length > 0) {
             query = query + 'WHERE lo.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
         }
 
