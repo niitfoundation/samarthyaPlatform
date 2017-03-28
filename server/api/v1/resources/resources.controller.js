@@ -64,6 +64,6 @@ const getRoles = function() {
 module.exports = { getLanguage: getLanguage,
 getPlacementCenter: getPlacementCenter,
 getProfession: getProfession,
-getRoles:getRoles
+getRoles: getRoles
 
  };

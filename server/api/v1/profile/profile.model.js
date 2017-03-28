@@ -1,13 +1,14 @@
 /*
  * Add/modify profile schema values
  */
-var profileDataModel = function(profileObj) {
+var profileDataModel = function (profileObj) {
     var profileDetails = {
         username: profileObj.email,
         profession: profileObj.profession,
         centerCode: profileObj.placementCenter,
         createdOn: Date.now(),
         createdBy: profileObj.createdBy,
+        updatedBy: profileObj.updatedBy,
         personalInfo: {
             fname: profileObj.fname,
             lname: profileObj.lname,
@@ -24,7 +25,7 @@ var profileDataModel = function(profileObj) {
                 landmark: profileObj.landmark,
                 district: profileObj.district,
                 state: profileObj.state,
-                pinCode: profileObj.pincode
+                pincode: profileObj.pincode
             }],
         },
     };

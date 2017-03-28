@@ -31,7 +31,7 @@ describe('email', function() {
             .post('/register-email')
             .set('Accept', 'application/x-www-form-urlencoded')
             .send({
-                
+
             })
             .expect(201)
             .end(function(err, res) {
@@ -46,7 +46,7 @@ describe('email', function() {
             .post('/verify-email')
             .set('Accept', 'application/x-www-form-urlencoded')
             .send({
-                
+
             })
             .expect(201)
             .end(function(err, res) {
@@ -61,7 +61,7 @@ describe('email', function() {
             .post('/verify-reset-email')
             .set('Accept', 'application/x-www-form-urlencoded')
             .send({
-                
+
             })
             .expect(201)
             .end(function(err, res) {
@@ -76,7 +76,7 @@ describe('email', function() {
             .post('/reset-password')
             .set('Accept', 'application/x-www-form-urlencoded')
             .send({
-                
+
             })
             .expect(201)
             .end(function(err, res) {
@@ -93,7 +93,7 @@ describe('Password', function() {
             .post('/reset-password')
             .set('Accept', 'application/x-www-form-urlencoded')
             .send({
-                
+
             })
             .expect(201)
             .end(function(err, res) {

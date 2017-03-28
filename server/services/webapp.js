@@ -12,14 +12,12 @@ function welcome(appName) {
 
 // App Constructor function is exported
 module.exports = function(appName) {
-
     welcome(appName);
 
     let app = service.createApp();
 
-    app.use(express.static(path.resolve(__dirname, '../../', 'webclient', appName + "/dist")));
+    app.use(express.static(path.resolve(__dirname, '../../', 'webclient', appName + '/dist')));
 
- 
 
     app = service.setupMiddlewares(app);
 
