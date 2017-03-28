@@ -13,7 +13,6 @@ const logger = require('./../applogger');
  * Get port from environment and store in Express.
  */
 
-//let port = normalizePort(process.env.PORT || '8080');
 let port = normalizePort(config.SAMARTHYA.WWW_PORT_PROFILE_ANALYSIS);
 
 /**
@@ -27,8 +26,6 @@ var server = http.createServer(handleRequest);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-//console.log("LogAggregatorRT CEP is running at " +port+" port.");
 
 /**
  * Normalize a port into a number, string, or false.
