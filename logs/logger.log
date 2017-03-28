@@ -1,0 +1,68 @@
+[2017-03-27 11:31:32.305] [DEBUG] [default] - Server running  on 3000
+[2017-03-27 11:31:32.520] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-27 11:32:16.865] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:32:16.954] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:32:38.971] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:32:38.997] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:33:44.173] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:33:44.193] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:35:45.760] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-27 11:35:49.569] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:35:49.579] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:38:13.039] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:38:13.049] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:42:15.877] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-27 11:42:19.222] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:42:19.236] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:43:10.961] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:43:10.968] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:43:16.693] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-27 11:43:20.122] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:43:20.133] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:43:50.041] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:43:50.045] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:43:57.154] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-27 11:44:01.467] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:44:01.488] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:44:20.810] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:44:20.817] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:44:25.387] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-27 11:44:28.455] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:44:28.467] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:44:56.107] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:44:56.124] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:45:00.550] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-27 11:45:03.320] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:45:03.336] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:47:46.382] [DEBUG] [default] - Updated password data found and resolved
+[2017-03-27 11:47:46.389] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:47:46.776] [DEBUG] [default] - sendEmail function is invoke
+[2017-03-27 11:47:46.810] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:51:29.309] [DEBUG] [default] - { username: 'gowthammurugesan55@gmail.com',
+  password: 'samarthya' }
+[2017-03-27 11:51:29.314] [DEBUG] [default] - Get object and store into authData
+[2017-03-27 11:51:29.314] [DEBUG] [default] - Token is generated
+[2017-03-27 11:51:29.319] [DEBUG] [default] - Invalid Credentials
+[2017-03-27 11:51:29.320] [ERROR] [default] - Internal error occurred
+[2017-03-27 11:51:33.244] [DEBUG] [default] - { username: 'gowthammurugesan55@gmail.com',
+  password: 'samarthyadb' }
+[2017-03-27 11:51:33.244] [DEBUG] [default] - Get object and store into authData
+[2017-03-27 11:51:33.244] [DEBUG] [default] - Token is generated
+[2017-03-27 11:51:33.246] [DEBUG] [default] - Invalid Credentials
+[2017-03-27 11:51:33.246] [ERROR] [default] - Internal error occurred
+[2017-03-27 11:51:55.259] [DEBUG] [default] - { username: 'gowthammurugesan55@gmail.com',
+  password: 'samarthyadb' }
+[2017-03-27 11:51:55.259] [DEBUG] [default] - Get object and store into authData
+[2017-03-27 11:51:55.260] [DEBUG] [default] - Token is generated
+[2017-03-27 11:51:55.262] [DEBUG] [default] - Invalid Credentials
+[2017-03-27 11:51:55.262] [ERROR] [default] - Internal error occurred
+[2017-03-27 11:52:50.445] [DEBUG] [default] - { username: 'gowthammurugesan55@gmail.com',
+  password: 'samarthyadb' }
+[2017-03-27 11:52:50.446] [DEBUG] [default] - Get object and store into authData
+[2017-03-27 11:52:50.446] [DEBUG] [default] - Token is generated
+[2017-03-27 11:52:50.454] [DEBUG] [default] - Data find and resolve here
+[2017-03-27 11:52:50.459] [INFO] [default] - Get successResult successfully and return back
+[2017-03-27 11:52:50.592] [DEBUG] [default] - getLanguage function invoke
+[2017-03-27 11:52:50.633] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-27 11:52:50.634] [DEBUG] [default] - Token matched
+[2017-03-27 11:52:50.634] [INFO] [default] - Token verified
