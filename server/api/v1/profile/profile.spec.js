@@ -13,7 +13,7 @@ describe('Profile', function() {
             .post('/send')
             .set('Accept', 'application/x-www-form-urlencoded')
             .send({
-               
+
             })
             .expect(201)
             .end(function(err, res) {

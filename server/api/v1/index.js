@@ -5,6 +5,13 @@ const resourcesRoutes = require('./resources/index');
 const coordinateRoutes = require('./coordinators/index');
 const candidateRoutes = require('./candidates/index');
 const profileRoutes = require('./profile/index');
+const professionRoutes = require('./professions/index');
+const roleRoutes = require('./roles/index');
+const locationRoutes = require('./locations/index');
+const qualificationRoutes = require('./qualifications/index');
+const skillRoutes = require('./skills/index');
+const languageRoutes = require('./languages/index');
+const centreRoutes = require('./centres/index');
 
 module.exports = {
     authenticationRoutes: authenticationRoutes,
@@ -13,5 +20,12 @@ module.exports = {
     resourcesRoutes: resourcesRoutes,
     coordinateRoutes: coordinateRoutes,
     candidateRoutes: candidateRoutes,
-    profileRoutes: profileRoutes
+    profileRoutes: profileRoutes,
+    professionRoutes: professionRoutes,
+    roleRoutes: roleRoutes,
+    locationRoutes: locationRoutes,
+    qualificationRoutes: qualificationRoutes,
+    skillRoutes: skillRoutes,
+    languageRoutes: languageRoutes,
+    centreRoutes: centreRoutes
 };

@@ -9,7 +9,6 @@
         "pree2e": "webdriver-manager update --standalone false --gecko false",
         "e2e": "protractor",
         "serve": "ng build --watch --sourcemap "
-
     },
     "private": true,
     "dependencies": {
@@ -45,12 +44,13 @@
         "passport-google-oauth": "^1.0.0",
         "rxjs": "^5.0.1",
         "smtp-server": "^2.0.2",
-        "placementmodule" : "git+https://github.com/stackroute/samarthyaPlacement.git#dev-wave-16",
+        "placementmodule": "git+https://github.com/stackroute/samarthyaPlacement.git#dev-wave-16",
         "systemjs": "^0.20.9",
         "ts-helpers": "^1.1.1",
         "zone.js": "^0.7.2"
     },
     "devDependencies": {
+        "@angular/cli": "^1.0.0",
         "@angular/compiler-cli": "^2.3.1",
         "@types/hammerjs": "^2.0.34",
         "@types/jasmine": "2.5.38",

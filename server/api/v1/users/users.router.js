@@ -19,7 +19,7 @@ router.post('/', function(req, res) {
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
-            return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'user Already Exist' });
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
         });
     } catch (err) {
         // Log the Error for internal use

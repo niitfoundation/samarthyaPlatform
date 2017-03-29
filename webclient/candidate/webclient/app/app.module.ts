@@ -9,14 +9,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+// import 'hammerjs';
 import { AppComponent } from './app.component';
 import { Logger } from 'angular2-logger/core';
 import { Md2Module } from 'md2';
-import { SamProfileSectionPersonalinfoService } from 'samarthyaCandidate/sam-profile-section-services/sam-profile-section-personalinfo.service';
-import { SamProfileCardService } from 'samarthyaCandidate/sam-profile-section-services/sam-profile-card.service';
-import { SamProfileSectionSkillsService } from 'samarthyaCandidate/sam-profile-section-services/sam-profile-section-skills.service';
-
+import { SamProfileCardService } from 'samarthyaCandidate/services/sam-profile-card.service';
+import { SamProfileSectionConfigService } from 'samarthyaCandidate/services/sam-profile-section-config.service';
 
 @NgModule({
   imports: [
@@ -24,10 +22,6 @@ import { SamProfileSectionSkillsService } from 'samarthyaCandidate/sam-profile-s
     HttpModule,
     MaterialModule.forRoot(),
     Md2Module.forRoot(),
-    // AppRoutingModule,
-    // ReactiveFormsModule,
-    // FlexLayoutModule,
-
     CandidateModule
   ], exports: [
     MaterialModule
@@ -40,9 +34,8 @@ import { SamProfileSectionSkillsService } from 'samarthyaCandidate/sam-profile-s
     AuthenticationService,
     Logger,
     Data,
-    SamProfileSectionPersonalinfoService,
-    SamProfileSectionSkillsService,
-    SamProfileCardService
+    SamProfileCardService,
+    SamProfileSectionConfigService
   ],
   bootstrap: [AppComponent],
   declarations: [

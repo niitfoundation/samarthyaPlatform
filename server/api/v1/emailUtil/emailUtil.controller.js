@@ -49,7 +49,7 @@ let sendEmail = function(jsonobj) {
                     logger.error('response not found');
                     reject(err);
                 } else {
-                    resolve({response:response,msg:"Mail sent Successfully"});
+                    resolve({response: response, msg: 'Mail sent Successfully'});
                 }
             });
         });
