@@ -13,4 +13,4 @@
  * i.e., if a client wants to make a request it will start from '/reference/<route defined in the module>'
  *
  */
-module.exports = require('./centers.router');
+module.exports = require('./centres.router');

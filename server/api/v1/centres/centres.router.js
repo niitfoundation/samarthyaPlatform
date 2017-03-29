@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const centerCtrl = require('./centers.controller');
+const centreCtrl = require('./centres.controller');
 const logger = require('../../../../applogger');
 
-router.get('/', function (req, res) {
+router.get('/', function(req, res) {
     try {
         let param = req.query;
-        centerCtrl.findCenters(param.name, param.limit)
+        centreCtrl.findCentres(param.name, param.limit)
             .then((successResult) => {
                 return res.status(201).send(successResult);
             }, (errResult) => {
