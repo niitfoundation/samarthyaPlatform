@@ -1,0 +1,234 @@
+[2017-03-28 18:38:18.203] [ERROR] [default] - Error in Mongoose connection:  { Error: Trying to open unclosed connection.
+    at NativeConnection.Connection.open (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/mongoose/lib/connection.js:239:15)
+    at Mongoose.connect (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/mongoose/lib/index.js:242:47)
+    at Object.setupMongooseConnections (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/server/services/webapp.service.js:55:14)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/bin/bulkImport.js:19:50
+    at Layer.handle [as handle_request] (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/index.js:275:10)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/body-parser/lib/read.js:129:5
+    at invokeCallback (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/raw-body/index.js:262:16)
+    at done (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/raw-body/index.js:251:7)
+    at IncomingMessage.onEnd (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/raw-body/index.js:307:7)
+    at emitNone (events.js:86:13) state: 1 }
+[2017-03-28 18:50:43.674] [DEBUG] [default] - Server running  on 3000
+[2017-03-28 18:50:43.689] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-28 18:50:45.245] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-28 18:57:07.669] [INFO] [default] - Saved successfully and return back
+[2017-03-28 18:57:07.890] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-28 20:26:09.336] [DEBUG] [default] - Server running  on 3000
+[2017-03-28 20:26:09.360] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-28 20:26:57.961] [DEBUG] [default] - getLanguage function invoke
+[2017-03-28 20:26:58.026] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 12:44:07.070] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 12:44:07.093] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 12:44:13.909] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 12:44:14.035] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 12:44:15.521] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 12:44:15.534] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 12:44:27.682] [DEBUG] [default] - { username: 'samarthya@gmail.com', password: 'samarthya' }
+[2017-03-29 12:44:27.685] [DEBUG] [default] - Get object and store into authData
+[2017-03-29 12:44:27.686] [DEBUG] [default] - Token is generated
+[2017-03-29 12:44:27.748] [DEBUG] [default] - Data find and resolve here
+[2017-03-29 12:44:27.749] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 12:44:27.825] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 12:44:27.829] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 12:44:27.832] [DEBUG] [default] - Token matched
+[2017-03-29 12:44:27.833] [INFO] [default] - Token verified
+[2017-03-29 12:44:45.241] [INFO] [default] - Saved successfully and return back
+[2017-03-29 12:44:45.457] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 14:25:03.930] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 16:37:43.128] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 16:37:43.144] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 16:37:50.093] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 16:37:50.149] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 16:37:51.978] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 16:37:51.998] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 16:37:58.696] [DEBUG] [default] - { username: 'samarthya@gmail.com', password: 'samarthya' }
+[2017-03-29 16:37:58.698] [DEBUG] [default] - Get object and store into authData
+[2017-03-29 16:37:58.699] [DEBUG] [default] - Token is generated
+[2017-03-29 16:37:58.733] [DEBUG] [default] - Data find and resolve here
+[2017-03-29 16:37:58.733] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 16:37:58.799] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 16:37:58.801] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 16:37:58.803] [DEBUG] [default] - Token matched
+[2017-03-29 16:37:58.804] [INFO] [default] - Token verified
+[2017-03-29 16:38:16.635] [INFO] [default] - Saved successfully and return back
+[2017-03-29 16:38:16.841] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:01:08.411] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:01:08.429] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:01:13.181] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:01:13.187] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:01:13.191] [DEBUG] [default] - Token matched
+[2017-03-29 17:01:13.191] [INFO] [default] - Token verified
+[2017-03-29 17:01:56.541] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:01:56.543] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:01:56.544] [DEBUG] [default] - Token matched
+[2017-03-29 17:01:56.544] [INFO] [default] - Token verified
+[2017-03-29 17:02:06.916] [FATAL] [default] - Exception occurTypeError: coordinateCtrl.getImportHistory is not a function
+[2017-03-29 17:02:55.116] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:02:55.134] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:02:55.135] [DEBUG] [default] - Token matched
+[2017-03-29 17:02:55.135] [INFO] [default] - Token verified
+[2017-03-29 17:03:02.883] [FATAL] [default] - Exception occurTypeError: coordinateCtrl.getImportHistory is not a function
+[2017-03-29 17:03:49.030] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:03:50.470] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:03:50.488] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:03:54.968] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:03:54.995] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:03:55.005] [DEBUG] [default] - Token matched
+[2017-03-29 17:03:55.005] [INFO] [default] - Token verified
+[2017-03-29 17:03:56.709] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:04:41.036] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:04:42.518] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:04:42.533] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:04:44.792] [ERROR] [default] - Internal error occurredTypeError: BulkHistoryModel.findAll is not a function
+[2017-03-29 17:05:02.906] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:05:04.341] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:05:04.355] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:05:06.176] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:05:20.861] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:05:20.875] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:05:20.883] [DEBUG] [default] - Token matched
+[2017-03-29 17:05:20.883] [INFO] [default] - Token verified
+[2017-03-29 17:05:22.689] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:07:58.781] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:07:58.794] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:07:58.795] [ERROR] [default] - Token not matched
+[2017-03-29 17:07:58.796] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:08:01.747] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:08:27.293] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:08:27.304] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:08:27.307] [ERROR] [default] - Token not matched
+[2017-03-29 17:08:27.307] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:08:29.657] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:09:27.526] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:09:27.541] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:09:27.544] [ERROR] [default] - Token not matched
+[2017-03-29 17:09:27.544] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:09:29.325] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:17:44.008] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:17:44.024] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:17:44.025] [ERROR] [default] - Token not matched
+[2017-03-29 17:17:44.025] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:17:46.885] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:17:58.640] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:18:00.073] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:18:00.089] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:18:05.232] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:18:05.267] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:18:05.273] [ERROR] [default] - Token not matched
+[2017-03-29 17:18:05.274] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:18:07.085] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:18:08.847] [FATAL] [default] - Exception occurTypeError: coordinateCtrl.getFailureImportHistory is not a function
+[2017-03-29 17:18:34.480] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:18:35.852] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:18:35.867] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:18:39.997] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:18:40.019] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:18:40.029] [ERROR] [default] - Token not matched
+[2017-03-29 17:18:40.030] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:18:41.822] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:18:43.226] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:19:46.140] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:19:46.154] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:19:46.157] [ERROR] [default] - Token not matched
+[2017-03-29 17:19:46.157] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:19:48.514] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:19:49.952] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:20:33.998] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:20:35.357] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:20:35.375] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:20:39.713] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:20:39.749] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:20:39.762] [ERROR] [default] - Token not matched
+[2017-03-29 17:20:39.764] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:20:41.111] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:20:42.645] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:20:59.522] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:21:01.117] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:21:01.134] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:21:03.108] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:22:12.049] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:22:13.455] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:22:13.471] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:22:16.059] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:22:29.598] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:22:31.065] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:22:31.080] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:22:33.116] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:22:40.081] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:22:40.102] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:22:40.115] [ERROR] [default] - Token not matched
+[2017-03-29 17:22:40.116] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:22:43.459] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:22:45.494] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:22:57.401] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:22:58.695] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:22:58.710] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:22:59.602] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:23:35.235] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:23:36.597] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:23:36.613] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:23:40.861] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:23:40.885] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:23:40.898] [ERROR] [default] - Token not matched
+[2017-03-29 17:23:40.898] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:23:42.439] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:23:43.909] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:24:39.346] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:24:39.364] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:24:39.367] [ERROR] [default] - Token not matched
+[2017-03-29 17:24:39.367] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:24:41.256] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:24:42.507] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:25:03.690] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-03-29 17:27:34.249] [DEBUG] [default] - Server running  on 3000
+[2017-03-29 17:27:34.265] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-03-29 17:27:38.815] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:27:38.837] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:27:38.846] [ERROR] [default] - Token not matched
+[2017-03-29 17:27:38.846] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:27:39.941] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:27:51.771] [INFO] [default] - Saved successfully and return back
+[2017-03-29 17:27:51.779] [ERROR] [default] - Error in Mongoose connection:  { Error: Trying to open unclosed connection.
+    at NativeConnection.Connection.open (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/mongoose/lib/connection.js:239:15)
+    at Mongoose.connect (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/mongoose/lib/index.js:242:47)
+    at Object.setupMongooseConnections (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/server/services/webapp.service.js:55:14)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/bin/bulkImport.js:18:50
+    at Layer.handle [as handle_request] (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/express/lib/router/index.js:275:10)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/body-parser/lib/read.js:129:5
+    at invokeCallback (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/raw-body/index.js:262:16)
+    at done (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/raw-body/index.js:251:7)
+    at IncomingMessage.onEnd (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/raw-body/index.js:307:7)
+    at emitNone (events.js:86:13) state: 1 }
+[2017-03-29 17:28:10.321] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:28:10.359] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:28:12.409] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:28:12.423] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:28:17.395] [DEBUG] [default] - { username: 'samarthya@gmail.com', password: 'samarethya' }
+[2017-03-29 17:28:17.399] [DEBUG] [default] - Get object and store into authData
+[2017-03-29 17:28:17.400] [DEBUG] [default] - Token is generated
+[2017-03-29 17:28:17.404] [DEBUG] [default] - Invalid Credentials
+[2017-03-29 17:28:17.404] [ERROR] [default] - Internal error occurred
+[2017-03-29 17:28:21.250] [DEBUG] [default] - { username: 'samarthya@gmail.com', password: 'samarthya' }
+[2017-03-29 17:28:21.253] [DEBUG] [default] - Get object and store into authData
+[2017-03-29 17:28:21.253] [DEBUG] [default] - Token is generated
+[2017-03-29 17:28:21.271] [DEBUG] [default] - Data find and resolve here
+[2017-03-29 17:28:21.271] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:28:21.357] [DEBUG] [default] - getLanguage function invoke
+[2017-03-29 17:28:21.366] [DEBUG] [default] - Authorization begin by getting token from http request
+[2017-03-29 17:28:21.367] [DEBUG] [default] - Token matched
+[2017-03-29 17:28:21.369] [INFO] [default] - Token verified
+[2017-03-29 17:28:25.735] [INFO] [default] - Get successResult successfully and return back
+[2017-03-29 17:28:31.563] [INFO] [default] - Get successResult successfully and return back

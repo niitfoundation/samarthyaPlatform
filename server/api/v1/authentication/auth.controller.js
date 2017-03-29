@@ -75,7 +75,6 @@ const resetPassword = function(resetObj) {
         username: resetObj.username
     };
     logger.debug('Username stored into userDetails');
-    // let resetData = new userModel(userDetails);
     return new Promise((resolve, reject) => {
         userModel.update(userDetails, {
                 $set: {
