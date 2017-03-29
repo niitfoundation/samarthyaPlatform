@@ -5,6 +5,7 @@ const logger = require('../../../../applogger');
 router.get('/', function (req, res) {
     try {
         let param = req.query;
+
         professionCtrl.findProfessions(param.name, param.limit)
             .then((successResult) => {
                 return res.status(201).send(successResult);

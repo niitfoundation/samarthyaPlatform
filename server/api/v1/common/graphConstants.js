@@ -5,5 +5,6 @@ module.exports = {
     NODE_QUALIFICATION: 'Qualification',
     NODE_LANGUAGE: 'Language',
     NODE_SKILL: 'Skill',
-    NODE_CENTER: 'Center'
+    NODE_CENTRE: 'Centre',
+    NODE_PROPERTY_NAME: 'name'
 };
