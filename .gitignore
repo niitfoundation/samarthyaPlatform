@@ -47,5 +47,3 @@ jspm_packages
 
 # Ignore distribution folder
 dist
-webclient/candidate/dist
-webclient/placement/dist
