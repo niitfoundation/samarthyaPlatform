@@ -29,6 +29,31 @@ const findProfessions = function (name, limit) {
     return promise;
 };
 
+const addProfession = function (name) {
+    let promise = new Promise((resolve, reject) => {
+        let query = '';
+        if (name !== 'undefined' && name.length > 0) {
+            query = query + 'MERGE (p:' + graphConst.NODE_PROFESSION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+            query = query + ' RETURN p';
+        }
+
+        session
+            .run(query)
+            .then(function (result) {
+                var data = [];
+                result.records.forEach(function (record) {
+                    data.push(record._fields[0].properties);
+                });
+                resolve(data);
+            })
+            .catch(function (err) {
+                reject(err);
+            });
+    });
+    return promise;
+};
+
 module.exports = {
-    findProfessions: findProfessions
+    findProfessions: findProfessions,
+    addProfession: addProfession
 };

@@ -28,6 +28,31 @@ const findCentres = function (name, limit) {
     return promise;
 };
 
+const addCentre = function (name) {
+    let promise = new Promise((resolve, reject) => {
+        let query = '';
+        if (name !== 'undefined' && name.length > 0) {
+            query = query + 'MERGE (c:' + graphConst.NODE_CENTRE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+            query = query + ' RETURN c';
+        }
+
+        session
+            .run(query)
+            .then(function (result) {
+                var data = [];
+                result.records.forEach(function (record) {
+                    data.push(record._fields[0].properties);
+                });
+                resolve(data);
+            })
+            .catch(function (err) {
+                reject(err);
+            });
+    });
+    return promise;
+};
+
 module.exports = {
-    findCentres: findCentres
+    findCentres: findCentres,
+    addCentre: addCentre
 };
