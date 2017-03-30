@@ -1,6 +1,7 @@
 const UserModel = require('./users.entity');
 const prflCtrl = require('./../profile/profile.controller');
 const logger = require('./../../../../applogger');
+const BulkModel=require('./bulkEntry.entity');
 /*
  *authenticate new user and adding profile details
  */
@@ -45,6 +46,29 @@ const registerNewUser = function(userObj) {
     });
 };
 
+
+const addBulkData=function(bulkData){
+ var data = {
+        data:bulkData,
+      
+    };
+        let bulk = new BulkModel(data);
+
+    // insert the data into db using promise
+    return new Promise((resolve, reject) => {
+        bulk.save(function(err, data) {
+            if (err) {
+                logger.error('userData not added sucessfully' + err);
+                reject(err);
+            } else {
+                
+                resolve({ msg: 'in mongo added Successfully', data: data, success: true });
+            }
+        });
+    });
+}
+
 module.exports = {
-    registerNewUser: registerNewUser
+    registerNewUser: registerNewUser,
+    addBulkData:addBulkData
 };

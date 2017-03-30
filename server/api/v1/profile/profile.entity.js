@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
  */
 
 const profileSchema = mongoose.Schema({
+    role: {type: String},
     username: { type: String, required: true, unique: true },
     profession: { type: String, required: true },
     centerCode: { type: String },
@@ -14,7 +15,7 @@ const profileSchema = mongoose.Schema({
     createdBy: { type: String, required: true },
     updatedOn: { type: Date, required: true, default: Date.now },
     updatedBy: { type: String, required: true },
-    personalInfo: {
+    personalinfo: {
         displayname: { type: String, min: 4, max: 15 },
         fname: { type: String, required: true, min: 4 },
         lname: { type: String, required: true },

@@ -1,10 +1,15 @@
 module.exports = {
     NODE_PROFESSION: 'Profession',
+    NODE_INSTITUTE: 'Institute',
+    NODE_PERSON: 'Person',
     NODE_ROLE: 'Role',
     NODE_LOCATION: 'Location',
     NODE_QUALIFICATION: 'Qualification',
     NODE_LANGUAGE: 'Language',
     NODE_SKILL: 'Skill',
     NODE_CENTRE: 'Centre',
-    NODE_PROPERTY_NAME: 'name'
+    NODE_PROPERTY_NAME: 'name',
+    REL_QUALIFIED_AS: 'Qualified_As',
+    REL_MAJOR_SUBJECT: 'Major_Subject',
+    REL_QUALIFIED_FROM: 'Qualified_From',
 };

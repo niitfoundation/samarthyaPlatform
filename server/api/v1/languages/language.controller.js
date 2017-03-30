@@ -28,6 +28,30 @@ const findLanguages = function (name, limit) {
     return promise;
 };
 
+const addLanguage = function (name) {
+    let promise = new Promise((resolve, reject) => {
+        let query = '';
+        if (name !== 'undefined' && name.length > 0) {
+            query = query + 'MERGE (la:' + graphConst.NODE_LANGUAGE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+            query = query + ' RETURN la';
+        }
+        session
+            .run(query)
+            .then(function (result) {
+                var data = [];
+                result.records.forEach(function (record) {
+                    data.push(record._fields[0].properties);
+                });
+                resolve(data);
+            })
+            .catch(function (err) {
+                reject(err);
+            });
+    });
+    return promise;
+};
+
 module.exports = {
-    findLanguages: findLanguages
+    findLanguages: findLanguages,
+    addLanguage: addLanguage
 };
