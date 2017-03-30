@@ -37,15 +37,15 @@ const addRelation = function (name, limit) {
         if (instname !== 'undefined' && instname.length > 0) {
             query = query + 'MATCH (institite:' + graphConst.NODE_INSTITUTE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + instname + '"})';
         }
-        
+
         if (qname !== 'undefined' && qname.length > 0 && pname !== 'undefined' && pname.length > 0) {
             query = query + 'MERGE (qualification)<-[rel_qualified_as:' + graphConst.REL_QUALIFIED_AS + ']-(person)';
         }
         if (qname !== 'undefined' && qname.length > 0 && sname !== 'undefined' && sname.length > 0) {
-            query = query + 'MERGE (qualification)-[rel_qualified_as:' + graphConst.REL_MAJOR_SUBJECT + ']->(skill)';
+            query = query + 'MERGE (qualification)-[rel_major_subject:' + graphConst.REL_MAJOR_SUBJECT + ']->(skill)';
         }
         if (qname !== 'undefined' && qname.length > 0 && instname !== 'undefined' && instname.length > 0) {
-            query = query + 'MERGE (qualification)<-[rel_qualified_as:' + graphConst.REL_QUALIFIED_FROM + ']-(institite)';
+            query = query + 'MERGE (qualification)<-[rel_qualified_from:' + graphConst.REL_QUALIFIED_FROM + ']-(institite)';
         }
         query = query + ' RETURN rel';
 
