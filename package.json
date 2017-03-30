@@ -6,7 +6,8 @@
     "scripts": {
         "test": " \"Error: no test specified\" && exit 1",
         "placement": "concurrently \"cd webclient/placement && ng build --watch --sourcemap\" \"nodemon bin/www.placement.js\" ",
-        "candidate": "concurrently \"cd webclient/candidate && ng build --watch --sourcemap\" \"nodemon bin/www.candidate.js\" "
+        "candidate": "concurrently \"cd webclient/candidate && ng build --watch --sourcemap\" \"nodemon bin/www.candidate.js\" ",
+        "lint": " concurrently \" eslint bin/**/*.js\"  \" eslint apploger/**/*.js\" \" eslint server/**/*.js\"    "
     },
     "repository": {
         "type": "git",
