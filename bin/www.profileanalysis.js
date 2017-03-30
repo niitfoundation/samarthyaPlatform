@@ -19,7 +19,7 @@ let port = normalizePort(config.SAMARTHYA.WWW_PORT_PROFILE_ANALYSIS);
  * Create HTTP server.
  */
 
-//Create a server
+// Create a server
 var server = http.createServer(handleRequest);
 
 
@@ -63,11 +63,11 @@ function onError(error) {
     // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
+      //      console.error(bind + ' requires elevated privileges');
             process.exit(1);
             break;
         case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
+        //    console.error(bind + ' is already in use');
             process.exit(1);
             break;
         default:
@@ -75,7 +75,7 @@ function onError(error) {
     }
 }
 
-//We need a function which handles requests and send response
+// We need a function which handles requests and send response
 function handleRequest(request, response) {
     response.end('It Works!! Path Hit: ' + request.url);
 }
