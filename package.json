@@ -4,10 +4,10 @@
     "main": "index.js",
     "scripts": {
         "test": " \"Error: no test specified\" && exit 1",
-        "platform-modules":"npm install",
-        "web-apps":"concurrently \"cd webclient/placement && npm install\" \"cd webclient/candidate && npm install\" ",
-        "placement": "concurrently \"cd webclient/placement && ng build --watch --sourcemap\" \"nodemon bin/www.placement.js\" ",
-        "candidate": "concurrently \"cd webclient/candidate && ng build --watch --sourcemap\" \"nodemon bin/www.candidate.js\" ",
+        "webclients-npm-install":"concurrently \"cd webclient/placement && npm install\" \"cd webclient/candidate && npm install\" ",
+        "webclients-ng-build": "concurrently \"cd webclient/placement && ng build\" \"cd webclient/candidate && ng build\" ",
+        "placement": "node bin/www.placement.js",
+        "candidate": "node bin/www.candidate.js",
         "lint": " concurrently \" eslint bin/**/*.js\"  \" eslint apploger/**/*.js\" \" eslint server/**/*.js\"    "
     },
     "repository": {

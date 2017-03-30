@@ -1,25 +1,24 @@
 FROM mhart/alpine-node
-# FROM mhart/alpine-node:6
-
-WORKDIR /usr/src
-
-COPY package.json .
-
-RUN npm install
 
 RUN apk update && \
     apk upgrade && \
     apk add git
 
-COPY package.json /webclient/candidate/
+WORKDIR /usr/src
+
+RUN npm install -g @angular/cli@latest
+
+COPY package.json .
 
 RUN npm install
 
-COPY package.json /webclient/placement/
+COPY . .
 
-RUN npm install
+# Install webclient dependencies 
+RUN npm run webclients-npm-install
 
-ADD . .
+# Build webclient apps
+RUN npm run webclients-ng-build 
 
 EXPOSE 8080
 
