@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-//Create instance of express based web app
+// Create instance of express based web app
 let appName = 'candidate';
 let app = require('../server/services/webapp')(appName);
 let config = require('../config/config');
@@ -15,7 +15,7 @@ let http = require('http');
  * Get port from environment and store in Express.
  */
 
-//let port = normalizePort(process.env.PORT || '8080');
+// let port = normalizePort(process.env.PORT || '8080');
 let port = normalizePort(config.SAMARTHYA.WWW_PORT_CANDIDATE);
 
 /**
@@ -31,7 +31,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-//console.log("LogAggregatorRT CEP is running at " +port+" port.");
+// console.log("LogAggregatorRT CEP is running at " +port+" port.");
 
 /**
  * Normalize a port into a number, string, or false.
@@ -69,11 +69,11 @@ function onError(error) {
     // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
+           // console.error(bind + ' requires elevated privileges');
             process.exit(1);
             break;
         case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
+           // console.error(bind + ' is already in use');
             process.exit(1);
             break;
         default:
