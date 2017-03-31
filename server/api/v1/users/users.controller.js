@@ -47,9 +47,13 @@ const registerNewUser = function(userObj) {
 };
 
 
-const addBulkData=function(bulkData){
+const addBulkData=function(bulkData,fileName,remarks,username){
  var data = {
-        data:bulkData,
+        importData:bulkData,
+        remarks:remarks,
+        importFile:fileName,
+        requestedOn:Date.now(),
+        requestedBy:username
       
     };
         let bulk = new BulkModel(data);

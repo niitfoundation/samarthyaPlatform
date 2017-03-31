@@ -37,16 +37,19 @@ const fs = require('fs');
 // });
 
 router.post('/upload', function(req, res) {
+    let remarks=req.query.remarks;
+    let username=req.query.username;
     try{
     var form = new formidable.IncomingForm();
 
 form.parse(req, function(err, fields, files) {
+    let fileName=files['uploads[]'].name;
     fs.readFile(files['uploads[]'].path,{encoding: 'utf-8'},function(err,data){
         if(err)
         console.log(err)
         else{
             
-             UserCtrl.addBulkData(JSON.parse(data)).then((successResult) => {
+             UserCtrl.addBulkData(JSON.parse(data),fileName,remarks,username).then((successResult) => {
             logger.info('Saved successfully and return back');
             
             var options = {
@@ -88,20 +91,6 @@ catch(err){
 
 }
 
-
-// // });
-//             return res.status(201).send(successResult);
-//         }, (errResult) => {
-//             // Log the error for internal use
-//             logger.error('Internal error occurred');
-//             return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
-//         });
-//     } catch (err) {
-//         // Log the Error for internal use
-//         logger.fatal('Exception occurred' + err);
-//         res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
-//         return;
-//     }
 });
 
 
@@ -131,12 +120,9 @@ router.get('/import-history',function(req,res){
 
 router.get('/failure-history',function(req,res){
    let documentId=req.query.documentId;
-   console.log(documentId)
-
     try {
         coordinateCtrl.getFailureImportHistory(documentId).then((successResult) => {
             logger.info('Get successResult successfully and return back');
-            console.log(successResult)
             return res.status(201).send(successResult);
         },
             (err) => {

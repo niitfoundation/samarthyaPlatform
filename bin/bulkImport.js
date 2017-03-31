@@ -1,7 +1,6 @@
 const app = require('express')();
 const http = require('http');
 const BulkModel = require('./../server/api/v1/users/bulkEntry.entity');
-const BulkHistoryModel = require('./../server/api/v1/users/bulkEntryHistory.entity');
 const UserModel = require('./../server/api/v1/users/users.entity');
 const ProfileModel = require('./../server/api/v1/profile/profile.entity');
 
@@ -23,19 +22,18 @@ app.post('/save', function (req, res) {
             if (err) {
                 console.log(err);
             } else {
-                var bulkHistoryId = {
-                    "documentId": req.query.datas,
-                    "totalProfiles": datas[0].data.length
-                }
-                bulkHistory = new BulkHistoryModel(bulkHistoryId);
-                bulkHistory.save(function (err, data) {
+                BulkModel.update({"_id":req.query.datas},{
+                    $set:{
+                        "importResult.total": datas[0].importData.length
+                    }
+                },function (err, data) {
                     if (err) {
                         console.log(err)
                     } else {
-                        console.log("saving")
+                        console.log("updted total profiles")
                     }
                 })
-                var result = _(datas[0].data) // Creates a stream from an array of filenames
+                let result = _(datas[0].importData) // Creates a stream from an array of filenames
                     .map(function (fileContent) {
                         return fileContent
                     });
@@ -52,14 +50,14 @@ app.post('/save', function (req, res) {
                     userData = new UserModel(saveData);
                     userData.save(function (err, data) {
                         details = {
-                            documentId: req.query.datas
+                            "_id": req.query.datas
                         }
                         if (err) {
                             console.log('userData not added sucessfully' + err);
-                            BulkHistoryModel.update(details, {
+                            BulkModel.update(details, {
 
                                 $inc: {
-                                    "status.noOfFailure": 1
+                                    "importResult.failed": 1
                                 }
 
                             },
@@ -67,7 +65,20 @@ app.post('/save', function (req, res) {
                                     if (err) {
                                         console.log(err);
                                     } else {
-                                        console.log("Failure Status added success")
+                                       BulkModel.update({ "_id": req.query.datas,"importData.personalinfo.contact.I":d.personalinfo.contact.I }, {
+                                            $set: {
+                                                "importData.$.importStatus": "failed",
+                                                "importResult.errors":err
+                                            }
+                                        }, function (err, data) {
+                                            if (err) {
+                                                console.log("Error in adding import Failed status")
+                                            }
+                                            else {
+                                                console.log("failure Status added success")
+
+                                            }
+                                        })
 
                                     }
                                 });
@@ -76,6 +87,20 @@ app.post('/save', function (req, res) {
                             profileData = new ProfileModel(d);
                             profileData.save(function (err, docs) {
                                 if (err) {
+                                    BulkModel.update({ "_id": req.query.datas, "importData.personalinfo.contact.I":d.personalinfo.contact.I}, {
+                                            $set: {
+                                                "importData.$.importStatus": "failed",
+                                                "importResult.errors":err
+                                            }
+                                        }, function (err, data) {
+                                            if (err) {
+                                                console.log("Error in adding import Failed status")
+                                            }
+                                            else {
+                                                console.log("failure Status added success")
+
+                                            }
+                                        })
                                     console.log("error in profile add" + err);
                                     UserModel.remove({ "username": d.username }, function (err, removeDocs) {
                                         if (err) {
@@ -85,29 +110,36 @@ app.post('/save', function (req, res) {
                                             console.log("remove userData success while fail");
                                         }
                                     })
+
                                 }
                                 else {
                                     console.log("profile added");
-                                    BulkHistoryModel.update({
-                                        "documentId": req.query.datas
+                                    BulkModel.update({
+                                        "_id": req.query.datas
                                     }, {
                                             $inc: {
-                                                "status.noOfSuccess": 1
+                                                "importResult.success": 1
                                             }
                                         },
                                         function (err, data) {
                                             if (err) {
                                                 console.log(err);
                                             } else {
-                                                BulkModel.update({}, { $pull: { data: { "username": d.username } } },
-                                                    function(err, updataData) {
-                                                        if(err) {
-                                                            console.log("error in bylkmodel update" + err);
-                                                        }
+                                                BulkModel.update({ "_id": req.query.datas, "importData.username": d.username }, {
+                                            $set: {
+                                                "importedOn":Date.now(),
+                                                "status":"imported",
+                                                "importData.$.importStatus": "Success"
+                                            }
+                                        }, function (err, data) {
+                                            if (err) {
+                                                console.log("Error in adding import Success status")
+                                            }
                                             else {
-                                                            console.log("success status added");
-                                                        }
-                                                    })
+                                                console.log("Success Status added success")
+
+                                            }
+                                        })
 
                                             }
                                         });
