@@ -53,7 +53,7 @@ const addBulkData=function(bulkData,fileName,remarks,username){
         remarks:remarks,
         importFile:fileName,
         requestedOn:Date.now(),
-        requestedBy:username
+        requestedBy: username
       
     };
         let bulk = new BulkModel(data);

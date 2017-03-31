@@ -1,0 +1,60 @@
+version: '2'
+services:
+  candidate:
+    image: samarthya/samarthya:v1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+      - neo4j
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'npm run candidate'
+  placement:
+    image: samarthya/samarthya:v1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+      - neo4j
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'npm run placement'  
+  mongodb:
+    image: mvertes/alpine-mongo
+    network_mode: host
+    restart: always
+    volumes:
+      - /data:/data/db
+    expose:
+      - 27017
+    ports:
+      - "27017:27017"
+  neo4j:
+    image: neo4j:3.0.7
+    network_mode: host
+    restart: always
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    cap_add:
+      - SYS_RESOURCE
+    expose:
+      - 7474
+      - 7687
+      - 1337
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+      - "1337:1337"

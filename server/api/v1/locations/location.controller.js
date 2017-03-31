@@ -12,6 +12,30 @@ const findLocations = function (name, limit) {
         }
 
         query = query + ' RETURN lo';
+        console.log(query);
+        session
+            .run(query)
+            .then(function (result) {
+                var data = [];
+                result.records.forEach(function (record) {
+                    data.push(record._fields[0].properties);
+                });
+                resolve(data);
+            })
+            .catch(function (err) {
+                reject(err);
+            });
+    });
+    return promise;
+};
+
+const addLocation = function (name) {
+    let promise = new Promise((resolve, reject) => {
+        let query = '';
+        if (name !== 'undefined' && name.length > 0) {
+            query = query + 'MERGE (lo:' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+            query = query + ' RETURN lo';
+        }
 
         session
             .run(query)
@@ -30,5 +54,6 @@ const findLocations = function (name, limit) {
 };
 
 module.exports = {
-    findLocations: findLocations
+    findLocations: findLocations,
+    addLocation: addLocation
 };

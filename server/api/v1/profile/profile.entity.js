@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
  */
 
 const profileSchema = mongoose.Schema({
-    role:{type:String},
+    role: {type: String},
     username: { type: String, required: true, unique: true },
     profession: { type: String, required: true },
     centerCode: { type: String },
