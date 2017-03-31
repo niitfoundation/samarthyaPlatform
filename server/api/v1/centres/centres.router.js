@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const centreCtrl = require('./centres.controller');
 const logger = require('../../../../applogger');
+const bodyParser = require('body-parser');
+router.use(bodyParser.urlencoded({ extended: false }));
+const compression = require('compression');
+    router.use(compression());
 
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     try {
         let param = req.query;
         centreCtrl.findCentres(param.name, param.limit)
@@ -21,8 +25,9 @@ router.get('/', function(req, res) {
     }
 });
 
-router.post('/add', function(req, res) {
+router.post('/add', function (req, res) {
     try {
+        console.log(req.body);
         centreCtrl.addCentre(req.body.name)
             .then((successResult) => {
                 return res.status(201).send(successResult);

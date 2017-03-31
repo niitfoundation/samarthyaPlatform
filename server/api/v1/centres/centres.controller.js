@@ -11,7 +11,7 @@ const findCentres = function (name, limit) {
             query = query + 'WHERE c.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
         }
 
-        query = query + ' RETURN c';
+        query = query + ' RETURN c LIMIT' + limit;
         session
             .run(query)
             .then(function (result) {
