@@ -2,22 +2,14 @@ const emailRouter = require('express').Router();
 const cors = require('cors');
 const emailCtrl = require('./emailUtil.controller');
 const logger = require('./../../../../applogger');
+const neoCheck = require('./../../../profileAnalyzer/workExperienceSection/workExperience.graphmodel');
 
 
 emailRouter.use(cors());
-emailRouter.post('/send', function (req, res) {
+emailRouter.get('/send', function(req, res) {
     try {
-        let jsonobj = req.body;
-        jsonobj.host = req.get('host');
-        emailCtrl.sendEmail(jsonobj).then((data) => {
-            return res.status(201).send({ message: 'sent successfully' });
-        },
-            (err) => {
-                logger.error('Internal error occurred');
-                return res.status(500).send({
-                    error: 'Internal error occurred, please try later..!'
-                });
-            });
+        let data = neoCheck.createGraphModel();
+        res.status(200).send({ error: data });
     } catch (error) {
         logger.fatal('Exception occurred' + error);
         res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });

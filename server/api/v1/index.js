@@ -12,6 +12,8 @@ const qualificationRoutes = require('./qualifications/index');
 const skillRoutes = require('./skills/index');
 const languageRoutes = require('./languages/index');
 const centreRoutes = require('./centres/index');
+const neo4jConn = require('./neo4jcon/neo4jcon');
+const graphConstants = require('./common/graphConstants');
 
 module.exports = {
     authenticationRoutes: authenticationRoutes,
@@ -27,5 +29,7 @@ module.exports = {
     qualificationRoutes: qualificationRoutes,
     skillRoutes: skillRoutes,
     languageRoutes: languageRoutes,
-    centreRoutes: centreRoutes
+    centreRoutes: centreRoutes,
+    neo4jConn: neo4jConn,
+    graphConstants: graphConstants
 };
