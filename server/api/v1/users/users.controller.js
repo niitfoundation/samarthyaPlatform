@@ -1,7 +1,8 @@
 const UserModel = require('./users.entity');
-const prflCtrl = require('./../profile/profile.controller');
+const profileCtrl = require('./../profile/profile.controller');
 const logger = require('./../../../../applogger');
-const BulkModel=require('./bulkEntry.entity');
+const appConstant = require('../common/appConstants');
+
 /*
  *authenticate new user and adding profile details
  */
@@ -11,7 +12,7 @@ const registerNewUser = function(userObj) {
         username: userObj.userCredentialsData.username,
         password: userObj.userCredentialsData.password,
         role: userObj.userCredentialsData.role,
-        status: 'Active',
+        status: appConstant.userDetails.USER_STATUS[0],//Ststus=Active
         lastLoginOn: Date.now(),
         createdOn: Date.now(),
         updatedOn: Date.now()
@@ -26,7 +27,7 @@ const registerNewUser = function(userObj) {
                 reject(err);
             } else {
              // after successful enter the credentials data inserts profile details
-                prflCtrl.createProfile(userObj.profileData).then((successResult) => {
+                profileCtrl.createProfile(userObj.profileData).then((successResult) => {
                     resolve({success: true, msg: ' Successfully Registered'});
                 }, (errresult) => {
                     logger.error('profile data not added Successfully' + err);
@@ -47,32 +48,7 @@ const registerNewUser = function(userObj) {
 };
 
 
-const addBulkData=function(bulkData,fileName,remarks,username){
- var data = {
-        importData:bulkData,
-        remarks:remarks,
-        importFile:fileName,
-        requestedOn:Date.now(),
-        requestedBy: username
-      
-    };
-        let bulk = new BulkModel(data);
-
-    // insert the data into db using promise
-    return new Promise((resolve, reject) => {
-        bulk.save(function(err, data) {
-            if (err) {
-                logger.error('userData not added sucessfully' + err);
-                reject(err);
-            } else {
-                
-                resolve({ msg: 'in mongo added Successfully', data: data, success: true });
-            }
-        });
-    });
-}
 
 module.exports = {
     registerNewUser: registerNewUser,
-    addBulkData:addBulkData
 };

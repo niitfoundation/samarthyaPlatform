@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const roleCtrl = require('./role.controller');
+const roleCtrl = require('./jobRole.controller');
 const logger = require('../../../../applogger');
 
 router.get('/', function (req, res) {

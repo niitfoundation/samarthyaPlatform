@@ -23,10 +23,7 @@ const schema = new mongoose.Schema({
     updatedOn: { type: Date, deault: Date.now }
 }, {collection: 'profileimports'});
 
-//Create the unique index as a composite key
-//importFile
-//requestedBy
-//requestedOn
+//unique index as a composite key
 schema.index({importFile:1,requestedBy:1,requestedOn:1}, {unique: true});
 
 module.exports = mongoose.model('profileimports', schema);
