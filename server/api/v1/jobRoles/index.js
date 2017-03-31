@@ -11,4 +11,4 @@
  * i.e., if a client wants to make a request it will start from '/roles/<route defined in the module>'
  *
  */
-module.exports = require('./role.router');
+module.exports = require('./jobRole.router');
