@@ -7,14 +7,12 @@ const logger = require('./../../../../applogger');
 
 // authenticate the user with its credentials
 const authenticateUser = function(authObj) {
-    logger.debug('Token is generated');
     var userDetails = {
         username: authObj.username,
-        password: authObj.password
     };
-
+    // find user
     let promise = new Promise((resolve, reject) => {
-        userModel.find(userDetails, function(err, data) {
+        userModel.findOne(userDetails, function(err, data) {
             if (err) {
                 logger.error('userDetails data not found' + err);
                 reject(err);
@@ -22,10 +20,20 @@ const authenticateUser = function(authObj) {
                 logger.debug('Invalid Credentials');
                 reject({ msg: 'Invalid Credentials' });
             } else {
-                let userDetails = { username: data[0].username, role: data[0].role };
-                let userToken = jwt.sign(userDetails, appConstant.secret, { expiresIn: appConstant.expireTime });
-                logger.debug('Data find and resolve here');
-                resolve({ authToken: userToken, msg: 'user authenticated' });
+                // method to compare to authenticate users
+                data.comparePassword(authObj.password, function(err, isMatch) {
+                    if (err) {
+                        logger.error('Invalid Password' + err);
+                        reject(err);
+                    } else if (isMatch) {
+                        let userDetails = { username: data.username, role: data.role };
+                        let userToken = jwt.sign(userDetails, appConstant.secret, { expiresIn: appConstant.expireTime });
+                        logger.debug('Data find and resolve here');
+                        resolve({ authToken: userToken, msg: 'user authenticated' });
+                    } else {
+                        resolve({ msg: 'Invalid password' });
+                    }
+                });
             }
         });
     });

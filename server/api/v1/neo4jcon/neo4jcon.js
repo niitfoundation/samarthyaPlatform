@@ -5,12 +5,12 @@ const singleton = (function () {
     let instance;
 
     function createInstance() {
-        const neo4jConn = neo4j.driver('bolt://localhost', neo4j.auth.basic('neo4j', 'prakul')).session();
+        const neo4jConn = neo4j.driver('bolt://localhost', neo4j.auth.basic('neo4j', 'password')).session();
         return neo4jConn;
     }
-
     return {
-        getInstance: function () {
+
+        getInstance: function() {
             if (!instance) {
                 instance = createInstance();
             }
