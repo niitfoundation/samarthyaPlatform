@@ -6,7 +6,7 @@
     "scripts": {
         "test": " \"Error: no test specified\" && exit 1",
         "webclients-npm-install": "concurrently \"cd webclient/placement && npm install\" \"cd webclient/candidate && npm install\" ",
-        "webclients-ng-build": "concurrently \"cd webclient/placement && ng build\" \"cd webclient/candidate && ng build\" ",
+        "webclients-ng-build": "concurrently \"cd webclient/placement && ng build --watch\" \"cd webclient/candidate && ng build --watch\" ",
         "placement": "node bin/www.placement.js",
         "candidate": "node bin/www.candidate.js",
         "lint": " concurrently \" eslint bin/**/*.js\"  \" eslint apploger/**/*.js\" \" eslint server/**/*.js\"    "

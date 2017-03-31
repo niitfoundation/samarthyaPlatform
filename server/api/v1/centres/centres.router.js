@@ -1,10 +1,6 @@
 const router = require('express').Router();
 const centreCtrl = require('./centres.controller');
 const logger = require('../../../../applogger');
-const bodyParser = require('body-parser');
-router.use(bodyParser.urlencoded({ extended: false }));
-const compression = require('compression');
-    router.use(compression());
 
 router.get('/', function (req, res) {
     try {
@@ -13,33 +9,30 @@ router.get('/', function (req, res) {
             .then((successResult) => {
                 return res.status(201).send(successResult);
             }, (errResult) => {
-                // Log the error for internal use
-                logger.error('Internal error occurred');
+                logger.error(errResult);
                 return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
             });
     } catch (err) {
-        // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.status(500).send({ error: 'Failed to complete successfully, please check the request and try again..!' });
         return;
     }
 });
 
-router.post('/add', function (req, res) {
+router.post('/', function (req, res) {
     try {
-        console.log(req.body);
         centreCtrl.addCentre(req.body.name)
             .then((successResult) => {
                 return res.status(201).send(successResult);
             }, (errResult) => {
                 // Log the error for internal use
-                logger.error('Internal error occurred');
+                logger.error(errResult);
                 return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
             });
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.status(500).send({ error: 'Failed to complete successfully, please check the request and try again..!' });
         return;
     }
 });
