@@ -2,7 +2,7 @@ const neo4jConn = require('../neo4jcon/neo4jcon');
 const graphConst = require('../common/graphConstants');
 const session = neo4jConn.connection();
 
-const findLocations = function (name, limit) {
+const findLocations = function(name, limit) {
     let promise = new Promise((resolve, reject) => {
         let query = '';
         query = query + 'MATCH (lo:' + graphConst.NODE_LOCATION + ')';
@@ -12,24 +12,23 @@ const findLocations = function (name, limit) {
         }
 
         query = query + ' RETURN lo';
-        console.log(query);
         session
             .run(query)
-            .then(function (result) {
+            .then(function(result) {
                 var data = [];
-                result.records.forEach(function (record) {
+                result.records.forEach(function(record) {
                     data.push(record._fields[0].properties);
                 });
                 resolve(data);
             })
-            .catch(function (err) {
+            .catch(function(err) {
                 reject(err);
             });
     });
     return promise;
 };
 
-const addLocation = function (name) {
+const addLocation = function(name) {
     let promise = new Promise((resolve, reject) => {
         let query = '';
         if (name !== 'undefined' && name.length > 0) {
@@ -39,14 +38,14 @@ const addLocation = function (name) {
 
         session
             .run(query)
-            .then(function (result) {
+            .then(function(result) {
                 var data = [];
-                result.records.forEach(function (record) {
+                result.records.forEach(function(record) {
                     data.push(record._fields[0].properties);
                 });
                 resolve(data);
             })
-            .catch(function (err) {
+            .catch(function(err) {
                 reject(err);
             });
     });

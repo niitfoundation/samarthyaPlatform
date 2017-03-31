@@ -11,6 +11,7 @@ const userDetails = {
 };
 const secret = 'somethinghere';
 const expireTime = 60 * 30;
+const SALT_WORK_FACTOR = 10;
 const profileDetails = {
     IDENTITY_TYPES: ['Aadhaar', 'RegNumber', 'EmpNum']
 };
@@ -20,5 +21,6 @@ module.exports = {
     userDetails: userDetails,
     secret: secret,
     expireTime: expireTime,
-    profileDetails: profileDetails
+    profileDetails: profileDetails,
+    SALT_WORK_FACTOR: SALT_WORK_FACTOR
 };

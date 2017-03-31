@@ -1,7 +1,8 @@
 const appConfig = require('./../common/appConstants');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const SALT_WORK_FACTOR = 10;
+const logger = require('./../../../../applogger');
+
 
 /*
  * This is a users schema, for persisting credentials of each user registered in the system
@@ -21,23 +22,22 @@ const usersSchema = new mongoose.Schema({
 
 //  mongoose middleware for password encryption, encrypt the pasword before storing
 usersSchema.pre('save', function(next) {
-    var user = this;
-    console.log("middleWare Called");
+    let user = this;
+    logger.debug('mongoose middleware called for password encryption');
     // only hash the password if it has been modified (or is new)
-    if (!user.isModified('password')) return next();
-    console.log("user Modified or new");
+    if (!user.isModified('password')) {
+        logger.debug('user already exists');
+        return next();
+    }
     // generate a salt
-    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+    bcrypt.genSalt(appConfig.SALT_WORK_FACTOR, function(err, salt) {
         if (err) return next(err);
-
         // hash the password using our new salt
         bcrypt.hash(user.password, salt, function(err, hash) {
-            console.log('hassing password');
+            logger.debug('Password encryption started');
             if (err) return next(err);
-
             // override the cleartext password with the hashed one
             user.password = hash;
-            console.log(user.password);
             next();
         });
     });
@@ -45,9 +45,9 @@ usersSchema.pre('save', function(next) {
 
 // method to compare the password (the incoming password will be encrypted and compared )
 usersSchema.methods.comparePassword = function(userPassword, callback) {
+    logger.debug('compare Password method called');
     bcrypt.compare(userPassword, this.password, function(err, isMatch) {
         if (err) return callback(err);
-        console.log(this);
         callback(null, isMatch);
     });
 };
