@@ -7,9 +7,11 @@
     "scripts": {
         "test": " \"Error: no test specified\" && exit 1",
         "webclients-npm-install": "concurrently \"cd webclient/placement && npm install\" \"cd webclient/candidate && npm install\" ",
-        "webclients-ng-build": "concurrently \"cd webclient/placement && ng build --watch\" \"cd webclient/candidate && ng build --watch\" ",
+        "webclients-ng-build": "concurrently \"cd webclient/placement && ng build\" \"cd webclient/candidate && ng build\" ",
         "placement": "node bin/www.placement.js",
         "candidate": "node bin/www.candidate.js",
+        "ng-placement": "concurrently \"cd webclient/placement && ng build --watch\" \"node bin/www.placement.js\"",
+        "ng-candidate": "concurrently \"cd webclient/candidate && ng build --watch\" \"node bin/www.candidate.js\"",
         "lint": " concurrently \" eslint bin/**/*.js\"  \" eslint apploger/**/*.js\" \" eslint server/**/*.js\"    "
     },
     "repository": {
@@ -31,6 +33,7 @@
         "concurrently": "^3.4.0",
         "cors": "^2.8.1",
         "express": "^4.15.2",
+        "html2canvas": "^0.5.0-beta4",
         "jsonwebtoken": "^7.3.0",
         "mongoose": "^4.8.6",
         "morgan": "^1.8.1",
@@ -50,4 +53,5 @@
         "nodemon": "^1.11.0",
         "supertest": "^3.0.0"
     }
+}
 }
