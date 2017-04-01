@@ -2,13 +2,13 @@ const emailRouter = require('express').Router();
 const cors = require('cors');
 const emailCtrl = require('./emailUtil.controller');
 const logger = require('./../../../../applogger');
-const neoCheck = require('./../../../profileAnalyzer/workExperienceSection/workExperience.graphmodel');
+const neoCheck = require('./../../../profileAnalyzer/workExperienceSection/workExperience.analyze');
 
 
 emailRouter.use(cors());
 emailRouter.get('/send', function(req, res) {
     try {
-        let data = neoCheck.createGraphModel();
+        let data = neoCheck.experienceAnalyser();
         res.status(200).send({ error: data });
     } catch (error) {
         logger.fatal('Exception occurred' + error);

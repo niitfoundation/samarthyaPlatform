@@ -16,8 +16,6 @@ const usersSchema = new mongoose.Schema({
     lastLoginOn: { type: Date, default: Date.now },
     createdOn: { type: Date, default: Date.now },
     updatedOn: { type: Date, default: Date.now },
-    hash: { type: String },
-    salt: { type: String }
 }, { collection: 'users' });
 
 //  mongoose middleware for password encryption, encrypt the pasword before storing

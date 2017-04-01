@@ -19,4 +19,8 @@ module.exports = {
     REL_QUALIFIED_AS: 'Qualified_As',
     REL_MAJOR_SUBJECT: 'Major_Subject',
     REL_QUALIFIED_FROM: 'Qualified_From',
+    REL_WORKED_WITH: 'Worked_With',
+    REL_WORKED_IN: 'Worked_In',
+    REL_WORKED_AS: 'Worked_As',
+    REL_WORKED_ON: 'Worked_On',
 };

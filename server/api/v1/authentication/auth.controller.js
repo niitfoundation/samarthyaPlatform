@@ -16,7 +16,7 @@ const authenticateUser = function(authObj) {
             if (err) {
                 logger.error('userDetails data not found' + err);
                 reject(err);
-            } else if (data.length == 0) {
+            } else if (!data) {
                 logger.debug('Invalid Credentials');
                 reject({ msg: 'Invalid Credentials' });
             } else {
@@ -31,7 +31,7 @@ const authenticateUser = function(authObj) {
                         logger.debug('Data find and resolve here');
                         resolve({ authToken: userToken, msg: 'user authenticated' });
                     } else {
-                        resolve({ msg: 'Invalid password' });
+                        reject({ msg: 'Invalid password' });
                     }
                 });
             }
