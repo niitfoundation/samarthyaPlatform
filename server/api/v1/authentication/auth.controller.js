@@ -4,7 +4,6 @@ const resourcesModel = require('./../resources/resources.entity');
 const appConstant = require('../common/appConstants');
 const logger = require('./../../../../applogger');
 
-
 // authenticate the user with its credentials
 const authenticateUser = function(authObj) {
     var userDetails = {
@@ -16,9 +15,11 @@ const authenticateUser = function(authObj) {
             if (err) {
                 logger.error('userDetails data not found' + err);
                 reject(err);
-            } else if (!data) {
+            } else if (data.length == 0) {
                 logger.debug('Invalid Credentials');
-                reject({ msg: 'Invalid Credentials' });
+                reject({
+                    msg: 'Invalid Credentials'
+                });
             } else {
                 // method to compare to authenticate users
                 data.comparePassword(authObj.password, function(err, isMatch) {
@@ -26,18 +27,27 @@ const authenticateUser = function(authObj) {
                         logger.error('Invalid Password' + err);
                         reject(err);
                     } else if (isMatch) {
-                        let userDetails = { username: data.username, role: data.role };
-                        let userToken = jwt.sign(userDetails, appConstant.secret, { expiresIn: appConstant.expireTime });
+                        let userDetails = {
+                            username: data.username,
+                            role: data.role
+                        };
+                        let userToken = jwt.sign(userDetails, appConstant.secret, {
+                            expiresIn: appConstant.expireTime
+                        });
                         logger.debug('Data find and resolve here');
-                        resolve({ authToken: userToken, msg: 'user authenticated' });
+                        resolve({
+                            authToken: userToken,
+                            msg: 'user authenticated'
+                        });
                     } else {
-                        reject({ msg: 'Invalid password' });
+                        resolve({
+                            msg: 'Invalid password'
+                        });
                     }
                 });
             }
         });
     });
-
     return promise;
 };
 
@@ -48,9 +58,12 @@ let checkUser = function(objEmail) {
         username: objEmail,
     };
     return new Promise((resolve, reject) => {
-        userModel.find(userDetails, function(err, data) {
+        userModel.findOne(userDetails, function(err, data) {
             if (err) {
-                reject({ err: err, msg: 'user already exist' });
+                reject({
+                    err: err,
+                    msg: 'user already exist'
+                });
             } else {
                 resolve(data);
             }
@@ -94,7 +107,9 @@ const resetPassword = function(resetObj) {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve({ msg: 'Successfully Updated' });
+                    resolve({
+                        msg: 'Successfully Updated'
+                    });
                 }
             });
     });
@@ -110,12 +125,15 @@ let verifyToken = function(usertoken) {
             } else {
                 // if everything is good, save to request for use in other routes
                 logger.debug('Token matched');
-                resolve({ decoded: decoded });
+                resolve({
+                    decoded: decoded
+                });
             }
         });
     });
 };
 
+//get nav-menus from the resource collection based on roles
 let getMenus = function(role) {
     return new Promise((resolve, reject) => {
         resourcesModel.distinct('navList.' + role.toLowerCase(), function(err, data) {
@@ -127,6 +145,7 @@ let getMenus = function(role) {
         });
     });
 };
+
 module.exports = {
     authenticateUser: authenticateUser,
     checkUser: checkUser,

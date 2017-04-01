@@ -20,14 +20,14 @@ var profileDataModel = function(profileObj) {
                 I: profileObj.mobileNumber,
             },
             identity: profileObj.identity,
-            address: [{
+            address: {
                 address1: profileObj.address1,
                 address2: profileObj.address2,
                 landmark: profileObj.landmark,
                 district: profileObj.district,
                 state: profileObj.state,
                 pincode: profileObj.pincode
-            }],
+            },
         },
     };
     return profileDetails;

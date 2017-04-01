@@ -6,19 +6,18 @@ const mongoose = require('mongoose');
  */
 
 const profileSchema = mongoose.Schema({
-    role: { type: String },
     username: { type: String, required: true, unique: true },
     profession: { type: String, required: true },
     centerCode: { type: String },
-    pic: { type: String },
+    profilePic: { type: String },
     createdOn: { type: Date, required: true, default: Date.now },
     createdBy: { type: String, required: true },
     updatedOn: { type: Date, required: true, default: Date.now },
     updatedBy: { type: String, required: true },
     personalInfo: {
-        displayname: { type: String, min: 4, max: 15 },
-        fname: { type: String, required: true, min: 4 },
-        lname: { type: String, required: true },
+        name: { type: String, min: 2, max: 30 },
+        fname: { type: String, required: true, min: 2 },
+        lname: { type: String },
         dob: { type: Date },
         gender: { type: String, required: true },
         email: { type: String, required: true, unique: true },
@@ -27,20 +26,20 @@ const profileSchema = mongoose.Schema({
             I: { type: String, required: true, min: 10, max: 10 },
             II: { type: String }
         },
-        address: [{
+        address: {
             address1: { type: String },
             address2: { type: String },
             landmark: { type: String },
             district: { type: String },
             state: { type: String, required: true },
             pincode: { type: String, required: true, min: 6, max: 6 }
-        }],
+        },
         married: { type: Boolean },
         identity: [{
-            type: { type: String, required: true, enum: appConstant.profileDetails.IDENTITY_TYPES },
+            idType: { type: String, required: true, enum: appConstant.profileDetails.IDENTITY_TYPES },
             value: { type: String }
         }],
-        preLang: { type: String },
+        prefLang: { type: String },
         nativeLang: { type: String },
         lang: [{
             name: { type: String },
@@ -63,13 +62,13 @@ const profileSchema = mongoose.Schema({
     // jobpreferences
     jobPreferences: {
         looking: { type: Boolean, default: true },
-        roles: [{
+        jobRoles: [{
             name: { type: String },
             engagement: { type: String },
-            expectedSal: [{
+            expectedSal: {
                 min: { type: Number, default: 0 },
                 max: { type: Number, default: 0 },
-            }],
+            },
             skills: [{ type: String }],
             availablefrom: { type: Date, default: Date.now },
             locations: [{ type: String }]
@@ -79,7 +78,7 @@ const profileSchema = mongoose.Schema({
     experiences: [{
         workplace: { type: String },
         designation: { type: String },
-        role: { type: String },
+        jobRole: { type: String },
         location: { type: String },
         duration: {
             start: { type: Date, default: Date.now },
@@ -103,7 +102,7 @@ const profileSchema = mongoose.Schema({
         },
         location: { type: String },
         skills: [{ type: String }],
-        role: { type: String }
+        jobRole: { type: String }
     }],
     // showcase
     showcase: [{
@@ -112,7 +111,9 @@ const profileSchema = mongoose.Schema({
         url: { type: String },
         desc: { type: String }
     }],
-    summary: { type: String }
+    summary: {
+        summaryText: { type: String }
+    }
 }, { collection: 'profiles' });
 
 module.exports = mongoose.model('profiles', profileSchema);

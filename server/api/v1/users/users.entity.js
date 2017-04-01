@@ -20,7 +20,9 @@ const usersSchema = new mongoose.Schema({
 
 //  mongoose middleware for password encryption, encrypt the pasword before storing
 usersSchema.pre('save', function(next) {
-    let user = this;
+    var user = this;
+    // only hash the password if it has been modified (or is new)
+    if (!user.isModified('password')) return next();
     logger.debug('mongoose middleware called for password encryption');
     // only hash the password if it has been modified (or is new)
     if (!user.isModified('password')) {
@@ -33,6 +35,7 @@ usersSchema.pre('save', function(next) {
         // hash the password using our new salt
         bcrypt.hash(user.password, salt, function(err, hash) {
             logger.debug('Password encryption started');
+
             if (err) return next(err);
             // override the cleartext password with the hashed one
             user.password = hash;

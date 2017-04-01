@@ -7,6 +7,7 @@ const singleton = (function() {
         return neo4jConn;
     }
     return {
+
         getInstance: function() {
             let instance;
             if (!instance) {

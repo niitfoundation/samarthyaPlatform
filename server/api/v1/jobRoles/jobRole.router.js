@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const roleCtrl = require('./role.controller');
+const roleCtrl = require('./jobRole.controller');
 const logger = require('../../../../applogger');
 
 router.get('/', function (req, res) {
@@ -10,18 +10,18 @@ router.get('/', function (req, res) {
                 return res.status(201).send(successResult);
             }, (errResult) => {
                 // Log the error for internal use
-                logger.error('Internal error occurred');
+                logger.error(errResult);
                 return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
             });
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.status(500).send({ error: 'Failed to complete successfully, please check the request and try again..!' });
         return;
     }
 });
 
-router.post('/add', function (req, res) {
+router.post('/', function (req, res) {
     try {
         let param = req.body;
         roleCtrl.addRole(param.name)
@@ -29,13 +29,13 @@ router.post('/add', function (req, res) {
                 return res.status(201).send(successResult);
             }, (errResult) => {
                 // Log the error for internal use
-                logger.error('Internal error occurred');
+                logger.error(errResult);
                 return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
             });
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.status(500).send({ error: 'Failed to complete successfully, please check the request and try again..!' });
         return;
     }
 });

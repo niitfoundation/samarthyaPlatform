@@ -1,4 +1,5 @@
 {
+
     "name": "samarthyaPlatform",
     "version": "1.0.1",
     "description": "",
@@ -6,7 +7,8 @@
     "scripts": {
         "test": " \"Error: no test specified\" && exit 1",
         "webclients-npm-install": "concurrently \"cd webclient/placement && npm install\" \"cd webclient/candidate && npm install\" ",
-        "placement": "concurrently \"cd webclient/placement && ng build\" \"nodemon bin/www.placement.js\" ",
+        "webclients-ng-build": "concurrently \"cd webclient/placement && ng build --watch\" \"cd webclient/candidate && ng build --watch\" ",
+        "placement": "node bin/www.placement.js",
         "candidate": "node bin/www.candidate.js",
         "lint": " concurrently \" eslint bin/**/*.js\"  \" eslint apploger/**/*.js\" \" eslint server/**/*.js\"    "
     },
@@ -22,6 +24,7 @@
     },
     "homepage": "https://github.com/stackroute/samarthyaPlatform#readme",
     "dependencies": {
+        "async": "^2.2.0",
         "bcrypt": "^1.0.2",
         "body-parser": "^1.17.1",
         "compression": "^1.6.2",
