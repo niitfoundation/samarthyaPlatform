@@ -9,7 +9,7 @@ const singleton = (function () {
 
     return {
         getInstance: function () {
-             const instance = any;
+            let instance;
             if (!instance) {
                 instance = createInstance();
             }
@@ -18,7 +18,7 @@ const singleton = (function () {
     };
 }());
 
-const connection = function() {
+const connection = function () {
     const singleInstance = singleton.getInstance();
     return singleInstance;
 };
