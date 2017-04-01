@@ -6,8 +6,8 @@ const singleton = (function () {
         const neo4jConn = neo4j.driver('bolt://localhost', neo4j.auth.basic('neo4j', 'prakul')).session();
         return neo4jConn;
     }
-
     return {
+
         getInstance: function () {
             let instance;
             if (!instance) {

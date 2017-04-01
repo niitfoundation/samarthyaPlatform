@@ -22,7 +22,7 @@ let sendEmail = function(jsonobj) {
     try {
         logger.debug('sendEmail function is invoke');
         let tokenPaylod = { username: jsonobj.username, title: jsonobj.title };
-        const token = jwt.sign(tokenPaylod, appConstant.emailDetails.emailTokenSecret, { expiresIn: 6000 });
+        const token = jwt.sign(tokenPaylod, appConstant.emailDetails.emailTokenSecret, { expiresIn: appConstant.expireTime });
         const link = 'http://' + jsonobj.host;
         // ----------verify------------------
         const mailOptions = {

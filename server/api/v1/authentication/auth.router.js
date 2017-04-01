@@ -2,6 +2,7 @@ const router = require('express').Router();
 const authCtrl = require('./auth.controller');
 const emailCtrl = require('./../emailUtil/emailUtil.controller');
 const logger = require('./../../../../applogger');
+
 /*
  * Authenticate the user
  */
@@ -29,6 +30,9 @@ router.post('/', function (req, res, next) {
     }
 });
 
+/*
+ *verify the user whether user is exist or not and returns msg
+ */
 router.post('/verify-user', function (req, res) {
     try {
         logger.info('verifying user');
@@ -98,6 +102,9 @@ router.post('/register-email', function (req, res) {
     }
 });
 
+/*
+ *verify the email token whether it is expired or not and return the status
+ */
 router.post('/verify-email', function (req, res) {
     try {
         let objVerify = req.body;
@@ -115,7 +122,9 @@ router.post('/verify-email', function (req, res) {
     }
 });
 
-// If user is exits then only send reset email
+/*
+ *If user is exits then only send reset email
+ */
 router.post('/verify-reset-email', function (req, res) {
     try {
         let param = req.body;
@@ -149,7 +158,9 @@ router.post('/verify-reset-email', function (req, res) {
     }
 });
 
-
+/*
+ *reseting the users password requested by the user and returns the status
+ */
 router.post('/reset-password', function (req, res, next) {
     let resetPassword = req.body;
     logger.debug('Get object and store into resetPassword');
@@ -174,7 +185,9 @@ router.post('/reset-password', function (req, res, next) {
     }
 });
 
-// middleware to verify user token for authentication and pass the decoded token to other request
+/*
+ *middleware to verify user token for authentication and pass the decoded token to other request
+ */
 router.use(function (req, res, next) {
     try {
         // check header or url parameters or post parameters for token
@@ -202,6 +215,10 @@ router.use(function (req, res, next) {
         return error;
     }
 });
+
+/*
+ *getting the nav bar menus based on the role of user(coordinator,supervisor,admin,candidate) and returns the nav-bar menus
+ */
 router.get('/nav-menus', function (req, res) {
     let role = req.decoded.role;
     try {
@@ -217,4 +234,5 @@ router.get('/nav-menus', function (req, res) {
         return;
     }
 });
+
 module.exports = router;
