@@ -4,7 +4,7 @@ const graphConst = require('../common/graphConstants');
 const findCentres = function (name, limit) {
   let promise = new Promise((resolve, reject) => {
     if(name === '') {
-      resolve('Centre not found');
+      resolve('Please enter a Centre');
     }
 
     const session = neo4jConn.connection();
