@@ -23,5 +23,8 @@ module.exports = {
     REL_WRITE: 'Write',
     REL_READ: 'Read',
     REL_NATIV_LANG: 'Nativ_Lang',
-    REL_PREF_LANG: 'Pref_Lang'
+    REL_PREF_LANG: 'Pref_Lang',
+    REL_KNOWS: 'Knows',
+    // REL_HAS_EXPERIENCE_OF: 'Has_Experience_Of',
+    REL_PROPERTY_YEARS: 'Years'
 };
