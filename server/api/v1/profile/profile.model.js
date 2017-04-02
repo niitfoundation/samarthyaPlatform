@@ -1,14 +1,15 @@
 /*
  * Add/modify profile schema values
  */
-var profileDataModel = function (profileObj) {
+var profileDataModel = function(profileObj) {
     var profileDetails = {
         username: profileObj.email,
         profession: profileObj.profession,
         centerCode: profileObj.placementCenter,
         createdOn: Date.now(),
         createdBy: profileObj.createdBy,
-        updatedBy: profileObj.updatedBy,
+        updatedBy: profileObj.createdBy,
+        updatedOn: Date.now(),
         personalInfo: {
             fname: profileObj.fname,
             lname: profileObj.lname,

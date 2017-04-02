@@ -47,8 +47,7 @@ const addQualification = function (name) {
       } else {
         reject('Qualification not found');
       }
-
-      session
+      session 
         .run(query)
         .catch(function (err) {
           reject(err);

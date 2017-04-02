@@ -1,14 +1,14 @@
 const neo4j = require('neo4j-driver').v1;
 const logger = require('./../../../../applogger');
 
-const singleton = (function () {
+const singleton = (function() {
     function createInstance() {
-        const neo4jConn = neo4j.driver('bolt://localhost', neo4j.auth.basic('neo4j', 'prakul')).session();
+        const neo4jConn = neo4j.driver('bolt://localhost', neo4j.auth.basic('neo4j', 'password')).session();
         return neo4jConn;
     }
     return {
 
-        getInstance: function() {
+        getInstance: function () {
             let instance;
             if (!instance) {
                 instance = createInstance();
@@ -18,7 +18,7 @@ const singleton = (function () {
     };
 }());
 
-const connection = function() {
+const connection = function () {
     const singleInstance = singleton.getInstance();
     return singleInstance;
 };

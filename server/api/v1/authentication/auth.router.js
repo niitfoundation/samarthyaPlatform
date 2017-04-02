@@ -69,6 +69,7 @@ router.post('/verify-user', function (req, res) {
  *if user is not exist send the verification mail
  */
 router.post('/register-email', function (req, res) {
+    console.log(req.body.mailObj.username+"coming")
     try {
         let param = req.body;
         // check the user is available or not
