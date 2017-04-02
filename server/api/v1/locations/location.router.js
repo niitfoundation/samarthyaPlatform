@@ -2,6 +2,7 @@ const router = require('express').Router();
 const locationCtrl = require('./location.controller');
 const logger = require('../../../../applogger');
 
+// GET route '/locations'
 router.get('/', function (req, res) {
     try {
         let param = req.query;
@@ -21,6 +22,7 @@ router.get('/', function (req, res) {
     }
 });
 
+// POST route '/locations'
 router.post('/', function (req, res) {
     try {
         let param = req.body;
