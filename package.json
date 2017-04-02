@@ -9,6 +9,8 @@
         "webclients-ng-build": "concurrently \"cd webclient/placement && ng build\" \"cd webclient/candidate && ng build\" ",
         "placement": "node bin/www.placement.js",
         "candidate": "node bin/www.candidate.js",
+        "ng-placement": "concurrently \"cd webclient/placement && ng build --watch\" \"node bin/www.placement.js\"",
+        "ng-candidate": "concurrently \"cd webclient/candidate && ng build --watch\" \"node bin/www.candidate.js\"",
         "lint": " concurrently \" eslint bin/**/*.js\"  \" eslint apploger/**/*.js\" \" eslint server/**/*.js\"    "
     },
     "repository": {

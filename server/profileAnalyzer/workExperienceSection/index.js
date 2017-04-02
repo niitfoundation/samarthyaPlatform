@@ -1,4 +1,3 @@
-const workExperienceSection = require('./workExperience.graphmodel');
-module.exports = {
-    workExperienceSection: workExperienceSection
-}
+const analyzer = require('./workExperience.analyzer');
+
+module.exports = analyzer;

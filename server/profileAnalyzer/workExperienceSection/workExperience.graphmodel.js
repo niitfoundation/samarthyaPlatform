@@ -1,39 +1,84 @@
-const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const graphConst = require('../../api/v1/common/graphConstants');
-const async = require('async');
-const createGraphModel = function(WorkExperienceArray, username) {
+const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
+const logger = require('./../../../applogger');
+
+const relatePersonToOrganisation = function (person, organizationName, index, attributes, callback) {
     let query = '';
-    if (username) {
-        let user = 'user:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + username + '"}';
-        query = query + 'MERGE(' + user + ' ) With user MATCH (' + user + ')';
-        WorkExperienceArray.forEach(function(element, index) {
-            // if multiple location is there we can use foreach
-            let location = 'location' + index + ':' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + element.location + '"}';
-            let workPlace = 'workplace' + index + ':' + graphConst.NODE_WORKPLACE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + element.workplace + '"}';
-            let designation = 'desg' + index + ':' + graphConst.NODE_DESG + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + element.designation + '"}';
-            let role = 'role' + index + ':' + graphConst.NODE_ROLE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + element.role + '"} ';
-            query = query + `MERGE(user)-[` + graphConst.NODE_RELATION_WORK_AT + `]->(` + location + `)
-                                 MERGE(user)-[` + graphConst.NODE_RELATION_WORK_IN + `]->(` + workPlace + `)
-                                 MERGE(user)-[` + graphConst.NODE_RELATION_DESIGNATED_AS + `]->(` + designation + `)
-                                 MERGE(desg` + index + `)-[` + graphConst.NODE_RELATION_ROLE_AS + `]->(` + role + `)
-                                 WITH workplace` + index + `, user, role` + index + `, desg` + index + `, location` + index + `
-                                 MERGE(user) - [: Role_As] - > (role` + index + `)
-                                 MERGE(location` + index + `) < -[: Company_Name] - > (workplace` + index + `)
-                                 MERGE(workplace` + index + `) - [: Designated_As] - > (desg` + index + `)`;
-        });
-    }
+
+    let user = 'user:' + graphConst.NODE_PERSON + '{'
+        + graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
+    query = query + 'MERGE(' + user + ' ) With user MATCH (' + user + ')';
+
+    let workPlace = 'workplace:' + graphConst.NODE_WORKPLACE + '{'
+        + graphConst.NODE_PROPERTY_NAME + ':"' + organizationName.toLowerCase() + '"}';
+
+    query = query + 'MERGE(user)-[:' + graphConst.REL_WORKED_WITH
+        + ' { role:"' + attributes.roles.toLowerCase() + '", duration: "'
+        + attributes.duration + '", iscurrent: ' + attributes.iscurrent
+        + ' }]->(' + workPlace + ')';
+    logger.debug(query);
+    // neo4j session
     const session = neo4jConn.connection();
+    // run query in neo4j
     return session
         .run(query)
         .then(result => {
             session.close();
+            callback('first');
         })
         .catch(error => {
             session.close();
-            throw error;
+            logger.error(error);
+        });
+};
+const releatePersonToJobRole = function (person, jobRoleName, index, attributes, callback) {
+    let query = '';
+    let user = 'user1:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
+    query = query + 'MERGE(' + user + ' ) With user1 MATCH (' + user + ')';
+    let role = 'role:' + graphConst.NODE_ROLE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + jobRoleName.toLowerCase() + '"} ';
+    query = query + 'MERGE(user1) - [: ' + graphConst.REL_WORKED_AS + ' { duration: ' + attributes.duration + ', org: "' + attributes.organization + '" }] - > (' + role + ')';
+    logger.debug(query);
+    // neo4j session
+    const session = neo4jConn.connection();
+
+    // run query in neo4j
+    return session
+        .run(query)
+        .then(result => {
+            session.close();
+            callback('second');
+        })
+        .catch(error => {
+            session.close();
+            logger.error(error);
         });
 };
 
+const releatePersonToWorkingLocation = function (person, locationName, index, attributes, callback) {
+    let query = '';
+    let user = 'user2:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
+    query = query + 'MERGE(' + user + ' ) With user2 MATCH (' + user + ')';
+    let location = 'location:' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + locationName.toLowerCase() + '"}';
+    query = query + 'MERGE(user2)-[:' + graphConst.REL_WORKED_IN + '{org:"' + attributes.organization.toLowerCase() + '",iscurrent: ' + attributes.iscurrent + '}]->(' + location + ')';
+
+    logger.debug(query);
+    // neo4j session
+    const session = neo4jConn.connection();
+
+    // run query in neo4j
+    return session
+        .run(query)
+        .then(result => {
+            session.close();
+            callback('third');
+        })
+        .catch(error => {
+            session.close();
+            logger.error(error);
+        });
+};
 module.exports = {
-    createGraphModel: createGraphModel
+    relatePersonToOrganisation: relatePersonToOrganisation,
+    releatePersonToJobRole: releatePersonToJobRole,
+    releatePersonToWorkingLocation: releatePersonToWorkingLocation
 };

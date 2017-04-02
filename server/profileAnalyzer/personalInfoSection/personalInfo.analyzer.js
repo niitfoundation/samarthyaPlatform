@@ -1,5 +1,6 @@
 const logger = require('./../../../applogger');
-var async = require('async');
+const async = require('async');
+const personalInfoModel = require('./personalInfo.graphmodel');
 
 
 const analyze = function (profileUser, personalInfoColln, callback) {
@@ -14,6 +15,8 @@ const analyze = function (profileUser, personalInfoColln, callback) {
     }
     logger.info('Proceeding to analyze Personal Info..!');
 
+
+    // todo full method
     let results = [];
     analyzePersonalInfoInstance(profileUser, personalInfoColln[0], callback);
     return callback;
@@ -21,16 +24,27 @@ const analyze = function (profileUser, personalInfoColln, callback) {
 
 
 analyzePersonalInfoInstance = function (profileUser, personalInfo, callback) {
-    // Establish relation between organization and person
-
-    // Establish relation between person and jobrole
-
-    // Establish relation between person and working location
-
-    // async.parallel([array of functions, which need to be invoked in parallel, which async], callback);
-
 
     async.parallel([
+        // for person to location relation
+        function (callback) {
+            personalInfoModel.relatePersonToLocation(profileUser, personalInfo.address.district, function (PersonToLocationObj) {
+                callback(null, PersonToLocationObj);
+            },
+                function (err) {
+                    callback(err, null);
+                });
+        },
+
+        // for person to language relation
+        function (callback) {
+            personalInfoModel.relatePersonToLanguage(profileUser, personalInfo.nativeLang, function (PersonToLanguageObj) {
+                callback(null, PersonToLocationObj);
+            },
+                function (err) {
+                    callback(err, null);
+                });
+        }
 
     ], function (err, result) {
         callback();

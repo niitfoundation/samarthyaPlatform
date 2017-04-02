@@ -6,8 +6,6 @@ const expect = chai.expect;
 describe('Test personal Info section data Analysis', function () {
     it('Invoke personal Info Analyzer as a module', function (done) {
         const personalInfoModule = require('./');
-        // expect(personalInfoModule).to.not.equal(undefined);
-        // expect(typeof personalInfoModule).to.equal('Object');
         expect(undefined).to.not.equal(personalInfoModule);
         expect('object').to.equal(typeof personalInfoModule);
         expect('function').to.equal(typeof personalInfoModule.analyze);
@@ -31,7 +29,6 @@ describe('Test personal Info section data Analysis', function () {
             });
         });
     });
-
 
     describe('Analyse simple one single personal Info entry in the profile', function () {
         before(function () {
