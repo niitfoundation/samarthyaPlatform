@@ -14,8 +14,12 @@ describe('Test job preference section data analysis', function () {
       describe('Validations', function() {
         it('Check if analyze method verifies for data, espeically required data, before prcoeeding to analyze', function(done) {
             const jobPreferenceModule = require('./');
-            const profileUser = {};
-            const jobPreference = [];
+            const profileUser = {username:"Gowtham Jeeva"};
+            const jobPreference = [{
+                jobRole:'Team Lead',
+                skill:'Full Stack Developer',
+                location:'Bangalore'
+            }];
 
             //Expecting a error
             jobPreferenceModule.analyze(profileUser, jobPreference, function(err, result) {
@@ -37,9 +41,12 @@ describe('Test job preference section data analysis', function () {
 
         it('Pass a actual data and check if data model is returned', function(done) {
             const jobPreferenceModule = require('./');
-            const profileUser = { username: 'dheeren' };
-            const jobPreference = [{}];
-
+            const profileUser = {username:"Gowtham Jeeva"};
+            const jobPreference = [{
+                jobRole:'Team Lead',
+                skill:'Full Stack Developer',
+                location:'Bangalore'
+            }];
             jobPreferenceModule.analyze(profileUser, jobPreference, function(err, result) {
                 expect(null).to.equal(err);
 
