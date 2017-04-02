@@ -1,5 +1,4 @@
 import { Data } from 'placementmodule/services/data.service';
-import { UiDetails } from 'placementmodule/services/uidetails.service';
 import { EmailService } from 'placementmodule/services/email.service';
 import { JsonDataService } from 'placementmodule/services/json-data.service';
 import { AuthGuard } from 'placementmodule/services/auth.guard';
@@ -28,7 +27,7 @@ import { AppComponent } from './app.component';
     placementmodule 
     
   ],
-  providers: [PlacementRegisterService, AuthenticationService, AuthGuard, JsonDataService, EmailService, UiDetails,Data],
+  providers: [PlacementRegisterService, AuthenticationService, AuthGuard, JsonDataService, EmailService,Data],
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
