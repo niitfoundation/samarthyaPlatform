@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 describe('Test work experience section data analysis', function() {
+
     it('Invoke work experience analyser as a module', function(done) {
         const workExpModule = require('./');
         expect(undefined).to.not.equal(workExpModule);
@@ -15,7 +16,6 @@ describe('Test work experience section data analysis', function() {
             const workExpModule = require('./');
             const profileUser = {};
             const workExperience = [];
-
             // Expecting a error
             workExpModule.analyze(profileUser, workExperience, function(err, result) {
                 // Only if no data was passed, error should be thrown
@@ -26,6 +26,7 @@ describe('Test work experience section data analysis', function() {
                 done();
             });
         });
+
     });
 
     describe('Analyse simple one single work experience entry in the profile', function() {
@@ -35,6 +36,7 @@ describe('Test work experience section data analysis', function() {
 
         it('Pass a actual data and check if data model is returned', function(done) {
             const workExpModule = require('./');
+
             const profileUser = { username: 'Dheeren' };
             const workExperience = [{
                 workplace: 'Wipro',
@@ -59,5 +61,6 @@ describe('Test work experience section data analysis', function() {
         after(function() {
             console.log('[*] Cleaning up graph model, AFTER verifying graph model creation from analyzer');
         });
+
     });
 });

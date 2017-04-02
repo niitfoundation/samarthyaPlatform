@@ -35,7 +35,7 @@ const releatePersonToJobRole = function (person, jobRoleName, index, attributes,
     let query = '';
     let user = 'user1:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
     query = query + 'MERGE(' + user + ' ) With user1 MATCH (' + user + ')';
-    let role = 'role:' + graphConst.NODE_ROLE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + jobRoleName.toLowerCase() + '"} ';
+    let role = 'role:' + graphConst.NODE_JOBROLE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + jobRoleName.toLowerCase() + '"} ';
     query = query + 'MERGE(user1) - [: ' + graphConst.REL_WORKED_AS + ' { duration: ' + attributes.duration + ', org: "' + attributes.organization + '" }] - > (' + role + ')';
     logger.debug(query);
     // neo4j session

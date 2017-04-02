@@ -1,11 +1,11 @@
-const http = require('http');
-const ProfileImportModel = require('./../server/api/v1/users/bulkEntry.entity');
+const ProfileImportModel = require('./../server/api/v1/profileImport/profileImport.entity');
 const UserModel = require('./../server/api/v1/users/users.entity');
 const ProfileModel = require('./../server/api/v1/profile/profile.entity');
 const logger = require('./../applogger');
 const async = require('async');
 const highland = require('highland');
 const fs = require('fs');
+
 
 // save the profileImport to profile collections and users collections and updated profileImportHistory and ready for profile analyser
 let saveProfileImport = function (id) {
@@ -165,11 +165,6 @@ let saveProfileImport = function (id) {
             }
         });
     } catch (err) {
-        return res.send(err);
+        logger.error(err)
     }
-    return res.end;
 };
-
-app.listen(3001, function () {
-    logger.info('Working on port 3001');
-});

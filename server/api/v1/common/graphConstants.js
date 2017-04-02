@@ -2,7 +2,7 @@ module.exports = {
     NODE_PROFESSION: 'Profession',
     NODE_INSTITUTE: 'Institute',
     NODE_PERSON: 'Person',
-    NODE_ROLE: 'Role',
+    NODE_JOBROLE: 'Role',
     NODE_LOCATION: 'Location',
     NODE_QUALIFICATION: 'Qualification',
     NODE_LANGUAGE: 'Language',
@@ -26,5 +26,9 @@ module.exports = {
     REL_PREF_LANG: 'Pref_Lang',
     REL_KNOWS: 'Knows',
     // REL_HAS_EXPERIENCE_OF: 'Has_Experience_Of',
-    REL_PROPERTY_YEARS: 'Years'
+    REL_PROPERTY_YEARS: 'Years',
+    REL_JOB_ROLE: 'Expected_JobRole',
+    REL_Skill: 'Preffered_JobRole_Skill',
+ REL_PREFFERED_LOCATION: 'Prefferd_Job_Location'
+
 };

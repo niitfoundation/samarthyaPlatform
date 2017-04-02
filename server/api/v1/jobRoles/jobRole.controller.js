@@ -11,7 +11,7 @@ const findRoles = function (name, limit) {
     let query = '';
     limit = limit || '10';
 
-    query = query + 'MATCH (r:' + graphConst.NODE_ROLE + ')';
+    query = query + 'MATCH (r:' + graphConst.NODE_JOBROLE + ')';
 
     if (name !== 'undefined' && name.length > 0) {
       query = query + 'WHERE r.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
@@ -42,7 +42,7 @@ const addRole = function (name) {
     name.forEach(function (name) {
       let query = '';
       if (name !== 'undefined' && name.length > 0) {
-        query = query + 'MERGE (r:' + graphConst.NODE_ROLE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+        query = query + 'MERGE (r:' + graphConst.NODE_JOBROLE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
         query = query + ' RETURN r';
       } else {
         reject('Role not found');
