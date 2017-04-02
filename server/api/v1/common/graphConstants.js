@@ -24,7 +24,7 @@ module.exports = {
     REL_READ: 'Read',
     REL_NATIV_LANG: 'Nativ_Lang',
     REL_PREF_LANG: 'Pref_Lang',
-     REL_JOB_ROLE: 'Expected_JobRole',
-      REL_Skill: 'Preffered_JobRole_Skill',
-      REL_PREFFERED_LOCATION:'Prefferd_Job_Location'
+    REL_JOB_ROLE: 'Expected_JobRole',
+    REL_SKILL: 'Preffered_JobRole_Skill',
+    REL_PREFFERED_LOCATION: 'Prefferd_Job_Location'
 };

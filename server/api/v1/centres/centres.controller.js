@@ -1,6 +1,7 @@
 const neo4jConn = require('../neo4jcon/neo4jcon');
 const graphConst = require('../common/graphConstants');
 
+// Function to find the centres
 const findCentres = function (name, limit) {
   let promise = new Promise((resolve, reject) => {
     if(name === '') {
@@ -35,6 +36,7 @@ const findCentres = function (name, limit) {
   return promise;
 };
 
+// Function to add a centre
 const addCentre = function (name) {
   let promise = new Promise((resolve, reject) => {
     const session = neo4jConn.connection();
