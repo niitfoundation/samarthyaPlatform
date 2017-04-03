@@ -12,5 +12,4 @@ let NEO4J = {
 module.exports = {
     SAMARTHYA: SAMARTHYA,
     NEO4J: NEO4J
-}
-;
+};
