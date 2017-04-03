@@ -1,4 +1,4 @@
-// this is for creating the graph model in ne04j  
+// this is for creating the graph model in ne04j
 const graphConst = require('../../api/v1/common/graphConstants');
 const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
@@ -20,18 +20,16 @@ const relatePersonTojobRole = function (person, jobRole) {
 
   return session.run(query).then(result => {
       session.close();
-      logger.info('coming')
+      logger.info('coming');
       callback('first query');
     })
     .catch(error => {
       session.close();
       logger.error(error);
     });
-
 };
 
 const relatePersonToSkill = function (person, skills) {
-
   let query = '';
   let user = 'user:' + graphConst.NODE_PERSON + '{' +
     graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
@@ -54,12 +52,9 @@ const relatePersonToSkill = function (person, skills) {
       session.close();
       logger.error(error);
     });
-
-
 };
 
 const relatePersonToPreferredLocation = function (person, location) {
-
   let query = '';
   let user = 'user:' + graphConst.NODE_PERSON + '{' +
     graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
@@ -83,8 +78,6 @@ const relatePersonToPreferredLocation = function (person, location) {
       session.close();
       logger.error(error);
     });
-
-
 };
 
 module.exports = {
@@ -92,4 +85,4 @@ module.exports = {
   relatePersonToSkill: relatePersonToSkill,
   relatePersonToPreferredLocation: relatePersonToPreferredLocation
 
-}
+};
