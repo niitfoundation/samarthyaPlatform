@@ -30,5 +30,11 @@ module.exports = {
     REL_PROPERTY_YEARS: 'Years',
     REL_JOB_ROLE: 'Expected_JobRole',
     REL_SKILL: 'Preffered_JobRole_Skill',
-    REL_PREFFERED_LOCATION: 'Prefferd_Job_Location'
+    REL_PREFFERED_LOCATION: 'Prefferd_Job_Location',
+    PROP_DEGREE: 'degree',
+    PROP_RESULT: 'result',
+    PROP_START_YEAR: 'startYear',
+    PROP_END_YEAR: 'endYear',
+    PROP_START_DATE: 'startDate',
+    PROP_END_DATE: 'endDate'
 };
