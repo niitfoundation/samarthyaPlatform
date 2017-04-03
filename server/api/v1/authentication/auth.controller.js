@@ -21,6 +21,7 @@ const authenticateUser = function(authObj) {
                     msg: 'Invalid Credentials'
                 });
             } else {
+                logger.info(data)
                 // method to compare to authenticate users
                 data.comparePassword(authObj.password, function(err, isMatch) {
                     if (err) {
@@ -58,13 +59,15 @@ let checkUser = function(objEmail) {
         username: objEmail,
     };
     return new Promise((resolve, reject) => {
-        userModel.findOne(userDetails, function(err, data) {
+        userModel.find(userDetails, function(err, data) {
             if (err) {
+                logger.info(err);
                 reject({
                     err: err,
                     msg: 'user already exist'
                 });
             } else {
+                logger.info(data)
                 resolve(data);
             }
         });
@@ -94,18 +97,16 @@ let verifyEmailLink = function(objVerify) {
 const resetPassword = function(resetObj) {
     var userDetails = {
         username: resetObj.username,
-        password:resetObj.password
     };
    
     logger.debug('Username stored into userDetails');
     return new Promise((resolve, reject) => {
 
-        userModel.update(userDetails, {
-                $set: {
+        userModel.findOneAndUpdate(userDetails, {
                     password: resetObj.password,
                     updatedOn: Date.now()
                 }
-            },
+            ,
             function(err, data) {
                 if (err) {
                     reject(err);
