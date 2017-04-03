@@ -22,5 +22,23 @@ describe('Test work experience section data analysis', function() {
             expect(result).to.not.equal(undefined);
             done();
         });
+
+        workExpGraphModel.releatePersonToJobRole(personName, workExperience, function(err, result) {
+            console.log('Result: ', JSON.stringify(result));
+
+            expect(err).to.equal(null);
+            expect(result).to.not.equal(null);
+            expect(result).to.not.equal(undefined);
+            done();
+        });
+
+        workExpGraphModel.releatePersonToWorkingLocation(personName, workExperience, function(err, result) {
+            console.log('Result: ', JSON.stringify(result));
+
+            expect(err).to.equal(null);
+            expect(result).to.not.equal(null);
+            expect(result).to.not.equal(undefined);
+            done();
+        });
     });
 });

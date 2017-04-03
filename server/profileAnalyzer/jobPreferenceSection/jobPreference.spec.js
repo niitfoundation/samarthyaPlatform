@@ -6,9 +6,8 @@ describe('Test job preference section data analysis', function () {
         const jobPreferenceModule = require('./');
         expect(jobPreferenceModule).to.not.equal(undefined);
         expect(typeof jobPreferenceModule).to.equal('object');
-        expect(typeof jobPreferenceModule.analyze).to.equal('function')
+        expect(typeof jobPreferenceModule.analyze).to.equal('function');
         done();
-
     });
 
     describe('Validations', function () {
@@ -29,7 +28,7 @@ describe('Test job preference section data analysis', function () {
                 done();
             });
         });
-    })
+    });
 
     describe('Analyse simple one single job preference entry in the profile', function () {
 
@@ -53,11 +52,11 @@ describe('Test job preference section data analysis', function () {
             jobPreferenceModule.analyze(profileUser, jobPreference, function (err, result) {
                 expect(null).to.equal(err);
 
-                //Go to neo4j, get a data about
-                // Person to jobPreference node relationship should exist 
-                //match (p:Person)-[r:Workd_At {role: 'developer'}]-(o:Orgainization)
-                //match (p:Person)-[r:Workd_As {duration: 'developer'}]-(jr:JobRole)
-                //match (p:Person)-[r:Workd_In {duration: ''}]-(l:Location)
+                // Go to neo4j, get a data about
+                // Person to jobPreference node relationship should exist
+                // match (p:Person)-[r:Workd_At {role: 'developer'}]-(o:Orgainization)
+                // match (p:Person)-[r:Workd_As {duration: 'developer'}]-(jr:JobRole)
+                // match (p:Person)-[r:Workd_In {duration: ''}]-(l:Location)
 
 
                 done();
@@ -67,6 +66,5 @@ describe('Test job preference section data analysis', function () {
         after(function () {
             console.log('[*] Cleaning up graph model, AFTER verifying graph model creation from analyzer');
         });
-
-    })
+    });
 });
