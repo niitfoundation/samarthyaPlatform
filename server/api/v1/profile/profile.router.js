@@ -6,7 +6,7 @@ const logger = require('./../../../../applogger');
  * Actual URI will be HTTP POST /profiles/
  */
 
-// view profile
+// get profile full data
 router.get('/', function (req, res) {
     let profileData = req.query;
     try {
@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
             logger.error('Invalid inputs passed');
             throw new Error('Invalid inputs passed...!');
         }
-        prflCtrl.viewProfile(profileData).then((successResult) => {
+        prflCtrl.getProfile(profileData).then((successResult) => {
             return res.status(201).send(successResult);
         }, (errResult) => {
             // Log the error for internal use

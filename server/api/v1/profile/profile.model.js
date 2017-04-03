@@ -1,7 +1,7 @@
 /*
  * Add/modify profile schema values
  */
-var profileDataModel = function(profileObj) {
+var profileDataModel = function (profileObj) {
     var profileDetails = {
         username: profileObj.email,
         profession: profileObj.profession,
@@ -10,12 +10,15 @@ var profileDataModel = function(profileObj) {
         createdBy: profileObj.createdBy,
         updatedBy: profileObj.createdBy,
         updatedOn: Date.now(),
+        profilePic: profileObj.profilePic,
         personalInfo: {
+            name: profileObj.name,
             fname: profileObj.fname,
             lname: profileObj.lname,
             gender: profileObj.gender,
             email: profileObj.email,
             role: profileObj.role,
+            dob: profileObj.dob,
             contact: {
                 I: profileObj.mobileNumber,
             },

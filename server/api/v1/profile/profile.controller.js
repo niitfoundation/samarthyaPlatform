@@ -7,7 +7,7 @@ const profileDataModel = require('./profile.model');
  *
  */
 
-const viewProfile = function (profileObj) {
+const getProfile = function (profileObj) {
     return new Promise((resolve, reject) => {
         ProfileModel.find({ username: profileObj.username }, function (err, data) {
             if (err) {
@@ -65,7 +65,7 @@ const deletePerofile = function (profileObj) {
 
 
 module.exports = {
-    viewProfile: viewProfile,
+    getProfile: getProfile,
     createProfile: createProfile,
     editProfile: editProfile,
     deletePerofile: deletePerofile
