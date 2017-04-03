@@ -2,6 +2,7 @@ const router = require('express').Router();
 const skillCtrl = require('./skill.controller');
 const logger = require('../../../../applogger');
 
+// GET route '/skills'
 router.get('/', function (req, res) {
     try {
         let param = req.query;
@@ -21,6 +22,7 @@ router.get('/', function (req, res) {
     }
 });
 
+// POST route '/skills'
 router.post('/', function (req, res) {
     try {
         let param = req.body;

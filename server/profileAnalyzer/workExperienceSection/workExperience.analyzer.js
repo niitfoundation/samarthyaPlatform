@@ -16,7 +16,6 @@ const analyze = function (profileUser, workExperienceColln, callback) {
             analyzeWorkExperienceInstance(profileUser.username, element, index, function (workExperienceObj) {
                 callback(null, workExperienceObj);
             });
-
         });
     });
     console.log(results);
@@ -27,10 +26,9 @@ const analyze = function (profileUser, workExperienceColln, callback) {
         }
         console.log(result);
         callback(result);
-
-    })
+    });
     // analyzeWorkExperienceInstance(profileUser.username, workExperienceColln[0], callback);
-}
+};
 
 analyzeWorkExperienceInstance = function (profileUser, workExperience, index, callback) {
     async.parallel([
