@@ -6,9 +6,9 @@ const relatePersonToOrganisation = function(personName, workExpInstance, callbac
     // Establish relation between (:Person)-[:WORKED_WITH {role: '', duration: '', isCurrent: ''}]-(:Organization)
 
     let relAttributes = '';
-    relAttributes = relAttributes + ' role: {role}';
-    relAttributes = relAttributes + ', duration: {duration}';
-    relAttributes = relAttributes + ', isCurrent: {isCurrent}';
+    relAttributes = relAttributes + ' ' + graphConst.PROP_ROLE + ': {role}';
+    relAttributes = relAttributes + ', ' + graphConst.PROP_DURATION + ': {duration}';
+    relAttributes = relAttributes + ', ' + graphConst.PROP_ISCURRENT + ': {isCurrent}';
 
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
@@ -34,9 +34,9 @@ const relatePersonToOrganisation = function(personName, workExpInstance, callbac
             session.close();
             result.records.map(record => {
                 callback(null, {
-                    Person: record.get('p'),
-                    Relation: record.get('por'),
-                    Organisation: record.get('o')
+                    person: record.get('p'),
+                    relation: record.get('por'),
+                    organisation: record.get('o')
                 });
             });
         })
@@ -51,8 +51,8 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
     // Establish relation between (:Person)-[:WORKED_AS {duration: '',organization: ''}]-(:jobRole)
 
     let relAttributes = '';
-    relAttributes = relAttributes + ' duration: {duration}';
-    relAttributes = relAttributes + ', org: {organization}';
+    relAttributes = relAttributes + ' ' + graphConst.PROP_DURATION + ': {duration}';
+    relAttributes = relAttributes + ', ' + graphConst.PROP_ORGANISATION + ': {organization}';
 
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
@@ -77,9 +77,9 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
             session.close();
             result.records.map(record => {
                 callback(null, {
-                    Person: record.get('p'),
-                    Relation: record.get('pjr'),
-                    jobRole: record.get('jr')
+                    person: record.get('p'),
+                    relation: record.get('pjr'),
+                    jobrole: record.get('jr')
                 });
             });
         })
@@ -120,8 +120,8 @@ const releatePersonToWorkingLocation = function(personName, workinglocInstance, 
             session.close();
             result.records.map(record => {
                 callback(null, {
-                    Person: record.get('p'),
-                    Relation: record.get('ploc'),
+                    person: record.get('p'),
+                    relation: record.get('ploc'),
                     location: record.get('loc')
                 });
             });
