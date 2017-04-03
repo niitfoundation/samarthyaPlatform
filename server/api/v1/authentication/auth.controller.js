@@ -94,18 +94,16 @@ let verifyEmailLink = function(objVerify) {
 const resetPassword = function(resetObj) {
     var userDetails = {
         username: resetObj.username,
-        password:resetObj.password
     };
    
     logger.debug('Username stored into userDetails');
     return new Promise((resolve, reject) => {
 
-        userModel.update(userDetails, {
-                $set: {
+        userModel.findOneAndUpdate(userDetails, {
                     password: resetObj.password,
                     updatedOn: Date.now()
                 }
-            },
+            ,
             function(err, data) {
                 if (err) {
                     reject(err);
