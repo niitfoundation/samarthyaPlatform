@@ -19,7 +19,7 @@ const analyzer = function(profileUser, qualificationColln, callback) {
 };
 
 analyzeQualificationInstance = function(personName, qualification, analyzeResultCallback) {
-    logger.debug('[*] Starting to analyze qualification instance [', personName + ':' + qualification.workplace, ']');
+    logger.debug('[*] Starting to analyze qualification instance [', personName + ':' + qualification.name, ']');
 
     async.parallel([
         function(callback) {

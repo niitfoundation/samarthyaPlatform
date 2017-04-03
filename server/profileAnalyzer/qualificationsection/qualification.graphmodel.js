@@ -60,8 +60,8 @@ const relatePersonToInstitute = function (personName, qualification, callback) {
 
     let params = {
         personName: personName.toLowerCase(),
-        instituteName: qualification.institite.toLowerCase(),
-        degree: qualification.academictype.toString(),
+        instituteName: qualification.institute.toLowerCase(),
+        degree: qualification.academictype.toLowerCase(),
         startDate: qualification.batch.startDate.toString(),
         endDate: qualification.batch.endDate.toString()
     };
@@ -170,7 +170,7 @@ const relateInstituteToQualification = function (qualification, callback) {
     query = query + ' RETURN in,inqr,q';
 
     let params = {
-        instituteName: qualification.institite.toLowerCase(),
+        instituteName: qualification.institute.toLowerCase(),
         qualificationName: qualification.name.toLowerCase(),
     };
 
