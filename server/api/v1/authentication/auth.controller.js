@@ -96,16 +96,17 @@ let verifyEmailLink = function(objVerify) {
 // password reset updation in database
 const resetPassword = function(resetObj) {
     var userDetails = {
-        username: resetObj.username
+        username: resetObj.username,
     };
+   
     logger.debug('Username stored into userDetails');
     return new Promise((resolve, reject) => {
-        userModel.update(userDetails, {
-                $set: {
+
+        userModel.findOneAndUpdate(userDetails, {
                     password: resetObj.password,
                     updatedOn: Date.now()
                 }
-            },
+            ,
             function(err, data) {
                 if (err) {
                     reject(err);

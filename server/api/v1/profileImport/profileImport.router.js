@@ -22,6 +22,8 @@ router.post('/upload', function(req, res) {
                     profileCtrl.addProfileImport(JSON.parse(data), fileName, remarks, username).then((successResult) => {
                         logger.info('Saved successfully and return back');
                         //kafka messaging should happen
+
+                        
                         // var options = {
                         //     host: 'localhost',
                         //     port: 3001,
