@@ -3,7 +3,7 @@ const async = require('async');
 const jobPreferenceModel = require('./jobPreference.graphmodel');
 
 const analyze = function (profileUser, jobPreferenceColln, callback) {
-    if (!profileUser || !profileUser.username || !jobPreferenceColln || !(Array.isArray(jobPreferenceColln)) || jobPreferenceColln.length <= 0) {
+    if (!profileUser || !profileUser.username || !jobPreferenceColln || jobPreferenceColln.jobPreferenceRoles.length <= 0) {
         logger.error('No data found to analyze');
 
         return callback({
@@ -11,49 +11,44 @@ const analyze = function (profileUser, jobPreferenceColln, callback) {
         }, null);
     }
 
-    logger.info('Proceeding to analyze work experience..!');
-
-
-    let results = [];
-    analyzeJobPreferenceInstance(profileUser, jobPreferenceColln[0], callback);
-    return callback;
+    logger.info('Proceeding to analyze Job preference..!');
+    async.map(jobPreferenceColln.jobPreferenceRoles, function (instance, asyncCallback) {
+        analyzeJobPreferenceInstance(profileUser, instance,jobPreferenceColln.looking, asyncCallback);
+    }, callback); 
+    return true;
 }
 
-analyzeJobPreferenceInstance = function (profileUser, jobPreference, callback) {
+analyzeJobPreferenceInstance = function (profileUser, jobPreference, looking, analyzeResultCallback) {
+    logger.debug('[*] Starting to analyze Job preference instance [', profileUser + ':' + jobPreference.jobRole, ']');
 
     async.parallel([
+         //relating person to Himself node with relation looking and property
+        function (callback) {
+            jobPreferenceModel.relatePersonToHimself(profileUser.username, looking, callback)
+        },
         //relating person to jobRole node
         function (callback) {
-            jobPreferenceModel.relatePersonTojobRole(profileUser.username, jobPreference.jobRole, function (PersonToLocationObj) {
-                    callback(null, PersonToLocationObj);
-                },
-                function (err) {
-                    callback(err, null);
-                });
+            jobPreferenceModel.relatePersonTojobRole(profileUser.username, jobPreference.jobRole, callback)
         },
         //relating person to skill node
         function (callback) {
-            jobPreferenceModel.relatePersonToSkill(profileUser.username, jobPreference.skill, function (PersonToSkill) {
-                    callback(null, PersonToSkill);
-                },
-                function (err) {
-                    callback(err, null);
-                });
+            jobPreferenceModel.relatePersonToSkill(profileUser.username, jobPreference.skill, callback);
         },
         //relating person to location node
         function (callback) {
-            jobPreferenceModel.relatePersonToPreferredLocation(profileUser.username, jobPreference.location, function (PersonToLocation) {
-                    callback(null, PersonToSkill);
-                },
-                function (err) {
-                    callback(err, null);
-                });
+            jobPreferenceModel.relatePersonToPreferredLocation(profileUser.username, jobPreference.location, callback);
         }
     ], function (err, result) {
-        callback(result);
-    })
+        if (err) {
+            logger.error('Error in analyzing jobPreference instance ', err);
+            analyzeResultCallback(err, null);
+        }
+        logger.debug('[*] Done analysing jobPreference instance [', profileUser + ':' + jobPreference.jobRole, ']');
+        analyzeResultCallback(null, result);
+    });
 }
 
 module.exports = {
-    analyze: analyze
+    analyze: analyze,
+    analyzeJobPreferenceInstance: analyzeJobPreferenceInstance
 }

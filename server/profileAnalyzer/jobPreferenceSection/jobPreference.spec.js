@@ -8,21 +8,19 @@ describe('Test job preference section data analysis', function () {
         expect(typeof jobPreferenceModule).to.equal('object');
         expect(typeof jobPreferenceModule.analyze).to.equal('function')
         done();
-      
+
     });
 
-      describe('Validations', function() {
-        it('Check if analyze method verifies for data, espeically required data, before prcoeeding to analyze', function(done) {
+    describe('Validations', function () {
+        it('Check if analyze method verifies for data, espeically required data, before prcoeeding to analyze', function (done) {
             const jobPreferenceModule = require('./');
-            const profileUser = {username:"Gowtham Jeeva"};
-            const jobPreference = [{
-                jobRole:'Team Lead',
-                skill:'Full Stack Developer',
-                location:'Bangalore'
-            }];
+            const profileUser = {
+            };
+            const jobPreference = {
+            };
 
             //Expecting a error
-            jobPreferenceModule.analyze(profileUser, jobPreference, function(err, result) {
+            jobPreferenceModule.analyze(profileUser, jobPreference, function (err, result) {
                 //Only if no data was passed, error should be thrown
                 //if error comes, test case passes, if no error comes, test cases failes
                 expect('object').to.equal(typeof err);
@@ -34,20 +32,25 @@ describe('Test job preference section data analysis', function () {
     })
 
     describe('Analyse simple one single job preference entry in the profile', function () {
-         
-        before(function() {
+
+        before(function () {
             console.log('[*] Cleaning up graph model, BEFORE verifying graph model creation from analyzer ');
         });
 
-        it('Pass a actual data and check if data model is returned', function(done) {
+        it('Pass a actual data and check if data model is returned', function (done) {
             const jobPreferenceModule = require('./');
-            const profileUser = {username:"Gowtham Jeeva"};
-            const jobPreference = [{
-                jobRole:'Team Lead',
-                skill:'Full Stack Developer',
-                location:'Bangalore'
-            }];
-            jobPreferenceModule.analyze(profileUser, jobPreference, function(err, result) {
+            const profileUser = {
+                username: "Gowtham Jeeva"
+            };
+            const jobPreference = {
+                looking:'true',
+                jobPreferenceRoles:[{
+                jobRole: 'Team Lead',
+                skill: ['Full Stack Developer','tester'],
+                location: ['Bangalore','Pune']
+                }]
+            };
+            jobPreferenceModule.analyze(profileUser, jobPreference, function (err, result) {
                 expect(null).to.equal(err);
 
                 //Go to neo4j, get a data about
@@ -61,7 +64,7 @@ describe('Test job preference section data analysis', function () {
             });
         });
 
-        after(function() {
+        after(function () {
             console.log('[*] Cleaning up graph model, AFTER verifying graph model creation from analyzer');
         });
 

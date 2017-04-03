@@ -9,7 +9,7 @@ module.exports = {
     NODE_SKILL: 'Skill',
     NODE_CENTRE: 'Centre',
     NODE_PROPERTY_NAME: 'name',
-    NODE_ORGANISATION: 'Organisation',
+    NODE_WORKPLACE: 'WorkPlace',
     NODE_DESG: 'Designation',
     REL_QUALIFIED_AS: 'Qualified_As',
     REL_QUALIFIED_IN: 'Qualified_In',
@@ -30,5 +30,10 @@ module.exports = {
     REL_PROPERTY_YEARS: 'Years',
     REL_JOB_ROLE: 'Expected_JobRole',
     REL_SKILL: 'Preffered_JobRole_Skill',
-    REL_PREFFERED_LOCATION: 'Prefferd_Job_Location'
+    REL_PREFFERED_LOCATION: 'Prefferd_Job_Location',
+    REL_JOB_LOOKING: 'Looking_For_Job',
+    PROP_JOB_LOOKING: 'lookingForJob',
+    PROP_ROLE:'Role',
+    PROP_LOCATION:'Location',
+    PROP_DURATION:'Duration'
 };
