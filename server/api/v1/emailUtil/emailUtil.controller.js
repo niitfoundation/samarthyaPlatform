@@ -44,6 +44,7 @@ let sendEmail = function(jsonobj) {
         }
 
         return new Promise((resolve, reject) => {
+            console.log(mail)
             transporter.sendMail(mail, function(err, response) {
                 if (err) {
                     logger.error('response not found');

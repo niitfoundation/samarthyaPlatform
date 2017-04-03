@@ -84,7 +84,7 @@ const profileSchema = mongoose.Schema({
             start: { type: Date, default: Date.now },
             end: { type: Date, default: Date.now }
         },
-        iscurrent: { type: Boolean }
+        isCurrent: { type: Boolean }
     }],
     // skill
     skills: [{

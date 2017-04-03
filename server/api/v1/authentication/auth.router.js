@@ -39,7 +39,7 @@ router.post('/verify-user', function (req, res) {
         let param = req.body;
         // check the user is available or not
         authCtrl.checkUser(param.username).then((data) => {
-            if (data.length == 0) {
+            if (!data) {
                 logger.debug('user not exits');
                 // if user is does not exit send mail
                 return res.status(201).send({
@@ -69,12 +69,11 @@ router.post('/verify-user', function (req, res) {
  *if user is not exist send the verification mail
  */
 router.post('/register-email', function (req, res) {
-    console.log(req.body.mailObj.username+"coming")
     try {
         let param = req.body;
         // check the user is available or not
         authCtrl.checkUser(param.username).then((data) => {
-            if (data.length == 0) {
+            if (!data) {
                 // if user is does not exit send mail
                 param.host = req.get('host');
                 emailCtrl.sendEmail(param).then((successResult) => {

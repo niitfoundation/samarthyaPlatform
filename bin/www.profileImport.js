@@ -21,21 +21,23 @@ let saveProfileImport = function (id) {
                 ProfileImportModel.update({
                     '_id': id
                 }, {
-                        $set: {
-                            'importResult.total': datas[0].importData.length
-                        }
-                    }, function (err, data) {
-                        if (err) {
-                            logger.error(err);
-                        } else {
-                            logger.info('updted total profiles');
-                        }
-                    });
+                    $set: {
+                        'importResult.total': datas[0].importData.length
+                    }
+                }, function (err, data) {
+                    if (err) {
+                        logger.error(err);
+                    } else {
+                        logger.info('updted total profiles');
+                    }
+                });
                 let result = highland(datas[0].importData) // Creates a stream from an array of filenames
                     .map(function (fileContent) {
                         return fileContent;
                     });
                 result.each(function (d) {
+
+
                     async.waterfall(
                         [
                             function (callback) {
@@ -56,11 +58,11 @@ let saveProfileImport = function (id) {
                                         logger.error('userData not added sucessfully' + err);
                                         ProfileImportModel.update(details, {
 
-                                            $inc: {
-                                                'importResult.failed': 1
-                                            }
+                                                $inc: {
+                                                    'importResult.failed': 1
+                                                }
 
-                                        },
+                                            },
                                             function (err, data) {
                                                 if (err) {
                                                     logger.error(err);
@@ -69,17 +71,17 @@ let saveProfileImport = function (id) {
                                                         '_id': id,
                                                         'importData.personalinfo.contact.I': d.personalinfo.contact.I
                                                     }, {
-                                                            $set: {
-                                                                'importData.$.importStatus': 'failed',
-                                                                'importResult.errors': err
-                                                            }
-                                                        }, function (err, data) {
-                                                            if (err) {
-                                                                logger.error('Error in adding import Failed status');
-                                                            } else {
-                                                                logger.info('failure Status added success');
-                                                            }
-                                                        });
+                                                        $set: {
+                                                            'importData.$.importStatus': 'failed',
+                                                            'importResult.errors': err
+                                                        }
+                                                    }, function (err, data) {
+                                                        if (err) {
+                                                            logger.error('Error in adding import Failed status');
+                                                        } else {
+                                                            logger.info('failure Status added success');
+                                                        }
+                                                    });
                                                 }
                                             });
                                     } else {
@@ -96,17 +98,17 @@ let saveProfileImport = function (id) {
                                             '_id': id,
                                             'importData.personalinfo.contact.I': d.personalinfo.contact.I
                                         }, {
-                                                $set: {
-                                                    'importData.$.importStatus': 'failed',
-                                                    'importResult.errors': err
-                                                }
-                                            }, function (err, data) {
-                                                if (err) {
-                                                    logger.error('Error in adding import Failed status');
-                                                } else {
-                                                    logger.info('failure Status added success');
-                                                }
-                                            });
+                                            $set: {
+                                                'importData.$.importStatus': 'failed',
+                                                'importResult.errors': err
+                                            }
+                                        }, function (err, data) {
+                                            if (err) {
+                                                logger.error('Error in adding import Failed status');
+                                            } else {
+                                                logger.info('failure Status added success');
+                                            }
+                                        });
                                         logger.error('error in profile add' + err);
                                         UserModel.remove({
                                             'username': d.username
@@ -120,8 +122,8 @@ let saveProfileImport = function (id) {
                                     } else {
                                         logger.info('profile added');
                                         ProfileImportModel.update({
-                                            _id: id
-                                        }, {
+                                                _id: id
+                                            }, {
                                                 $inc: {
                                                     'importResult.success': 1
                                                 }
@@ -134,18 +136,18 @@ let saveProfileImport = function (id) {
                                                         '_id': id,
                                                         'importData.username': d.username
                                                     }, {
-                                                            $set: {
-                                                                'importedOn': Date.now(),
-                                                                'status': 'imported',
-                                                                'importData.$.importStatus': 'Success'
-                                                            }
-                                                        }, function (err, data) {
-                                                            if (err) {
-                                                                logger.error('Error in adding import Success status');
-                                                            } else {
-                                                                logger.info('Success Status added success');
-                                                            }
-                                                        });
+                                                        $set: {
+                                                            'importedOn': Date.now(),
+                                                            'status': 'imported',
+                                                            'importData.$.importStatus': 'Success'
+                                                        }
+                                                    }, function (err, data) {
+                                                        if (err) {
+                                                            logger.error('Error in adding import Success status');
+                                                        } else {
+                                                            logger.info('Success Status added success');
+                                                        }
+                                                    });
                                                 }
                                             });
                                     }
@@ -160,7 +162,10 @@ let saveProfileImport = function (id) {
                             }
 
 
-                        ]);
+                        ],
+                        function (err, result) {
+                            logger.error(result)
+                        });
                 });
             }
         });

@@ -64,6 +64,7 @@ const relatePersonToPreferredLocation = function (person, location) {
   let user = 'user:' + graphConst.NODE_PERSON + '{' +
     graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
 
+
   let loc = 'loc:' + graphConst.NODE_LOCATION + '{' +
     graphConst.NODE_PROPERTY_NAME + ':"' + location.toLowerCase() + '"}';
 
@@ -74,7 +75,7 @@ const relatePersonToPreferredLocation = function (person, location) {
 
   const session = neo4jConn.connection();
 
-  return session.run(query).then(result => {
+  session.run(query).then(result => {
       session.close();
       callback('Third query');
     })

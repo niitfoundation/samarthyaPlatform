@@ -44,11 +44,44 @@ usersSchema.pre('save', function(next) {
     });
 });
 
+//  mongoose middleware for password encryption, encrypt the pasword before storing
+usersSchema.pre('update', function(next) {
+    var user=this;
+  var update = this._update;
+  console.log(update);
+    // generate a salt
+    console.log(update.$set.password)
+    if (update.$set && update.$set.password) {
+   bcrypt.genSalt(appConfig.SALT_WORK_FACTOR, function(err, salt) {
+        if (err) return next(err);
+        // hash the password using our new salt
+        bcrypt.hash(update.$set.password, salt, function(err, hash) {
+            logger.debug('Password encryption started');
+
+            if (err) return next(err);
+            // override the cleartext password with the hashed one
+            update.$set.password = hash;
+            
+  
+            console.log(update.$set.password)
+            this.password=update.$set.password;
+            next();
+        });
+  });
+    }
+});
+
+   
+//   if (update.$set && update.$set.name) {
+//     this.update({}, { name: transform(update.$set.name) });
+//   }
+
 // method to compare the password (the incoming password will be encrypted and compared )
 usersSchema.methods.comparePassword = function(userPassword, callback) {
     logger.debug('compare Password method called');
     bcrypt.compare(userPassword, this.password, function(err, isMatch) {
         if (err) return callback(err);
+        console.log(isMatch);
         callback(null, isMatch);
     });
 };
