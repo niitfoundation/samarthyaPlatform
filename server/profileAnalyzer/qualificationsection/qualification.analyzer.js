@@ -6,10 +6,10 @@ const analyzer = function(profileUser, qualificationColln, callback) {
     // If data is not valid, return back without processing
     if (!profileUser || !profileUser.username ||
         !qualificationColln || !Array.isArray(qualificationColln) || qualificationColln.length <= 0) {
-        logger.error('No data found to analyze');
+        logger.error('No qualification data found to analyze');
         return callback({ error: 'No qualification data found to analyze' }, null);
     }
-    logger.info('Proceeding to analyze work experience..!');
+    logger.info('Proceeding to analyze qualification..!');
 
     async.map(qualificationColln, function(instance, asyncCallback) {
         analyzeQualificationInstance(profileUser.username, instance, asyncCallback);
