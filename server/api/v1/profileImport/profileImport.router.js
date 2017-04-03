@@ -23,7 +23,7 @@ router.post('/upload', function(req, res) {
                         logger.info('Saved successfully and return back');
                         //kafka messaging should happen
 
-                        
+
                         // var options = {
                         //     host: 'localhost',
                         //     port: 3001,
@@ -63,9 +63,9 @@ router.get('/import-history', function(req, res) {
 
     try {
         profileCtrl.getImportHistory().then((successResult) => {
-            logger.info('Get successResult successfully and return back');
-            return res.status(201).send(successResult);
-        },
+                logger.info('Get successResult successfully and return back');
+                return res.status(201).send(successResult);
+            },
             (err) => {
                 logger.error('Internal error occurred' + err);
                 return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
@@ -86,9 +86,9 @@ router.get('/failure-history', function(req, res) {
     let documentId = req.query.documentId;
     try {
         profileCtrl.getFailureImportHistory(documentId).then((successResult) => {
-            logger.info('Get successResult successfully and return back');
-            return res.status(201).send(successResult);
-        },
+                logger.info('Get successResult successfully and return back');
+                return res.status(201).send(successResult);
+            },
 
             (err) => {
                 logger.error('Internal error occurred' + err);

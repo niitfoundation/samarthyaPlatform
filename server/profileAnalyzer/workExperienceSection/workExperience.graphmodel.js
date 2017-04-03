@@ -6,9 +6,9 @@ const relatePersonToOrganisation = function(personName, workExpInstance, callbac
     // Establish relation between (:Person)-[:WORKED_WITH {role: '', duration: '', isCurrent: ''}]-(:Organization)
 
     let relAttributes = '';
-    relAttributes = relAttributes + ' role: {role}';
-    relAttributes = relAttributes + ', duration: {duration}';
-    relAttributes = relAttributes + ', isCurrent: {isCurrent}';
+    relAttributes = relAttributes + ' ' + graphConst.PROP_ROLE + ': {role}';
+    relAttributes = relAttributes + ', ' + graphConst.PROP_DURATION + ': {duration}';
+    relAttributes = relAttributes + ', ' + graphConst.PROP_ISCURRENT + ': {isCurrent}';
 
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
@@ -51,8 +51,8 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
     // Establish relation between (:Person)-[:WORKED_AS {duration: '',organization: ''}]-(:jobRole)
 
     let relAttributes = '';
-    relAttributes = relAttributes + ' duration: {duration}';
-    relAttributes = relAttributes + ', org: {organization}';
+    relAttributes = relAttributes + ' ' + graphConst.PROP_DURATION + ': {duration}';
+    relAttributes = relAttributes + ', ' + graphConst.PROP_ORGANISATION + ': {organization}';
 
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';

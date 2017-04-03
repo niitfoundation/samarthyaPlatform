@@ -36,5 +36,10 @@ module.exports = {
     PROP_START_YEAR: 'startYear',
     PROP_END_YEAR: 'endYear',
     PROP_START_DATE: 'startDate',
-    PROP_END_DATE: 'endDate'
+    PROP_END_DATE: 'endDate',
+    PROP_ROLE: 'role',
+    PROP_DURATION: 'duration',
+    PROP_ISCURRENT: 'isCurrent',
+    PROP_ORGANISATION: 'organisation'
+
 };
