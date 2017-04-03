@@ -15,7 +15,7 @@ const authenticateUser = function(authObj) {
             if (err) {
                 logger.error('userDetails data not found' + err);
                 reject(err);
-            } else if (data.length == 0) {
+            } else if (!data) {
                 logger.debug('Invalid Credentials');
                 reject({
                     msg: 'Invalid Credentials'
@@ -40,7 +40,7 @@ const authenticateUser = function(authObj) {
                             msg: 'user authenticated'
                         });
                     } else {
-                        resolve({
+                        reject({
                             msg: 'Invalid password'
                         });
                     }
@@ -93,10 +93,13 @@ let verifyEmailLink = function(objVerify) {
 // password reset updation in database
 const resetPassword = function(resetObj) {
     var userDetails = {
-        username: resetObj.username
+        username: resetObj.username,
+        password:resetObj.password
     };
+   
     logger.debug('Username stored into userDetails');
     return new Promise((resolve, reject) => {
+
         userModel.update(userDetails, {
                 $set: {
                     password: resetObj.password,

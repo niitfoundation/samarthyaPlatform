@@ -2,6 +2,7 @@ const router = require('express').Router();
 const languageCtrl = require('./language.controller');
 const logger = require('../../../../applogger');
 
+// GET route '/languages'
 router.get('/', function (req, res) {
     try {
         let param = req.query;
@@ -21,6 +22,7 @@ router.get('/', function (req, res) {
     }
 });
 
+// POST route '/languages'
 router.post('/', function (req, res) {
     try {
         let param = req.body;

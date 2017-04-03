@@ -1,2 +1,3 @@
-const analyze = require('./personalInfo.analyze');
-module.exports = analyze;
+const analyzer = require('./personalInfo.analyzer');
+
+module.exports = analyzer;

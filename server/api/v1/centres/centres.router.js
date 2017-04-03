@@ -2,6 +2,7 @@ const router = require('express').Router();
 const centreCtrl = require('./centres.controller');
 const logger = require('../../../../applogger');
 
+// GET route '/centres'
 router.get('/', function (req, res) {
     try {
         let param = req.query;
@@ -19,6 +20,7 @@ router.get('/', function (req, res) {
     }
 });
 
+// POST route '/centres'
 router.post('/', function (req, res) {
     try {
         centreCtrl.addCentre(req.body.name)

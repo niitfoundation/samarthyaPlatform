@@ -5,21 +5,21 @@ const expect = chai.expect;
 
 describe('Test personal Info section data Analysis', function () {
     it('Invoke personal Info Analyzer as a module', function (done) {
-        const personalInfoModule = require('./');
-        expect(undefined).to.not.equal(personalInfoModule);
-        expect('object').to.equal(typeof personalInfoModule);
-        expect('function').to.equal(typeof personalInfoModule.analyze);
+        const skillsModule = require('./');
+        expect(undefined).to.not.equal(skillsModule);
+        expect('object').to.equal(typeof skillsModule);
+        expect('function').to.equal(typeof skillsModule.analyze);
         done();
     });
 
     describe('Validations', function () {
         it('Check if analyze method verifies for data, espeically required data, before prcoeeding to analyze', function (done) {
-            const personalInfoModule = require('./');
+            const skillsModule = require('./');
             const profileUser = {};
-            const personalInfo = [];
+            const skills = [];
 
             // Expecting a error
-            personalInfoModule.analyze(profileUser, personalInfo, function (err, result) {
+            skillsModule.analyze(profileUser, skills, function (err, result) {
                 // Only if no data was passed, error should be thrown
                 // if error comes, test case passes, if no error comes, test cases failes
                 expect('object').to.equal(typeof err);
@@ -36,11 +36,11 @@ describe('Test personal Info section data Analysis', function () {
         });
 
         it('Pass a actual data and check if data model is returned', function (done) {
-            const personalInfoModule = require('./');
+            const skillsModule = require('./');
             const profileUser = { username: 'dheeren' };
-            const personalInfo = [{}];
+            const skills = [{}];
 
-            personalInfoModule.analyze(profileUser, personalInfo, function (err, result) {
+            skillsModule.analyze(profileUser, skills, function (err, result) {
                 expect(null).to.equal(err);
 
                 // Go to neo4j, get a data about

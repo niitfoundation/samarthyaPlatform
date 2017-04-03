@@ -56,7 +56,7 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
 
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
-    query = query + ' MERGE (jr:' + graphConst.NODE_ROLE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{jobRole}})';
+    query = query + ' MERGE (jr:' + graphConst.NODE_JOBROLE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{jobRole}})';
     query = query + ' MERGE (p)-[pjr:' + graphConst.REL_WORKED_AS + ' {' + relAttributes + '} ]->(jr)';
     query = query + ' RETURN p,pjr,jr';
 

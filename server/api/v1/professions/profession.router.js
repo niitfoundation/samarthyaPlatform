@@ -2,6 +2,7 @@ const router = require('express').Router();
 const professionCtrl = require('./profession.controller');
 const logger = require('../../../../applogger');
 
+// GET route '/professions'
 router.get('/', function (req, res) {
     try {
         let param = req.query;
@@ -22,6 +23,7 @@ router.get('/', function (req, res) {
     }
 });
 
+// POST route '/professions'
 router.post('/', function (req, res) {
     try {
         let param = req.body;

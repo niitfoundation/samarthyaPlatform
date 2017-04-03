@@ -2,6 +2,7 @@ const logger = require('./../../../applogger');
 const async = require('async');
 const workExperienceModel = require('./workExperience.graphmodel');
 
+
 const analyze = function(profileUser, workExperienceColln, callback) {
     // If data is not valid, return back without processing
     if (!profileUser || !profileUser.username ||

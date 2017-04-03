@@ -16,7 +16,6 @@ describe('Test work experience section data analysis', function() {
             const workExpModule = require('./workExperience.analyzer');
             const profileUser = {};
             const workExperience = [];
-
             // Expecting a error
             workExpModule.analyze(profileUser, workExperience, function(err, result) {
                 // Only if no data was passed, error should be thrown
@@ -38,6 +37,7 @@ describe('Test work experience section data analysis', function() {
 
         it('Pass a actual data and check if data model is returned', function(done) {
             const workExpModule = require('./');
+
             const profileUser = { username: 'Dheeren' };
             const workExperience = [{
                 workplace: 'Wipro',
