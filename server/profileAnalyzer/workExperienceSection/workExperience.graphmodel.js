@@ -34,9 +34,9 @@ const relatePersonToOrganisation = function(personName, workExpInstance, callbac
             session.close();
             result.records.map(record => {
                 callback(null, {
-                    Person: record.get('p'),
-                    Relation: record.get('por'),
-                    Organisation: record.get('o')
+                    person: record.get('p'),
+                    relation: record.get('por'),
+                    organisation: record.get('o')
                 });
             });
         })
@@ -77,9 +77,9 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
             session.close();
             result.records.map(record => {
                 callback(null, {
-                    Person: record.get('p'),
-                    Relation: record.get('pjr'),
-                    jobRole: record.get('jr')
+                    person: record.get('p'),
+                    relation: record.get('pjr'),
+                    jobrole: record.get('jr')
                 });
             });
         })
@@ -120,8 +120,8 @@ const releatePersonToWorkingLocation = function(personName, workinglocInstance, 
             session.close();
             result.records.map(record => {
                 callback(null, {
-                    Person: record.get('p'),
-                    Relation: record.get('ploc'),
+                    person: record.get('p'),
+                    relation: record.get('ploc'),
                     location: record.get('loc')
                 });
             });
