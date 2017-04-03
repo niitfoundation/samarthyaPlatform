@@ -2,77 +2,139 @@ const graphConst = require('../../api/v1/common/graphConstants');
 const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
 
-const relatePersonToOrganisation = function(person, organizationName, index, attributes, callback) {
+const relatePersonToOrganisation = function(personName, workExpInstance, callback) {
+    // Establish relation between (:Person)-[:WORKED_WITH {role: '', duration: '', isCurrent: ''}]-(:Organization)
+
+    let relAttributes = '';
+    relAttributes = relAttributes + ' role: {role}';
+    relAttributes = relAttributes + ', duration: {duration}';
+    relAttributes = relAttributes + ', isCurrent: {isCurrent}';
+
     let query = '';
-    let user = 'user:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
-    query = query + 'MERGE(' + user + ' ) With user MATCH (' + user + ')';
-    let workPlace = 'workplace:' + graphConst.NODE_WORKPLACE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + organizationName.toLowerCase() + '"}';
-    query = query + 'MERGE(user)-[:' + graphConst.REL_WORKED_WITH + ' { role:"' + attributes.roles.toLowerCase() + '", duration: "' + attributes.duration + '", iscurrent: ' + attributes.iscurrent + ' }]->(' + workPlace + ')';
-    logger.debug(query);
-    // neo4j session
-    const session = neo4jConn.connection();
-    // run query in neo4j
-    return session
-        .run(query)
-        .then(result => {
-            session.close();
-            callback('first');
-        })
-        .catch(error => {
-            session.close();
-            logger.error(error);
-        });
-};
-const releatePersonToJobRole = function(person, jobRoleName, index, attributes, callback) {
-    let query = '';
-    let user = 'user1:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
-    query = query + 'MERGE(' + user + ' ) With user1 MATCH (' + user + ')';
-    let role = 'role:' + graphConst.NODE_ROLE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + jobRoleName.toLowerCase() + '"} ';
-    query = query + 'MERGE(user1) - [: ' + graphConst.REL_WORKED_AS + ' { duration: ' + attributes.duration + ', org: "' + attributes.organization + '" }] - > (' + role + ')';
-    logger.debug(query);
-    // neo4j session
+    query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
+    query = query + ' MERGE (o:' + graphConst.NODE_ORGANISATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{organizationName}})';
+    query = query + ' MERGE (p)-[por:' + graphConst.REL_WORKED_WITH + ' {' + relAttributes + '} ]->(o)';
+    query = query + ' RETURN p,por,o';
+
+    let params = {
+        personName: personName.toLowerCase(),
+        organizationName: workExpInstance.workplace.toLowerCase(),
+        role: workExpInstance.jobRole.toLowerCase(),
+        duration: workExpInstance.duration.toString(),
+        isCurrent: (workExpInstance.isCurrent || false)
+    };
+
+    logger.debug('relatePersonToOrganisation::Query', query);
+
     const session = neo4jConn.connection();
 
-    // run query in neo4j
-    return session
-        .run(query)
+    session
+        .run(query, params)
         .then(result => {
             session.close();
-            callback('second');
+            result.records.map(record => {
+                callback(null, {
+                    Person: record.get('p'),
+                    Relation: record.get('por'),
+                    Organisation: record.get('o')
+                });
+            });
         })
-        .catch(error => {
+        .catch(err => {
             session.close();
-            logger.error(error);
+            logger.error('Error in relatePersonToOrganisation ', err);
+            callback(err, null);
         });
+    return true;
 };
+const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
+    // Establish relation between (:Person)-[:WORKED_AS {duration: '',organization: ''}]-(:jobRole)
 
-const releatePersonToWorkingLocation = function(person, locationName, index, attributes, callback) {
+    let relAttributes = '';
+    relAttributes = relAttributes + ' duration: {duration}';
+    relAttributes = relAttributes + ', org: {organization}';
+
     let query = '';
-    let user = 'user2:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
-    query = query + 'MERGE(' + user + ' ) With user2 MATCH (' + user + ')';
-    let location = 'location:' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + locationName.toLowerCase() + '"}';
-    query = query + 'MERGE(user2)-[:' + graphConst.REL_WORKED_IN + '{org:"' + attributes.organization.toLowerCase() + '",iscurrent: ' + attributes.iscurrent + '}]->(' + location + ')';
+    query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
+    query = query + ' MERGE (jr:' + graphConst.NODE_ROLE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{jobRole}})';
+    query = query + ' MERGE (p)-[pjr:' + graphConst.REL_WORKED_AS + ' {' + relAttributes + '} ]->(jr)';
+    query = query + ' RETURN p,pjr,jr';
 
-    logger.debug(query);
-    // neo4j session
+    let params = {
+        personName: personName.toLowerCase(),
+        jobRole: jobRoleInstance.jobRole.toLowerCase(),
+        duration: jobRoleInstance.duration,
+        organization: jobRoleInstance.workplace
+    };
+
+    logger.debug('relatePersonToJobRole::Query', query);
+
     const session = neo4jConn.connection();
 
-    // run query in neo4j
     return session
-        .run(query)
+        .run(query, params)
         .then(result => {
             session.close();
-            callback('third');
+            result.records.map(record => {
+                callback(null, {
+                    Person: record.get('p'),
+                    Relation: record.get('pjr'),
+                    jobRole: record.get('jr')
+                });
+            });
         })
-        .catch(error => {
+        .catch(err => {
             session.close();
-            logger.error(error);
+            logger.error('Error in relatePersonToJobRole ', err);
+            callback(err, null);
         });
 };
+
+const releatePersonToWorkingLocation = function(personName, workinglocInstance, callback) {
+    // Establish relation between (:Person)-[:WORKED_IN {organization: '',}isCurrent:'']-(:location)
+
+    let relAttributes = '';
+    relAttributes = relAttributes + ' isCurrent: {isCurrent}';
+    relAttributes = relAttributes + ', org: {organization}';
+
+    let query = '';
+    query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
+    query = query + ' MERGE (loc:' + graphConst.NODE_LOCATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{locationName}})';
+    query = query + ' MERGE (p)-[ploc:' + graphConst.REL_WORKED_IN + ' {' + relAttributes + '} ]->(loc)';
+    query = query + ' RETURN p,ploc,loc';
+
+    let params = {
+        personName: personName.toLowerCase(),
+        locationName: workinglocInstance.location.toLowerCase(),
+        organization: workinglocInstance.workplace.toLowerCase(),
+        isCurrent: (workinglocInstance.isCurrent || false)
+    };
+
+    logger.debug('releatePersonToWorkingLocation::Query', query);
+
+    const session = neo4jConn.connection();
+
+    return session
+        .run(query, params)
+        .then(result => {
+            session.close();
+            result.records.map(record => {
+                callback(null, {
+                    Person: record.get('p'),
+                    Relation: record.get('ploc'),
+                    location: record.get('loc')
+                });
+            });
+        })
+        .catch(err => {
+            session.close();
+            logger.error('Error in releatePersonToWorkingLocation ', err);
+            callback(err, null);
+        });
+};
+
 module.exports = {
     relatePersonToOrganisation: relatePersonToOrganisation,
     releatePersonToJobRole: releatePersonToJobRole,
     releatePersonToWorkingLocation: releatePersonToWorkingLocation
-
-
 };

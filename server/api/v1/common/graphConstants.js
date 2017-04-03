@@ -9,7 +9,7 @@ module.exports = {
     NODE_SKILL: 'Skill',
     NODE_CENTRE: 'Centre',
     NODE_PROPERTY_NAME: 'name',
-    NODE_WORKPLACE: 'WorkPlace',
+    NODE_ORGANISATION: 'Organisation',
     NODE_DESG: 'Designation',
     REL_QUALIFIED_AS: 'Qualified_As',
     REL_MAJOR_SUBJECT: 'Major_Subject',

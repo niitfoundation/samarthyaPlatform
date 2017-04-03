@@ -1,9 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
+const logger = require('./../../../applogger');
 
 describe('Test work experience section data analysis', function() {
     it('Invoke work experience analyser as a module', function(done) {
-        const workExpModule = require('./');
+        const workExpModule = require('./workExperience.analyzer');
         expect(undefined).to.not.equal(workExpModule);
         expect('object').to.equal(typeof workExpModule);
         expect('function').to.equal(typeof workExpModule.analyze);
@@ -12,7 +13,7 @@ describe('Test work experience section data analysis', function() {
 
     describe('Validations', function() {
         it('Check if analyze method verifies for data, espeically required data, before prcoeeding to analyze', function(done) {
-            const workExpModule = require('./');
+            const workExpModule = require('./workExperience.analyzer');
             const profileUser = {};
             const workExperience = [];
 
@@ -28,9 +29,11 @@ describe('Test work experience section data analysis', function() {
         });
     });
 
-    describe('Analyse simple one single work experience entry in the profile', function() {
+
+
+    describe('Analyse collection of work experience entry in the profile', function() {
         before(function() {
-            console.log('[*] Cleaning up graph model, BEFORE verifying graph model creation from analyzer ');
+            logger.info('[*] Cleaning up graph model, BEFORE verifying graph model creation from analyzer ');
         });
 
         it('Pass a actual data and check if data model is returned', function(done) {
@@ -40,24 +43,54 @@ describe('Test work experience section data analysis', function() {
                 workplace: 'Wipro',
                 jobRole: 'Developer',
                 location: 'Bangalore',
-                iscurrent: 'true',
-                duration: 2,
+                isCurrent: true,
+                duration: 2
+            }, {
+                workplace: 'Infosys',
+                jobRole: 'Tester',
+                location: 'Pune',
+                iscurrent: false,
+                duration: 2
             }];
 
             workExpModule.analyze(profileUser, workExperience, function(err, result) {
-                // expect(null).to.equal(err);
-
-                // Go to neo4j, get a data about
-                // Person to WorkExperience node relationship should exist
-                // match (p:Person)-[r:Workd_At {role: 'developer'}]-(o:Orgainization)
-                // match (p:Person)-[r:Workd_As {duration: 'developer'}]-(jr:JobRole)
-                // match (p:Person)-[r:Workd_In {duration: ''}]-(l:Location)
+                logger.info('Got the result from work experience analyzer ', ' err: ', err, ' result: ', JSON.stringify(result));
+                expect(result).to.not.equal(null);
+                expect(result).to.not.equal(undefined);
                 done();
             });
         });
 
         after(function() {
-            console.log('[*] Cleaning up graph model, AFTER verifying graph model creation from analyzer');
+            logger.info('[*] Cleaning up graph model, AFTER verifying graph model creation from analyzer');
+        });
+    });
+    describe('Analyse simple one single work experience entry in the profile', function() {
+        before(function() {
+            logger.info('[*] Cleaning up graph model, BEFORE verifying graph model creation from analyzer ');
+        });
+
+        it('Pass a actual data and check if data model is returned', function(done) {
+            const workExpModule = require('./workExperience.analyzer');
+            const personName = 'Dheeren';
+            const workExperience = {
+                workplace: 'Wipro',
+                jobRole: 'Developer',
+                location: 'Bangalore',
+                isCurrent: true,
+                duration: 2
+            };
+
+            workExpModule.analyzeWorkExperienceInstance(personName, workExperience, function(err, result) {
+                // console.log('Got the result from work experience analyzer ', ' err: ', err, ' result: ', JSON.stringify(result));
+                expect(result).to.not.equal(null);
+                expect(result).to.not.equal(undefined);
+                done();
+            });
+        });
+
+        after(function() {
+            logger.info('[*] Cleaning up graph model, AFTER verifying graph model creation from analyzer');
         });
     });
 });
