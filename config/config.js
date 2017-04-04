@@ -8,6 +8,7 @@ let NEO4J = {
     USERNAME: 'neo4j',
     PASSWORD: 'prakul'
 };
+let KAFKA_HOST = 'localhost:9092';
 
 module.exports = {
     SAMARTHYA: SAMARTHYA,

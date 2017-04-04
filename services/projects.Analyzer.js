@@ -5,12 +5,12 @@ const config = require('./../config/profileAnalysisConfig');
 const analyzer = function(msgObj) {
     let promise = new Promise(function(resolve, reject) {
         const analyzerModule = require(
-            '../server/profileAnalyzer/personalInfoSection/personalInfo.analyzer')
+            '../server/profileAnalyzer/projectsSection/projects.analyzer');
 
         let profileUser = { username: msgobj.username };
-        let personalInfo = msgobj.profile.personalInfo;
+        let projects = msgobj.profile.projects;
         analyzerModule
-            .analyze(profileUser, personalInfo,
+            .analyze(profileUser, projects,
                 function(err, result) {
                     if (err) {
                         reject(err);
@@ -26,10 +26,10 @@ const analyzer = function(msgObj) {
 }
 
 const execute = function() {
-    let subscribeTopic = config.SECTION_TO_TOPIC_MAP['PERSONAL_INFO'];
+    let subscribeTopic = config.SECTION_TO_TOPIC_MAP['PROJECTS'];
     let consumerGroup = config.CONSUMER_GROUP;
     const processor = {
-        name: config.PROCESSOR_NAME['personalinfo'],
+        name: config.PROCESSOR_NAME['projects'],
         process: analyzer
     }
 
