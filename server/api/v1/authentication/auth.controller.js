@@ -53,13 +53,13 @@ const authenticateUser = function(authObj) {
 };
 
 
-// find user is already exists or not
+//find user is already exists or not
 let checkUser = function(objEmail) {
     let userDetails = {
         username: objEmail,
     };
     return new Promise((resolve, reject) => {
-        userModel.find(userDetails, function(err, data) {
+        userModel.findOne(userDetails, function(err, data) {
             if (err) {
                 logger.info(err);
                 reject({
@@ -67,7 +67,6 @@ let checkUser = function(objEmail) {
                     msg: 'user already exist'
                 });
             } else {
-                logger.info(data)
                 resolve(data);
             }
         });

@@ -29,35 +29,25 @@ const relatePersonToHimself = function (personName, looking, callback) {
     .run(query, params)
     .then(result => {
       session.close();
-<<<<<<< HEAD
       result.records.map(record => {
         callback(null, {
           Person: record.get('p'),
           Relation: record.get('ppr')
         });
       });
-=======
-      logger.info('coming');
-      callback('first query');
->>>>>>> b8610a061854203a858a2d1d22b8d0325fc46542
     })
     .catch(err => {
       session.close();
       logger.error('Error in relatePersonToHimself ', err);
       callback(err, null);
     });
-<<<<<<< HEAD
   return true;
 
 };
 
 //relating person to jobrole and merge/create the nodes and relations
 const relatePersonTojobRole = function (personName, jobRole, callback) {
-=======
-};
 
-const relatePersonToSkill = function (person, skills) {
->>>>>>> b8610a061854203a858a2d1d22b8d0325fc46542
   let query = '';
   query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
   query = query + ' MERGE (j:' + graphConst.NODE_JOBROLE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{jobRole}})';
@@ -90,18 +80,13 @@ const relatePersonToSkill = function (person, skills) {
       logger.error('Error in relatePersonTojobRole ', err);
       callback(err, null);
     });
-<<<<<<< HEAD
   return true;
 
 };
 
 //relating person to Skill and merge/create the nodes and relations
 const relatePersonToSkill = function (personName, skills, callback) {
-=======
-};
 
-const relatePersonToPreferredLocation = function (person, location) {
->>>>>>> b8610a061854203a858a2d1d22b8d0325fc46542
   let query = '';
   let results = [];
   query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
@@ -153,7 +138,6 @@ const relatePersonToPreferredLocation = function (personName, locations, callbac
 
   const session = neo4jConn.connection();
 
-<<<<<<< HEAD
   async.map(locations, function (location) {
     let params = {
       personName: personName.toLowerCase(),
@@ -183,18 +167,6 @@ const relatePersonToPreferredLocation = function (personName, locations, callbac
   callback(null, results);
 
   return session;
-
-
-=======
-  session.run(query).then(result => {
-      session.close();
-      callback('Third query');
-    })
-    .catch(error => {
-      session.close();
-      logger.error(error);
-    });
->>>>>>> b8610a061854203a858a2d1d22b8d0325fc46542
 };
 
 module.exports = {

@@ -6,7 +6,6 @@ const async = require('async');
 const highland = require('highland');
 const fs = require('fs');
 
-
 // save the profileImport to profile collections and users collections and updated profileImportHistory and ready for profile analyser
 let saveProfileImport = function (id) {
     let id1 = '_id';
@@ -17,7 +16,7 @@ let saveProfileImport = function (id) {
     require('../server/services/webapp.service').setupMongooseConnections();
     try {
         ProfileImportModel.find({
-            _id: id
+            id1: id
         }, function (err, datas) {
             if (err) {
                 logger.error(err);
