@@ -86,7 +86,7 @@ router.post('/register-email', function (req, res) {
                     });
             } else {
                 return res.status(201).send({
-                    msg: 'user already exist'
+                    msg: 'user already exist',success:false
                 });
             }
         },
@@ -130,7 +130,7 @@ router.post('/verify-reset-email', function (req, res) {
         let param = req.body;
         // check the user is available or not
         authCtrl.checkUser(param.username).then((data) => {
-            if (data.length == 0) {
+            if (!data) {
                 // if user is does not exit send mail
                 return res.status(201).send({
                     msg: 'user does not exist'

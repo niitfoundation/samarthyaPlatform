@@ -31,7 +31,6 @@ const getProfile = function (profileObj) {
 // Add profile details
 const createProfile = function (profileObj) {
     // Add/modify profile model
-    console.log(profileObj)
     let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
 
     return new Promise((resolve, reject) => {

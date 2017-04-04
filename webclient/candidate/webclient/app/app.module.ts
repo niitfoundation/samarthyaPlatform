@@ -13,8 +13,10 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { Logger } from 'angular2-logger/core';
 import { Md2Module } from 'md2';
-import { SamProfileCardService } from 'samarthyaCandidate/services/sam-profile-card.service';
-import { SamProfileSectionConfigService } from 'samarthyaCandidate/services/sam-profile-section-config.service';
+import { SamProfileCardService } from 'samarthyaWebcomponent/sam-profile/sam-profile-card/sam-profile-card.service';
+import { SamProfileSectionConfigService } from 'samarthyaWebcomponent/sam-profile/sam-profile-section/sam-profile-section-config.service';
+import { ProfileService } from 'samarthyaWebcomponent/sam-profile/sam-profile-section/sam-profile-section-data.service';
+
 
 @NgModule({
   imports: [

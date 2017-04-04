@@ -82,12 +82,8 @@ const relatePersonToLanguage = function (personName, personalInfo, callback) {
   return true;
 };
 
-const relatePersonToMultiLanguage = function (personName, personalInfo, callback) {
-
-  let languages = personalInfo.lang;
-  languages.forEach(function (lang) {
-
-    let query = '';
+const relatePersonToSpecificLanguage = function (personName, lang, callback) {
+   let query = '';
     query = query + 'MATCH(p:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + 'MERGE(lang:' + graphConst.NODE_LANGUAGE + '{' + graphConst.NODE_PROPERTY_NAME + ':{langName}})';
 
@@ -129,13 +125,16 @@ const relatePersonToMultiLanguage = function (personName, personalInfo, callback
         logger.error('Error in relatePersonToMultiLanguage ', err);
         callback(err, null);
       });
-  }, this);
 };
 
-
+const relatePersonToLanguageColln = function (personName, personalInfo, callback) {
+  async.map(personalInfo.lang, function(lang) {
+    relatePersonToSpecificLanguage(personName, lang, callback);
+  }, callback);
+};
 
 module.exports = {
   relatePersonToLocation: relatePersonToLocation,
   relatePersonToLanguage: relatePersonToLanguage,
-  relatePersonToMultiLanguage: relatePersonToMultiLanguage,
+  relatePersonToLanguageColln: relatePersonToLanguageColln,
 };

@@ -27,7 +27,6 @@ const relatePersonToOrganisation = function(personName, workExpInstance, callbac
     logger.debug('relatePersonToOrganisation::Query', query);
 
     const session = neo4jConn.connection();
-
     session
         .run(query, params)
         .then(result => {

@@ -1,14 +1,16 @@
 const sectionAnalyzerBase = require('./sectionAnalysis.service');
 
 const analyzer = function(msgObj) {
-    let promise = function(resolve, reject) {
-        const analyzer = require(
+
+    let promise = new Promise(function(resolve, reject) {
+        const analyzerModule = require(
             '../server/profileAnalyzer/personalInfoSection');
 
         let profileUser = msgObj.username;
         let personalInfo = msgObj.profile['personalInfo'];
 
-        analyzer
+
+        analyzerModule
             .analyze(profileUser, personalInfo,
                 function(err, result) {
                     if (err) {
@@ -19,7 +21,7 @@ const analyzer = function(msgObj) {
                     resolve(result);
                     return;
                 });
-    }
+    });
 
     return promise;
 

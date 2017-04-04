@@ -19,24 +19,24 @@ function run(subscribeTopic, consumerGroup, kafkaHost, processPipeLine) {
         throw new Error('Invalid subscription details for consumer..!');
         return;
     }
+
     kafkaHost = kafkaHost || config.KAFKA_HOST;
     consumerGroup = consumerGroup || '';
 
     let client = new kafka.Client(kafkaHost);
-    let topics = [{
-        topic: subscribeTopic
-    }];
-    let options = {
-        groupId: consumerGroup,
-        autoCommit: true
-    }
 
-    let consumer = new kafka.Consumer(client, topics, options);
     highland(function(push, next) {
+            let topics = [{
+                topic: subscribeTopic
+            }];
+            let options = {
+                groupId: consumerGroup,
+                autoCommit: true
+            }
 
-
+            let consumer = new kafka.Consumer(client, topics, options);
             consumer.on('message', function(message) {
-                // console.log('[*] Message received: ', message);
+                // console.log('Message received: ', message);
 
                 //If message is not JSON, parse it as JSON here, before passing it to the rest of the pipeline
 
@@ -44,17 +44,17 @@ function run(subscribeTopic, consumerGroup, kafkaHost, processPipeLine) {
                 push(null, message);
 
                 //Start calling the generator again for listening to next message
-                next();
+                next(); //Commenting this as processing is currently slower than message producer
             });
 
             consumer.on('error', function(err) {
                 console.log("Error: ", err);
 
+
                 push(err, null);
                 next();
             });
-        })
-        .map(function(messageObj) {
+        }).map(function(messageObj) {
             //Temporarily keeping this map method, to intermediary log and verify if messages are coming from Kafka or not
             //Once well tested, this method can be removed
             console.log('[*] Received a message in pipeline: ', messageObj);

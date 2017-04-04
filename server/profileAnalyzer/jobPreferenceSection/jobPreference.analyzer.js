@@ -28,19 +28,6 @@ analyzeJobPreferenceInstance = function (profileUser, jobPreference, looking, an
             jobPreferenceModel.relatePersonToHimself(profileUser.username, looking, callback)
         },
         //relating person to jobRole node
-=======
-    logger.info('Proceeding to analyze work experience..!');
-
-
-    let results = [];
-    analyzeJobPreferenceInstance(profileUser, jobPreferenceColln[0], callback);
-    return callback;
-};
-
-analyzeJobPreferenceInstance = function (profileUser, jobPreference, callback) {
-    async.parallel([
-        // relating person to jobRole node
->>>>>>> b8610a061854203a858a2d1d22b8d0325fc46542
         function (callback) {
             jobPreferenceModel.relatePersonTojobRole(profileUser.username, jobPreference.jobRole, callback)
         },
@@ -53,7 +40,6 @@ analyzeJobPreferenceInstance = function (profileUser, jobPreference, callback) {
             jobPreferenceModel.relatePersonToPreferredLocation(profileUser.username, jobPreference.location, callback);
         }
     ], function (err, result) {
-<<<<<<< HEAD
         if (err) {
             logger.error('Error in analyzing jobPreference instance ', err);
             analyzeResultCallback(err, null);
@@ -67,12 +53,3 @@ module.exports = {
     analyze: analyze,
     analyzeJobPreferenceInstance: analyzeJobPreferenceInstance
 }
-=======
-        callback(result);
-    });
-};
-
-module.exports = {
-    analyze: analyze
-};
->>>>>>> b8610a061854203a858a2d1d22b8d0325fc46542

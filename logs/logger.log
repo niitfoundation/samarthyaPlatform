@@ -77,3 +77,19 @@
 [2017-04-04 23:12:52.441] [ERROR] [default] - No data found to analyze
 [2017-04-04 23:12:55.841] [ERROR] [default] - No data found to analyze
 [2017-04-04 23:15:32.838] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:19:25.530] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:21:04.393] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:22:25.803] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:26:57.650] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:27:49.631] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:29:20.246] [INFO] [default] - Proceeding to analyze work experience..!
+[2017-04-04 23:29:20.250] [DEBUG] [default] - [*] Starting to analyze Workexperience instance [ Dheeren:Wipro ]
+[2017-04-04 23:29:20.251] [DEBUG] [default] - relatePersonToOrganisation::Query  MATCH (p:Person {name:{personName}}) MERGE (o:undefined {name:{organizationName}}) MERGE (p)-[por:Worked_With { role: {role}, duration: {duration}, isCurrent: {isCurrent}} ]->(o) RETURN p,por,o
+[2017-04-04 23:29:20.266] [DEBUG] [default] - relatePersonToJobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (jr:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Worked_As { duration: {duration}, organisation: {organization}} ]->(jr) RETURN p,pjr,jr
+[2017-04-04 23:29:20.269] [DEBUG] [default] - releatePersonToWorkingLocation::Query  MATCH (p:Person {name:{personName}}) MERGE (loc:Location {name:{locationName}}) MERGE (p)-[ploc:Worked_In { isCurrent: {isCurrent}, org: {organization}} ]->(loc) RETURN p,ploc,loc
+[2017-04-04 23:36:04.191] [INFO] [default] - Proceeding to analyze work experience..!
+[2017-04-04 23:36:04.194] [DEBUG] [default] - [*] Starting to analyze Workexperience instance [ Dheeren:Wipro ]
+[2017-04-04 23:36:04.195] [DEBUG] [default] - relatePersonToOrganisation::Query  MATCH (p:Person {name:{personName}}) MERGE (o:undefined {name:{organizationName}}) MERGE (p)-[por:Worked_With { role: {role}, duration: {duration}, isCurrent: {isCurrent}} ]->(o) RETURN p,por,o
+[2017-04-04 23:36:04.211] [DEBUG] [default] - relatePersonToJobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (jr:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Worked_As { duration: {duration}, organisation: {organization}} ]->(jr) RETURN p,pjr,jr
+[2017-04-04 23:36:04.213] [DEBUG] [default] - releatePersonToWorkingLocation::Query  MATCH (p:Person {name:{personName}}) MERGE (loc:Location {name:{locationName}}) MERGE (p)-[ploc:Worked_In { isCurrent: {isCurrent}, org: {organization}} ]->(loc) RETURN p,ploc,loc
+[2017-04-04 23:36:05.463] [DEBUG] [default] - [*] Done analysing Workexperience instance [ Dheeren:Wipro ]

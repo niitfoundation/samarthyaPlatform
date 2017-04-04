@@ -7,18 +7,17 @@ const analyzer = function(msgObj) {
 
         msgobj = {
             username: 'Dheeren',
-            profile: {
+            profile: [{
                 workplace: 'Wipro',
                 jobRole: 'Developer',
                 location: 'Bangalore',
                 isCurrent: true,
                 duration: 2
 
-            }
-
+            }]
         };
-        console.log(msgobj.profile);
-        let profileUser = msgobj.username;
+
+        let profileUser = { username: msgobj.username };
         let workExperience = msgobj.profile;
         analyzerModule
             .analyze(profileUser, workExperience,
