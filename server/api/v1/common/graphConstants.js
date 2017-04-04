@@ -43,5 +43,7 @@ module.exports = {
     PROP_ROLE: 'role',
     PROP_DURATION: 'duration',
     PROP_ISCURRENT: 'isCurrent',
-    PROP_ORGANISATION: 'organisation'
+    PROP_ORGANISATION: 'organisation',
+    PROP_EXPERTISE: 'expertise',
+    PROP_EXPERIENCE: 'experience'
 };

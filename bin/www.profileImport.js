@@ -9,6 +9,10 @@ const fs = require('fs');
 
 // save the profileImport to profile collections and users collections and updated profileImportHistory and ready for profile analyser
 let saveProfileImport = function (id) {
+    let id1 = '_id';
+    let username = 'username';
+    let importedOn = 'importedOn';
+    let status = 'status';
     let saveData;
     require('../server/services/webapp.service').setupMongooseConnections();
     try {
@@ -19,7 +23,7 @@ let saveProfileImport = function (id) {
                 logger.error(err);
             } else {
                 ProfileImportModel.update({
-                    '_id': id
+                    id1: id
                 }, {
                     $set: {
                         'importResult.total': datas[0].importData.length
@@ -31,13 +35,12 @@ let saveProfileImport = function (id) {
                         logger.info('updted total profiles');
                     }
                 });
-                let result = highland(datas[0].importData) // Creates a stream from an array of filenames
+                // Creates a stream from an array of filenames
+                let result = highland(datas[0].importData)
                     .map(function (fileContent) {
                         return fileContent;
                     });
                 result.each(function (d) {
-
-
                     async.waterfall(
                         [
                             function (callback) {
@@ -52,7 +55,7 @@ let saveProfileImport = function (id) {
                                 userData = new UserModel(saveData);
                                 userData.save(function (err, data) {
                                     details = {
-                                        '_id': id
+                                        id1: id
                                     };
                                     if (err) {
                                         logger.error('userData not added sucessfully' + err);
@@ -68,7 +71,7 @@ let saveProfileImport = function (id) {
                                                     logger.error(err);
                                                 } else {
                                                     ProfileImportModel.update({
-                                                        '_id': id,
+                                                        id1: id,
                                                         'importData.personalinfo.contact.I': d.personalinfo.contact.I
                                                     }, {
                                                         $set: {
@@ -95,7 +98,7 @@ let saveProfileImport = function (id) {
                                 profileData.save(function (err, docs) {
                                     if (err) {
                                         ProfileImportModel.update({
-                                            '_id': id,
+                                            id1: id,
                                             'importData.personalinfo.contact.I': d.personalinfo.contact.I
                                         }, {
                                             $set: {
@@ -110,8 +113,9 @@ let saveProfileImport = function (id) {
                                             }
                                         });
                                         logger.error('error in profile add' + err);
+
                                         UserModel.remove({
-                                            'username': d.username
+                                            username: d.username
                                         }, function (err, removeDocs) {
                                             if (err) {
                                                 logger.error('Error in remove the user data while fail' + err);
@@ -122,7 +126,7 @@ let saveProfileImport = function (id) {
                                     } else {
                                         logger.info('profile added');
                                         ProfileImportModel.update({
-                                                _id: id
+                                                id1: id
                                             }, {
                                                 $inc: {
                                                     'importResult.success': 1
@@ -133,12 +137,12 @@ let saveProfileImport = function (id) {
                                                     logger.error(err);
                                                 } else {
                                                     ProfileImportModel.update({
-                                                        '_id': id,
+                                                        id1: id,
                                                         'importData.username': d.username
                                                     }, {
                                                         $set: {
-                                                            'importedOn': Date.now(),
-                                                            'status': 'imported',
+                                                            importedOn: Date.now(),
+                                                            status: 'imported',
                                                             'importData.$.importStatus': 'Success'
                                                         }
                                                     }, function (err, data) {
@@ -164,12 +168,12 @@ let saveProfileImport = function (id) {
 
                         ],
                         function (err, result) {
-                            logger.error(result)
+                            logger.error(result);
                         });
                 });
             }
         });
     } catch (err) {
-        logger.error(err)
+        logger.error(err);
     }
 };

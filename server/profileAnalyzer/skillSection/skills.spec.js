@@ -8,18 +8,22 @@ describe('Test personal Info section data Analysis', function () {
         const skillsModule = require('./');
         expect(undefined).to.not.equal(skillsModule);
         expect('object').to.equal(typeof skillsModule);
-        expect('function').to.equal(typeof skillsModule.analyze);
+        expect('function').to.equal(typeof skillsModule.analyzer);
         done();
     });
 
     describe('Validations', function () {
         it('Check if analyze method verifies for data, espeically required data, before prcoeeding to analyze', function (done) {
             const skillsModule = require('./');
-            const profileUser = {};
-            const skills = [];
+            const profileUser = { username: 'prakul' };
+            const skills = [{
+                name: 'Java',
+                experience: '3',
+                expertise: 'Beginner'
+            }];
 
             // Expecting a error
-            skillsModule.analyze(profileUser, skills, function (err, result) {
+            skillsModule.analyzer(profileUser, skills, function (err, result) {
                 // Only if no data was passed, error should be thrown
                 // if error comes, test case passes, if no error comes, test cases failes
                 expect('object').to.equal(typeof err);
@@ -38,17 +42,14 @@ describe('Test personal Info section data Analysis', function () {
         it('Pass a actual data and check if data model is returned', function (done) {
             const skillsModule = require('./');
             const profileUser = { username: 'dheeren' };
-            const skills = [{}];
+            const skills = [{
+                name: 'Java',
+                experience: '3',
+                expertise: 'Beginner'
+            }];
 
-            skillsModule.analyze(profileUser, skills, function (err, result) {
+            skillsModule.analyzer(profileUser, skills, function (err, result) {
                 expect(null).to.equal(err);
-
-                // Go to neo4j, get a data about
-                // Person to WorkExperience node relationship should exist
-                // match (p:Person)-[r:Workd_At {role: 'developer'}]-(o:Orgainization)
-                // match (p:Person)-[r:Workd_As {duration: 'developer'}]-(jr:JobRole)
-                // match (p:Person)-[r:Workd_In {duration: ''}]-(l:Location)
-
                 done();
             });
         });

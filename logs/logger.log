@@ -1,0 +1,40 @@
+[2017-04-04 01:34:38.983] [DEBUG] [default] - Server running  on 3000
+[2017-04-04 01:34:39.006] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-04-04 01:34:46.895] [FATAL] [default] - sdsdsdsdsdsdds
+[2017-04-04 01:35:24.891] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-04-04 01:35:25.950] [DEBUG] [default] - Server running  on 3000
+[2017-04-04 01:35:25.969] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-04-04 01:35:31.106] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
+[2017-04-04 01:36:15.603] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-04-04 01:36:16.767] [DEBUG] [default] - Server running  on 3000
+[2017-04-04 01:36:16.785] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-04-04 01:36:23.385] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
+[2017-04-04 01:37:57.683] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-04-04 01:38:09.604] [DEBUG] [default] - Server running  on 3000
+[2017-04-04 01:38:09.623] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
+[2017-04-04 01:38:24.268] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
+[2017-04-04 01:40:09.327] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
+[2017-04-04 01:40:36.736] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
+[2017-04-04 01:41:08.740] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
+[2017-04-04 01:41:36.507] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
+[2017-04-04 01:42:01.227] [FATAL] [default] - { name: 'don' }
+[2017-04-04 01:42:01.229] [ERROR] [default] - TypeError: name.forEach is not a function
+    at Promise (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/server/api/v1/centres/centres.controller.js:44:10)
+    at Object.addCentre (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/server/api/v1/centres/centres.controller.js:41:17)
+    at /home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/server/api/v1/centres/centres.router.js:33:20
+    at Layer.handle [as handle_request] (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
+    at /home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:317:13)
+    at /home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:335:12)
+[2017-04-04 01:42:25.640] [FATAL] [default] - { name: [ 'don' ] }
+[2017-04-04 01:44:28.023] [FATAL] [default] - { name: [ 'Shimla' ] }
+[2017-04-04 01:47:22.644] [DEBUG] [default] - Mongoose is now disconnected..!
