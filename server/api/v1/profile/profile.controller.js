@@ -49,9 +49,21 @@ const createProfile = function (profileObj) {
 
 const editProfile = function (profileObj) {
 
-    // @TODO
-    // Get the profile schema and perform edit operations
-    // use promise for database operations and return result
+    console.log("---->>>>>>>>>");
+   console.log((profileData));
+   let sectionName=profileData.sectionName;
+return new Promise((resolve, reject) =>{
+       ProfileModel.update({ username:profileData.username },{$set:{ sectionName:profileData.modifyObj}},function (err, data) {
+           if (err) {
+               logger.error('Profile data error' + err);
+               reject(err);
+           } else {
+               logger.debug('Got Profile Data' + err);
+               // inserts profile details
+               resolve({ data: data });
+           }
+   });
+});
 
 };
 
