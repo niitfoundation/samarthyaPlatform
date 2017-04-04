@@ -1,51 +1,79 @@
-[2017-04-04 01:34:38.983] [DEBUG] [default] - Server running  on 3000
-[2017-04-04 01:34:39.006] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-04-04 01:34:46.895] [FATAL] [default] - sdsdsdsdsdsdds
-[2017-04-04 01:35:24.891] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-04-04 01:35:25.950] [DEBUG] [default] - Server running  on 3000
-[2017-04-04 01:35:25.969] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-04-04 01:35:31.106] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:36:15.603] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-04-04 01:36:16.767] [DEBUG] [default] - Server running  on 3000
-[2017-04-04 01:36:16.785] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-04-04 01:36:23.385] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:37:57.683] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-04-04 01:38:09.604] [DEBUG] [default] - Server running  on 3000
-[2017-04-04 01:38:09.623] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-04-04 01:38:24.268] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:40:09.327] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:40:36.736] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:41:08.740] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:41:36.507] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:42:01.227] [FATAL] [default] - { name: 'don' }
-[2017-04-04 01:42:01.229] [ERROR] [default] - TypeError: name.forEach is not a function
-    at Promise (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/server/api/v1/centres/centres.controller.js:44:10)
-    at Object.addCentre (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/server/api/v1/centres/centres.controller.js:41:17)
-    at /home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/server/api/v1/centres/centres.router.js:33:20
-    at Layer.handle [as handle_request] (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/route.js:137:13)
-    at Route.dispatch (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/route.js:112:3)
-    at Layer.handle [as handle_request] (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
-    at /home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:281:22
-    at Function.process_params (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:335:12)
-    at next (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:275:10)
-    at Function.handle (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:174:3)
-    at router (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:47:12)
-    at Layer.handle [as handle_request] (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
-    at trim_prefix (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:317:13)
-    at /home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:284:7
-    at Function.process_params (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:335:12)
-[2017-04-04 01:42:25.640] [FATAL] [default] - { name: [ 'don' ] }
-[2017-04-04 01:44:28.023] [FATAL] [default] - { name: [ 'Shimla' ] }
-[2017-04-04 01:47:22.644] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-04-04 22:57:21.122] [ERROR] [default] - No data found to analyze
-[2017-04-04 22:58:37.325] [ERROR] [default] - No data found to analyze
-[2017-04-04 23:01:23.236] [ERROR] [default] - No data found to analyze
-[2017-04-04 23:01:58.682] [ERROR] [default] - No data found to analyze
-[2017-04-04 23:02:19.584] [ERROR] [default] - No data found to analyze
-[2017-04-04 23:02:49.332] [ERROR] [default] - No data found to analyze
-[2017-04-04 23:02:55.721] [ERROR] [default] - No data found to analyze
-[2017-04-04 23:03:01.196] [ERROR] [default] - No data found to analyze
-[2017-04-04 23:03:05.808] [ERROR] [default] - No data found to analyze
-[2017-04-04 23:03:05.815] [ERROR] [default] - No data found to analyze
-[2017-04-04 23:03:05.816] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:31.720] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:31.827] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:31.932] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.037] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.141] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.245] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.349] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.454] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.559] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.663] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.769] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.875] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:32.980] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:33.083] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:33.187] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:33.291] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:33.395] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:33.500] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:33.605] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:33.711] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:33.816] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:33.920] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.024] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.129] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.233] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.337] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.441] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.546] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.650] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.754] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.857] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:34.961] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:35.066] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:35.170] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:35.275] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:35.378] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:35.483] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:35.587] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:35.691] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:35.795] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:35.899] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.003] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.106] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.210] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.314] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.419] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.523] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.628] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.733] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.837] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:36.941] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.045] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.149] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.254] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.359] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.463] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.568] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.671] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.775] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.877] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:37.980] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:38.083] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:38.188] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:38.293] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:38.398] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:38.504] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:38.608] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:38.712] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:38.818] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:38.922] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:39.025] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:39.130] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:39.235] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:39.340] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:40.719] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:47.569] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:52.441] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:12:55.841] [ERROR] [default] - No data found to analyze
+[2017-04-04 23:15:32.838] [ERROR] [default] - No data found to analyze

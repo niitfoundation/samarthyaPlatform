@@ -23,16 +23,17 @@ function run(subscribeTopic, consumerGroup, kafkaHost, processPipeLine) {
     consumerGroup = consumerGroup || '';
 
     let client = new kafka.Client(kafkaHost);
-    highland(function(push, next) {
-            let topics = [{
-                topic: subscribeTopic
-            }];
-            let options = {
-                groupId: consumerGroup,
-                autoCommit: true
-            }
+    let topics = [{
+        topic: subscribeTopic
+    }];
+    let options = {
+        groupId: consumerGroup,
+        autoCommit: true
+    }
 
-            let consumer = new kafka.Consumer(client, topics, options);
+    let consumer = new kafka.Consumer(client, topics, options);
+    highland(function(push, next) {
+
 
             consumer.on('message', function(message) {
                 // console.log('[*] Message received: ', message);
