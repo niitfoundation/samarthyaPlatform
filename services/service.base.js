@@ -23,8 +23,9 @@ function run(subscribeTopic, consumerGroup, kafkaHost, processPipeLine) {
   kafkaHost = kafkaHost || config.KAFKA_HOST;
   consumerGroup = consumerGroup || '';
 
+  let client = new kafka.Client(kafkaHost);
+
   highland(function(push, next) {
-      let client = new kafka.Client(kafkaHost);
       let topics = [{
         topic: subscribeTopic
       }];
@@ -44,14 +45,14 @@ function run(subscribeTopic, consumerGroup, kafkaHost, processPipeLine) {
         push(null, message);
 
         //Start calling the generator again for listening to next message
-        // next(); //Commenting this as processing is currently slower than message producer
+        next(); //Commenting this as processing is currently slower than message producer
       });
 
       consumer.on('error', function(err) {
         console.log("Error: ", err);
 
         push(err, null);
-        // next();
+        next();
       });
     }).map(function(messageObj) {
       //Temporarily keeping this map method, to intermediary log and verify if messages are coming from Kafka or not
