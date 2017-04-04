@@ -32,7 +32,7 @@ const relatePersonToSkills = function (personName, skills, callback) {
                 callback(null, {
                     person: record.get('p'),
                     relation: record.get('psr'),
-                    qualification: record.get('s')
+                    skills: record.get('s')
                 });
             });
         })
