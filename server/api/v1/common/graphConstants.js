@@ -27,6 +27,7 @@ module.exports = {
     REL_NATIV_LANG: 'Nativ_Lang',
     REL_PREF_LANG: 'Pref_Lang',
     REL_KNOWS: 'Knows',
+    REL_PROFESSION_IS: 'Profession_Is',
     REL_PROPERTY_YEARS: 'Years',
     REL_JOB_ROLE: 'Expected_JobRole',
     REL_SKILL: 'Preffered_JobRole_Skill',
@@ -45,5 +46,10 @@ module.exports = {
     PROP_ISCURRENT: 'isCurrent',
     PROP_ORGANISATION: 'organisation',
     PROP_EXPERTISE: 'expertise',
-    PROP_EXPERIENCE: 'experience'
+    PROP_EXPERIENCE: 'experience',
+    PROP_EMAIL: 'email',
+    PROP_DOB: 'dob',
+    PROP_NAME: 'displayName',
+    PROP_GENDER: 'gender',
+    PROP_AADHAAR: 'aadhaar',
 };

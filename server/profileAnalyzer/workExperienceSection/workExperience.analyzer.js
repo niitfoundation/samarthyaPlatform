@@ -24,7 +24,7 @@ const analyze = function (profileUser, workExperienceColln, callback) {
 
 analyzeWorkExperienceInstance = function (personName, workExperience, analyzeResultCallback) {
     logger.debug('[*] Starting to analyze Workexperience instance [', personName + ':' + workExperience.workplace, ']');
-
+    
     async.parallel([
         function (callback) {
             // Establish relation between organization and person ROLE AND DURATION

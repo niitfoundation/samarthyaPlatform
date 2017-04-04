@@ -36,7 +36,7 @@ analyzePersonalInfoInstance = function (personName, personalInfo, analyzeResultC
         },
         function (callback) {
             // Establish relation between person and speak , read and write lang
-            personalInfoModel.relatePersonToMultiLanguage(personName, personalInfo, callback);
+            personalInfoModel.relatePersonToLanguageColln(personName, personalInfo, callback);
         }
     ], function (err, result) {
         if (err) {
