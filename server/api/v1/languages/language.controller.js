@@ -4,10 +4,6 @@ const graphConst = require('../common/graphConstants');
 // Function to find languages
 const findLanguages = function (name, limit) {
   let promise = new Promise((resolve, reject) => {
-    if(name === '') {
-      resolve('Please enter a Language');
-    }
-
     const session = neo4jConn.connection();
     let query = '';
     limit = limit || '10';
@@ -15,7 +11,7 @@ const findLanguages = function (name, limit) {
     query = query + 'MATCH (la:' + graphConst.NODE_LANGUAGE + ')';
 
     if (name !== 'undefined' && name.length > 0) {
-      query = query + 'WHERE la.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
+      query = query + 'WHERE la.' + graphConst.NODE_PROPERTY_NAME + '= "' + name.toLowerCase() + '"';
     }
 
     query = query + ' RETURN la LIMIT ' + limit;
@@ -43,8 +39,8 @@ const addLanguage = function (name) {
 
     name.forEach(function (name) {
       let query = '';
-      if (name !== 'undefined' && name.length > 0) {
-        query = query + 'MERGE (la:' + graphConst.NODE_LANGUAGE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+      if (name !== 'undefined' && name.length > 0 && name !== '') {
+        query = query + 'MERGE (la:' + graphConst.NODE_LANGUAGE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
         query = query + ' RETURN la';
       } else {
         reject('Language not found');

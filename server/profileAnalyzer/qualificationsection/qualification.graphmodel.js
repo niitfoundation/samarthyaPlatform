@@ -198,10 +198,47 @@ const relateInstituteToQualification = function (qualification, callback) {
     return true;
 };
 
+const relateInstituteToLocation = function (qualification, callback) {
+    let query = '';
+    query = query + ' MATCH (in:' + graphConst.NODE_INSTITUTE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{instituteName}})';
+    query = query + ' MERGE (l:' + graphConst.NODE_LOCATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{locationName}})';
+    query = query + ' MERGE (in)-[inlr:' + graphConst.REL_DONE_FROM + ']->(l)';
+    query = query + ' RETURN in,inlr,l';
+
+    let params = {
+        instituteName: qualification.institute.toLowerCase(),
+        locationName: qualification.location.toLowerCase(),
+    };
+
+    logger.debug('relateInstituteToLocation::Query', query);
+
+    const session = neo4jConn.connection();
+
+    session
+        .run(query, params)
+        .then(result => {
+            session.close();
+            result.records.map(record => {
+                callback(null, {
+                    institite: record.get('in'),
+                    relation: record.get('inlr'),
+                    qualification: record.get('l')
+                });
+            });
+        })
+        .catch(err => {
+            session.close();
+            logger.error('Error in relateInstituteToLocation ', err);
+            callback(err, null);
+        });
+    return true;
+};
+
 module.exports = {
     relatePersonToQualification: relatePersonToQualification,
     relatePersonToInstitute: relatePersonToInstitute,
     relatePersonToSkill: relatePersonToSkill,
     relateQualificationToSkill: relateQualificationToSkill,
-    relateInstituteToQualification: relateInstituteToQualification
+    relateInstituteToQualification: relateInstituteToQualification,
+    relateInstituteToLocation: relateInstituteToLocation
 };

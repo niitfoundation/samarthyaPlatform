@@ -2,7 +2,7 @@ const logger = require('./../../../applogger');
 const async = require('async');
 const qualificationModel = require('./qualification.graphmodel');
 
-const analyzer = function(profileUser, qualificationColln, callback) {
+const analyze = function(profileUser, qualificationColln, callback) {
     // If data is not valid, return back without processing
     if (!profileUser || !profileUser.username ||
         !qualificationColln || !Array.isArray(qualificationColln) || qualificationColln.length <= 0) {
@@ -41,6 +41,10 @@ analyzeQualificationInstance = function(personName, qualification, analyzeResult
         function(callback) {
             // Establish relation between qualification and skill
             qualificationModel.relateQualificationToSkill(qualification, callback);
+        },
+        function(callback) {
+            // Establish relation between qualification and skill
+            qualificationModel.relateInstituteToLocation(qualification, callback);
         }
     ], function(err, result) {
         if (err) {
@@ -53,6 +57,6 @@ analyzeQualificationInstance = function(personName, qualification, analyzeResult
 };
 
 module.exports = {
-    analyzer: analyzer,
+    analyze: analyze,
     analyzeQualificationInstance: analyzeQualificationInstance
 };

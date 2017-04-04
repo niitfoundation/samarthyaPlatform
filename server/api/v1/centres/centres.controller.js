@@ -4,10 +4,6 @@ const graphConst = require('../common/graphConstants');
 // Function to find the centres
 const findCentres = function (name, limit) {
   let promise = new Promise((resolve, reject) => {
-    if(name === '') {
-      resolve('Please enter a Centre');
-    }
-
     const session = neo4jConn.connection();
     let query = '';
     limit = limit || '10';
@@ -15,7 +11,7 @@ const findCentres = function (name, limit) {
     query = query + 'MATCH (c:' + graphConst.NODE_CENTRE + ')';
 
     if (name !== 'undefined' && name.length > 0) {
-      query = query + 'WHERE c.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
+      query = query + 'WHERE c.' + graphConst.NODE_PROPERTY_NAME + '= "' + name.toLowerCase() + '"';
     }
 
     query = query + ' RETURN c LIMIT ' + limit;
@@ -43,8 +39,8 @@ const addCentre = function (name) {
 
     name.forEach(function (name) {
       let query = '';
-      if (name !== 'undefined' && name.length > 0) {
-        query = query + 'MERGE (c:' + graphConst.NODE_CENTRE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+      if (name !== 'undefined' && name.length > 0 && name !== '') {
+        query = query + 'MERGE (c:' + graphConst.NODE_CENTRE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
         query = query + ' RETURN c';
       } else {
         reject('Centre not found');

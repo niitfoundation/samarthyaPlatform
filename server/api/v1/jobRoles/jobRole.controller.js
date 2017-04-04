@@ -4,10 +4,6 @@ const graphConst = require('../common/graphConstants');
 // Function to find roles
 const findRoles = function (name, limit) {
   let promise = new Promise((resolve, reject) => {
-    if(name === '') {
-      resolve('Please enter a Role');
-    }
-
     const session = neo4jConn.connection();
     let query = '';
     limit = limit || '10';
@@ -15,7 +11,7 @@ const findRoles = function (name, limit) {
     query = query + 'MATCH (r:' + graphConst.NODE_JOBROLE + ')';
 
     if (name !== 'undefined' && name.length > 0) {
-      query = query + 'WHERE r.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
+      query = query + 'WHERE r.' + graphConst.NODE_PROPERTY_NAME + '= "' + name.toLowerCase() + '"';
     }
 
     query = query + ' RETURN r LIMIT ' + limit;
@@ -43,8 +39,8 @@ const addRole = function (name) {
 
     name.forEach(function (name) {
       let query = '';
-      if (name !== 'undefined' && name.length > 0) {
-        query = query + 'MERGE (r:' + graphConst.NODE_JOBROLE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+      if (name !== 'undefined' && name.length > 0 && name !== '') {
+        query = query + 'MERGE (r:' + graphConst.NODE_JOBROLE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
         query = query + ' RETURN r';
       } else {
         reject('Role not found');

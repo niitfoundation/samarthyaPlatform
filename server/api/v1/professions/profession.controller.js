@@ -4,10 +4,6 @@ const graphConst = require('../common/graphConstants');
 // Function to find professions
 const findProfessions = function (name, limit) {
   let promise = new Promise((resolve, reject) => {
-    if(name === '') {
-      resolve('Please enter a Profession');
-    }
-
     const session = neo4jConn.connection();
     let query = '';
     limit = limit || '10';
@@ -15,7 +11,7 @@ const findProfessions = function (name, limit) {
     query = query + 'MATCH (p:' + graphConst.NODE_PROFESSION + ')';
 
     if (name !== 'undefined' && name.length > 0) {
-      query = query + 'WHERE p.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
+      query = query + 'WHERE p.' + graphConst.NODE_PROPERTY_NAME + '= "' + name.toLowerCase() + '"';
     }
 
     query = query + ' RETURN p LIMIT ' + limit;
@@ -43,8 +39,8 @@ const addProfession = function (name) {
 
     name.forEach(function (name) {
       let query = '';
-      if (name !== 'undefined' && name.length > 0) {
-        query = query + 'MERGE (p:' + graphConst.NODE_PROFESSION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+      if (name !== 'undefined' && name.length > 0 && name !== '') {
+        query = query + 'MERGE (p:' + graphConst.NODE_PROFESSION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
         query = query + ' RETURN p';
       } else {
         reject('Profession not found');
