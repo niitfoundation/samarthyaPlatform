@@ -3,57 +3,47 @@ const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
 
 // this is to relate a person with its living location
-const relatePersonToLocation = function (person, location, callback) {
+const relatePersonToLocation = function (personName, personalInfo, callback) {
+
     let query = '';
-    let user = 'user:' + graphConst.NODE_PERSON + '{'
-        + graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
+    query = query + 'MATCH(p:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
+    query = query + 'MERGE(l:' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':{locationName}})';
+    query = query + 'MERGE(p)-[plr:' + graphConst.REL_LIVES_IN + ']->(l)';
+    query = query + 'RETURN p,plr,l';
 
-    let loc = 'loc:' + graphConst.NODE_LOCATION + '{'
-        + graphConst.NODE_PROPERTY_NAME + ':"' + location.toLowerCase() + '"}';
+    let params = {
+        personName: personName.toLowerCase(),
+        locationName: personalInfo.address.district.toLowerCase()
+    };
 
-    query = query + 'merge(' + user + ')-[:' + graphConst.REL_LIVES_IN + ']->('
-        + loc + ')';
-
-    logger.debug(query);
+    logger.debug('relatePersonToLocation QUERY :::', query);
 
     const session = neo4jConn.connection();
 
-    return session.run(query).then(result => {
-        session.close();
-        callback('first query');
-    })
-        .catch(error => {
+    session
+        .run(query, params)
+        .then(result => {
             session.close();
-            logger.error(error);
+            result.records.map(record => {
+                callback(null, {
+                    person: record.get('p'),
+                    relation: record.get('plr'),
+                    organisation: record.get('l')
+                });
+            });
+        })
+        .catch(err => {
+            session.close();
+            logger.error('Error in relatePersonToLocation ', err);
+            callback(err, null);
         });
+    return true;
 };
 
-// this is to relate a person with a language
-const relatePersonToLanguage = function (person, language, callback) {
-    let query = '';
-    let user = 'user:' + graphConst.NODE_PERSON + '{'
-        + graphConst.NODE_PROPERTY_NAME + ':"' + person.toLowerCase() + '"}';
+const relatePersonToLanguage = function (personName, personalInfo, callback) {
 
-    let lang = 'lang:' + graphConst.NODE_LANGUAGE + '{'
-        + graphConst.NODE_PROPERTY_NAME + ':"' + location.toLowerCase() + '"}';
+}
 
-    // TODO
-    // query = query + 'merge(' + user + ')-[:' + graphConst.REL_LIVES_IN + ']->('
-    //     + location + ')';
-
-    logger.debug(query);
-
-    const session = neo4jConn.connection();
-
-    return session.run(query).then(result => {
-        session.close();
-        callback('second query');
-    })
-        .catch(error => {
-            session.close();
-            logger.error(error);
-        });
-};
 
 module.exports = {
     relatePersonToLocation: relatePersonToLocation,

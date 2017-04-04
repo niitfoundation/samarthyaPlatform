@@ -21,3 +21,7 @@ body {
     right: 0px;
     top: 50px;
 }
+mat-dialog-container{
+    padding: 0px;
+    margin: 0px;
+}

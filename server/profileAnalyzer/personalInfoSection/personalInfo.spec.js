@@ -2,10 +2,11 @@
 
 const chai = require('chai');
 const expect = chai.expect;
+const logger = require('./../../../applogger');
 
 describe('Test personal Info section data Analysis', function () {
     it('Invoke personal Info Analyzer as a module', function (done) {
-        const personalInfoModule = require('./');
+        const personalInfoModule = require('./personalInfo.analyzer');
         expect(undefined).to.not.equal(personalInfoModule);
         expect('object').to.equal(typeof personalInfoModule);
         expect('function').to.equal(typeof personalInfoModule.analyze);
@@ -14,7 +15,7 @@ describe('Test personal Info section data Analysis', function () {
 
     describe('Validations', function () {
         it('Check if analyze method verifies for data, espeically required data, before prcoeeding to analyze', function (done) {
-            const personalInfoModule = require('./');
+            const personalInfoModule = require('./personalInfo.analyzer');
             const profileUser = {};
             const personalInfo = [];
 
@@ -30,25 +31,59 @@ describe('Test personal Info section data Analysis', function () {
         });
     });
 
-    describe('Analyse simple one single personal Info entry in the profile', function () {
+    describe('Analyse collection of personal Info entry in the profile', function () {
         before(function () {
-            console.log('[*] Cleaning up graph model, BEFORE verifying graph model creation from analyzer ');
+            logger.info('[*] Cleaning up graph model, BEFORE verifying graph model creation from analyzer ');
         });
 
         it('Pass a actual data and check if data model is returned', function (done) {
-            const personalInfoModule = require('./');
-            const profileUser = { username: 'dheeren' };
-            const personalInfo = [{}];
+            const personalInfoModule = require('./personalInfo.analyzer');
+            const profileUser = { username: 'divesh' };
+            const personalInfo = {
+                name: 'Divesh Sankhla',
+                fname: 'Divesh',
+                lname: 'Sankhla',
+                gender: 'male',
+                email: 'sankhlasaini@gmail.com',
+                dob: '11-11-1992',
+                altemail: 'muruga55@gmail.com',
+                address:
+                {
+                    address1: 'Vijay Nagar',
+                    address2: 'Scheme No-4',
+                    landmark: 'Railway Station Alwar',
+                    district: ' Alwar',
+                    state: 'RAJASTHAN',
+                    pincode: '301001',
+                },
+                contact: {
+                    I: '99123499123',
+                    II: '12312312333'
+                },
+                married: true,
+                prefLang: 'English',
+                nativeLang: 'Hindi',
+                lang: [
+                    {
+                        name: 'Hindi',
+                        r: 'Read',  // 'r': true,
+                        w: 'Write',  // 'w': true,
+                        s: 'Speak',  // 's': true,
+                    },
+                    {
+                        name: 'English',
+                        r: 'Read',  // 'r': true,
+                        w: '',  // 'w': true,
+                        s: 'Speak',  // 's': true,
+                    }
+                ]
+            };
 
             personalInfoModule.analyze(profileUser, personalInfo, function (err, result) {
                 expect(null).to.equal(err);
-
-                // Go to neo4j, get a data about
-                // Person to WorkExperience node relationship should exist
-                // match (p:Person)-[r:Workd_At {role: 'developer'}]-(o:Orgainization)
-                // match (p:Person)-[r:Workd_As {duration: 'developer'}]-(jr:JobRole)
-                // match (p:Person)-[r:Workd_In {duration: ''}]-(l:Location)
-
+                logger.info('Got the result from personalInfo analyzer ', ' err: ', err, ' result: ', JSON.stringify(result));
+                expect(result).to.not.equal(null);
+                expect(result).to.not.equal(undefined);
                 done();
             });
         });
@@ -57,4 +92,68 @@ describe('Test personal Info section data Analysis', function () {
             console.log('[*] Cleaning up graph model, AFTER verifying graph model creation from analyzer');
         });
     });
+
+    describe('Analyse simple one single personalInfo entry in the profile', function () {
+        before(function () {
+            logger.info('[*] Cleaning up graph model, BEFORE verifying graph model creation from analyzer ');
+        });
+
+        it('Pass a actual data and check if data model is returned', function (done) {
+            const personalInfoModule = require('./personalInfo.analyzer');
+            const profileUser = { username: 'divesh' };
+            const personalInfo = {
+                name: 'Divesh Sankhla',
+                fname: 'Divesh',
+                lname: 'Sankhla',
+                gender: 'male',
+                email: 'sankhlasaini@gmail.com',
+                dob: '11-11-1992',
+                altemail: 'muruga55@gmail.com',
+                address:
+                {
+                    address1: 'Vijay Nagar',
+                    address2: 'Scheme No-4',
+                    landmark: 'Railway Station Alwar',
+                    district: ' Alwar',
+                    state: 'RAJASTHAN',
+                    pincode: '301001',
+                },
+                contact: {
+                    I: '99123499123',
+                    II: '12312312333'
+                },
+                married: true,
+                prefLang: 'English',
+                nativeLang: 'Hindi',
+                lang: [
+                    {
+                        name: 'Hindi',
+                        r: 'Read',  // 'r': true,
+                        w: 'Write',  // 'w': true,
+                        s: 'Speak',  // 's': true,
+                    },
+                    {
+                        name: 'English',
+                        r: 'Read',  // 'r': true,
+                        w: '',  // 'w': true,
+                        s: 'Speak',  // 's': true,
+                    }
+                ]
+            };
+
+
+            personalInfoModule.analyze(profileUser, personalInfo, function (err, result) {
+                // expect(null).to.equal(err);
+                logger.info('Got the result from personalInfo analyzer ', ' err: ', err, ' result: ', JSON.stringify(result));
+                expect(result).to.not.equal(null);
+                expect(result).to.not.equal(undefined);
+                done();
+            });
+        });
+
+        after(function () {
+            logger.info('[*] Cleaning up graph model, AFTER verifying graph model creation from analyzer');
+        });
+    });
 });
+
