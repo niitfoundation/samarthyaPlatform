@@ -53,15 +53,17 @@ router.post('/', function (req, res) {
     }
 });
 
-// api to edit  profile
+// api to edit profile data
 router.patch('/', function (req, res) {
-    let profileData = req.body;
+    let profileData = req.body.data;
+    let username = req.body.username;
+    let sectionName = req.body.sectionName;
     try {
         if (!profileData) {
             logger.error('Invalid inputs passed');
             throw new Error('Invalid inputs passed...!');
         }
-        prflCtrl.editProfile(profileData).then((successResult) => {
+        prflCtrl.editProfile(profileData, username, sectionName).then((successResult) => {
             return res.status(201).send(successResult);
         }, (errResult) => {
             // Log the error for internal use
