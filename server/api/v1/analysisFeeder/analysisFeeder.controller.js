@@ -1,51 +1,51 @@
 const kafka = require('kafka-node');
-const config = require('../../../../config');
-const logger = require('');
+const config = require('../../../../config/profileAnalysisConfig');
+const logger = require('./../../../../applogger');
 
-const client = new kafka.Client(config.KAFKA_HOST);
+
 
 const publishToAnalyze = function(userName, dataToPublish, actionType,
-  analysisTopic) {
+    analysisTopic) {
+    let topicName = config.SECTION_TO_TOPIC_MAP[analysisTopic];
+    let dataPayload = {
+        userName: userName,
+        payload: dataToPublish,
+        actionType: actionType
+    };
 
-  let topicName = config.SECTION_TO_TOPIC_MAP[analysisTopic];;
-
-  let dataPayload = {
-    userName: userName,
-    payload: dataToPublish,
-    actionType: actionType
-  };
-
-  publishToKafka(topicName, dataPayload, function(err, publishResult) {
-    logger.info('Done publishing, with result ', publishResult);
-  });
+    publishToKafka(topicName, dataPayload, function(err, publishResult) {
+        logger.info('Done publishing, with result ', publishResult);
+    });
 }
 
 const publishToKafka = function(topicName, dataPayload, callback) {
-  let producer = new kafka.Producer(client);
+    let client = new kafka.Client(config.ZOOKPER_HOST);
+    let producer = new kafka.Producer(client);
 
-  producer.on('ready', function() {
-    let payloads = [{
-      topic: topicName,
-      messages: dataPayload
-    }];
+    producer.on('ready', function() {
+        let payloads = [{
+            topic: topicName,
+            messages: dataPayload
+        }];
 
-    producer.send(payloads, function(err, data) {
-      if (err) {
-        logger.error(
-          'Error in publishing message to messaging pipeline ', err
-        );
-        callback(err, null)
-        return;
-      }
+        producer.send(payloads, function(err, data) {
+            if (err) {
+                logger.error(
+                    'Error in publishing message to messaging pipeline ', err
+                );
+                callback(err, null)
+                return;
+            }
 
-      logger.debug('Published message to messaging pipeline ', data);
 
-      callback(null, data);
-      return;
+            logger.debug('Published message to messaging pipeline ', data);
+
+            callback(null, data);
+            return;
+        });
     });
-  });
 }
 
 module.exports = {
-  publishForProfileAnalysis: publishToAnalyze
+    publishForProfileAnalysis: publishToAnalyze
 }

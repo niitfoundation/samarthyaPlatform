@@ -2,14 +2,15 @@ const UserModel = require('./../users/users.entity');
 const logger = require('./../../../../applogger');
 const ProfileModel = require('./profile.entity');
 const profileDataModel = require('./profile.model');
+const analysisFeeder = require('./../analysisFeeder/index');
 
 /*
  *
  */
 
-const getProfile = function (profileObj) {
+const getProfile = function(profileObj) {
     return new Promise((resolve, reject) => {
-        ProfileModel.find({ username: profileObj.username }, function (err, data) {
+        ProfileModel.find({ username: profileObj.username }, function(err, data) {
             if (err) {
                 logger.error('Profile data error' + err);
                 reject(err);
@@ -29,33 +30,45 @@ const getProfile = function (profileObj) {
 
 
 // Add profile details
-const createProfile = function (profileObj) {
+const createProfile = function(profileObj) {
     // Add/modify profile model
     let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
 
     return new Promise((resolve, reject) => {
-        profileData.save(function (err, data) {
+        profileData.save(function(err, data) {
             if (err) {
                 logger.error('profile data not added sucessfully' + err);
                 reject(err);
             } else {
                 logger.info('profile data added successfully');
-             // inserts profile details
+                // inserts profile details
                 resolve({ msg: 'Profile data Added successfully' });
             }
         });
     });
 };
 
-const editProfile = function (profileObj) {
+const editProfile = function() {
 
     // @TODO
     // Get the profile schema and perform edit operations
     // use promise for database operations and return result
+    let analyzerobj = {
+        username: 'Dheeren',
+        profile: [{
+            workplace: 'Wipro',
+            jobRole: 'Developer',
+            location: 'Bangalore',
+            isCurrent: true,
+            duration: 2
+
+        }]
+    };
+    analysisFeeder.publishForProfileAnalysis(analyzerobj.username, analyzerobj.profile, 'PATCH', 'WORK_EXPERIENCE');
 
 };
 
-const deletePerofile = function (profileObj) {
+const deletePerofile = function(profileObj) {
 
     // @TODO
     // Get the profile schema and perform delete operations

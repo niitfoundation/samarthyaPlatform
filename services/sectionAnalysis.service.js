@@ -1,6 +1,6 @@
 const highland = require('highland');
 const serviceBase = require('./service.base')
-const config = require('../config/config');
+const config = require('./../config/profileAnalysisConfig');
 
 const executeService = function(subscribeTopic, consumerGroup, processor) {
 

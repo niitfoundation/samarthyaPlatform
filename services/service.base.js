@@ -1,6 +1,6 @@
 const highland = require('highland');
 const kafka = require('kafka-node');
-const config = require('../config/config');
+const config = require('./../config/profileAnalysisConfig');
 
 /*
  * This is a KAFKA Consumer base service module, which subscribes to Kafka topic perpetually

@@ -1,4 +1,6 @@
 const sectionAnalyzerBase = require('./sectionAnalysis.service');
+const config = require('./../config/profileAnalysisConfig');
+
 
 const analyzer = function(msgObj) {
     let promise = new Promise(function(resolve, reject) {
@@ -7,18 +9,20 @@ const analyzer = function(msgObj) {
 
         msgobj = {
             username: 'Dheeren',
-            profile: [{
-                workplace: 'Wipro',
-                jobRole: 'Developer',
-                location: 'Bangalore',
-                isCurrent: true,
-                duration: 2
+            profile: {
+                workExperience: [{
+                    workplace: 'Wipro',
+                    jobRole: 'Developer',
+                    location: 'Bangalore',
+                    isCurrent: true,
+                    duration: 2
 
-            }]
+                }]
+            }
         };
 
         let profileUser = { username: msgobj.username };
-        let workExperience = msgobj.profile;
+        let workExperience = msgobj.profile.workExperience;
         analyzerModule
             .analyze(profileUser, workExperience,
                 function(err, result) {
@@ -36,10 +40,12 @@ const analyzer = function(msgObj) {
 }
 
 const execute = function() {
-    let subscribeTopic = 'test';
-    let consumerGroup = 'PersonalInfo';
+    console.log("WORK_EXPERIENCE section called");
+    let subscribeTopic = config.SECTION_TO_TOPIC_MAP['WORK_EXPERIENCE'];
+    let consumerGroup = config.CONSUMER_GROUP;
+
     const processor = {
-        name: 'PersonalInfoAnalyzer',
+        name: config.PROCESSOR_NAME['workexperience'],
         process: analyzer
     }
 
