@@ -6,9 +6,10 @@
     font-family: 'Noto Serif', serif;
 }
 body{
+    padding: 0px;
     margin: 0px;
-    min-height: 600px;
     font-family: "Roboto","Helvetica Neue",sans-serif;
+     background-color: #EEEEEE;
 }
 
 /*userIcon and notification menus*/

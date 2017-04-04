@@ -44,13 +44,12 @@ let sendEmail = function(jsonobj) {
         }
 
         return new Promise((resolve, reject) => {
-            console.log(mail)
             transporter.sendMail(mail, function(err, response) {
                 if (err) {
                     logger.error('response not found');
                     reject(err);
                 } else {
-                    resolve({response: response, msg: 'Mail sent Successfully'});
+                    resolve({success:true,response: response, msg: 'Mail sent Successfully'});
                 }
             });
         });
