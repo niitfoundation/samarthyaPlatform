@@ -5,8 +5,8 @@ let SAMARTHYA = {
 };
 
 let NEO4J = {
-    USERNAME: 'neo4j',
-    PASSWORD: 'password'
+    USERNAME: 'divesh',
+    PASSWORD: 'divesh'
 };
 
 module.exports = {

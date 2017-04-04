@@ -3,39 +3,42 @@ const async = require('async');
 const workExperienceModel = require('./workExperience.graphmodel');
 
 
-const analyze = function(profileUser, workExperienceColln, callback) {
+const analyze = function (profileUser, workExperienceColln, callback) {
     // If data is not valid, return back without processing
-    if (!profileUser || !profileUser.username ||
-        !workExperienceColln || !Array.isArray(workExperienceColln) || workExperienceColln.length <= 0) {
+    if (!profileUser
+        || !profileUser.username
+        || !workExperienceColln
+        || !Array.isArray(workExperienceColln)
+        || workExperienceColln.length <= 0) {
         logger.error('No data found to analyze');
         return callback({ error: 'No data found to analyze' }, null);
     }
     logger.info('Proceeding to analyze work experience..!');
 
-    async.map(workExperienceColln, function(instance, asyncCallback) {
+    async.map(workExperienceColln, function (instance, asyncCallback) {
         analyzeWorkExperienceInstance(profileUser.username, instance, asyncCallback);
     }, callback);
 
     return true;
 };
 
-analyzeWorkExperienceInstance = function(personName, workExperience, analyzeResultCallback) {
+analyzeWorkExperienceInstance = function (personName, workExperience, analyzeResultCallback) {
     logger.debug('[*] Starting to analyze Workexperience instance [', personName + ':' + workExperience.workplace, ']');
 
     async.parallel([
-        function(callback) {
+        function (callback) {
             // Establish relation between organization and person ROLE AND DURATION
             workExperienceModel.relatePersonToOrganisation(personName, workExperience, callback);
         },
-        function(callback) {
+        function (callback) {
             // Establish relation between person and jobrole
             workExperienceModel.releatePersonToJobRole(personName, workExperience, callback);
         },
-        function(callback) {
+        function (callback) {
             // Establish relation between person and working location
             workExperienceModel.releatePersonToWorkingLocation(personName, workExperience, callback);
         }
-    ], function(err, result) {
+    ], function (err, result) {
         if (err) {
             logger.error('Error in analyzing workexperience instance ', err);
             analyzeResultCallback(err, null);
