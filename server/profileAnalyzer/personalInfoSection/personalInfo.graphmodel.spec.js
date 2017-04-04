@@ -33,21 +33,36 @@ describe('Test personalInfo section data analysis', function () {
             lang: [
                 {
                     name: 'Hindi',
-                    r: 'Read',  // 'r': true,
-                    w: 'Write',  // 'w': true,
-                    s: 'Speak',  // 's': true,
+                    r: true,  // 'r': true,
+                    w: true,  // 'w': true,
+                    s: false,  // 's': true,
                 },
                 {
                     name: 'English',
-                    r: 'Read',  // 'r': true,
-                    w: '',  // 'w': true,
-                    s: 'Speak',  // 's': true,
+                    r: true,  // 'r': true,
+                    w: false,  // 'w': true,
+                    s: false,  // 's': true,
                 }
             ]
         };
 
 
         personalInfoModule.relatePersonToLocation(personName, personalInfo, function (err, result) {
+            console.log('Result: ', JSON.stringify(result));
+
+            expect(err).to.equal(null);
+            expect(result).to.not.equal(null);
+            expect(result).to.not.equal(undefined);
+            done();
+        });
+        personalInfoModule.relatePersonToLanguage(personName, personalInfo, function (err, result) {
+            console.log('Result: ', JSON.stringify(result));
+
+            expect(err).to.equal(null);
+            expect(result).to.not.equal(null);
+            expect(result).to.not.equal(undefined);
+            done();
+        }); personalInfoModule.relatePersonToMultiLanguage(personName, personalInfo, function (err, result) {
             console.log('Result: ', JSON.stringify(result));
 
             expect(err).to.equal(null);
