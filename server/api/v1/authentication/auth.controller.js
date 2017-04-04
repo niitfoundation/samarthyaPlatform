@@ -59,7 +59,7 @@ let checkUser = function(objEmail) {
         username: objEmail,
     };
     return new Promise((resolve, reject) => {
-        userModel.find(userDetails, function(err, data) {
+        userModel.findOne(userDetails, function(err, data) {
             if (err) {
                 logger.info(err);
                 reject({
