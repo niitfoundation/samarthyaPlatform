@@ -21,9 +21,9 @@ module.exports = {
     REL_WORKED_AS: 'Worked_As',
     REL_WORKED_ON: 'Worked_On',
     REL_LIVES_IN: 'Lives_In',
-    REL_SPEAK: 'Speak',
-    REL_WRITE: 'Write',
-    REL_READ: 'Read',
+    REL_CAN_SPEAK: 'Can_Speak',
+    REL_CAN_WRITE: 'Can_Write',
+    REL_CAN_READ: 'Can_Read',
     REL_NATIV_LANG: 'Nativ_Lang',
     REL_PREF_LANG: 'Pref_Lang',
     REL_KNOWS: 'Knows',
@@ -33,7 +33,7 @@ module.exports = {
     REL_PREFFERED_LOCATION: 'Prefferd_Job_Location',
     REL_JOB_LOOKING: 'Looking_For_Job',
     PROP_JOB_LOOKING: 'lookingForJob',
-    PROP_LOCATION:'Location',
+    PROP_LOCATION: 'Location',
     PROP_DEGREE: 'degree',
     PROP_RESULT: 'result',
     PROP_START_YEAR: 'startYear',
@@ -43,5 +43,7 @@ module.exports = {
     PROP_ROLE: 'role',
     PROP_DURATION: 'duration',
     PROP_ISCURRENT: 'isCurrent',
-    PROP_ORGANISATION: 'organisation'
+    PROP_ORGANISATION: 'organisation',
+    PROP_EXPERTISE: 'expertise',
+    PROP_EXPERIENCE: 'experience'
 };
