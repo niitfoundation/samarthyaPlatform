@@ -66,15 +66,15 @@ describe('Test personal Info section data Analysis', function () {
                 lang: [
                     {
                         name: 'Hindi',
-                        r: 'Read',  // 'r': true,
-                        w: 'Write',  // 'w': true,
-                        s: 'Speak',  // 's': true,
+                        r: true,  // 'r': true,
+                        w: true,  // 'w': true,
+                        s: false,  // 's': true,
                     },
                     {
                         name: 'English',
-                        r: 'Read',  // 'r': true,
-                        w: '',  // 'w': true,
-                        s: 'Speak',  // 's': true,
+                        r: true,  // 'r': true,
+                        w: false,  // 'w': true,
+                        s: false,  // 's': true,
                     }
                 ]
             };
@@ -128,15 +128,15 @@ describe('Test personal Info section data Analysis', function () {
                 lang: [
                     {
                         name: 'Hindi',
-                        r: 'Read',  // 'r': true,
-                        w: 'Write',  // 'w': true,
-                        s: 'Speak',  // 's': true,
+                        r: true,  // 'r': true,
+                        w: true,  // 'w': true,
+                        s: false,  // 's': true,
                     },
                     {
                         name: 'English',
-                        r: 'Read',  // 'r': true,
-                        w: '',  // 'w': true,
-                        s: 'Speak',  // 's': true,
+                        r: true,  // 'r': true,
+                        w: false,  // 'w': true,
+                        s: false,  // 's': true,
                     }
                 ]
             };

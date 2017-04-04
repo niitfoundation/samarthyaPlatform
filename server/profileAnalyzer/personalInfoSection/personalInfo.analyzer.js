@@ -31,8 +31,12 @@ analyzePersonalInfoInstance = function (personName, personalInfo, analyzeResultC
             personalInfoModel.relatePersonToLocation(personName, personalInfo, callback);
         },
         function (callback) {
-            // Establish relation between person and jobrole
+            // Establish relation between person and pref lang and native lang
             personalInfoModel.relatePersonToLanguage(personName, personalInfo, callback);
+        },
+        function (callback) {
+            // Establish relation between person and speak , read and write lang
+            personalInfoModel.relatePersonToMultiLanguage(personName, personalInfo, callback);
         }
     ], function (err, result) {
         if (err) {
