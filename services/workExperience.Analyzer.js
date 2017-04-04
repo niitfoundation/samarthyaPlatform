@@ -1,15 +1,27 @@
 const sectionAnalyzerBase = require('./sectionAnalysis.service');
 
 const analyzer = function(msgObj) {
-    let promise = function(resolve, reject) {
-        const analyzer = require(
-            '../server/profileAnalyzer/personalInfoSection');
+    let promise = new Promise(function(resolve, reject) {
+        const analyzerModule = require(
+            '../server/profileAnalyzer/workExperienceSection/workExperience.analyzer');
 
-        let profileUser = msgObj.username;
-        let personalInfo = msgObj.profile['personalInfo'];
+        msgobj = {
+            username: 'Dheeren',
+            profile: {
+                workplace: 'Wipro',
+                jobRole: 'Developer',
+                location: 'Bangalore',
+                isCurrent: true,
+                duration: 2
 
-        analyzer
-            .analyze(profileUser, personalInfo,
+            }
+
+        };
+        console.log(msgobj.profile);
+        let profileUser = msgobj.username;
+        let workExperience = msgobj.profile;
+        analyzerModule
+            .analyze(profileUser, workExperience,
                 function(err, result) {
                     if (err) {
                         reject(err);
@@ -19,10 +31,9 @@ const analyzer = function(msgObj) {
                     resolve(result);
                     return;
                 });
-    }
+    });
 
     return promise;
-
 }
 
 const execute = function() {
@@ -35,8 +46,6 @@ const execute = function() {
 
     // sectionAnalyzerBase.execute(subscribeTopic, consumerGroup, processor);
     sectionAnalyzerBase.execute(subscribeTopic, consumerGroup, processor)
-
-
 }
 
 execute();
