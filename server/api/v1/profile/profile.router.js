@@ -70,7 +70,8 @@ router.patch('/', function (req, res) {
             logger.error('Internal error occurred');
             return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
         });
-    } catch (err) {
+
+    }catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
         res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });

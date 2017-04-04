@@ -2,6 +2,7 @@ const UserModel = require('./../users/users.entity');
 const logger = require('./../../../../applogger');
 const ProfileModel = require('./profile.entity');
 const profileDataModel = require('./profile.model');
+const analysisFeeder = require('./../analysisFeeder/index');
 
 /*
  *
@@ -57,6 +58,9 @@ const editProfile = function (profileData, username, sectionName) {
         reject(err);
       } else {
         logger.debug('Got Profile Data');
+        // call method to run kafka pipeline for particular profile section
+        // analysisFeeder.publishForProfileAnalysis(profileData.username, profileData.modifyObj, 'PATCH', sectionName);
+
         // inserts profile details
         resolve({ data: data });
       }
@@ -66,13 +70,7 @@ const editProfile = function (profileData, username, sectionName) {
 
 
 const deletePerofile = function (profileObj) {
-
-  // @TODO
-  // Get the profile schema and perform delete operations
-  // use promise for database operations and return result
-
 };
-
 
 module.exports = {
   getProfile: getProfile,
