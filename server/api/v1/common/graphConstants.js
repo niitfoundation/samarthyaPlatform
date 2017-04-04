@@ -33,7 +33,7 @@ module.exports = {
     REL_PREFFERED_LOCATION: 'Prefferd_Job_Location',
     REL_JOB_LOOKING: 'Looking_For_Job',
     PROP_JOB_LOOKING: 'lookingForJob',
-    PROP_LOCATION:'Location',
+    PROP_LOCATION: 'Location',
     PROP_DEGREE: 'degree',
     PROP_RESULT: 'result',
     PROP_START_YEAR: 'startYear',
@@ -43,5 +43,7 @@ module.exports = {
     PROP_ROLE: 'role',
     PROP_DURATION: 'duration',
     PROP_ISCURRENT: 'isCurrent',
-    PROP_ORGANISATION: 'organisation'
+    PROP_ORGANISATION: 'organisation',
+    PROP_EXPERTISE: 'expertise',
+    PROP_EXPERIENCE: 'experience'
 };

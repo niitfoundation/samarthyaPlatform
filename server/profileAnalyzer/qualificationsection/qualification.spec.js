@@ -16,7 +16,7 @@ describe('Validations', function () {
   it('Check if analyze method verifies for data, espeically required data, before prcoeeding to analyze', function (done) {
     this.timeout = 10000;
     const qualificationModule = require('./');
-    const profileUser = {username: 'sheenam'};
+    const profileUser = { username: 'sheenam' };
     const qualifications = [{
       name: 'M.Tech',
       subject: 'Computer Science',
@@ -31,9 +31,9 @@ describe('Validations', function () {
     qualificationModule.analyzer(profileUser, qualifications, function (err, result) {
       // Only if no data was passed, error should be thrown
       // if error comes, test case passes, if no error comes, test cases failes
-      // expect('object').to.equal(typeof err);
-     // expect('string').to.equal(typeof err.error);
-     // expect('No data found to analyze').to.equal(err.error);
+      expect('object').to.equal(typeof err);
+      expect('string').to.equal(typeof err.error);
+      expect('No data found to analyze').to.equal(err.error);
       done();
     });
   });

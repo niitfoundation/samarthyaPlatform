@@ -37,3 +37,4 @@
     at Function.process_params (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:335:12)
 [2017-04-04 01:42:25.640] [FATAL] [default] - { name: [ 'don' ] }
 [2017-04-04 01:44:28.023] [FATAL] [default] - { name: [ 'Shimla' ] }
+[2017-04-04 01:47:22.644] [DEBUG] [default] - Mongoose is now disconnected..!
