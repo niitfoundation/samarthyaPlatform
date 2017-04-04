@@ -53,18 +53,34 @@ const editProfile = function() {
     // @TODO
     // Get the profile schema and perform edit operations
     // use promise for database operations and return result
-    let analyzerobj = {
-        username: 'Dheeren',
-        profile: [{
-            workplace: 'Wipro',
-            jobRole: 'Developer',
-            location: 'Bangalore',
-            isCurrent: true,
-            duration: 2
+    // let analyzerobj = {
+    //     username: 'Dheeren',
+    //     profile: [{
+    //         workplace: 'Wipro',
+    //         jobRole: 'Developer',
+    //         location: 'Bangalore',
+    //         isCurrent: true,
+    //         duration: 2
 
-        }]
-    };
-    analysisFeeder.publishForProfileAnalysis(analyzerobj.username, analyzerobj.profile, 'PATCH', 'WORK_EXPERIENCE');
+    //     }]
+    // };
+    let sectionName = profileData.sectionName;
+    let profileobj = {};
+    profileobj[sectionName] = profileData.modifyObj;
+    return new Promise((resolve, reject) => {
+        ProfileModel.update({ username: profileData.username }, { $set: profileobj }, function(err, data) {
+            if (err) {
+                logger.error('Profile data error' + err);
+                reject(err);
+            } else {
+                logger.debug('Got Profile Data' + err);
+                // call method to run kafka pipeline for particular profile section
+                //  analysisFeeder.publishForProfileAnalysis(profileData.username, profileData.modifyObj, 'PATCH', sectionName);
+                // inserts profile details
+                resolve({ data: data });
+            }
+        });
+    });
 
 };
 
