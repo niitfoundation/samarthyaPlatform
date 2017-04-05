@@ -4,10 +4,6 @@ const graphConst = require('../common/graphConstants');
 // Function to find locztions
 const findLocations = function (name, limit) {
   let promise = new Promise((resolve, reject) => {
-    if(name === '') {
-      resolve('Please enter a Location');
-    }
-
     const session = neo4jConn.connection();
     let query = '';
     limit = limit || '10';
@@ -15,7 +11,7 @@ const findLocations = function (name, limit) {
     query = query + 'MATCH (lo:' + graphConst.NODE_LOCATION + ')';
 
     if (name !== 'undefined' && name.length > 0) {
-      query = query + 'WHERE lo.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
+      query = query + 'WHERE lo.' + graphConst.NODE_PROPERTY_NAME + '= "' + name.toLowerCase() + '"';
     }
 
     query = query + ' RETURN lo LIMIT ' + limit;
@@ -36,15 +32,15 @@ const findLocations = function (name, limit) {
   return promise;
 };
 
-//Function to add a location
+// Function to add a location
 const addLocation = function (name) {
   let promise = new Promise((resolve, reject) => {
     const session = neo4jConn.connection();
 
     name.forEach(function (name) {
       let query = '';
-      if (name !== 'undefined' && name.length > 0) {
-        query = query + 'MERGE (lo:' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+      if (name !== 'undefined' && name.length > 0 && name !== '') {
+        query = query + 'MERGE (lo:' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
         query = query + ' RETURN lo';
       } else {
         reject('Location not found');
