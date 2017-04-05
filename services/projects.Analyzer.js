@@ -7,10 +7,10 @@ const analyzer = function(msgObj) {
         const analyzerModule = require(
             '../server/profileAnalyzer/projectsSection/projects.analyzer');
 
-        let profileUser = { username: msgobj.username };
-        let projects = msgobj.profile.projects;
+        let data = JSON.parse(msgObj.value);
+
         analyzerModule
-            .analyze(profileUser, projects,
+            .analyze(data.userName, data.payload,
                 function(err, result) {
                     if (err) {
                         reject(err);
@@ -27,7 +27,7 @@ const analyzer = function(msgObj) {
 
 const execute = function() {
     let subscribeTopic = config.SECTION_TO_TOPIC_MAP['PROJECTS'];
-    let consumerGroup = config.CONSUMER_GROUP;
+    let consumerGroup = config.CONSUMER_GROUP.PROJECTS;
     const processor = {
         name: config.PROCESSOR_NAME['PROJECTS'],
         process: analyzer

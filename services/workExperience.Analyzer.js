@@ -6,10 +6,10 @@ const analyzer = function(msgObj) {
         const analyzerModule = require(
             '../server/profileAnalyzer/workExperienceSection/workExperience.analyzer');
 
-        let profileUser = { username: msgObj.username };
-        let workExperience = msgObj.profile.workExperience;
+        let data = JSON.parse(msgObj.value);
+
         analyzerModule
-            .analyze(profileUser, workExperience,
+            .analyze(data.userName, data.payload,
                 function(err, result) {
                     if (err) {
                         reject(err);
@@ -26,7 +26,7 @@ const analyzer = function(msgObj) {
 
 const execute = function() {
     let subscribeTopic = config.SECTION_TO_TOPIC_MAP['WORK_EXPERIENCE'];
-    let consumerGroup = config.CONSUMER_GROUP;
+    let consumerGroup = config.CONSUMER_GROUP.WORK_EXPERIENCE;
 
     const processor = {
         name: config.PROCESSOR_NAME['WORK_EXPERIENCE'],

@@ -31,7 +31,7 @@ const executeService = function(subscribeTopic, consumerGroup, processor) {
 
         logger.debug('Service ', processor.name, ' is now running..!');
     } catch (err) {
-        logger.debug('Error in executing Intent Analysis service ', err);
+        logger.debug('Error in executing ', processor.name, ' service ', err);
     }
 }
 

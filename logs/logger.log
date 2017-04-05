@@ -1,117 +1,42 @@
-[2017-04-05 12:33:48.657] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 12:33:48.664] [DEBUG] [default] - Error in executing Intent Analysis service  TypeError: topics.forEach is not a function
-    at Object.encodeMetadataRequest (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/protocol/protocol.js:201:10)
-    at Client.loadMetadataForTopics (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:344:26)
-    at Object.run (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/service.base.js:32:12)
-    at Object.executeService [as execute] (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/sectionAnalysis.service.js:30:21)
-    at execute (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/workExperience.Analyzer.js:50:25)
-    at Object.<anonymous> (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/workExperience.Analyzer.js:53:1)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-[2017-04-05 12:37:45.001] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 12:37:45.010] [DEBUG] [default] - Error in executing Intent Analysis service  TypeError: "string" must be a string, Buffer, or ArrayBuffer
-    at Function.byteLength (buffer.js:363:11)
-    at BufferMaker.make (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/buffermaker/lib/BufferMaker.js:50:29)
-    at Object.encodeMetadataRequest (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/protocol/protocol.js:205:42)
-    at Client.loadMetadataForTopics (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:344:26)
-    at Stream._generator (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/service.base.js:38:20)
-    at Stream._runGenerator (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/highland/lib/index.js:1318:10)
-    at Stream._resume (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/highland/lib/index.js:1153:22)
-    at Stream._checkBackPressure (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/highland/lib/index.js:1066:10)
-    at Stream._resume (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/highland/lib/index.js:1147:33)
-    at Stream._checkBackPressure (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/highland/lib/index.js:1066:10)
-[2017-04-05 12:38:27.812] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 12:38:27.822] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 12:38:27.825] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-05 12:39:39.260] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 12:39:39.270] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 12:39:39.272] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 12:40:15.179] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 12:40:15.188] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 12:40:15.190] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 12:43:09.830] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 12:43:09.838] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 12:43:09.841] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 13:53:54.220] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 13:53:54.229] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 13:53:54.231] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 13:54:09.121] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 13:54:09.130] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 13:54:09.133] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-05 13:55:04.578] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 13:55:04.585] [DEBUG] [default] - Error in executing Intent Analysis service  ReferenceError: _ is not defined
-    at client.loadMetadataForTopics (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/service.base.js:34:27)
-    at Client.loadMetadataForTopics (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:348:12)
-    at Object.run (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/service.base.js:33:12)
-    at Object.executeService [as execute] (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/sectionAnalysis.service.js:30:21)
-    at execute (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/personalInfo.Analyzer.js:37:25)
-    at Object.<anonymous> (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/personalInfo.Analyzer.js:40:1)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-[2017-04-05 13:55:25.021] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 13:55:25.028] [DEBUG] [default] - Error in executing Intent Analysis service  TypeError: Cannot read property 'get' of undefined
-    at client.loadMetadataForTopics (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/service.base.js:34:31)
-    at Client.loadMetadataForTopics (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:348:12)
-    at Object.run (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/service.base.js:33:12)
-    at Object.executeService [as execute] (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/sectionAnalysis.service.js:30:21)
-    at execute (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/personalInfo.Analyzer.js:37:25)
-    at Object.<anonymous> (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/services/personalInfo.Analyzer.js:40:1)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-[2017-04-05 13:57:31.148] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 13:57:31.157] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 13:57:31.159] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 14:00:17.520] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:00:17.529] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:00:17.532] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 14:00:20.128] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:00:20.136] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:00:20.139] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-05 14:00:33.176] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:00:33.185] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:00:33.187] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-05 14:00:58.024] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:00:58.032] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:00:58.035] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-05 14:02:04.579] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:02:04.588] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:02:04.590] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-05 14:04:39.755] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:04:39.764] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:04:39.766] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-05 14:04:44.712] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:04:44.721] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:04:44.723] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 14:15:52.803] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:15:52.810] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:15:52.813] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-05 14:16:31.788] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:16:31.795] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:16:31.798] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 14:16:54.830] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:16:54.838] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:16:54.840] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 14:16:58.385] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:16:58.393] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:16:58.395] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-05 14:31:36.714] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:31:36.721] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:31:36.724] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 14:33:11.192] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:33:11.199] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:33:11.201] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 14:39:58.180] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:39:58.187] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:39:58.190] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 14:45:43.152] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:45:43.159] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:45:43.161] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-05 14:45:45.983] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-05 14:45:45.990] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  SAMARTHYA_App
-[2017-04-05 14:45:45.992] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-04-05 21:09:00.837] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
+[2017-04-05 21:09:25.905] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:09:25.912] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
+[2017-04-05 21:09:25.915] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-04-05 21:11:34.164] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:11:34.171] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
+[2017-04-05 21:11:34.173] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-04-05 21:19:55.768] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:19:55.775] [DEBUG] [default] - Subscribing consumer to topic  jobPreference  with consumergroup as  Samarthya_jobprefrences
+[2017-04-05 21:19:55.778] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
+[2017-04-05 21:19:55.824] [DEBUG] [default] - Error:  { TopicsNotExistError
+    at new TopicsNotExistError (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/errors/TopicsNotExistError.js:11:9)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:424:43
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
+    at done (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:432:7
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/zookeeper.js:349:7
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/index.js:165:26
+    at Object.async.whilst (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:627:13)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
+  topics: [ 'jobPreference' ],
+  message: 'The topic(s) jobPreference do not exist' }
+[2017-04-05 21:20:27.217] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:20:27.224] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
+[2017-04-05 21:20:27.226] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-04-05 21:20:43.210] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:20:43.217] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  
+[2017-04-05 21:20:43.220] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-05 21:20:43.423] [DEBUG] [default] - Error:  { TopicsNotExistError
+    at new TopicsNotExistError (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/errors/TopicsNotExistError.js:11:9)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:424:43
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
+    at done (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:432:7
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/zookeeper.js:349:7
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/index.js:165:26
+    at Object.async.whilst (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:627:13)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
+  topics: [ 'projects' ],
+  message: 'The topic(s) projects do not exist' }
