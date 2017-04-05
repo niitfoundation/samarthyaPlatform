@@ -55,6 +55,7 @@ router.post('/', function (req, res) {
 
 // api to edit profile data
 router.patch('/', function (req, res) {
+    console.log(req.body);
     let profileData = req.body.data;
     let username = req.body.username;
     let sectionName = req.body.sectionName;
