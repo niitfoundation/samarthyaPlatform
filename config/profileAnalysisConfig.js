@@ -1,26 +1,23 @@
 const SECTION_TO_TOPIC_MAP = {
-    PERSONAL_INFO: '',
+    PERSONAL_INFO: 'personalInfo',
     WORK_EXPERIENCE: 'workExperience',
-    PROJECT: '',
-    QUALIFICATION: '',
-    JOB_PREFRENCE: '',
-    SKILLS: ''
+    PROJECT: 'projects',
+    QUALIFICATION: 'qualification',
+    JOB_PREFRENCE: 'jobPreference',
+    SKILLS: 'skills'
 };
-const KAFKA_HOST = 'localhost:9092';
-const ZOOKPER_HOST = 'localhost:2181';
-const CONSUMER_GROUP = 'SAMARTHYA';
+
+const CONSUMER_GROUP = 'SAMARTHYA_App';
 const PROCESSOR_NAME = {
-    personalinfo: 'PersonalInfoAnalyzer',
-    workexperience: 'workExperienceAnalyzer',
-    project: '',
-    qualification: '',
-    jobprefrences: '',
-    skills: ''
+    PERSONAL_INFO: 'PersonalInfoAnalyzer',
+    WORK_EXPERIENCE: 'workExperienceAnalyzer',
+    PROJECT: 'projectAnalyzer',
+    QUALIFICATION: 'qualificationAnalyzer',
+    JOB_PREFRENCE: 'jobprefrencesAnalyzer',
+    SKILLS: 'skillsAnalyzer'
 }
 module.exports = {
     SECTION_TO_TOPIC_MAP: SECTION_TO_TOPIC_MAP,
-    KAFKA_HOST: KAFKA_HOST,
     CONSUMER_GROUP: CONSUMER_GROUP,
-    ZOOKPER_HOST: ZOOKPER_HOST,
     PROCESSOR_NAME: PROCESSOR_NAME
 };

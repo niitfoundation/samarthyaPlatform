@@ -7,8 +7,8 @@ const analyzer = function(msgObj) {
         const analyzerModule = require(
             '../server/profileAnalyzer/qualificationsection/qualification.analyzer');
 
-        let profileUser = { username: msgobj.username };
-        let qualification = msgobj.profile.qualification;
+        let profileUser = { username: msgObj.username };
+        let qualification = msgObj.profile.qualification;
         analyzerModule
             .analyze(profileUser, qualification,
                 function(err, result) {
@@ -29,7 +29,7 @@ const execute = function() {
     let subscribeTopic = config.SECTION_TO_TOPIC_MAP['QUALIFICATION'];
     let consumerGroup = config.CONSUMER_GROUP;
     const processor = {
-        name: config.PROCESSOR_NAME['qualification'],
+        name: config.PROCESSOR_NAME['QUALIFICATION'],
         process: analyzer
     }
 

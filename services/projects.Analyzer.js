@@ -29,7 +29,7 @@ const execute = function() {
     let subscribeTopic = config.SECTION_TO_TOPIC_MAP['PROJECTS'];
     let consumerGroup = config.CONSUMER_GROUP;
     const processor = {
-        name: config.PROCESSOR_NAME['projects'],
+        name: config.PROCESSOR_NAME['PROJECTS'],
         process: analyzer
     }
 
