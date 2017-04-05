@@ -6,7 +6,7 @@ let SAMARTHYA = {
 
 let NEO4J = {
     USERNAME: 'neo4j',
-    PASSWORD: 'prakul'
+    PASSWORD: 'password'
 };
 let KAFKA_HOST = 'localhost:9092';
 
