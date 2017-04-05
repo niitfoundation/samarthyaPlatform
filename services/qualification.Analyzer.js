@@ -7,10 +7,10 @@ const analyzer = function(msgObj) {
         const analyzerModule = require(
             '../server/profileAnalyzer/qualificationsection/qualification.analyzer');
 
-        let profileUser = { username: msgObj.username };
-        let qualification = msgObj.profile.qualification;
+        let data = JSON.parse(msgObj.value);
+
         analyzerModule
-            .analyze(profileUser, qualification,
+            .analyze(data.userName, data.payload,
                 function(err, result) {
                     if (err) {
                         reject(err);
@@ -27,7 +27,7 @@ const analyzer = function(msgObj) {
 
 const execute = function() {
     let subscribeTopic = config.SECTION_TO_TOPIC_MAP['QUALIFICATION'];
-    let consumerGroup = config.CONSUMER_GROUP;
+    let consumerGroup = config.CONSUMER_GROUP.QUALIFICATION;
     const processor = {
         name: config.PROCESSOR_NAME['QUALIFICATION'],
         process: analyzer

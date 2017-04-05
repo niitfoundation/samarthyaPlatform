@@ -1,6 +1,6 @@
 const sectionAnalyzerBase = require('./sectionAnalysis.service');
 const config = require('./../config/profileAnalysisConfig');
-const logger = require('./../applogger');
+
 
 
 const analyzer = function(msgObj) {
@@ -8,10 +8,10 @@ const analyzer = function(msgObj) {
         const analyzerModule = require(
             '../server/profileAnalyzer/skillSection/skills.analyzer');
 
-        let profileUser = { username: msgobj.username };
-        let skills = msgobj.profile.skills;
+        let data = JSON.parse(msgObj.value);
+
         analyzerModule
-            .analyze(profileUser, skills,
+            .analyze(data.userName, data.payload,
                 function(err, result) {
                     if (err) {
                         reject(err);
@@ -28,7 +28,7 @@ const analyzer = function(msgObj) {
 
 const execute = function() {
     let subscribeTopic = config.SECTION_TO_TOPIC_MAP['SKILLS'];
-    let consumerGroup = config.CONSUMER_GROUP;
+    let consumerGroup = config.CONSUMER_GROUP.SKILLS;
     const processor = {
         name: config.PROCESSOR_NAME['skills'],
         process: analyzer

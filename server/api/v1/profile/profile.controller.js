@@ -3,6 +3,7 @@ const logger = require('./../../../../applogger');
 const ProfileModel = require('./profile.entity');
 const profileDataModel = require('./profile.model');
 const analysisFeeder = require('./../analysisFeeder/index');
+const profileConstant = require('./../../../../config/profileAnalysisConfig');
 
 /*
  *
@@ -32,7 +33,8 @@ const getProfile = function(profileObj) {
 // Add profile details
 const createProfile = function(profileObj) {
     // Add/modify profile model
-    let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
+    let userRegData = profileDataModel.profileDataModel(profileObj);
+    let profileData = new ProfileModel(userRegData);
 
     return new Promise((resolve, reject) => {
         profileData.save(function(err, data) {
@@ -41,8 +43,19 @@ const createProfile = function(profileObj) {
                 reject(err);
             } else {
                 logger.info('profile data added successfully');
+                logger.info('Graph Model Creation started');
+                analysisFeeder.publishForProfileAnalysis(userRegData.username,
+                    userRegData,
+                    'POST', profileConstant.SECTION_TO_TOPIC_MAP.USER_REG,
+                    function(err, result) {
+                        if (err) {
+                            reject({ msg: 'Graph model not created' });
+                        } else {
+                            resolve({ msg: 'Graph model  created' });
+                        }
+                    });
                 // inserts profile details
-                resolve({ msg: 'Profile data Added successfully' });
+                // resolve({ msg: 'Profile data Added successfully' });
             }
         });
     });
@@ -64,7 +77,9 @@ const editProfile = function(profileData, username, sectionName) {
                     profileData.modifyObj,
                     'PATCH',
                     sectionName,
-                    function() {});
+                    function() {
+
+                    });
 
                 // inserts profile details
                 resolve({ data: data });

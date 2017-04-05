@@ -6,13 +6,12 @@ const async = require('async');
 const publishToAnalyze = function(userName, dataToPublish, actionType,
     analysisTopic, callback) {
     logger.debug('AnalyzeObject:', dataToPublish);
-    let topicName = config.SECTION_TO_TOPIC_MAP[analysisTopic];
+    let topicName = analysisTopic;
     let dataPayload = {
         userName: userName,
         payload: dataToPublish,
         actionType: actionType
     };
-
 
     publishToKafkaTopic(topicName, dataPayload, function(err, publishResult) {
         logger.info('Done publishing, with result ', publishResult);
@@ -52,7 +51,7 @@ const publishToKafka = function(topicName, dataPayload, callback) {
     producer.on('ready', function() {
         let payloads = [{
             topic: topicName,
-            messages: dataPayload
+            messages: JSON.stringify(dataPayload)
         }];
 
         producer.send(payloads, function(err, data) {

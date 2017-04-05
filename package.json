@@ -1,58 +1,66 @@
 {
-  "name": "samarthyaPlatform",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": " \"Error: no test specified\" && exit 1",
-    "webclients-npm-install": "concurrently \"cd webclient/placement && npm install\" \"cd webclient/candidate && npm install\" ",
-    "webclients-ng-build": "concurrently \"cd webclient/placement && ng build\" \"cd webclient/candidate && ng build\" ",
-    "placement": "node bin/www.placement.js",
-    "candidate": "node bin/www.candidate.js",
-    "ng-placement": "concurrently \"cd webclient/placement && ng build --watch\" \"node bin/www.placement.js\"",
-    "ng-candidate": "concurrently \"cd webclient/candidate && ng build --watch\" \"node bin/www.candidate.js\"",
-    "lint": " concurrently \" eslint bin/**/*.js\"  \" eslint apploger/**/*.js\" \" eslint server/**/*.js\"    "
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/stackroute/samarthyaPlatform.git"
-  },
-  "keywords": [],
-  "author": "StackRoute",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/stackroute/samarthyaPlatform/issues"
-  },
-  "homepage": "https://github.com/stackroute/samarthyaPlatform#readme",
-  "dependencies": {
-    "async": "^2.2.0",
-    "bcrypt": "^1.0.2",
-    "body-parser": "^1.17.1",
-    "compression": "^1.6.2",
-    "concurrently": "^3.4.0",
-    "cors": "^2.8.1",
-    "express": "^4.15.2",
-    "highland": "^2.10.5",
-    "html2canvas": "^0.5.0-beta4",
-    "jsonwebtoken": "^7.3.0",
-    "kafka-node": "^1.6.0",
-    "mongoose": "^4.8.6",
-    "morgan": "^1.8.1",
-    "neo4j-driver": "^1.2.0",
-    "nodemailer": "^3.1.4",
-    "nodemailer-smtp-transport": "^2.7.2",
-    "smtp-server": "^2.0.2"
-  },
-  "devDependencies": {
-    "@angular/cli": "^1.0.0",
-    "browser-sync": "^2.18.8",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "eslint": "^3.17.1",
-    "log4js": "^1.1.1",
-    "mocha": "^3.2.0",
-    "neo4j-driver": "^1.1.1",
-    "nodemon": "^1.11.0",
-    "supertest": "^3.0.0"
-  }
+    "name": "samarthyaPlatform",
+    "version": "1.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": " \"Error: no test specified\" && exit 1",
+        "webclients-npm-install": "concurrently \"cd webclient/placement && npm install\" \"cd webclient/candidate && npm install\" ",
+        "webclients-ng-build": "concurrently \"cd webclient/placement && ng build\" \"cd webclient/candidate && ng build\" ",
+        "placement": "node bin/www.placement.js",
+        "candidate": "node bin/www.candidate.js",
+        "ng-placement": "concurrently \"cd webclient/placement && ng build --watch\" \"node bin/www.placement.js\"",
+        "ng-candidate": "concurrently \"cd webclient/candidate && ng build --watch\" \"node bin/www.candidate.js\"",
+        "lint": " concurrently \" eslint bin/**/*.js\"  \" eslint apploger/**/*.js\" \" eslint server/**/*.js\"",
+        "jpref-analyzer": "cd services && node jobPrefrence.Analyzer",
+        "wexp-analyzer": "cd services && node workExperience.Analyzer.js",
+        "proj-analyzer": "cd services && node projects.Analyzer.js",
+        "qual-analyzer": "cd services && node qualification.Analyzer.js",
+        "skill-analyzer": "cd services && node skills.Analyzer.js",
+        "usrreg-analyzer": "cd services && node userRegistration.Analyzer.js",
+        "prinfo-analyzer": "cd services && node personalInfo.Analyzer.js"
+
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stackroute/samarthyaPlatform.git"
+    },
+    "keywords": [],
+    "author": "StackRoute",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/stackroute/samarthyaPlatform/issues"
+    },
+    "homepage": "https://github.com/stackroute/samarthyaPlatform#readme",
+    "dependencies": {
+        "async": "^2.2.0",
+        "bcrypt": "^1.0.2",
+        "body-parser": "^1.17.1",
+        "compression": "^1.6.2",
+        "concurrently": "^3.4.0",
+        "cors": "^2.8.1",
+        "express": "^4.15.2",
+        "highland": "^2.10.5",
+        "html2canvas": "^0.5.0-beta4",
+        "jsonwebtoken": "^7.3.0",
+        "kafka-node": "^1.6.0",
+        "mongoose": "^4.8.6",
+        "morgan": "^1.8.1",
+        "neo4j-driver": "^1.2.0",
+        "nodemailer": "^3.1.4",
+        "nodemailer-smtp-transport": "^2.7.2",
+        "smtp-server": "^2.0.2"
+    },
+    "devDependencies": {
+        "@angular/cli": "^1.0.0",
+        "browser-sync": "^2.18.8",
+        "chai": "^3.5.0",
+        "chai-as-promised": "^6.0.0",
+        "eslint": "^3.17.1",
+        "log4js": "^1.1.1",
+        "mocha": "^3.2.0",
+        "neo4j-driver": "^1.1.1",
+        "nodemon": "^1.11.0",
+        "supertest": "^3.0.0"
+    }
 }

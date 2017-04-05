@@ -6,11 +6,10 @@ const analyzer = function(msgObj) {
     let promise = new Promise(function(resolve, reject) {
         const analyzerModule = require(
             '../server/profileAnalyzer/personalInfoSection/personalInfo.analyzer')
+        let data = JSON.parse(msgObj.value);
 
-        let profileUser = { username: msgobj.username };
-        let personalInfo = msgobj.profile.personalInfo;
         analyzerModule
-            .analyze(profileUser, personalInfo,
+            .analyze(data.userName, data.payload,
                 function(err, result) {
                     if (err) {
                         reject(err);
@@ -27,7 +26,7 @@ const analyzer = function(msgObj) {
 
 const execute = function() {
     let subscribeTopic = config.SECTION_TO_TOPIC_MAP['PERSONAL_INFO'];
-    let consumerGroup = config.CONSUMER_GROUP;
+    let consumerGroup = config.CONSUMER_GROUP.PERSONAL_INFO;
     const processor = {
         name: config.PROCESSOR_NAME['PERSONAL_INFO'],
         process: analyzer
