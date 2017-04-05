@@ -47,20 +47,19 @@ const createProfile = function (profileObj) {
     });
 };
 
-const editProfile = function (profileObj) {
+const editProfile = function (profileData,username,sectionName) {
 
-    console.log("---->>>>>>>>>");
-   console.log((profileData));
-   let sectionName=profileData.sectionName;
-return new Promise((resolve, reject) =>{
-       ProfileModel.update({ username:profileData.username },{$set:{ sectionName:profileData.modifyObj}},function (err, data) {
+    let obj = {};
+  obj[sectionName] = profileData;
+  return new Promise((resolve, reject) => {
+    ProfileModel.update({ username: username }, { $set: obj }, function (err, data) {
            if (err) {
                logger.error('Profile data error' + err);
                reject(err);
            } else {
-               logger.debug('Got Profile Data' + err);
+               logger.debug('Got Profile Data'+data);
                // inserts profile details
-               resolve({ data: data });
+               resolve({success:true, msg:'successfully updated',data: data });
            }
    });
 });

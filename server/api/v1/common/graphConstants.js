@@ -11,6 +11,7 @@ module.exports = {
     NODE_PROPERTY_NAME: 'name',
     NODE_WORKPLACE: 'WorkPlace',
     NODE_DESG: 'Designation',
+    NODE_PROJECT: 'Project',
     REL_QUALIFIED_AS: 'Qualified_As',
     REL_QUALIFIED_IN: 'Qualified_In',
     REL_MAJOR_SUBJECT_AS: 'Major_Subject_As',
@@ -33,6 +34,7 @@ module.exports = {
     REL_SKILL: 'Preffered_JobRole_Skill',
     REL_PREFFERED_LOCATION: 'Prefferd_Job_Location',
     REL_JOB_LOOKING: 'Looking_For_Job',
+    REL_USED: 'Used',
     PROP_JOB_LOOKING: 'lookingForJob',
     PROP_LOCATION: 'Location',
     PROP_DEGREE: 'degree',
@@ -42,6 +44,7 @@ module.exports = {
     PROP_START_DATE: 'startDate',
     PROP_END_DATE: 'endDate',
     PROP_ROLE: 'role',
+    PROP_JOBROLE: 'Jobrole',
     PROP_DURATION: 'duration',
     PROP_ISCURRENT: 'isCurrent',
     PROP_ORGANISATION: 'organisation',
@@ -52,4 +55,5 @@ module.exports = {
     PROP_NAME: 'displayName',
     PROP_GENDER: 'gender',
     PROP_AADHAAR: 'aadhaar',
+
 };

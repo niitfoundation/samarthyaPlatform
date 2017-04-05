@@ -97,7 +97,7 @@ const profileSchema = mongoose.Schema({
         name: { type: String },
         description: { type: String },
         duration: {
-            start: { type: Date, default: Date.now },
+            start: { type: Date },
             end: { type: Date, default: Date.now }
         },
         location: { type: String },

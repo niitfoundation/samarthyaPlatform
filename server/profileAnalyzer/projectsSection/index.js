@@ -1,2 +1,3 @@
-const analyze = require('./projects.analyzer');
-module.exports = analyze
+const analyzer = require('./projects.analyzer');
+
+module.exports = analyzer;
