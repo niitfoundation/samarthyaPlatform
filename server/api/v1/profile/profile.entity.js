@@ -14,6 +14,9 @@ const profileSchema = mongoose.Schema({
     createdBy: { type: String, required: true },
     updatedOn: { type: Date, required: true, default: Date.now },
     updatedBy: { type: String, required: true },
+    summary: {
+        summaryText: { type: String }
+    },
     personalInfo: {
         name: { type: String, min: 2, max: 30 },
         fname: { type: String, required: true, min: 2 },
@@ -110,10 +113,7 @@ const profileSchema = mongoose.Schema({
         title: { type: String },
         url: { type: String },
         desc: { type: String }
-    }],
-    summary: {
-        summaryText: { type: String }
-    }
+    }]
 }, { collection: 'profiles' });
 
 module.exports = mongoose.model('profiles', profileSchema);
