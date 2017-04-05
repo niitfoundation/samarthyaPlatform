@@ -1,7 +1,6 @@
 const highland = require('highland');
 const kafka = require('kafka-node');
-const config = require('./../config/profileAnalysisConfig');
-
+const logger = require('./../applogger');
 /*
  * This is a KAFKA Consumer base service module, which subscribes to Kafka topic perpetually
  *
@@ -11,32 +10,37 @@ const config = require('./../config/profileAnalysisConfig');
 // A client (calee) needs to specify
 // - Topic name it wants to subscribe to
 // - Consumer group it belongs to
-// - Kafka host it wants to connect to
+// - Server host it wants to connect to, this should be Zookeeper Host
 // - A highland Processing Pipeline, how the messages are processed
 
-function run(subscribeTopic, consumerGroup, kafkaHost, processPipeLine) {
+function run(subscribeTopic, consumerGroup, serverHost, processPipeLine) {
     if (!subscribeTopic || subscribeTopic == '') {
         throw new Error('Invalid subscription details for consumer..!');
         return;
     }
 
-    kafkaHost = kafkaHost || config.KAFKA_HOST;
+    serverHost = serverHost || '0.0.0.0:2181';
     consumerGroup = consumerGroup || '';
 
-    let client = new kafka.Client(kafkaHost);
+    logger.debug('Registering client to host ', serverHost);
+
+    let client = new kafka.Client(serverHost);
 
     highland(function(push, next) {
             let topics = [{
                 topic: subscribeTopic
             }];
+
             let options = {
                 groupId: consumerGroup,
                 autoCommit: true
-            }
+            };
 
+            logger.debug('Subscribing consumer to topic ', subscribeTopic, ' with consumergroup as ', consumerGroup);
             let consumer = new kafka.Consumer(client, topics, options);
+
             consumer.on('message', function(message) {
-                // console.log('Message received: ', message);
+                // logger.debug('Message received: ', message);
 
                 //If message is not JSON, parse it as JSON here, before passing it to the rest of the pipeline
 
@@ -48,16 +52,14 @@ function run(subscribeTopic, consumerGroup, kafkaHost, processPipeLine) {
             });
 
             consumer.on('error', function(err) {
-                console.log("Error: ", err);
-
-
+                logger.debug("Error: ", err);
                 push(err, null);
                 next();
             });
         }).map(function(messageObj) {
             //Temporarily keeping this map method, to intermediary log and verify if messages are coming from Kafka or not
             //Once well tested, this method can be removed
-            console.log('[*] Received a message in pipeline: ', messageObj);
+            logger.debug('[*] Received a message in pipeline: ', messageObj);
 
             //If not returned, the message will not be propagated to next set of pipeline
             return messageObj;
@@ -65,7 +67,7 @@ function run(subscribeTopic, consumerGroup, kafkaHost, processPipeLine) {
         .pipe(processPipeLine) //Assemble the calee's processing pipeline
         .errors(function(err) {
             //Listen to any error if happens
-            console.log('Got errors: ', err);
+            logger.debug('Got errors: ', err);
             return err;
         })
         .each(function(messageObj) {

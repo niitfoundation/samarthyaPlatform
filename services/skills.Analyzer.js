@@ -1,5 +1,6 @@
 const sectionAnalyzerBase = require('./sectionAnalysis.service');
 const config = require('./../config/profileAnalysisConfig');
+const logger = require('./../applogger');
 
 
 const analyzer = function(msgObj) {
