@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "@angular/cli": "^1.0.0",
+    "@angular/core": "^2.4.0",
     "browser-sync": "^2.18.8",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
