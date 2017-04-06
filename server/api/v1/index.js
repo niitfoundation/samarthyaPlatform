@@ -13,6 +13,7 @@ const languageRoutes = require('./languages/index');
 const centreRoutes = require('./centres/index');
 const neo4jConn = require('./neo4jcon/neo4jcon');
 const graphConstants = require('./common/graphConstants');
+const mongoData = require('./mongoData/index');
 
 module.exports = {
     authenticationRoutes: authenticationRoutes,
@@ -29,5 +30,6 @@ module.exports = {
     languageRoutes: languageRoutes,
     centreRoutes: centreRoutes,
     neo4jConn: neo4jConn,
-    graphConstants: graphConstants
+    graphConstants: graphConstants,
+    mongoData: mongoData
 };

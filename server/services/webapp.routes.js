@@ -16,6 +16,7 @@ const useRoutes = function (app) {
     app.use('/skills', apiBasePath.skillRoutes);
     app.use('/languages', apiBasePath.languageRoutes);
     app.use('/centres', apiBasePath.centreRoutes);
+    app.use('/mongo', apiBasePath.mongoData);
 };
 
 module.exports = {
