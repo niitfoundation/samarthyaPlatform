@@ -1,11 +1,8 @@
 FROM mhart/alpine-node
 
-#RUN apk add --update python build-base
-
 RUN apk update && \
     apk add git && \
     apk add python build-base
-
 
 # Create app directory
 RUN mkdir /usr/src
