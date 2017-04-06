@@ -1,8 +1,11 @@
 FROM mhart/alpine-node
 
 RUN apk update && \
-    apk upgrade && \
-    apk add git
+    apk add git && \
+    apk add python build-base
+
+# Create app directory
+RUN mkdir /usr/src
 
 WORKDIR /usr/src
 
@@ -18,7 +21,7 @@ COPY . .
 RUN npm run webclients-npm-install
 
 # Build webclient apps
-RUN npm run webclients-ng-build 
+RUN npm run webclients-ng-build
 
 EXPOSE 8080
 

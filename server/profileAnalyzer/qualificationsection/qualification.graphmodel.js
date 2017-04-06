@@ -3,10 +3,10 @@ const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
 
 const relatePersonToQualification = function (personName, qualification, callback) {
+    console.log(personName+"pppppppppp");
     let relAttributes = '';
     relAttributes = relAttributes + graphConst.PROP_RESULT + ': {result}';
-    relAttributes = relAttributes + ',' + graphConst.PROP_START_YEAR + ': {startYear}';
-    relAttributes = relAttributes + ',' + graphConst.PROP_END_YEAR + ': {endYear}';
+    relAttributes = relAttributes + ',' + graphConst.PROP_BATCH + ': {batch}';
 
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
@@ -17,9 +17,8 @@ const relatePersonToQualification = function (personName, qualification, callbac
     let params = {
         personName: personName.toLowerCase(),
         qualificationName: qualification.name.toLowerCase(),
-        result: qualification.result.score.toString() + ' ' + qualification.result.unit.toString(),
-        startYear: qualification.batch.startDate.toString(),
-        endYear: qualification.batch.endDate.toString()
+        result: qualification.result,
+        batch: new Date(qualification.batch).getYear()
     };
 
     logger.debug('relatePersonToQualification::Query', query);
@@ -49,8 +48,8 @@ const relatePersonToQualification = function (personName, qualification, callbac
 const relatePersonToInstitute = function (personName, qualification, callback) {
     let relAttributes = '';
     relAttributes = relAttributes + graphConst.PROP_DEGREE + ': {degree}';
-    relAttributes = relAttributes + ',' + graphConst.PROP_START_DATE + ': {startDate}';
-    relAttributes = relAttributes + ',' + graphConst.PROP_END_DATE + ': {endDate}';
+        relAttributes = relAttributes + ',' + graphConst.PROP_BATCH + ': {batch}';
+
 
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
@@ -62,8 +61,8 @@ const relatePersonToInstitute = function (personName, qualification, callback) {
         personName: personName.toLowerCase(),
         instituteName: qualification.institute.toLowerCase(),
         degree: qualification.academictype.toLowerCase(),
-        startDate: qualification.batch.startDate.toString(),
-        endDate: qualification.batch.endDate.toString()
+               batch: new Date(qualification.batch).getYear()
+
     };
 
     logger.debug('relatePersonToInstitute::Query', query);

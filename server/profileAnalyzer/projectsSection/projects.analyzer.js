@@ -4,7 +4,7 @@ const waterfall = require('async-waterfall')
 const projectModel = require('./projects.graphmodel');
 
 const analyze = function (profileUser, projectColln, callback) {
-    if (!profileUser || !profileUser.username || !projectColln || !(Array.isArray(projectColln)) || projectColln.length <= 0) {
+    if (!profileUser || !projectColln || !(Array.isArray(projectColln)) || projectColln.length <= 0) {
         logger.error('No data found to analyze');
         //If data is not valid, return back without processing
         return callback({ error: 'No data found to analyze' }, null);
@@ -13,7 +13,7 @@ const analyze = function (profileUser, projectColln, callback) {
     logger.info('Proceeding to analyze!');
 
     async.mapSeries(projectColln, function (instance, asyncCallback) {
-        analyzeprojectInstance(profileUser.username, instance, asyncCallback);
+        analyzeprojectInstance(profileUser, instance, asyncCallback);
     }, callback);
 
     return true;

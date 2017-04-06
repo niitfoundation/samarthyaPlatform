@@ -18,7 +18,7 @@ const relatePersonToHimself = function (personName, looking, callback) {
 
   let params = {
     personName: personName.toLowerCase(),
-    looking: looking.toLowerCase(),
+    looking: looking,
   };
 
   logger.debug('relatePersonToHimself::Query', query);

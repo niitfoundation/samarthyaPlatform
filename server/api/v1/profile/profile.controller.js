@@ -44,18 +44,20 @@ const createProfile = function (profileObj) {
             } else {
                 logger.info('profile data added successfully');
                 logger.info('Graph Model Creation started');
+
                 analysisFeeder.publishForProfileAnalysis(userRegData.username,
                     userRegData,
+                // resolve({ msg: 'Profile data Added successfully' });
                     'POST', profileConstant.SECTION_TO_TOPIC_MAP.USER_REG,
                     function (err, result) {
                         if (err) {
-                            reject({ msg: 'Graph model not created' });
+                            reject( { msg: 'Profile data Not Added successfully' } );
                         } else {
-                            resolve({ msg: 'Graph model  created' });
+                            resolve({ msg: 'Profile data Added successfully' });
                         }
                     });
                 // inserts profile details
-                // resolve({ msg: 'Profile data Added successfully' });
+                resolve({ msg: 'Profile data Added successfully' });
             }
         });
     });
@@ -73,14 +75,16 @@ const editProfile = function (profileData, username, sectionName) {
                 logger.debug('Got Profile Data');
                 // call method to run kafka pipeline
                 // for particular profile section
-                analysisFeeder.publishForProfileAnalysis(profileData.username,
-                    profileData.modifyObj,
+                analysisFeeder.publishForProfileAnalysis(username,
+                    profileData,
                     'PATCH',
                     sectionName,
-                    function () { });
+                    function (err,result) {
+                     resolve({ data: data });
+                     });
 
                 // inserts profile details
-                resolve({ data: data });
+               
             }
         });
     });

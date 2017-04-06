@@ -1,9 +1,9 @@
 const SECTION_TO_TOPIC_MAP = {
     PERSONAL_INFO: 'personalInfo',
-    WORK_EXPERIENCE: 'workExperience',
+    WORK_EXPERIENCE: 'experiences',
     PROJECTS: 'projects',
-    QUALIFICATION: 'qualification',
-    JOB_PREFRENCE: 'jobPreference',
+    QUALIFICATION: 'qualifications',
+    JOB_PREFRENCE: 'jobPreferences',
     SKILLS: 'skills',
     USER_REG: 'userRegistration'
 };
@@ -20,6 +20,7 @@ const CONSUMER_GROUP = {
 
 }
 const PROCESSOR_NAME = {
+    USER_REGISTRATION: 'Samarthya_User_Registration',
     PERSONAL_INFO: 'PersonalInfoAnalyzer',
     WORK_EXPERIENCE: 'workExperienceAnalyzer',
     PROJECT: 'projectAnalyzer',

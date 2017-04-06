@@ -7,7 +7,8 @@ const relatePersonToOrganisation = function(personName, workExpInstance, callbac
 
     let relAttributes = '';
     relAttributes = relAttributes + ' ' + graphConst.PROP_ROLE + ': {role}';
-    relAttributes = relAttributes + ', ' + graphConst.PROP_DURATION + ': {duration}';
+    relAttributes = relAttributes + ', ' + graphConst.PROP_DURATION_IN_MONTHS + ': {durationinmonths}';
+    relAttributes = relAttributes + ', ' + graphConst.PROP_DURATION_IN_YEARS + ': {durationinyears}';
     relAttributes = relAttributes + ', ' + graphConst.PROP_ISCURRENT + ': {isCurrent}';
 
     let query = '';
@@ -16,12 +17,14 @@ const relatePersonToOrganisation = function(personName, workExpInstance, callbac
     query = query + ' MERGE (p)-[por:' + graphConst.REL_WORKED_WITH + ' {' + relAttributes + '} ]->(o)';
     query = query + ' RETURN p,por,o';
 
+    let exactDuration = Math.abs(new Date(workExpInstance.duration.start) - new Date(workExpInstance.duration.end));
     let params = {
         personName: personName.toLowerCase(),
         organizationName: workExpInstance.workplace.toLowerCase(),
         role: workExpInstance.jobRole.toLowerCase(),
-        duration: workExpInstance.duration.toString(),
-        isCurrent: (workExpInstance.isCurrent || false)
+        durationinmonths: (exactDuration / (1000 * 3600 * 24 * 30)).toString(),
+        durationinyears: (exactDuration / (1000 * 3600 * 24 * 30 * 12)).toString(),
+        isCurrent: workExpInstance.isCurrent || false
     };
 
     logger.debug('relatePersonToOrganisation::Query', query);
@@ -50,7 +53,8 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
     // Establish relation between (:Person)-[:WORKED_AS {duration: '',organization: ''}]-(:jobRole)
 
     let relAttributes = '';
-    relAttributes = relAttributes + ' ' + graphConst.PROP_DURATION + ': {duration}';
+      relAttributes = relAttributes + ' ' + graphConst.PROP_DURATION_IN_MONTHS + ': {durationinmonths}';
+    relAttributes = relAttributes + ', ' + graphConst.PROP_DURATION_IN_YEARS + ': {durationinyears}';
     relAttributes = relAttributes + ', ' + graphConst.PROP_ORGANISATION + ': {organization}';
 
     let query = '';
@@ -59,10 +63,13 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
     query = query + ' MERGE (p)-[pjr:' + graphConst.REL_WORKED_AS + ' {' + relAttributes + '} ]->(jr)';
     query = query + ' RETURN p,pjr,jr';
 
+    let exactDuration = Math.abs(new Date(jobRoleInstance.duration.start) - new Date(jobRoleInstance.duration.end));
+
     let params = {
         personName: personName.toLowerCase(),
         jobRole: jobRoleInstance.jobRole.toLowerCase(),
-        duration: jobRoleInstance.duration,
+        durationinmonths: (exactDuration / (1000 * 3600 * 24 * 30)).toString(),
+        durationinyears: (exactDuration / (1000 * 3600 * 24 * 30 * 12)).toString(),
         organization: jobRoleInstance.workplace
     };
 
@@ -106,7 +113,7 @@ const releatePersonToWorkingLocation = function(personName, workinglocInstance, 
         personName: personName.toLowerCase(),
         locationName: workinglocInstance.location.toLowerCase(),
         organization: workinglocInstance.workplace.toLowerCase(),
-        isCurrent: (workinglocInstance.isCurrent || false)
+        isCurrent: workinglocInstance.isCurrent || false
     };
 
     logger.debug('releatePersonToWorkingLocation::Query', query);

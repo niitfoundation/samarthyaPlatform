@@ -2,7 +2,7 @@ const path = require('path');
 
 const apiBasePath = require(path.resolve(__dirname, '../', 'api', 'v1/index.js'));
 
-const useRoutes = function (app) {
+const useRoutes = function(app) {
     app.use('/users', apiBasePath.userRoutes);
     app.use('/candidates', apiBasePath.candidateRoutes);
     app.use('/auth', apiBasePath.authenticationRoutes);
@@ -16,6 +16,8 @@ const useRoutes = function (app) {
     app.use('/skills', apiBasePath.skillRoutes);
     app.use('/languages', apiBasePath.languageRoutes);
     app.use('/centres', apiBasePath.centreRoutes);
+    app.use('/mongo', apiBasePath.mongoData);
+    app.use('/candidates-search', apiBasePath.candidateSearchRoutes)
 };
 
 module.exports = {

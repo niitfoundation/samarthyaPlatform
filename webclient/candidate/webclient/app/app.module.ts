@@ -16,6 +16,7 @@ import { Md2Module } from 'md2';
 import { SamProfileCardService } from 'samarthyaWebcomponent/sam-profile/sam-profile-card/sam-profile-card.service';
 import { SamProfileSectionConfigService } from 'samarthyaWebcomponent/sam-profile/sam-profile-section/sam-profile-section-config.service';
 import { ProfileService } from 'samarthyaWebcomponent/sam-profile/sam-profile-section/sam-profile-section-data.service';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ProfileService } from 'samarthyaWebcomponent/sam-profile/sam-profile-se
     HttpModule,
     MaterialModule.forRoot(),
     Md2Module.forRoot(),
-    CandidateModule
+    CandidateModule,
+    InfiniteScrollModule
   ], exports: [
     MaterialModule
   ],

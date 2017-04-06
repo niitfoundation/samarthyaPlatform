@@ -20,8 +20,6 @@ const publishToAnalyze = function(userName, dataToPublish, actionType,
 }
 
 const publishToKafkaTopic = function(topicName, dataPayload, callback) {
-    let client = new kafka.Client(config.ZOOKPER_HOST);
-
     async.waterfall([function(callback) {
         upsertKafkaTopic(topicName, callback)
     }, function(prevStepResult, callback) {

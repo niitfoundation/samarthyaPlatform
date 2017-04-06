@@ -31,7 +31,7 @@ const execute = function() {
     let subscribeTopic = config.SECTION_TO_TOPIC_MAP['USER_REG'];
     let consumerGroup = config.CONSUMER_GROUP.USER_REGISTRATION;
     const processor = {
-        name: config.PROCESSOR_NAME['USER_REG'],
+        name: config.PROCESSOR_NAME.USER_REGISTRATION,
         process: analyzer
     };
 

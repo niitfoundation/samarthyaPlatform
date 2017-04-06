@@ -3,8 +3,8 @@ const async = require('async');
 const skillsModel = require('./skills.graphmodel');
 
 
-const analyzer = function (profileUser, skillsColln, callback) {
-    if (!profileUser || !profileUser.username || !skillsColln || !Array.isArray(skillsColln)
+const analyze = function (profileUser, skillsColln, callback) {
+    if (!profileUser || !skillsColln || !Array.isArray(skillsColln)
         || skillsColln.length <= 0) {
         logger.error('No skill data found to analyze');
 
@@ -14,7 +14,7 @@ const analyzer = function (profileUser, skillsColln, callback) {
     logger.info('Proceeding to analyze Skills..!');
 
     async.map(skillsColln, function (instance, asyncCallback) {
-        analyzeSkillsInstance(profileUser.username, instance, asyncCallback);
+        analyzeSkillsInstance(profileUser, instance, asyncCallback);
     }, callback);
 
     return true;
@@ -42,6 +42,6 @@ analyzeSkillsInstance = function (personName, skills, analyzeResultCallback) {
 };
 
 module.exports = {
-    analyzer: analyzer,
+    analyze: analyze,
     analyzeSkillsInstance: analyzeSkillsInstance
 };

@@ -10,7 +10,7 @@ const relatePersonToProject = function (person, project, callback) {
   relAttributes = relAttributes + graphConst.PROP_JOBROLE + ': {role},';
   relAttributes = relAttributes + graphConst.PROP_DURATION + ': {duration},';
   relAttributes = relAttributes + graphConst.PROP_LOCATION + ' : {location}';
-
+  let results=[];
   let query = '';
   query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
   query = query + ' MERGE (proj:' + graphConst.NODE_PROJECT + ' {' + graphConst.NODE_PROPERTY_NAME + ':{projectName}})';
@@ -34,18 +34,17 @@ const relatePersonToProject = function (person, project, callback) {
     .then(result => {
       session.close();
       result.records.map(record => {
-        callback(null, {
-          Person: record.get('p'),
+        results.push({ Person: record.get('p'),
           Relation: record.get('pproj'),
-          Project: record.get('proj')
-        });
+          Project: record.get('proj')})
       });
     })
     .catch(error => {
       session.close();
       logger.error("RelatePersonToProject error" + error);
-      callback(err, null);
+      callback(error, null);
     });
+     callback(null, results);
   return true;
 };
 
@@ -53,21 +52,23 @@ const relatePersonToSkills = function (person, skills, callback) {
   // We are using array based relationship creation, an Cypher example is as below
   // match (p:Person {name: 'murugavel'})
   // FOREACH (sk in ['s1', 's2', 's3'] | merge (s:Skill {name:sk}) merge (p)-[:WORKED_ON]->(s));
-
-  let query = '';
+let results=[];
+// async.map(skills, function (skillOne) {
+   let query = '';
   query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
-  query = query + ' FOREACH (sk in {skills} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; //continued to next line
+  query = query + ' FOREACH (sk in {skillOne} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; //continued to next line
   query = query + ' MERGE (p)-[ps:' + graphConst.REL_WORKED_ON + ']->(s) )';
   query = query + ' RETURN p';
 
   const session = neo4jConn.connection();
-  skills = skills.map(function (skill) {
-    return skill.toLowerCase();
+  let skillOne=[];
+  skills.forEach(function (skill) {
+    skillOne.push(skill.toLowerCase());
   });
 
   let params = {
     personName: person.toLowerCase(),
-    skills: skills
+    skillOne: skillOne
   };
 
   logger.debug("RelatePersonToSkills debug" + query);
@@ -76,53 +77,58 @@ const relatePersonToSkills = function (person, skills, callback) {
     .run(query, params)
     .then(result => {
       session.close();
-      result.records.map(record => {
-        callback(null, {
-          person: record.get('p')
-        });
-      });
+    let data= result.records.map(record => {
+      return record.get('p');
+      //  results.push({ person: record.get('p')})
+    });
+          callback(null,data);
+
     })
     .catch(error => {
       session.close();
       logger.error("RelatePersonToSkills error" + error);
-      callback(err, null);
+      callback(error, null);
     });
+// });
+    //  callback(null,results);
 
   return true;
 }
 
 const relateProjectToSkills = function (projectName, skills, callback) {
-  let query = '';
+  let results=[];
+
+   let query = '';
   query = query + ' MATCH (p:' + graphConst.NODE_PROJECT + ' {' + graphConst.NODE_PROPERTY_NAME + ':{projectName}})';
-  query = query + ' FOREACH (sk in {skills} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; //continued to next line
+  query = query + ' FOREACH (sk in {skillOne} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; //continued to next line
   query = query + ' MERGE (p)-[ps:' + graphConst.REL_USED + ']->(s) )';
   query = query + ' RETURN p';
-
   const session = neo4jConn.connection();
-  skills = skills.map(function (skill) {
-    return skill.toLowerCase();
+   let skillOne=[];
+  skills.forEach(function (skill) {
+    skillOne.push(skill.toLowerCase());
   });
 
   let params = {
     projectName: projectName.toLowerCase(),
-    skills: skills
+    skillOne: skillOne
   };
 
   session
     .run(query, params)
     .then(result => {
       session.close();
-      result.records.map(record => {
-        callback(null, {
-          projectName: record.get('p')
-        });
+      let data= result.records.map(record => {
+        return record.get('p');
       });
+       callback(null, data);
     })
     .catch(error => {
       session.close();
       logger.error("RelateProjectToSkills error" + error);
-      callback(err, null);
+      callback(error, null);
     });
+     
 
   return true;
 }

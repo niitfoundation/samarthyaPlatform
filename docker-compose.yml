@@ -13,6 +13,8 @@ services:
     depends_on:
       - mongodb
       - neo4j
+      - zookeeper
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
@@ -30,10 +32,131 @@ services:
     depends_on:
       - mongodb
       - neo4j
+      - zookeeper
+      - kafka      
     entrypoint:
       - /bin/sh
       - -c
       - 'npm run placement'
+
+  jobpreference:
+    image: samarthya/samarthya:v1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka      
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'npm run jpref-analyzer'
+      
+  workexperience:
+    image: samarthya/samarthya:v1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka      
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'npm run wexp-analyzer'
+
+  project:
+    image: samarthya/samarthya:v1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka      
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'npm run proj-analyzer'
+
+  qualification:
+    image: samarthya/samarthya:v1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka      
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'npm run qual-analyzer'
+
+  skill:
+    image: samarthya/samarthya:v1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka      
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'npm run skill-analyzer'
+
+  userregister:
+    image: samarthya/samarthya:v1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka      
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'npm run usrreg-analyzer'
+
+  profileinfo:
+    image: samarthya/samarthya:v1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka      
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'npm run prinfo-analyzer'                               
 
   mongodb:
     image: mvertes/alpine-mongo
