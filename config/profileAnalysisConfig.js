@@ -20,6 +20,7 @@ const CONSUMER_GROUP = {
 
 }
 const PROCESSOR_NAME = {
+    USER_REGISTRATION: 'Samarthya_User_Registration',
     PERSONAL_INFO: 'PersonalInfoAnalyzer',
     WORK_EXPERIENCE: 'workExperienceAnalyzer',
     PROJECT: 'projectAnalyzer',
