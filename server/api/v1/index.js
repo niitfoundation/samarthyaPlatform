@@ -14,6 +14,7 @@ const centreRoutes = require('./centres/index');
 const neo4jConn = require('./neo4jcon/neo4jcon');
 const graphConstants = require('./common/graphConstants');
 const mongoData = require('./mongoData/index');
+const candidateSearchRoutes = require('./candidateSearch/index');
 
 module.exports = {
     authenticationRoutes: authenticationRoutes,
@@ -31,5 +32,6 @@ module.exports = {
     centreRoutes: centreRoutes,
     neo4jConn: neo4jConn,
     graphConstants: graphConstants,
-    mongoData: mongoData
+    mongoData: mongoData,
+    candidateSearchRoutes: candidateSearchRoutes
 };
