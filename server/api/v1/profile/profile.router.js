@@ -7,7 +7,7 @@ const logger = require('./../../../../applogger');
  */
 
 // get profile full data
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     let profileData = req.query;
     try {
         if (!profileData) {
@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
 });
 
 // api to create new profile
-router.post('/', function(req, res) {
+router.post('/', function (req, res) {
     let profileData = req.body;
     logger.debug('Get object and store into profileData');
     try {
@@ -55,7 +55,7 @@ router.post('/', function(req, res) {
 
 // api to edit profile data
 
-router.patch('/', function(req, res) {
+router.patch('/', function (req, res) {
     let profileData = req.body.data;
     let username = req.body.username;
     let sectionName = req.body.sectionName;
@@ -65,7 +65,7 @@ router.patch('/', function(req, res) {
             throw new Error('Invalid inputs passed...!');
         }
         prflCtrl.editProfile(profileData, username, sectionName).then((successResult) => {
-            return res.status(201).send(successResult);
+            return res.status(201).send({ data: successResult, success: true });
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
@@ -81,7 +81,7 @@ router.patch('/', function(req, res) {
 });
 
 // api to delete  profile
-router.delete('/', function(req, res) {
+router.delete('/', function (req, res) {
     let profileData = req.body;
     try {
         if (!profileData) {
