@@ -6,7 +6,7 @@ const appConstant = require('../common/appConstants');
 /*
  *authenticate new user and adding profile details
  */
-const registerNewUser = function(userObj) {
+const registerNewUser = function (userObj) {
     logger.debug('Get userObj and store into userDetails');
     var userDetails = {
         username: userObj.userCredentialsData.username,
@@ -21,7 +21,7 @@ const registerNewUser = function(userObj) {
 
     // insert the data into db using promise
     return new Promise((resolve, reject) => {
-        userData.save(function(err, data) {
+        userData.save(function (err, data) {
             if (err) {
                 logger.error('userData not added sucessfully' + err);
                 reject(err);
@@ -32,7 +32,7 @@ const registerNewUser = function(userObj) {
                 }, (errresult) => {
                     logger.error('profile data not added Successfully' + err);
                     // if profile data not inserted delete the credentials data
-                    userData.remove(function(err, data) {
+                    userData.remove(function (err, data) {
                         if (err) {
                             reject(err);
                             logger.error('failed adding profile data and failed removing userCredential data' + err);
