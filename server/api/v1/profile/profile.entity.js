@@ -53,8 +53,8 @@ const profileSchema = mongoose.Schema({
         name: { type: String },
         subject: { type: String },
         academictype: { type: String },
-        batch: { startDate: { type: String }, endDate: { type: String } },
-        result: { score: { type: String }, unit: { type: String } },
+        batch: { type: String },
+        result: { type: String },
         institute: { type: String },
         affiliation: { type: String },
         location: { type: String }

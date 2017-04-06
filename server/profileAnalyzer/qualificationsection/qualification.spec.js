@@ -7,7 +7,7 @@ describe('Test qualification section data analysis', function () {
     const qualificationModule = require('./');
     expect(undefined).to.not.equal(qualificationModule);
     expect('object').to.equal(typeof qualificationModule);
-    expect('function').to.equal(typeof qualificationModule.analyzer);
+    expect('function').to.equal(typeof qualificationModule.analyze);
     done();
   });
 });
@@ -28,7 +28,7 @@ describe('Validations', function () {
       location: 'Dhelhi'
     }];
     // Expecting a error
-    qualificationModule.analyzer(profileUser, qualifications, function (err, result) {
+    qualificationModule.analyze(profileUser, qualifications, function (err, result) {
       // Only if no data was passed, error should be thrown
       // if error comes, test case passes, if no error comes, test cases failes
       expect('object').to.equal(typeof err);
@@ -58,7 +58,7 @@ describe('Analyse simple one single qualification entry in the profile', functio
       affiliation: 'IIT Dhelhi',
       location: 'Dhelhi'
     }];
-    qualificationModule.analyzer(profileUser, qualifications, function (err, result) {
+    qualificationModule.analyze(profileUser, qualifications, function (err, result) {
       expect(null).to.equal(err);
       done();
     });

@@ -22,6 +22,7 @@ module.exports = {
     REL_WORKED_AS: 'Worked_As',
     REL_WORKED_ON: 'Worked_On',
     REL_LIVES_IN: 'Lives_In',
+    REL_DONE_FROM: 'Done_From',
     REL_CAN_SPEAK: 'Can_Speak',
     REL_CAN_WRITE: 'Can_Write',
     REL_CAN_READ: 'Can_Read',

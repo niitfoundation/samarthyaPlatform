@@ -1,40 +1,42 @@
-[2017-04-04 01:34:38.983] [DEBUG] [default] - Server running  on 3000
-[2017-04-04 01:34:39.006] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-04-04 01:34:46.895] [FATAL] [default] - sdsdsdsdsdsdds
-[2017-04-04 01:35:24.891] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-04-04 01:35:25.950] [DEBUG] [default] - Server running  on 3000
-[2017-04-04 01:35:25.969] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-04-04 01:35:31.106] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:36:15.603] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-04-04 01:36:16.767] [DEBUG] [default] - Server running  on 3000
-[2017-04-04 01:36:16.785] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-04-04 01:36:23.385] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:37:57.683] [DEBUG] [default] - Mongoose is now disconnected..!
-[2017-04-04 01:38:09.604] [DEBUG] [default] - Server running  on 3000
-[2017-04-04 01:38:09.623] [DEBUG] [default] - Mongoose is now connected to  mongodb: //localhost/SamarthyaDB
-[2017-04-04 01:38:24.268] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:40:09.327] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:40:36.736] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:41:08.740] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:41:36.507] [FATAL] [default] - { name: [ 'prakul', 'kumar' ] }
-[2017-04-04 01:42:01.227] [FATAL] [default] - { name: 'don' }
-[2017-04-04 01:42:01.229] [ERROR] [default] - TypeError: name.forEach is not a function
-    at Promise (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/server/api/v1/centres/centres.controller.js:44:10)
-    at Object.addCentre (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/server/api/v1/centres/centres.controller.js:41:17)
-    at /home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/server/api/v1/centres/centres.router.js:33:20
-    at Layer.handle [as handle_request] (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/route.js:137:13)
-    at Route.dispatch (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/route.js:112:3)
-    at Layer.handle [as handle_request] (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
-    at /home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:281:22
-    at Function.process_params (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:335:12)
-    at next (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:275:10)
-    at Function.handle (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:174:3)
-    at router (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:47:12)
-    at Layer.handle [as handle_request] (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/layer.js:95:5)
-    at trim_prefix (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:317:13)
-    at /home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:284:7
-    at Function.process_params (/home/prakul/Sare ke sare/Samarthya 1/samarthyaPlatform/node_modules/express/lib/router/index.js:335:12)
-[2017-04-04 01:42:25.640] [FATAL] [default] - { name: [ 'don' ] }
-[2017-04-04 01:44:28.023] [FATAL] [default] - { name: [ 'Shimla' ] }
-[2017-04-04 01:47:22.644] [DEBUG] [default] - Mongoose is now disconnected..!
+[2017-04-05 21:09:00.837] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
+[2017-04-05 21:09:25.905] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:09:25.912] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
+[2017-04-05 21:09:25.915] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-04-05 21:11:34.164] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:11:34.171] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
+[2017-04-05 21:11:34.173] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-04-05 21:19:55.768] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:19:55.775] [DEBUG] [default] - Subscribing consumer to topic  jobPreference  with consumergroup as  Samarthya_jobprefrences
+[2017-04-05 21:19:55.778] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
+[2017-04-05 21:19:55.824] [DEBUG] [default] - Error:  { TopicsNotExistError
+    at new TopicsNotExistError (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/errors/TopicsNotExistError.js:11:9)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:424:43
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
+    at done (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:432:7
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/zookeeper.js:349:7
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/index.js:165:26
+    at Object.async.whilst (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:627:13)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
+  topics: [ 'jobPreference' ],
+  message: 'The topic(s) jobPreference do not exist' }
+[2017-04-05 21:20:27.217] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:20:27.224] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
+[2017-04-05 21:20:27.226] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-04-05 21:20:43.210] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-05 21:20:43.217] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  
+[2017-04-05 21:20:43.220] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-05 21:20:43.423] [DEBUG] [default] - Error:  { TopicsNotExistError
+    at new TopicsNotExistError (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/errors/TopicsNotExistError.js:11:9)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:424:43
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
+    at done (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:432:7
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/zookeeper.js:349:7
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/index.js:165:26
+    at Object.async.whilst (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:627:13)
+    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
+  topics: [ 'projects' ],
+  message: 'The topic(s) projects do not exist' }

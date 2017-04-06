@@ -1,11 +1,13 @@
 const sectionAnalyzerBase = require('./sectionAnalysis.service');
 const config = require('./../config/profileAnalysisConfig');
+const logger = require('./../applogger');
 
 
 const analyzer = function(msgObj) {
     let promise = new Promise(function(resolve, reject) {
         const analyzerModule = require(
-            '../server/profileAnalyzer/personalInfoSection/personalInfo.analyzer')
+            '../server/profileAnalyzer/userRegistration/userRegistration.analyzer');
+
         let data = JSON.parse(msgObj.value);
 
         analyzerModule
@@ -25,16 +27,17 @@ const analyzer = function(msgObj) {
 }
 
 const execute = function() {
-    let subscribeTopic = config.SECTION_TO_TOPIC_MAP['PERSONAL_INFO'];
-    let consumerGroup = config.CONSUMER_GROUP.PERSONAL_INFO;
+    console.log("UserRegistration Caalled");
+    let subscribeTopic = config.SECTION_TO_TOPIC_MAP['USER_REG'];
+    let consumerGroup = config.CONSUMER_GROUP.USER_REGISTRATION;
     const processor = {
-        name: config.PROCESSOR_NAME['PERSONAL_INFO'],
+        name: config.PROCESSOR_NAME['USER_REG'],
         process: analyzer
-    }
+    };
 
     // sectionAnalyzerBase.execute(subscribeTopic, consumerGroup, processor);
     sectionAnalyzerBase.execute(subscribeTopic, consumerGroup, processor);
-}
+};
 
 execute();
 module.exports = analyzer;

@@ -1,4 +1,5 @@
 const chai = require('chai');
+const logger = require('./../../../applogger');
 const expect = chai.expect;
 
 describe('Test work experience section data analysis', function() {
@@ -15,7 +16,7 @@ describe('Test work experience section data analysis', function() {
         };
 
         workExpGraphModel.relatePersonToOrganisation(personName, workExperience, function(err, result) {
-            console.log('Result: ', JSON.stringify(result));
+            logger.debug('Result: ', JSON.stringify(result));
 
             expect(err).to.equal(null);
             expect(result).to.not.equal(null);
@@ -24,7 +25,7 @@ describe('Test work experience section data analysis', function() {
         });
 
         workExpGraphModel.releatePersonToJobRole(personName, workExperience, function(err, result) {
-            console.log('Result: ', JSON.stringify(result));
+            logger.debug('Result: ', JSON.stringify(result));
 
             expect(err).to.equal(null);
             expect(result).to.not.equal(null);
@@ -33,7 +34,7 @@ describe('Test work experience section data analysis', function() {
         });
 
         workExpGraphModel.releatePersonToWorkingLocation(personName, workExperience, function(err, result) {
-            console.log('Result: ', JSON.stringify(result));
+            logger.debug('Result: ', JSON.stringify(result));
 
             expect(err).to.equal(null);
             expect(result).to.not.equal(null);

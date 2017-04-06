@@ -4,10 +4,6 @@ const graphConst = require('../common/graphConstants');
 // Function to find qualifications
 const findQualifications = function (name, limit) {
   let promise = new Promise((resolve, reject) => {
-    if(name === '') {
-      resolve('Please enter a Qualification');
-    }
-
     const session = neo4jConn.connection();
     let query = '';
     limit = limit || '10';
@@ -15,7 +11,7 @@ const findQualifications = function (name, limit) {
     query = query + 'MATCH (q:' + graphConst.NODE_QUALIFICATION + ')';
 
     if (name !== 'undefined' && name.length > 0) {
-      query = query + 'WHERE q.' + graphConst.NODE_PROPERTY_NAME + '= "' + name + '"';
+      query = query + 'WHERE q.' + graphConst.NODE_PROPERTY_NAME + '= "' + name.toLowerCase() + '"';
     }
 
     query = query + ' RETURN q LIMIT ' + limit;
@@ -43,8 +39,8 @@ const addQualification = function (name) {
 
     name.forEach(function (name) {
       let query = '';
-      if (name !== 'undefined' && name.length > 0) {
-        query = query + 'MERGE (q:' + graphConst.NODE_QUALIFICATION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name + '"})';
+      if (name !== 'undefined' && name.length > 0 && name !== '') {
+        query = query + 'MERGE (q:' + graphConst.NODE_QUALIFICATION + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
         query = query + ' RETURN q';
       } else {
         reject('Qualification not found');

@@ -9,7 +9,12 @@ let NEO4J = {
     PASSWORD: 'password'
 };
 
+const KAFKA_HOST = 'localhost:9092';
+const ZOOKPER_HOST = 'localhost:2181';
+
 module.exports = {
     SAMARTHYA: SAMARTHYA,
-    NEO4J: NEO4J
+    NEO4J: NEO4J,
+    KAFKA_HOST: KAFKA_HOST,
+    ZOOKPER_HOST: ZOOKPER_HOST
 };

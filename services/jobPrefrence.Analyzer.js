@@ -5,7 +5,7 @@ const config = require('./../config/profileAnalysisConfig');
 const analyzer = function(msgObj) {
     let promise = new Promise(function(resolve, reject) {
         const analyzerModule = require(
-            '../server/profileAnalyzer/personalInfoSection/personalInfo.analyzer')
+            '../server/profileAnalyzer/jobPreferenceSection/jobPreference.analyzer');
         let data = JSON.parse(msgObj.value);
 
         analyzerModule
@@ -15,7 +15,6 @@ const analyzer = function(msgObj) {
                         reject(err);
                         return;
                     }
-
                     resolve(result);
                     return;
                 });
@@ -25,10 +24,10 @@ const analyzer = function(msgObj) {
 }
 
 const execute = function() {
-    let subscribeTopic = config.SECTION_TO_TOPIC_MAP['PERSONAL_INFO'];
-    let consumerGroup = config.CONSUMER_GROUP.PERSONAL_INFO;
+    let subscribeTopic = config.SECTION_TO_TOPIC_MAP['JOB_PREFRENCE'];
+    let consumerGroup = config.CONSUMER_GROUP.JOB_PREFRENCE;
     const processor = {
-        name: config.PROCESSOR_NAME['PERSONAL_INFO'],
+        name: config.PROCESSOR_NAME['JOB_PREFRENCE'],
         process: analyzer
     }
 
