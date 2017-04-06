@@ -40,3 +40,67 @@
     at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
   topics: [ 'projects' ],
   message: 'The topic(s) projects do not exist' }
+[2017-04-06 20:32:20.797] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-06 20:32:20.806] [DEBUG] [default] - Subscribing consumer to topic  jobPreference  with consumergroup as  Samarthya_jobprefrences
+[2017-04-06 20:32:20.808] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
+[2017-04-06 20:32:20.880] [DEBUG] [default] - Error:  { TopicsNotExistError
+    at new TopicsNotExistError (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/errors/TopicsNotExistError.js:11:9)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/client.js:424:43
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
+    at done (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/client.js:432:7
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/zookeeper.js:349:7
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/index.js:165:26
+    at Object.async.whilst (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:627:13)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
+  topics: [ 'jobPreference' ],
+  message: 'The topic(s) jobPreference do not exist' }
+[2017-04-06 20:32:40.019] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-06 20:32:40.025] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-06 20:32:40.027] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-06 20:32:40.076] [DEBUG] [default] - Error:  { TopicsNotExistError
+    at new TopicsNotExistError (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/errors/TopicsNotExistError.js:11:9)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/client.js:424:43
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
+    at done (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/client.js:432:7
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/zookeeper.js:349:7
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/index.js:165:26
+    at Object.async.whilst (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:627:13)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
+  topics: [ 'userRegistration' ],
+  message: 'The topic(s) userRegistration do not exist' }
+[2017-04-06 20:34:58.397] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-06 20:34:58.402] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-06 20:34:58.404] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-06 20:34:58.537] [DEBUG] [default] - Error:  { TopicsNotExistError
+    at new TopicsNotExistError (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/errors/TopicsNotExistError.js:11:9)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/client.js:424:43
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
+    at done (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/client.js:432:7
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/zookeeper.js:349:7
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/index.js:165:26
+    at Object.async.whilst (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:627:13)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
+  topics: [ 'userRegistration' ],
+  message: 'The topic(s) userRegistration do not exist' }
+[2017-04-06 20:35:32.491] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-06 20:35:32.497] [DEBUG] [default] - Subscribing consumer to topic  jobPreference  with consumergroup as  Samarthya_jobprefrences
+[2017-04-06 20:35:32.499] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
+[2017-04-06 20:35:32.628] [DEBUG] [default] - Error:  { TopicsNotExistError
+    at new TopicsNotExistError (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/errors/TopicsNotExistError.js:11:9)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/client.js:424:43
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
+    at done (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/client.js:432:7
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/kafka-node/lib/zookeeper.js:349:7
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/index.js:165:26
+    at Object.async.whilst (/home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:627:13)
+    at /home/gowtham/Desktop/Projectgit_final/Project_final/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
+  topics: [ 'jobPreference' ],
+  message: 'The topic(s) jobPreference do not exist' }

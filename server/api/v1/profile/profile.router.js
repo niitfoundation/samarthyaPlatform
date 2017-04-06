@@ -65,7 +65,7 @@ router.patch('/', function(req, res) {
             throw new Error('Invalid inputs passed...!');
         }
         prflCtrl.editProfile(profileData, username, sectionName).then((successResult) => {
-            return res.status(201).send(successResult);
+            return res.status(201).send({data:successResult,success:true});
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');

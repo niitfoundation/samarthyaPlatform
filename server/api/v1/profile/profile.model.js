@@ -11,6 +11,9 @@ var profileDataModel = function (profileObj) {
         updatedBy: profileObj.createdBy,
         updatedOn: Date.now(),
         profilePic: profileObj.profilePic,
+        summary: {
+            summaryText: profileObj.summaryText
+        },
         personalInfo: {
             name: profileObj.name,
             fname: profileObj.fname,
