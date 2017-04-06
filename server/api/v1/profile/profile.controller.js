@@ -44,18 +44,20 @@ const createProfile = function (profileObj) {
             } else {
                 logger.info('profile data added successfully');
                 logger.info('Graph Model Creation started');
+
                 analysisFeeder.publishForProfileAnalysis(userRegData.username,
                     userRegData,
+                // resolve({ msg: 'Profile data Added successfully' });
                     'POST', profileConstant.SECTION_TO_TOPIC_MAP.USER_REG,
                     function (err, result) {
                         if (err) {
                             reject({ msg: 'Graph model not created' });
                         } else {
-                            resolve({ msg: 'Graph model  created' });
+                            resolve({ msg: 'Graph model created' });
                         }
                     });
                 // inserts profile details
-                // resolve({ msg: 'Profile data Added successfully' });
+                resolve({ msg: 'Profile data Added successfully' });
             }
         });
     });

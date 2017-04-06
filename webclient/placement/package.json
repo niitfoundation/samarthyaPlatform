@@ -28,6 +28,7 @@
     "hammerjs": "^2.0.8",
     "html2canvas": "^0.5.0-beta4",
     "md2": "0.0.16",
+    "samarthyaWebcomponent": "git+https://github.com/stackroute/samarthyaWebcomponent.git#dev-wave-16",
     "placementmodule": "git+https://github.com/stackroute/samarthyaPlacement.git#dev-wave-16",
     "rxjs": "^5.0.1",
     "systemjs": "^0.20.9",
