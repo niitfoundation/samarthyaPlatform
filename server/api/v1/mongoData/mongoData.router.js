@@ -5,7 +5,7 @@ const mongoData = require('./mongoData').data;
 /*
  * Actual URI will be HTTP POST /users/
  */
-router.post('/', function (req, res) {
+router.get('/', function (req, res) {
     logger.debug('Get object and store into mongoData');
     try {
         if (!mongoData) {

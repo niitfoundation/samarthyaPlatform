@@ -13,14 +13,11 @@ const addData = function(userObj) {
                 reject(err);
             } else {
                 // after successful enter the credentials data inserts profile details
-               
                     resolve({ success: true, msg: ' Successfully Added' });
             }
         });
     });
 };
-
-
 
 module.exports = {
     addData: addData
