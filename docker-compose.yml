@@ -13,6 +13,8 @@ services:
     depends_on:
       - mongodb
       - neo4j
+      - zookeeper
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
