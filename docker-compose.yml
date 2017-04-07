@@ -196,7 +196,7 @@ services:
     cap_add:
       - SYS_RESOURCE
     volumes:
-      - ./neo4j/data:/data
+      - ./neo4j/data:/data  
     expose:
       - 7474
       - 7687
