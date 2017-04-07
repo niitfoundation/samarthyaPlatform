@@ -10,6 +10,8 @@ services:
     restart: always
     ports:
       - "8080:8080"
+    environment:
+      - KAFKA_HOST_IP=172.18.0.3
     depends_on:
       - mongodb
       - neo4j
@@ -29,6 +31,8 @@ services:
     restart: always
     ports:
       - "3000:3000"
+    environment:
+      - KAFKA_HOST_IP=172.18.0.3      
     depends_on:
       - mongodb
       - neo4j
@@ -46,6 +50,8 @@ services:
       dockerfile: Dockerfile
     network_mode: host
     restart: always
+    environment:
+      - KAFKA_HOST_IP=172.18.0.3    
     depends_on:
       - mongodb
       - neo4j
@@ -63,6 +69,8 @@ services:
       dockerfile: Dockerfile
     network_mode: host
     restart: always
+    environment:
+      - KAFKA_HOST_IP=172.18.0.3    
     depends_on:
       - mongodb
       - neo4j
@@ -80,6 +88,8 @@ services:
       dockerfile: Dockerfile
     network_mode: host
     restart: always
+    environment:
+      - KAFKA_HOST_IP=172.18.0.3    
     depends_on:
       - mongodb
       - neo4j
@@ -97,6 +107,8 @@ services:
       dockerfile: Dockerfile
     network_mode: host
     restart: always
+    environment:
+      - KAFKA_HOST_IP=172.18.0.3    
     depends_on:
       - mongodb
       - neo4j
@@ -114,6 +126,8 @@ services:
       dockerfile: Dockerfile
     network_mode: host
     restart: always
+    environment:
+      - KAFKA_HOST_IP=172.18.0.3    
     depends_on:
       - mongodb
       - neo4j
@@ -131,6 +145,8 @@ services:
       dockerfile: Dockerfile
     network_mode: host
     restart: always
+    environment:
+      - KAFKA_HOST_IP=172.18.0.3    
     depends_on:
       - mongodb
       - neo4j
@@ -148,6 +164,8 @@ services:
       dockerfile: Dockerfile
     network_mode: host
     restart: always
+    environment:
+      - KAFKA_HOST_IP=172.18.0.3    
     depends_on:
       - mongodb
       - neo4j
@@ -198,7 +216,7 @@ services:
     links:
       - zookeeper
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: 192.168.99.100
+      KAFKA_ADVERTISED_HOST_NAME: 172.18.0.3
       KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
