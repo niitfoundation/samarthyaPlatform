@@ -16,6 +16,8 @@ services:
       - mongodb
       - neo4j
       - zookeeper
+#      - kafka
+    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -37,6 +39,8 @@ services:
       - mongodb
       - neo4j
       - zookeeper
+#      - kafka
+    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -56,6 +60,8 @@ services:
       - mongodb
       - neo4j
       - zookeeper
+#      - kafka
+    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -75,6 +81,8 @@ services:
       - mongodb
       - neo4j
       - zookeeper
+#      - kafka
+    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -94,6 +102,8 @@ services:
       - mongodb
       - neo4j
       - zookeeper
+#      - kafka
+    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -113,6 +123,8 @@ services:
       - mongodb
       - neo4j
       - zookeeper
+#      - kafka
+    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -132,6 +144,8 @@ services:
       - mongodb
       - neo4j
       - zookeeper
+#      - kafka
+    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -151,6 +165,8 @@ services:
       - mongodb
       - neo4j
       - zookeeper
+#      - kafka
+    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -170,6 +186,8 @@ services:
       - mongodb
       - neo4j
       - zookeeper
+#      - kafka
+    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -215,7 +233,7 @@ services:
     restart: always
     expose:
       - 9092
-    depends_on:
+    links:
       - zookeeper
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 172.18.0.3
