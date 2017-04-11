@@ -229,7 +229,6 @@ services:
 
   kafka:
     image: wurstmeister/kafka
-    network_mode: host
     restart: always
     expose:
       - 9092
