@@ -218,10 +218,10 @@ services:
     depends_on:
       - zookeeper
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: "172.18.0.3"
+      KAFKA_ADVERTISED_HOST_NAME: "0.0.0.0"
       KAFKA_ADVERTISED_PORT: "9092"
       KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1"
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ZOOKEEPER_CONNECT: 0.0.0.0:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
