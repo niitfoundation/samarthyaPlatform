@@ -11,13 +11,11 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - KAFKA_HOST_IP=172.18.0.3
+      - KAFKA_HOST_IP=0.0.0.0
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-#      - kafka
-    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -34,13 +32,11 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - KAFKA_HOST_IP=172.18.0.3
+      - KAFKA_HOST_IP=0.0.0.0
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-#      - kafka
-    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -55,13 +51,11 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3
+      - KAFKA_HOST_IP=0.0.0.0
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-#      - kafka
-    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -76,13 +70,11 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3
+      - KAFKA_HOST_IP=0.0.0.0
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-#      - kafka
-    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -97,13 +89,11 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3
+      - KAFKA_HOST_IP=0.0.0.0
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-#      - kafka
-    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -118,13 +108,11 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3
+      - KAFKA_HOST_IP=0.0.0.0
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-#      - kafka
-    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -139,13 +127,11 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3
+      - KAFKA_HOST_IP=0.0.0.0
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-#      - kafka
-    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -160,13 +146,11 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3
+      - KAFKA_HOST_IP=0.0.0.0
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-#      - kafka
-    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -181,13 +165,11 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3
+      - KAFKA_HOST_IP=0.0.0.0
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-#      - kafka
-    links:
       - kafka
     entrypoint:
       - /bin/sh
@@ -229,13 +211,14 @@ services:
 
   kafka:
     image: wurstmeister/kafka
+    network_mode: host
     restart: always
     expose:
       - 9092
-    links:
+    depends_on:
       - zookeeper
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: 172.18.0.3
+#      KAFKA_ADVERTISED_HOST_NAME: 172.18.0.3
       KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
