@@ -215,7 +215,7 @@ services:
     restart: always
     expose:
       - 9092
-    links:
+    depends_on:
       - zookeeper
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 172.18.0.3
