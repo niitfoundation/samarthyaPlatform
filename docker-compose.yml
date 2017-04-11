@@ -184,8 +184,6 @@ services:
       - /data:/data/db
     expose:
       - 27017
-    ports:
-      - "27017:27017"
 
   neo4j:
     image: neo4j:3.0.7
@@ -203,8 +201,6 @@ services:
       - 1337
     ports:
       - "7474:7474"
-      - "7687:7687"
-      - "1337:1337"
 
   zookeeper:
     image: wurstmeister/zookeeper
@@ -212,17 +208,13 @@ services:
     restart: always
     expose:
       - 2181
-    ports:
-      - 2181:2181
 
   kafka:
     image: wurstmeister/kafka
     network_mode: host
     restart: always
-    ports:
-      - 9092:9092
-    depends_on:
-      - zookeeper
+    expose:
+      - 9092
     links:
       - zookeeper
     environment:
