@@ -32,12 +32,12 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - KAFKA_HOST_IP=172.18.0.3      
+      - KAFKA_HOST_IP=172.18.0.3
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-      - kafka      
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
@@ -51,17 +51,17 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3    
+      - KAFKA_HOST_IP=172.18.0.3
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-      - kafka      
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
       - 'npm run jpref-analyzer'
-      
+
   workexperience:
     image: samarthya/samarthya:v1.0.0
     build:
@@ -70,12 +70,12 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3    
+      - KAFKA_HOST_IP=172.18.0.3
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-      - kafka      
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
@@ -89,12 +89,12 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3    
+      - KAFKA_HOST_IP=172.18.0.3
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-      - kafka      
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
@@ -108,12 +108,12 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3    
+      - KAFKA_HOST_IP=172.18.0.3
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-      - kafka      
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
@@ -127,12 +127,12 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3    
+      - KAFKA_HOST_IP=172.18.0.3
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-      - kafka      
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
@@ -146,12 +146,12 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3    
+      - KAFKA_HOST_IP=172.18.0.3
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-      - kafka      
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
@@ -165,16 +165,16 @@ services:
     network_mode: host
     restart: always
     environment:
-      - KAFKA_HOST_IP=172.18.0.3    
+      - KAFKA_HOST_IP=172.18.0.3
     depends_on:
       - mongodb
       - neo4j
       - zookeeper
-      - kafka      
+      - kafka
     entrypoint:
       - /bin/sh
       - -c
-      - 'npm run prinfo-analyzer'                               
+      - 'npm run prinfo-analyzer'
 
   mongodb:
     image: mvertes/alpine-mongo
@@ -196,7 +196,7 @@ services:
     cap_add:
       - SYS_RESOURCE
     volumes:
-      - ./neo4j/data:/data  
+      - ./neo4j/data:/data
     expose:
       - 7474
       - 7687
@@ -208,13 +208,21 @@ services:
 
   zookeeper:
     image: wurstmeister/zookeeper
+    network_mode: host
+    restart: always
+    expose:
+      - 2181
     ports:
       - 2181:2181
 
   kafka:
     image: wurstmeister/kafka
+    network_mode: host
+    restart: always
     ports:
       - 9092:9092
+    depends_on:
+      - zookeeper
     links:
       - zookeeper
     environment:
@@ -223,3 +231,4 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
