@@ -4,6 +4,10 @@ RUN apk update && \
     apk add git && \
     apk add python build-base
 
+# Set the timezone for container, so that logs etc., can be easily tracked
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Create app directory
 RUN mkdir /usr/src
 
