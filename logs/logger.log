@@ -1,119 +1,396 @@
-[2017-04-06 19:47:41.800] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:47:41.807] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-06 19:47:41.809] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-06 19:47:44.310] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:47:44.317] [DEBUG] [default] - Subscribing consumer to topic  jobPreference  with consumergroup as  Samarthya_jobprefrences
-[2017-04-06 19:47:44.319] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-04-06 19:47:46.609] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:47:46.616] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  
-[2017-04-06 19:47:46.619] [DEBUG] [default] - Service  undefined  is now running..!
-[2017-04-06 19:47:49.198] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:47:49.206] [DEBUG] [default] - Subscribing consumer to topic  skills  with consumergroup as  Samarthya_skills
-[2017-04-06 19:47:49.209] [DEBUG] [default] - Service  undefined  is now running..!
-[2017-04-06 19:47:51.374] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:47:51.382] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
-[2017-04-06 19:47:51.385] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-06 19:47:53.553] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:47:53.560] [DEBUG] [default] - Subscribing consumer to topic  qualification  with consumergroup as  Samarthya_qualification
-[2017-04-06 19:47:53.563] [DEBUG] [default] - Service  qualificationAnalyzer  is now running..!
-[2017-04-06 19:50:36.120] [DEBUG] [default] - Error:  { Error
-    at ConnectionManager.onSocketData (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/lib/ConnectionManager.js:570:35)
-    at emitOne (events.js:96:13)
-    at Socket.emit (events.js:191:7)
-    at readableAddChunk (_stream_readable.js:176:18)
-    at Socket.Readable.push (_stream_readable.js:134:10)
-    at TCP.onread (net.js:563:20)
-  code: -101,
-  name: 'NO_NODE',
-  path: undefined,
-  message: 'Exception: NO_NODE[-101]' }
-[2017-04-06 19:50:36.122] [DEBUG] [default] - Error:  { Error
-    at ConnectionManager.onSocketData (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/lib/ConnectionManager.js:570:35)
-    at emitOne (events.js:96:13)
-    at Socket.emit (events.js:191:7)
-    at readableAddChunk (_stream_readable.js:176:18)
-    at Socket.Readable.push (_stream_readable.js:134:10)
-    at TCP.onread (net.js:563:20)
-  code: -101,
-  name: 'NO_NODE',
-  path: undefined,
-  message: 'Exception: NO_NODE[-101]' }
-[2017-04-06 19:50:36.119] [DEBUG] [default] - Error:  { Error
-    at ConnectionManager.onSocketData (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/lib/ConnectionManager.js:570:35)
-    at emitOne (events.js:96:13)
-    at Socket.emit (events.js:191:7)
-    at readableAddChunk (_stream_readable.js:176:18)
-    at Socket.Readable.push (_stream_readable.js:134:10)
-    at TCP.onread (net.js:563:20)
-  code: -101,
-  name: 'NO_NODE',
-  path: undefined,
-  message: 'Exception: NO_NODE[-101]' }
-[2017-04-06 19:50:36.122] [DEBUG] [default] - Error:  { Error
-    at ConnectionManager.onSocketData (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/lib/ConnectionManager.js:570:35)
-    at emitOne (events.js:96:13)
-    at Socket.emit (events.js:191:7)
-    at readableAddChunk (_stream_readable.js:176:18)
-    at Socket.Readable.push (_stream_readable.js:134:10)
-    at TCP.onread (net.js:563:20)
-  code: -101,
-  name: 'NO_NODE',
-  path: undefined,
-  message: 'Exception: NO_NODE[-101]' }
-[2017-04-06 19:50:36.124] [DEBUG] [default] - Error:  { Error
-    at ConnectionManager.onSocketData (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/lib/ConnectionManager.js:570:35)
-    at emitOne (events.js:96:13)
-    at Socket.emit (events.js:191:7)
-    at readableAddChunk (_stream_readable.js:176:18)
-    at Socket.Readable.push (_stream_readable.js:134:10)
-    at TCP.onread (net.js:563:20)
-  code: -101,
-  name: 'NO_NODE',
-  path: undefined,
-  message: 'Exception: NO_NODE[-101]' }
-[2017-04-06 19:50:51.697] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:50:51.755] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-06 19:50:51.758] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-06 19:50:57.205] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:50:57.217] [DEBUG] [default] - Subscribing consumer to topic  jobPreference  with consumergroup as  Samarthya_jobprefrences
-[2017-04-06 19:50:57.222] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-04-06 19:50:57.276] [DEBUG] [default] - Error:  { TopicsNotExistError
-    at new TopicsNotExistError (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/errors/TopicsNotExistError.js:11:9)
-    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:424:43
-    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
-    at done (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
-    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16
-    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/client.js:432:7
-    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/kafka-node/lib/zookeeper.js:349:7
-    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/index.js:165:26
-    at Object.async.whilst (/home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:627:13)
-    at /home/pankush/workspace/samarthyaMain/samarthyaPlatform/node_modules/node-zookeeper-client/node_modules/async/lib/async.js:623:23
-  topics: [ 'jobPreference' ],
-  message: 'The topic(s) jobPreference do not exist' }
-[2017-04-06 19:51:56.344] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:51:56.351] [DEBUG] [default] - Subscribing consumer to topic  jobPreference  with consumergroup as  Samarthya_jobprefrences
-[2017-04-06 19:51:56.354] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-04-06 19:52:01.681] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:52:01.688] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  
-[2017-04-06 19:52:01.691] [DEBUG] [default] - Service  undefined  is now running..!
-[2017-04-06 19:52:09.261] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:52:09.268] [DEBUG] [default] - Subscribing consumer to topic  skills  with consumergroup as  Samarthya_skills
-[2017-04-06 19:52:09.271] [DEBUG] [default] - Service  undefined  is now running..!
-[2017-04-06 19:52:12.030] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:52:12.040] [DEBUG] [default] - Subscribing consumer to topic  workExperience  with consumergroup as  Samarthya_work_Experience
-[2017-04-06 19:52:12.044] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-06 19:52:16.542] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:52:16.551] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  Samarthya_Personal_info
-[2017-04-06 19:52:16.554] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-06 19:52:20.151] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-06 19:52:20.158] [DEBUG] [default] - Subscribing consumer to topic  qualification  with consumergroup as  Samarthya_qualification
-[2017-04-06 19:52:20.161] [DEBUG] [default] - Service  qualificationAnalyzer  is now running..!
-[2017-04-06 19:54:05.544] [DEBUG] [default] - [*] Received a message in pipeline:  { topic: 'userRegistration',
-  value: '{"userName":"manchandapankush@gmail.com","payload":{"username":"manchandapankush@gmail.com","profession":"bpo","centerCode":"niit","createdOn":1491488644975,"createdBy":"manchandapankush@gmail.com","updatedBy":"manchandapankush@gmail.com","updatedOn":1491488644975,"profilePic":"assets/img/male.jpg","summary":{},"personalInfo":{"name":"Pankush","fname":"ma","lname":"Pa","gender":"male","email":"manchandapankush@gmail.com","role":"candidate","dob":"2016-04-06T14:22:00.000Z","contact":{"I":"1123456678"},"identity":[{"idType":"Aadhaar","value":"121313313119"},{"idType":"RegNumber","value":"12131313131"}],"address":{"landmark":"Panipat GT Road","district":" Panipat","state":" HARYANA","pincode":"132103"}}},"actionType":"POST"}',
-  offset: 0,
+[2017-04-06 20:21:12.437] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:13.439] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:13.440] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:14.442] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:14.443] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:15.444] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:15.445] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:16.446] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:16.447] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:17.448] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:17.449] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:18.449] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:18.450] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:19.452] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:19.453] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:20.456] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:20.456] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:21.458] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:21.459] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:22.460] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:22.461] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:23.462] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:23.463] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:24.464] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:24.465] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:25.466] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:25.467] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:26.469] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:26.470] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:27.477] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:27.479] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:28.482] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:28.482] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:29.485] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:29.487] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:30.489] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:30.490] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:31.494] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:31.495] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:32.497] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-06 20:21:32.498] [DEBUG] [default] - Error:  { Error: connect ECONNREFUSED 0.0.0.0:9092
+    at Object.exports._errnoException (util.js:1033:11)
+    at exports._exceptionWithHostPort (util.js:1056:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1099:14)
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '0.0.0.0',
+  port: 9092 }
+[2017-04-19 14:30:07.597] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-19 14:30:07.607] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  
+[2017-04-19 14:30:07.610] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-19 14:31:28.922] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-19 14:31:28.929] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  
+[2017-04-19 14:31:28.931] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-19 14:31:36.758] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-19 14:31:36.765] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  
+[2017-04-19 14:31:36.767] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-19 14:31:51.244] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-19 14:31:51.251] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  
+[2017-04-19 14:31:51.253] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-19 14:31:57.756] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-19 14:31:57.763] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  
+[2017-04-19 14:31:57.766] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-19 14:49:11.272] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-19 14:49:11.278] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 14:49:11.281] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 14:49:11.354] [DEBUG] [default] - [*] Received a message in pipeline:  { topic: 'userRegistration',
+  value: '{"userName":"manchandapankush@gmail.com","payload":{"username":"manchandapankush@gmail.com","profession":"civil aviation","centerCode":"niit","createdOn":1492593403832,"createdBy":"manchandapankush@gmail.com","updatedBy":"manchandapankush@gmail.com","updatedOn":1492593403832,"profilePic":"assets/img/male.jpg","summary":{},"personalInfo":{"name":"Pankush M","fname":"Pankush","lname":"Manchanda","gender":"male","email":"manchandapankush@gmail.com","role":"candidate","dob":"2017-04-19T09:15:00.000Z","contact":{"I":"9812345678"},"identity":[{"idType":"Aadhaar","value":"123456781234"},{"idType":"RegNumber","value":"123456"}],"address":{"landmark":"Panipat N.S.M.","district":" Panipat","state":" HARYANA","pincode":"132103"}}},"actionType":"POST"}',
+  offset: 1,
   partition: 0,
-  highWaterOffset: 1,
+  highWaterOffset: 2,
   key: -1 }
-[2017-04-06 19:54:06.628] [INFO] [default] - Proceeding to analyze Personal Info and profession..!
-[2017-04-06 19:54:06.630] [DEBUG] [default] - createPerson QUERY ::: MERGE(p:Person{ name: {personName} ,gender: {gender} ,dob: {dob} ,email: {email} ,displayName: {displayName}})RETURN p
-[2017-04-06 19:54:26.969] [DEBUG] [default] - relatePersonToProfession QUERY ::: MATCH(p:Person{name:{personName}})MERGE(pro:Profession{name:{profession}})MERGE(p)-[ppro:Profession_Is]->(pro)RETURN p,ppro,pro
+[2017-04-19 14:49:11.447] [INFO] [default] - Proceeding to analyze Personal Info and profession..!
+[2017-04-19 14:49:11.448] [DEBUG] [default] - createPerson QUERY ::: MERGE(p:Person{ name: {personName} ,gender: {gender} ,dob: {dob} ,email: {email} ,displayName: {displayName}})RETURN p
+[2017-04-19 14:49:13.985] [DEBUG] [default] - relatePersonToProfession QUERY ::: MATCH(p:Person{name:{personName}})MERGE(pro:Profession{name:{profession}})MERGE(p)-[ppro:Profession_Is]->(pro)RETURN p,ppro,pro
