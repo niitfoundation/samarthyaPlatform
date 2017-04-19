@@ -6,7 +6,7 @@ import { AuthenticationService } from 'placementmodule/services/authentication.s
 import { PlacementRegisterService } from 'placementmodule/services/placement-register.service';
 import { placementmodule } from 'placementmodule/placementmodule';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+
     HttpModule,
     FlexLayoutModule,
     MaterialModule.forRoot(),
@@ -30,7 +31,8 @@ import { AppComponent } from './app.component';
   providers: [PlacementRegisterService, AuthenticationService, AuthGuard, JsonDataService, EmailService,Data],
   bootstrap: [AppComponent],
   declarations: [
-    AppComponent,
-   ]
+    AppComponent
+    
+  ]
 })
 export class AppModule { }
