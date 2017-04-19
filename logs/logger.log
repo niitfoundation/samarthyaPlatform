@@ -1,0 +1,33 @@
+[2017-04-19 15:15:18.703] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:15:18.709] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:15:18.712] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:18:49.197] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:18:49.204] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:18:49.206] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:31:01.372] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:31:01.378] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:31:01.381] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:31:13.063] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:31:13.069] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:31:13.072] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:31:45.916] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:31:45.922] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:31:45.925] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:32:17.585] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:32:17.591] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:32:17.594] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:34:51.545] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:34:51.551] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:34:51.554] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:35:32.624] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:35:32.630] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:35:32.632] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:49:54.692] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:49:54.698] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:49:54.701] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:51:12.665] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:51:12.672] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:51:12.674] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-19 15:52:16.825] [DEBUG] [default] - Registering client to host  undefined:2181
+[2017-04-19 15:52:16.831] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-19 15:52:16.834] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
