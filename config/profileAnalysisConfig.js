@@ -12,7 +12,7 @@ const CONSUMER_GROUP = {
     USER_REGISTRATION: 'Samarthya_User_Registration',
     PERSONAL_INFO: 'Samarthya_Personal_info',
     WORK_EXPERIENCE: 'Samarthya_work_Experience',
-    PROJECT: 'Samarthya_project',
+    PROJECTS: 'Samarthya_project',
     QUALIFICATION: 'Samarthya_qualification',
     JOB_PREFRENCE: 'Samarthya_jobprefrences',
     SKILLS: 'Samarthya_skills',
@@ -23,7 +23,7 @@ const PROCESSOR_NAME = {
     USER_REGISTRATION: 'Samarthya_User_Registration',
     PERSONAL_INFO: 'PersonalInfoAnalyzer',
     WORK_EXPERIENCE: 'workExperienceAnalyzer',
-    PROJECT: 'projectAnalyzer',
+    PROJECTS: 'projectAnalyzer',
     QUALIFICATION: 'qualificationAnalyzer',
     JOB_PREFRENCE: 'jobprefrencesAnalyzer',
     SKILLS: 'skillsAnalyzer'
