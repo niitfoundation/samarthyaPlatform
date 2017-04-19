@@ -4,20 +4,19 @@ const personalInfoModel = require('./personalInfo.graphmodel');
 
 
 const analyze = function (profileUser, personalInfoColln, callback) {
+    console.log("Personal Info",personalInfoColln);
     // If data is not valid, return back without processing
     if (!profileUser
-        || !profileUser.username
-        || !personalInfoColln
-        || !Array.isArray(personalInfoColln)
-        || personalInfoColln.length <= 0) {
+        || !personalInfoColln) {
         logger.error('No data found to analyze');
         return callback({ error: 'No data found to analyze' }, null);
     }
     logger.info('Proceeding to analyze Personal Info..!');
 
-    async.map(personalInfoColln, function (instance, asyncCallback) {
-        analyzePersonalInfoInstance(profileUser.username, instance, asyncCallback);
-    }, callback);
+    // async.map(personalInfoColln, function (instance, asyncCallback) {
+        analyzePersonalInfoInstance(profileUser, personalInfoColln, function(err,result){
+            callback(err,result)});
+    // }, callback);
 
     return true;
 };
@@ -36,7 +35,8 @@ analyzePersonalInfoInstance = function (personName, personalInfo, analyzeResultC
         },
         function (callback) {
             // Establish relation between person and speak , read and write lang
-            personalInfoModel.relatePersonToLanguageColln(personName, personalInfo, callback);
+            
+            personalInfoModel.relatePersonToSpecificLanguage(personName, personalInfo, callback);
         }
     ], function (err, result) {
         if (err) {

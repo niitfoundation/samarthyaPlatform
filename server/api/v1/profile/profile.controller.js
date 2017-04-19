@@ -51,9 +51,9 @@ const createProfile = function (profileObj) {
                     'POST', profileConstant.SECTION_TO_TOPIC_MAP.USER_REG,
                     function (err, result) {
                         if (err) {
-                            reject({ msg: 'Graph model not created' });
+                            reject( { msg: 'Profile data Not Added successfully' } );
                         } else {
-                            resolve({ msg: 'Graph model created' });
+                            resolve({ msg: 'Profile data Added successfully' });
                         }
                     });
                 // inserts profile details
@@ -75,14 +75,16 @@ const editProfile = function (profileData, username, sectionName) {
                 logger.debug('Got Profile Data');
                 // call method to run kafka pipeline
                 // for particular profile section
-                analysisFeeder.publishForProfileAnalysis(profileData.username,
-                    profileData.modifyObj,
+                analysisFeeder.publishForProfileAnalysis(username,
+                    profileData,
                     'PATCH',
                     sectionName,
-                    function () { });
+                    function (err,result) {
+                     resolve({ data: data });
+                     });
 
                 // inserts profile details
-                resolve({ data: data });
+               
             }
         });
     });

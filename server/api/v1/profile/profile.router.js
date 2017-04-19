@@ -53,8 +53,9 @@ router.post('/', function (req, res) {
     }
 });
 
-// api to edit profile data
 
+
+// api to edit profile data
 router.patch('/', function (req, res) {
     let profileData = req.body.data;
     let username = req.body.username;
@@ -69,13 +70,13 @@ router.patch('/', function (req, res) {
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
-            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+            return res.status(500).send({success:false,msg:"Internal error occurred, please try later", error: 'Internal error occurred, please try later..!' });
         });
 
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ success:false,error: 'Failed to complete successfully, please check the request and try again..!' });
         return;
     }
 });

@@ -47,3 +47,6 @@ jspm_packages
 
 # Ignore distribution folder
 dist
+
+# Ignore neo4j data folder
+neo4j/data

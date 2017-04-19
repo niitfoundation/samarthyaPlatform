@@ -4,7 +4,7 @@ const qualificationModel = require('./qualification.graphmodel');
 
 const analyze = function(profileUser, qualificationColln, callback) {
     // If data is not valid, return back without processing
-    if (!profileUser || !profileUser.username ||
+    if (!profileUser ||
         !qualificationColln || !Array.isArray(qualificationColln) || qualificationColln.length <= 0) {
         logger.error('No qualification data found to analyze');
         return callback({ error: 'No qualification data found to analyze' }, null);
@@ -12,7 +12,7 @@ const analyze = function(profileUser, qualificationColln, callback) {
     logger.info('Proceeding to analyze qualification..!');
 
     async.map(qualificationColln, function(instance, asyncCallback) {
-        analyzeQualificationInstance(profileUser.username, instance, asyncCallback);
+        analyzeQualificationInstance(profileUser, instance, asyncCallback);
     }, callback);
 
     return true;

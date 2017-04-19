@@ -1,9 +1,9 @@
 const SECTION_TO_TOPIC_MAP = {
     PERSONAL_INFO: 'personalInfo',
-    WORK_EXPERIENCE: 'workExperience',
+    WORK_EXPERIENCE: 'experiences',
     PROJECTS: 'projects',
-    QUALIFICATION: 'qualification',
-    JOB_PREFRENCE: 'jobPreference',
+    QUALIFICATION: 'qualifications',
+    JOB_PREFRENCE: 'jobPreferences',
     SKILLS: 'skills',
     USER_REG: 'userRegistration'
 };

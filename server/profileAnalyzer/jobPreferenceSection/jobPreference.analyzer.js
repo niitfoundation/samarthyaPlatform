@@ -3,7 +3,7 @@ const async = require('async');
 const jobPreferenceModel = require('./jobPreference.graphmodel');
 
 const analyze = function (profileUser, jobPreferenceColln, callback) {
-    if (!profileUser || !profileUser.username || !jobPreferenceColln || jobPreferenceColln.jobPreferenceRoles.length <= 0) {
+    if (!profileUser || !jobPreferenceColln || jobPreferenceColln.jobRoles.length <= 0) {
 
         logger.error('No data found to analyze');
 
@@ -13,7 +13,7 @@ const analyze = function (profileUser, jobPreferenceColln, callback) {
     }
 
     logger.info('Proceeding to analyze Job preference..!');
-    async.map(jobPreferenceColln.jobPreferenceRoles, function (instance, asyncCallback) {
+    async.map(jobPreferenceColln.jobRoles, function (instance, asyncCallback) {
         analyzeJobPreferenceInstance(profileUser, instance,jobPreferenceColln.looking, asyncCallback);
     }, callback); 
     return true;
@@ -25,19 +25,19 @@ analyzeJobPreferenceInstance = function (profileUser, jobPreference, looking, an
     async.parallel([
          //relating person to Himself node with relation looking and property
         function (callback) {
-            jobPreferenceModel.relatePersonToHimself(profileUser.username, looking, callback)
+            jobPreferenceModel.relatePersonToHimself(profileUser, looking, callback)
         },
         //relating person to jobRole node
         function (callback) {
-            jobPreferenceModel.relatePersonTojobRole(profileUser.username, jobPreference.jobRole, callback)
+            jobPreferenceModel.relatePersonTojobRole(profileUser, jobPreference.name, callback)
         },
         // relating person to skill node
         function (callback) {
-            jobPreferenceModel.relatePersonToSkill(profileUser.username, jobPreference.skill, callback);
+            jobPreferenceModel.relatePersonToSkill(profileUser, jobPreference.skills, callback);
         },
         // relating person to location node
         function (callback) {
-            jobPreferenceModel.relatePersonToPreferredLocation(profileUser.username, jobPreference.location, callback);
+            jobPreferenceModel.relatePersonToPreferredLocation(profileUser, jobPreference.locations, callback);
         }
     ], function (err, result) {
         if (err) {

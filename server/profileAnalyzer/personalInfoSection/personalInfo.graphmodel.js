@@ -1,10 +1,12 @@
 const graphConst = require('../../api/v1/common/graphConstants');
 const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
+const async = require('async');
+
 
 // this is to relate a person with its living location
 const relatePersonToLocation = function (personName, personalInfo, callback) {
-
+console.log("Personal Info",personalInfo);
   let query = '';
   query = query + 'MATCH(p:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
   query = query + 'MERGE(l:' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':{locationName}})';
@@ -52,7 +54,7 @@ const relatePersonToLanguage = function (personName, personalInfo, callback) {
 
   let params = {
     personName: personName.toLowerCase(),
-    perfLang: personalInfo.prefLang.toLowerCase(),
+    prefLang: personalInfo.prefLang.toLowerCase(),
     nativeLang: personalInfo.nativeLang.toLowerCase(),
   }
 
@@ -82,7 +84,10 @@ const relatePersonToLanguage = function (personName, personalInfo, callback) {
   return true;
 };
 
-const relatePersonToSpecificLanguage = function (personName, lang, callback) {
+const relatePersonToSpecificLanguage = function (personName, personalInfo, callback) {
+        let results = [];
+
+  async.map(personalInfo.lang, function(lang) {
    let query = '';
     query = query + 'MATCH(p:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + 'MERGE(lang:' + graphConst.NODE_LANGUAGE + '{' + graphConst.NODE_PROPERTY_NAME + ':{langName}})';
@@ -113,28 +118,32 @@ const relatePersonToSpecificLanguage = function (personName, lang, callback) {
       .run(query, params)
       .then(result => {
         session.close();
-        result.records.map(record => {
-          callback(null, {
-            person: record.get('p'),
-            langName: record.get('langName'),
-          });
-        });
+       result.records.map(record => {
+        results.push(record.get('p'));
+      });
       })
       .catch(err => {
         session.close();
         logger.error('Error in relatePersonToMultiLanguage ', err);
         callback(err, null);
       });
+});
+ callback(null,results);
 };
 
-const relatePersonToLanguageColln = function (personName, personalInfo, callback) {
-  async.map(personalInfo.lang, function(lang) {
-    relatePersonToSpecificLanguage(personName, lang, callback);
-  }, callback);
-};
+// const relatePersonToLanguageColln = function (personName, personalInfo,callback) {
+//   async.map(personalInfo.lang, function(lang) {
+//     relatePersonToSpecificLanguage(personName, lang,function(err,result){
+//       if(err)
+//       callback(err,null);
+
+//       callback(null,result) ;
+//        });
+//   });
+// };
 
 module.exports = {
   relatePersonToLocation: relatePersonToLocation,
   relatePersonToLanguage: relatePersonToLanguage,
-  relatePersonToLanguageColln: relatePersonToLanguageColln,
+  relatePersonToSpecificLanguage:relatePersonToSpecificLanguage
 };
