@@ -5,7 +5,7 @@ const personalInfoModel = require('./userRegistration.graphmodel');
 const analyze = function(profileUser, profileData, callback) {
     // If data is not valid, return back without processing
 
-    console.log("userRegistration data:", profileData);
+    logger.debug('userRegistration data:', profileData);
 
     if (!profileData.username ||
         !profileData.profession ||
@@ -20,17 +20,17 @@ const analyze = function(profileUser, profileData, callback) {
             // Establish relation between person and profession
             personalInfoModel.createPerson(profileUser, profileData, callback);
         },
-        function(callback) {
+        function(data, callback) {
             // Establish relation between person and profession
             personalInfoModel.relatePersonToProfession(profileUser, profileData.profession, callback);
         }
     ], function(err, result) {
         if (err) {
             logger.error('Error in analyzing profileData instance ', err);
-            analyzeResultCallback(err, null);
+            callback(err, null);
         }
         logger.debug('[*] Done analysing profileData instance [', profileUser + ':' + profileData.profession, ']');
-        analyzeResultCallback(null, result);
+        callback(null, result);
     });
 
     return true;
