@@ -19,7 +19,6 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-
     HttpModule,
     FlexLayoutModule,
     MaterialModule.forRoot(),
