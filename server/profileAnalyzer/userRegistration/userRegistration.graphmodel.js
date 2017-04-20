@@ -34,23 +34,24 @@ const createPerson = function(personName, profileData, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     person: record.get('p'),
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
             logger.error('Error in createPerson ', err);
             callback(err, null);
         });
+
     return true;
 };
 
 // this is to relatePersonToProfession
 const relatePersonToProfession = function(personName, profession, callback) {
-
     let query = '';
     query = query + 'MATCH(p:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + 'MERGE(pro:' + graphConst.NODE_PROFESSION + '{' + graphConst.NODE_PROPERTY_NAME + ':{profession}})';
@@ -69,21 +70,23 @@ const relatePersonToProfession = function(personName, profession, callback) {
     session
         .run(query, params)
         .then(result => {
+
             session.close();
-            result.records.map(record => {
-                // callback(null, {
-                //     person: record.get('p')
-                // });
+            let results = result.records.map(record => {
+                return {
+                    person: record.get('p')
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
             logger.error('Error in relatePersonToProfession ', err);
             callback(err, null);
         });
+
     return true;
 };
-
 
 module.exports = {
     createPerson: createPerson,

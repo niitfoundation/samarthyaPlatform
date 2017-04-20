@@ -2,7 +2,7 @@ const graphConst = require('../../api/v1/common/graphConstants');
 const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
 
-const relatePersonToSkills = function (personName, skills, callback) {
+const relatePersonToSkills = function(personName, skills, callback) {
     let relAttributes = '';
     relAttributes = relAttributes + graphConst.PROP_EXPERIENCE + ': {months}';
     relAttributes = relAttributes + ',' + graphConst.PROP_EXPERTISE + ': {expertise}';
@@ -28,13 +28,14 @@ const relatePersonToSkills = function (personName, skills, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     person: record.get('p'),
                     relation: record.get('psr'),
                     skills: record.get('s')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();

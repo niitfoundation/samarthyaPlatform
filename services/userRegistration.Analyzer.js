@@ -40,4 +40,4 @@ const execute = function() {
 };
 
 execute();
-module.exports = analyzer;
+// module.exports = analyzer;

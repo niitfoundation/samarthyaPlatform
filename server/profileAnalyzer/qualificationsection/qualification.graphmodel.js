@@ -2,8 +2,8 @@ const graphConst = require('../../api/v1/common/graphConstants');
 const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
 
-const relatePersonToQualification = function (personName, qualification, callback) {
-    console.log(personName+"pppppppppp");
+const relatePersonToQualification = function(personName, qualification, callback) {
+    console.log(personName + "pppppppppp");
     let relAttributes = '';
     relAttributes = relAttributes + graphConst.PROP_RESULT + ': {result}';
     relAttributes = relAttributes + ',' + graphConst.PROP_BATCH + ': {batch}';
@@ -29,13 +29,14 @@ const relatePersonToQualification = function (personName, qualification, callbac
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     person: record.get('p'),
                     relation: record.get('pqr'),
                     qualification: record.get('q')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
@@ -45,10 +46,10 @@ const relatePersonToQualification = function (personName, qualification, callbac
     return true;
 };
 
-const relatePersonToInstitute = function (personName, qualification, callback) {
+const relatePersonToInstitute = function(personName, qualification, callback) {
     let relAttributes = '';
     relAttributes = relAttributes + graphConst.PROP_DEGREE + ': {degree}';
-        relAttributes = relAttributes + ',' + graphConst.PROP_BATCH + ': {batch}';
+    relAttributes = relAttributes + ',' + graphConst.PROP_BATCH + ': {batch}';
 
 
     let query = '';
@@ -61,7 +62,7 @@ const relatePersonToInstitute = function (personName, qualification, callback) {
         personName: personName.toLowerCase(),
         instituteName: qualification.institute.toLowerCase(),
         degree: qualification.academictype.toLowerCase(),
-               batch: new Date(qualification.batch).getYear()
+        batch: new Date(qualification.batch).getYear()
 
     };
 
@@ -73,13 +74,14 @@ const relatePersonToInstitute = function (personName, qualification, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     person: record.get('p'),
                     relation: record.get('pinr'),
                     institite: record.get('in')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
@@ -89,7 +91,7 @@ const relatePersonToInstitute = function (personName, qualification, callback) {
     return true;
 };
 
-const relatePersonToSkill = function (personName, qualification, callback) {
+const relatePersonToSkill = function(personName, qualification, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ':{skillName}})';
@@ -109,13 +111,14 @@ const relatePersonToSkill = function (personName, qualification, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     person: record.get('p'),
                     relation: record.get('psr'),
                     qualification: record.get('s')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
@@ -125,7 +128,7 @@ const relatePersonToSkill = function (personName, qualification, callback) {
     return true;
 };
 
-const relateQualificationToSkill = function (qualification, callback) {
+const relateQualificationToSkill = function(qualification, callback) {
     let query = '';
     query = query + ' MATCH (q:' + graphConst.NODE_QUALIFICATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{qualificationName}})';
     query = query + ' MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ':{skillName}})';
@@ -145,13 +148,14 @@ const relateQualificationToSkill = function (qualification, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     qualification: record.get('q'),
                     relation: record.get('qsr'),
                     skill: record.get('s')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
@@ -161,7 +165,7 @@ const relateQualificationToSkill = function (qualification, callback) {
     return true;
 };
 
-const relateInstituteToQualification = function (qualification, callback) {
+const relateInstituteToQualification = function(qualification, callback) {
     let query = '';
     query = query + ' MATCH (in:' + graphConst.NODE_INSTITUTE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{instituteName}})';
     query = query + ' MERGE (q:' + graphConst.NODE_QUALIFICATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{qualificationName}})';
@@ -181,13 +185,14 @@ const relateInstituteToQualification = function (qualification, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     institite: record.get('in'),
                     relation: record.get('inqr'),
                     qualification: record.get('q')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
@@ -197,7 +202,7 @@ const relateInstituteToQualification = function (qualification, callback) {
     return true;
 };
 
-const relateInstituteToLocation = function (qualification, callback) {
+const relateInstituteToLocation = function(qualification, callback) {
     let query = '';
     query = query + ' MATCH (in:' + graphConst.NODE_INSTITUTE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{instituteName}})';
     query = query + ' MERGE (l:' + graphConst.NODE_LOCATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{locationName}})';
@@ -217,13 +222,14 @@ const relateInstituteToLocation = function (qualification, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     institite: record.get('in'),
                     relation: record.get('inlr'),
                     qualification: record.get('l')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();

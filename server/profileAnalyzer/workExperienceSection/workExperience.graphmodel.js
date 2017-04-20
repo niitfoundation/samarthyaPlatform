@@ -34,13 +34,14 @@ const relatePersonToOrganisation = function(personName, workExpInstance, callbac
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     person: record.get('p'),
                     relation: record.get('por'),
                     organisation: record.get('o')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
@@ -53,7 +54,7 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
     // Establish relation between (:Person)-[:WORKED_AS {duration: '',organization: ''}]-(:jobRole)
 
     let relAttributes = '';
-      relAttributes = relAttributes + ' ' + graphConst.PROP_DURATION_IN_MONTHS + ': {durationinmonths}';
+    relAttributes = relAttributes + ' ' + graphConst.PROP_DURATION_IN_MONTHS + ': {durationinmonths}';
     relAttributes = relAttributes + ', ' + graphConst.PROP_DURATION_IN_YEARS + ': {durationinyears}';
     relAttributes = relAttributes + ', ' + graphConst.PROP_ORGANISATION + ': {organization}';
 
@@ -81,13 +82,14 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     person: record.get('p'),
                     relation: record.get('pjr'),
                     jobrole: record.get('jr')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
@@ -124,13 +126,14 @@ const releatePersonToWorkingLocation = function(personName, workinglocInstance, 
         .run(query, params)
         .then(result => {
             session.close();
-            result.records.map(record => {
-                callback(null, {
+            let results = result.records.map(record => {
+                return {
                     person: record.get('p'),
                     relation: record.get('ploc'),
                     location: record.get('loc')
-                });
+                };
             });
+            callback(null, results);
         })
         .catch(err => {
             session.close();
