@@ -38,7 +38,8 @@ const authenticateUser = function (authObj) {
                         logger.debug('Data find and resolve here');
                         resolve({
                             authToken: userToken,
-                            msg: 'user authenticated'
+                            msg: 'user authenticated',
+                            role:data.role
                         });
                     } else {
                         reject({
