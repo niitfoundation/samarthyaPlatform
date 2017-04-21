@@ -3,7 +3,7 @@ const logger = require('./../../../../applogger');
 const ProfileModel = require('./profile.entity');
 const profileDataModel = require('./profile.model');
 const analysisFeeder = require('./../analysisFeeder/index');
-const profileConstant = require('./../../../../config/profileAnalysisConfig');
+const profileConstant = require('./..profile/../../../config/profileAnalysisConfig');
 
 /*
  *

@@ -3,8 +3,8 @@ const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
 const async = require('async');
 const moment = require('moment');
-const relatePersonToProject = function(person, project, callback) {
 
+const relatePersonToProject = function(person, project, callback) {
     let durationInMonth = moment.utc(moment(project.duration.end, 'YYYY-MM-DD HH:mm:ss').diff(moment(project.duration.start, 'YYYY-MM-DD HH:mm:ss'))).format('MM');
     let relAttributes = '';
     relAttributes = relAttributes + graphConst.PROP_JOBROLE + ': {role},';
@@ -57,7 +57,7 @@ const relatePersonToSkills = function(person, skills, callback) {
     // async.map(skills, function (skillOne) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
-    query = query + ' FOREACH (sk in {skillOne} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; //continued to next line
+    query = query + ' FOREACH (sk in {skillOne} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; // continued to next line
     query = query + ' MERGE (p)-[ps:' + graphConst.REL_WORKED_ON + ']->(s) )';
     query = query + ' RETURN p';
 
@@ -92,13 +92,12 @@ const relatePersonToSkills = function(person, skills, callback) {
     //  callback(null,results);
 
     return true;
-}
+};
 
 const relateProjectToSkills = function(projectName, skills, callback) {
-
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PROJECT + ' {' + graphConst.NODE_PROPERTY_NAME + ':{projectName}})';
-    query = query + ' FOREACH (sk in {skillOne} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; //continued to next line
+    query = query + ' FOREACH (sk in {skillOne} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; // continued to next line
     query = query + ' MERGE (p)-[ps:' + graphConst.REL_USED + ']->(s) )';
     query = query + ' RETURN p';
     const session = neo4jConn.connection();
@@ -129,7 +128,7 @@ const relateProjectToSkills = function(projectName, skills, callback) {
 
 
     return true;
-}
+};
 
 module.exports = {
     relatePersonToProject: relatePersonToProject,
