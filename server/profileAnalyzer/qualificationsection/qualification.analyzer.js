@@ -21,28 +21,28 @@ const analyze = function(profileUser, qualificationColln, callback) {
 analyzeQualificationInstance = function(personName, qualification, analyzeResultCallback) {
     logger.debug('[*] Starting to analyze qualification instance [', personName + ':' + qualification.name, ']');
 
-    async.parallel([
+    async.waterfall([
         function(callback) {
             // Establish relation between person and qualification
             qualificationModel.relatePersonToQualification(personName, qualification, callback);
         },
-        function(callback) {
+        function(input,callback) {
             // Establish relation between person and skill
             qualificationModel.relatePersonToSkill(personName, qualification, callback);
         },
-        function(callback) {
+        function(input,callback) {
             // Establish relation between person and institute
             qualificationModel.relatePersonToInstitute(personName, qualification, callback);
         },
-        function(callback) {
+        function(input,callback) {
             // Establish relation between institute and qualification
             qualificationModel.relateInstituteToQualification(qualification, callback);
         },
-        function(callback) {
+        function(input,callback) {
             // Establish relation between qualification and skill
             qualificationModel.relateQualificationToSkill(qualification, callback);
         },
-        function(callback) {
+        function(input,callback) {
             // Establish relation between qualification and skill
             qualificationModel.relateInstituteToLocation(qualification, callback);
         }

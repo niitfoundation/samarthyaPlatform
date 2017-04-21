@@ -46,8 +46,8 @@ const relatePersonToProject = function(person, project, callback) {
             logger.error('RelatePersonToProject error' + error);
             callback(error, null);
         });
-
     return true;
+
 };
 
 const relatePersonToSkills = function(person, skills, callback) {
@@ -90,9 +90,9 @@ const relatePersonToSkills = function(person, skills, callback) {
         });
     // });
     //  callback(null,results);
-
     return true;
-};
+
+}
 
 const relateProjectToSkills = function(projectName, skills, callback) {
     let query = '';
@@ -102,6 +102,7 @@ const relateProjectToSkills = function(projectName, skills, callback) {
     query = query + ' RETURN p';
     const session = neo4jConn.connection();
     let skillOne = [];
+
     skills.forEach(function(skill) {
         skillOne.push(skill.toLowerCase());
     });
@@ -129,6 +130,7 @@ const relateProjectToSkills = function(projectName, skills, callback) {
 
     return true;
 };
+
 
 module.exports = {
     relatePersonToProject: relatePersonToProject,

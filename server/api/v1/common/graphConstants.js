@@ -12,6 +12,7 @@ module.exports = {
     NODE_WORKPLACE: 'WorkPlace',
     NODE_DESG: 'Designation',
     NODE_PROJECT: 'Project',
+    NODE_ORGANISATION: 'Organisation',
     REL_QUALIFIED_AS: 'Qualified_As',
     REL_QUALIFIED_IN: 'Qualified_In',
     REL_MAJOR_SUBJECT_AS: 'Major_Subject_As',

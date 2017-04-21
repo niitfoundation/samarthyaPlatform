@@ -5,7 +5,7 @@ const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
 const async = require('async');
 
-const relatePersonToHimself = function(personName, looking, callback) {
+const relatePersonToHimself = function (personName, looking, callback) {
     let relAttributes = '';
     relAttributes = relAttributes + graphConst.PROP_JOB_LOOKING + ': {looking}';
 
@@ -45,7 +45,7 @@ const relatePersonToHimself = function(personName, looking, callback) {
 };
 
 // relating person to jobrole and merge/create the nodes and relations
-const relatePersonTojobRole = function(personName, jobRole, callback) {
+const relatePersonTojobRole = function (personName, jobRole, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (j:' + graphConst.NODE_JOBROLE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{jobRole}})';
@@ -83,20 +83,25 @@ const relatePersonTojobRole = function(personName, jobRole, callback) {
 };
 
 // relating person to Skill and merge/create the nodes and relations
-const relatePersonToSkill = function(personName, skills, callback) {
+const relatePersonToSkill = function (personName, skills, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
-    query = query + ' MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ':{skill}})';
-    query = query + ' MERGE (p)-[psr:' + graphConst.REL_SKILL + ' ]->(s)';
-    query = query + ' RETURN p,psr,s';
+    query = query + ' FOREACH(sk in {skillColl} | MERGE(s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ':sk})';
+    query = query + ' MERGE (p)-[psr:' + graphConst.REL_SKILL + ' ]->(s))';
+    query = query + ' RETURN p';
 
     const session = neo4jConn.connection();
-    async.map(skills, function(skill) {
+        
+        let lowerCaseData=skills.map(function(skill)
+        {
+            return skill.toLowerCase();
+        })
+
         let params = {
             personName: personName.toLowerCase(),
-            skill: skill.toLowerCase(),
+            skillColl: lowerCaseData,
         };
-
+        
         logger.debug('relatePersonToSkill::Query', query);
 
         session
@@ -105,9 +110,7 @@ const relatePersonToSkill = function(personName, skills, callback) {
                 session.close();
                 let results = result.records.map(record => {
                     return {
-                        Person: record.get('p'),
-                        Relation: record.get('psr'),
-                        Location: record.get('s')
+                        Person: record.get('p')
                     };
                 });
                 callback(null, results);
@@ -117,51 +120,47 @@ const relatePersonToSkill = function(personName, skills, callback) {
                 logger.error('Error in relatePersonToSkill ', err);
                 callback(err, null);
             });
-    });
 
-    return session;
+    return true;
 };
 
 // relating person to location and merge/create the nodes and relations
-const relatePersonToPreferredLocation = function(personName, locations, callback) {
+const relatePersonToPreferredLocation = function (personName, locations, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
-    query = query + ' MERGE (l:' + graphConst.NODE_LOCATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{location}})';
-    query = query + ' MERGE (p)-[plr:' + graphConst.REL_PREFFERED_LOCATION + ' ]->(l)';
-    query = query + ' RETURN p,plr,l';
+    query = query + ' FOREACH(loc in {locationColl} | MERGE(l:' + graphConst.NODE_LOCATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':loc})';
+    query = query + ' MERGE (p)-[plr:' + graphConst.REL_PREFFERED_LOCATION + ' ]->(l))';
+    query = query + ' RETURN p';
 
     const session = neo4jConn.connection();
-
-    async.map(locations, function(location) {
-        let params = {
-            personName: personName.toLowerCase(),
-            location: location.toLowerCase(),
-        };
-
-        logger.debug('relatePersonToPreferredLocation::Query', query);
-
-        session
-            .run(query, params)
-            .then(result => {
-                session.close();
-                let results = result.records.map(record => {
-                    return {
-                        Person: record.get('p'),
-                        Relation: record.get('plr'),
-                        Location: record.get('l')
-                    };
-                });
-                callback(nul, results);
-            })
-            .catch(err => {
-                session.close();
-                logger.error('Error in relatePersonToPreferredLocation ', err);
-                callback(err, null);
-            });
+    let lowerCaseData=locations.map(function(location){
+        return location.toLowerCase();
     });
-    callback(null, results);
+    let params = {
+        personName: personName.toLowerCase(),
+        locationColl: lowerCaseData,
+    };
 
-    return session;
+    logger.debug('relatePersonToPreferredLocation::Query', query);
+
+    session
+        .run(query, params)
+        .then(result => {
+            session.close();
+            let results = result.records.map(record => {
+                return {
+                    Person: record.get('p')
+                };
+            });
+            callback(null, results);
+        })
+        .catch(err => {
+            session.close();
+            logger.error('Error in relatePersonToPreferredLocation ', err);
+            callback(err, null);
+        });
+
+    return true;
 };
 
 module.exports = {

@@ -30,9 +30,11 @@ const analyzeprojectInstance = function(personName, project, analyzeResultCallba
                 // Establish relation between Person and Skills
                 projectModel.relatePersonToSkills(personName, project.skills, callback);
             },
-            function(prevStepResult, callback) {
+            function(newStepResult,callback) {
                 // Establish relation between Project and Skills
-                projectModel.relateProjectToSkills(project.name, project.skills, callback);
+                        projectModel.relateProjectToSkills(project.name, project.skills, callback);
+                   
+                
             }
         ],
         function(err, result) {
