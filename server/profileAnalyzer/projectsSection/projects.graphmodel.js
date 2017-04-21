@@ -15,7 +15,7 @@ const relatePersonToProject = function(person, project, callback) {
     query = query + ' MERGE (proj:' + graphConst.NODE_PROJECT + ' {' + graphConst.NODE_PROPERTY_NAME + ':{projectName}})';
     query = query + ' MERGE (p)-[pproj:' + graphConst.REL_WORKED_ON + ' {' + relAttributes + '} ]->(proj)';
     query = query + ' RETURN p,pproj,proj';
-
+   
     let params = {
         personName: person.toLowerCase(),
         projectName: project.name.toLowerCase(),
@@ -32,22 +32,22 @@ const relatePersonToProject = function(person, project, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            let results = result.records.map(record => {
+           let results = result.records.map(record => {
                 return {
                     Person: record.get('p'),
                     Relation: record.get('pproj'),
                     Project: record.get('proj')
                 };
             });
-            callback(null, results);
+            callback(null,results);
         })
         .catch(error => {
             session.close();
             logger.error('RelatePersonToProject error' + error);
             callback(error, null);
         });
+          return true;
 
-    return true;
 };
 
 const relatePersonToSkills = function(person, skills, callback) {
@@ -60,7 +60,7 @@ const relatePersonToSkills = function(person, skills, callback) {
     query = query + ' FOREACH (sk in {skillOne} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; //continued to next line
     query = query + ' MERGE (p)-[ps:' + graphConst.REL_WORKED_ON + ']->(s) )';
     query = query + ' RETURN p';
-
+ 
     const session = neo4jConn.connection();
     let skillOne = [];
     skills.forEach(function(skill) {
@@ -78,10 +78,10 @@ const relatePersonToSkills = function(person, skills, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            let results = result.records.map(record => {
+         let results  = result.records.map(record => {
                 return record.get('p');
             });
-            callback(null, results);
+            callback(null,results);
         })
         .catch(error => {
             session.close();
@@ -90,8 +90,8 @@ const relatePersonToSkills = function(person, skills, callback) {
         });
     // });
     //  callback(null,results);
-
-    return true;
+   return true;
+    
 }
 
 const relateProjectToSkills = function(projectName, skills, callback) {
@@ -103,6 +103,7 @@ const relateProjectToSkills = function(projectName, skills, callback) {
     query = query + ' RETURN p';
     const session = neo4jConn.connection();
     let skillOne = [];
+
     skills.forEach(function(skill) {
         skillOne.push(skill.toLowerCase());
     });
@@ -116,10 +117,10 @@ const relateProjectToSkills = function(projectName, skills, callback) {
         .run(query, params)
         .then(result => {
             session.close();
-            let results = result.records.map(record => {
+         let results = result.records.map(record => {
                 return record.get('p');
             });
-            callback(null, results);
+            callback(null,results);
         })
         .catch(error => {
             session.close();
@@ -129,6 +130,7 @@ const relateProjectToSkills = function(projectName, skills, callback) {
 
 
     return true;
+;
 }
 
 module.exports = {

@@ -1,177 +1,106 @@
-[2017-04-19 15:15:18.703] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:15:18.709] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:15:18.712] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:18:49.197] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:18:49.204] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:18:49.206] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:31:01.372] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:31:01.378] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:31:01.381] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:31:13.063] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:31:13.069] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:31:13.072] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:31:45.916] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:31:45.922] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:31:45.925] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:32:17.585] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:32:17.591] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:32:17.594] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:34:51.545] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:34:51.551] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:34:51.554] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:35:32.624] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:35:32.630] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:35:32.632] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:49:54.692] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:49:54.698] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:49:54.701] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:51:12.665] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:51:12.672] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:51:12.674] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-19 15:52:16.825] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-19 15:52:16.831] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-19 15:52:16.834] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-20 12:22:58.497] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-20 12:22:58.510] [DEBUG] [default] - Subscribing consumer to topic  jobPreferences  with consumergroup as  Samarthya_jobprefrences
-[2017-04-20 12:22:58.514] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-04-20 12:23:10.584] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-20 12:23:10.591] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  Samarthya_project
-[2017-04-20 12:23:10.594] [DEBUG] [default] - Service  projectAnalyzer  is now running..!
-[2017-04-20 12:23:21.762] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-20 12:23:21.770] [DEBUG] [default] - Subscribing consumer to topic  skills  with consumergroup as  Samarthya_skills
-[2017-04-20 12:23:21.772] [DEBUG] [default] - Service  undefined  is now running..!
-[2017-04-20 12:23:28.882] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-20 12:23:28.897] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  Samarthya_Personal_info
-[2017-04-20 12:23:28.902] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-20 12:23:51.114] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-20 12:23:51.121] [DEBUG] [default] - Subscribing consumer to topic  experiences  with consumergroup as  Samarthya_work_Experience
-[2017-04-20 12:23:51.123] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-20 12:24:06.823] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-20 12:24:06.831] [DEBUG] [default] - Subscribing consumer to topic  qualifications  with consumergroup as  Samarthya_qualification
-[2017-04-20 12:24:06.834] [DEBUG] [default] - Service  qualificationAnalyzer  is now running..!
-[2017-04-20 12:24:11.596] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-20 12:24:11.603] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-20 12:24:11.605] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-20 12:28:06.465] [DEBUG] [default] - Registering client to host  undefined:2181
-[2017-04-20 12:28:06.471] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-20 12:28:06.474] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-20 12:30:21.339] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:30:21.345] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-20 12:30:21.347] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-20 12:30:21.383] [DEBUG] [default] - Error:  { BrokerNotAvailableError
-    at new BrokerNotAvailableError (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/errors/BrokerNotAvailableError.js:11:9)
-    at Client.loadMetadataForTopics (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/client.js:348:15)
-    at Client.send (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/client.js:515:10)
-    at Client.sendOffsetFetchRequest (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/client.js:268:8)
-    at Consumer.fetchOffset (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/consumer.js:185:15)
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/consumer.js:121:10
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/client.js:425:5
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
-    at done (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16 message: 'Broker not available' }
-[2017-04-20 12:30:42.270] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:30:42.277] [DEBUG] [default] - Subscribing consumer to topic  jobPreferences  with consumergroup as  Samarthya_jobprefrences
-[2017-04-20 12:30:42.279] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-04-20 12:30:42.318] [DEBUG] [default] - Error:  { BrokerNotAvailableError
-    at new BrokerNotAvailableError (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/errors/BrokerNotAvailableError.js:11:9)
-    at Client.loadMetadataForTopics (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/client.js:348:15)
-    at Client.send (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/client.js:515:10)
-    at Client.sendOffsetFetchRequest (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/client.js:268:8)
-    at Consumer.fetchOffset (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/consumer.js:185:15)
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/consumer.js:121:10
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/lib/client.js:425:5
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:52:16
-    at done (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:246:17)
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/kafka-node/node_modules/async/lib/async.js:44:16 message: 'Broker not available' }
-[2017-04-20 12:31:46.032] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:31:46.039] [DEBUG] [default] - Subscribing consumer to topic  jobPreferences  with consumergroup as  Samarthya_jobprefrences
-[2017-04-20 12:31:46.042] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-04-20 12:31:52.824] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:31:52.831] [DEBUG] [default] - Subscribing consumer to topic  jobPreferences  with consumergroup as  Samarthya_jobprefrences
-[2017-04-20 12:31:52.834] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-04-20 12:31:56.639] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:31:56.647] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  Samarthya_project
-[2017-04-20 12:31:56.650] [DEBUG] [default] - Service  projectAnalyzer  is now running..!
-[2017-04-20 12:32:00.142] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:32:00.149] [DEBUG] [default] - Subscribing consumer to topic  skills  with consumergroup as  Samarthya_skills
-[2017-04-20 12:32:00.152] [DEBUG] [default] - Service  undefined  is now running..!
-[2017-04-20 12:32:03.873] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:32:03.881] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  Samarthya_Personal_info
-[2017-04-20 12:32:03.884] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-04-20 12:32:08.369] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:32:08.376] [DEBUG] [default] - Subscribing consumer to topic  experiences  with consumergroup as  Samarthya_work_Experience
-[2017-04-20 12:32:08.379] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-20 12:32:11.872] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:32:11.879] [DEBUG] [default] - Subscribing consumer to topic  qualifications  with consumergroup as  Samarthya_qualification
-[2017-04-20 12:32:11.882] [DEBUG] [default] - Service  qualificationAnalyzer  is now running..!
-[2017-04-20 12:32:18.550] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:32:18.557] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-20 12:32:18.560] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-20 12:34:24.841] [DEBUG] [default] - [*] Received a message in pipeline:  { topic: 'userRegistration',
-  value: '{"userName":"gowthammurugesan55@gmail.com","payload":{"username":"gowthammurugesan55@gmail.com","profession":"bpo","centerCode":"bangalore","createdOn":1492671864544,"createdBy":"gowthammurugesan55@gmail.com","updatedBy":"gowthammurugesan55@gmail.com","updatedOn":1492671864544,"profilePic":"assets/img/male.jpg","summary":{"summaryText":""},"personalInfo":{"name":"Gowtham Jeeva","fname":"Gowtham","lname":"M","gender":"male","email":"gowthammurugesan55@gmail.com","role":"candidate","dob":"2002-04-02T18:30:00.000Z","contact":{"I":"1111111111"},"identity":[{"idType":"Aadhaar","value":"111111111111"},{"idType":"RegNumber","value":"12"}],"address":{"address1":"","address2":"","landmark":"Salem Pension Lines","district":" Salem","state":" TAMIL NADU","pincode":"636006"}}},"actionType":"POST"}',
-  offset: 0,
+[2017-04-20 18:06:31.343] [DEBUG] [default] - [*] Done analysing Workexperience instance [ gowthammurugesan55@gmail.com:Wipro ]
+[2017-04-20 18:06:31.349] [DEBUG] [default] - Returned data from processorMethod  [ [ [ [Object] ], [ [Object] ], [ [Object] ] ],
+  [ [ [Object] ], [ [Object] ], [ [Object] ] ] ]
+[2017-04-20 18:06:31.356] [DEBUG] [default] - Subscribing consumer to topic  experiences  with consumergroup as  Samarthya_work_Experience
+[2017-04-21 10:04:40.531] [DEBUG] [default] - Error:  { Error
+    at ConnectionManager.cleanupPendingQueue (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/node-zookeeper-client/lib/ConnectionManager.js:189:46)
+    at ConnectionManager.onSocketClosed (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/node-zookeeper-client/lib/ConnectionManager.js:274:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:189:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)
+  code: -4,
+  name: 'CONNECTION_LOSS',
+  path: undefined,
+  message: 'Exception: CONNECTION_LOSS[-4]' }
+[2017-04-21 10:16:08.169] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-21 10:16:08.177] [DEBUG] [default] - Subscribing consumer to topic  projects  with consumergroup as  Samarthya_project
+[2017-04-21 10:16:08.180] [DEBUG] [default] - Service  projectAnalyzer  is now running..!
+[2017-04-21 10:16:15.703] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-21 10:16:15.711] [DEBUG] [default] - Subscribing consumer to topic  jobPreferences  with consumergroup as  Samarthya_jobprefrences
+[2017-04-21 10:16:15.713] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
+[2017-04-21 10:16:20.572] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-21 10:16:20.579] [DEBUG] [default] - Subscribing consumer to topic  skills  with consumergroup as  Samarthya_skills
+[2017-04-21 10:16:20.581] [DEBUG] [default] - Service  undefined  is now running..!
+[2017-04-21 10:16:23.061] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-21 10:16:23.069] [DEBUG] [default] - Subscribing consumer to topic  personalInfo  with consumergroup as  Samarthya_Personal_info
+[2017-04-21 10:16:23.071] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
+[2017-04-21 10:16:25.610] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-21 10:16:25.617] [DEBUG] [default] - Subscribing consumer to topic  experiences  with consumergroup as  Samarthya_work_Experience
+[2017-04-21 10:16:25.620] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-04-21 10:16:28.201] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-21 10:16:28.212] [DEBUG] [default] - Subscribing consumer to topic  qualifications  with consumergroup as  Samarthya_qualification
+[2017-04-21 10:16:28.216] [DEBUG] [default] - Service  qualificationAnalyzer  is now running..!
+[2017-04-21 10:16:37.349] [DEBUG] [default] - Registering client to host  localhost:2181
+[2017-04-21 10:16:37.356] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
+[2017-04-21 10:16:37.358] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-04-21 10:18:04.311] [DEBUG] [default] - [*] Received a message in pipeline:  { topic: 'jobPreferences',
+  value: '{"userName":"gowthammurugesan55@gmail.com","payload":{"looking":true,"jobRoles":[{"name":"Director","expectedSal":{"min":10000,"max":10000000},"engagement":"Part Time","skills":["C#"],"availablefrom":"2017-04-03","locations":["Bangalore","Delhi","Gurgaon"]},{"name":"Consulter","expectedSal":{"min":111,"max":111111},"engagement":"Part Time","skills":["dotnet"],"availablefrom":"2017-04-05","locations":["Bangalore","Gurgaon","Chennai"]},{"name":"connnn","expectedSal":{"min":11,"max":11111},"engagement":"Full Time","skills":["hippop"],"availablefrom":"2017-04-03","locations":["Delhi"]},{"name":"digital","expectedSal":{"min":1111,"max":111111},"engagement":"Full Time","skills":["angularrr"],"availablefrom":"2017-04-03","locations":["Pune"]},{"name":"llllll","expectedSal":{"min":222,"max":22222},"engagement":"Full Time","skills":["Reactive"],"availablefrom":"2017-04-11","locations":["Bangalore","Pune"]},{"name":"cscvsf","expectedSal":{"min":213244,"max":24324324},"engagement":"Full Time","skills":["sfffsfssfsfsfsfsfsfs"],"availablefrom":"2017-04-12","locations":["Pune","Delhi","Gurgaon"]},{"name":"ceo","expectedSal":{"min":11,"max":111},"engagement":"Full Time","skills":["Kafka"],"availablefrom":"2017-04-05","locations":["Bangalore","Pune"]},{"name":"CTO","expectedSal":{"min":111,"max":1111},"engagement":"Full Time","skills":["Reactive"],"availablefrom":"2017-04-03","locations":["Bangalore","Pune","Chennai"]},{"name":"eeeee","expectedSal":{"min":"111","max":"2112111"},"engagement":"Full Time","skills":["sssssss","aaaaaa","bbbbb"],"availablefrom":"2017-04-03T18:30:00.000Z","locations":["Pune","Delhi"]}]},"actionType":"PATCH"}',
+  offset: 9,
   partition: 0,
-  highWaterOffset: 1,
+  highWaterOffset: 10,
   key: -1 }
-[2017-04-20 12:34:25.140] [INFO] [default] - Proceeding to analyze Personal Info and profession..!
-[2017-04-20 12:34:25.141] [DEBUG] [default] - createPerson QUERY ::: MERGE(p:Person{ name: {personName} ,gender: {gender} ,dob: {dob} ,email: {email} ,displayName: {displayName}})RETURN p
-[2017-04-20 12:34:28.273] [DEBUG] [default] - relatePersonToProfession QUERY ::: MATCH(p:Person{name:{personName}})MERGE(pro:Profession{name:{profession}})MERGE(p)-[ppro:Profession_Is]->(pro)RETURN p,ppro,pro
-[2017-04-20 12:44:44.248] [DEBUG] [default] - [*] Received a message in pipeline:  { topic: 'skills',
-  value: '{"userName":"gowthamjeeva55@gmail.com","payload":[{"name":"Angular","experience":"12","expertise":"Moderate"}],"actionType":"PATCH"}',
-  offset: 0,
-  partition: 0,
-  highWaterOffset: 1,
-  key: -1 }
-[2017-04-20 12:44:44.486] [INFO] [default] - Proceeding to analyze Skills..!
-[2017-04-20 12:44:44.487] [DEBUG] [default] - [*] Starting to analyze skill instance [ gowthamjeeva55@gmail.com:Angular ]
-[2017-04-20 12:44:44.488] [DEBUG] [default] - relatePersonToSkills::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Knows {experience: {months},expertise: {expertise}} ]->(s) RETURN p,psr,s
-[2017-04-20 12:51:18.450] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-20 12:51:18.463] [DEBUG] [default] - Subscribing consumer to topic  skills  with consumergroup as  Samarthya_skills
-[2017-04-20 12:51:18.468] [DEBUG] [default] - Service  undefined  is now running..!
-[2017-04-20 12:51:30.758] [DEBUG] [default] - [*] Received a message in pipeline:  { topic: 'skills',
-  value: '{"userName":"gowthammurugesan55@gmail.com","payload":[{"name":"Angular","experience":11,"expertise":"Expert"},{"name":"React","experience":6,"expertise":"Moderate"}],"actionType":"PATCH"}',
-  offset: 3,
-  partition: 0,
-  highWaterOffset: 4,
-  key: -1 }
-[2017-04-20 12:51:30.964] [INFO] [default] - Proceeding to analyze Skills..!
-[2017-04-20 12:51:30.966] [DEBUG] [default] - [*] Starting to analyze skill instance [ gowthammurugesan55@gmail.com:Angular ]
-[2017-04-20 12:51:30.968] [DEBUG] [default] - relatePersonToSkills::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Knows {experience: {months},expertise: {expertise}} ]->(s) RETURN p,psr,s
-[2017-04-20 12:51:30.997] [DEBUG] [default] - [*] Starting to analyze skill instance [ gowthammurugesan55@gmail.com:React ]
-[2017-04-20 12:51:30.998] [DEBUG] [default] - relatePersonToSkills::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Knows {experience: {months},expertise: {expertise}} ]->(s) RETURN p,psr,s
-[2017-04-20 12:51:31.408] [DEBUG] [default] - [*] Done analysing qualification instance [ gowthammurugesan55@gmail.com:React ]
-[2017-04-20 12:51:31.470] [DEBUG] [default] - [*] Done analysing qualification instance [ gowthammurugesan55@gmail.com:Angular ]
-[2017-04-20 12:51:31.471] [DEBUG] [default] - Returned data from processorMethod  [ [ { person: [Object], relation: [Object], skills: [Object] } ],
-  [ { person: [Object], relation: [Object], skills: [Object] } ] ]
-[2017-04-20 12:51:31.473] [DEBUG] [default] - Subscribing consumer to topic  skills  with consumergroup as  Samarthya_skills
-[2017-04-20 12:54:02.784] [DEBUG] [default] - [*] Received a message in pipeline:  { topic: 'skills',
-  value: '{"userName":"gowthammurugesan55@gmail.com","payload":[{"name":"Angular","experience":11,"expertise":"Expert"},{"name":"React","experience":6,"expertise":"Moderate"},{"name":"Java","experience":"12","expertise":"Beginner"}],"actionType":"PATCH"}',
-  offset: 4,
-  partition: 0,
-  highWaterOffset: 5,
-  key: -1 }
-[2017-04-20 12:54:02.790] [INFO] [default] - Proceeding to analyze Skills..!
-[2017-04-20 12:54:02.794] [DEBUG] [default] - [*] Starting to analyze skill instance [ gowthammurugesan55@gmail.com:Angular ]
-[2017-04-20 12:54:02.795] [DEBUG] [default] - relatePersonToSkills::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Knows {experience: {months},expertise: {expertise}} ]->(s) RETURN p,psr,s
-[2017-04-20 12:54:02.807] [DEBUG] [default] - [*] Starting to analyze skill instance [ gowthammurugesan55@gmail.com:React ]
-[2017-04-20 12:54:02.808] [DEBUG] [default] - relatePersonToSkills::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Knows {experience: {months},expertise: {expertise}} ]->(s) RETURN p,psr,s
-[2017-04-20 12:54:02.810] [DEBUG] [default] - [*] Starting to analyze skill instance [ gowthammurugesan55@gmail.com:Java ]
-[2017-04-20 12:54:02.811] [DEBUG] [default] - relatePersonToSkills::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Knows {experience: {months},expertise: {expertise}} ]->(s) RETURN p,psr,s
-[2017-04-20 12:54:03.009] [DEBUG] [default] - [*] Done analysing qualification instance [ gowthammurugesan55@gmail.com:Java ]
-[2017-04-20 12:54:03.031] [DEBUG] [default] - [*] Done analysing qualification instance [ gowthammurugesan55@gmail.com:Angular ]
-[2017-04-20 12:54:03.032] [DEBUG] [default] - [*] Done analysing qualification instance [ gowthammurugesan55@gmail.com:React ]
-[2017-04-20 12:54:03.033] [DEBUG] [default] - Returned data from processorMethod  [ [ { person: [Object], relation: [Object], skills: [Object] } ],
-  [ { person: [Object], relation: [Object], skills: [Object] } ],
-  [ { person: [Object], relation: [Object], skills: [Object] } ] ]
-[2017-04-20 12:54:03.038] [DEBUG] [default] - Subscribing consumer to topic  skills  with consumergroup as  Samarthya_skills
-[2017-04-20 12:55:58.869] [DEBUG] [default] - [*] Received a message in pipeline:  { topic: 'skills',
-  value: '{"userName":"gowthamjeeva55@gmail.com","payload":[{"name":"Angular","experience":12,"expertise":"Moderate"},{"name":"ReactIVE","experience":"2","expertise":"Beginner"}],"actionType":"PATCH"}',
-  offset: 5,
-  partition: 0,
-  highWaterOffset: 6,
-  key: -1 }
-[2017-04-20 12:55:58.872] [INFO] [default] - Proceeding to analyze Skills..!
-[2017-04-20 12:55:58.872] [DEBUG] [default] - [*] Starting to analyze skill instance [ gowthamjeeva55@gmail.com:Angular ]
-[2017-04-20 12:55:58.873] [DEBUG] [default] - relatePersonToSkills::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Knows {experience: {months},expertise: {expertise}} ]->(s) RETURN p,psr,s
-[2017-04-20 12:55:58.875] [DEBUG] [default] - [*] Starting to analyze skill instance [ gowthamjeeva55@gmail.com:ReactIVE ]
-[2017-04-20 12:55:58.875] [DEBUG] [default] - relatePersonToSkills::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Knows {experience: {months},expertise: {expertise}} ]->(s) RETURN p,psr,s
+[2017-04-21 10:18:04.562] [INFO] [default] - Proceeding to analyze Job preference..!
+[2017-04-21 10:18:04.563] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:04.564] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-04-21 10:18:04.590] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-04-21 10:18:04.595] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-04-21 10:18:04.597] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-04-21 10:18:04.598] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:04.599] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-04-21 10:18:04.602] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-04-21 10:18:04.607] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-04-21 10:18:04.612] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-04-21 10:18:04.614] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:04.614] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-04-21 10:18:04.616] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-04-21 10:18:04.619] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-04-21 10:18:04.625] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-04-21 10:18:04.634] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:04.635] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-04-21 10:18:04.637] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-04-21 10:18:04.641] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-04-21 10:18:04.643] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-04-21 10:18:04.645] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:04.646] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-04-21 10:18:04.649] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-04-21 10:18:04.653] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-04-21 10:18:04.660] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-04-21 10:18:04.663] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:04.663] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-04-21 10:18:04.667] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-04-21 10:18:04.671] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-04-21 10:18:04.673] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-04-21 10:18:04.676] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:04.677] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-04-21 10:18:04.679] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-04-21 10:18:04.686] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-04-21 10:18:04.714] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-04-21 10:18:04.715] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:04.716] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-04-21 10:18:04.718] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-04-21 10:18:04.719] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-04-21 10:18:04.723] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-04-21 10:18:04.724] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:04.724] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-04-21 10:18:04.729] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-04-21 10:18:04.730] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-04-21 10:18:04.732] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-04-21 10:18:05.157] [DEBUG] [default] - [*] Done analysing jobPreference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:05.166] [DEBUG] [default] - [*] Done analysing jobPreference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:05.195] [DEBUG] [default] - [*] Done analysing jobPreference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:05.196] [DEBUG] [default] - [*] Done analysing jobPreference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:05.474] [DEBUG] [default] - [*] Done analysing jobPreference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:05.510] [DEBUG] [default] - [*] Done analysing jobPreference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:05.514] [DEBUG] [default] - [*] Done analysing jobPreference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:05.568] [DEBUG] [default] - [*] Done analysing jobPreference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:05.677] [DEBUG] [default] - [*] Done analysing jobPreference instance [ gowthammurugesan55@gmail.com:undefined ]
+[2017-04-21 10:18:05.679] [DEBUG] [default] - Returned data from processorMethod  [ [ [ [Object] ], [ [Object] ], [ [Object] ], [ [Object] ] ],
+  [ [ [Object] ], [ [Object] ], [ [Object] ], [ [Object] ] ],
+  [ [ [Object] ], [ [Object] ], [ [Object] ], [ [Object] ] ],
+  [ [ [Object] ], [ [Object] ], [ [Object] ], [ [Object] ] ],
+  [ [ [Object] ], [ [Object] ], [ [Object] ], [ [Object] ] ],
+  [ [ [Object] ], [ [Object] ], [ [Object] ], [ [Object] ] ],
+  [ [ [Object] ], [ [Object] ], [ [Object] ], [ [Object] ] ],
+  [ [ [Object] ], [ [Object] ], [ [Object] ], [ [Object] ] ],
+  [ [ [Object] ], [ [Object] ], [ [Object] ], [ [Object] ] ] ]
+[2017-04-21 10:18:05.687] [DEBUG] [default] - Subscribing consumer to topic  jobPreferences  with consumergroup as  Samarthya_jobprefrences
