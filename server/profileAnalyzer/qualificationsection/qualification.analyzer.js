@@ -7,10 +7,11 @@ const analyze = function(profileUser, qualificationColln, callback) {
     if (!profileUser ||
         !qualificationColln || !Array.isArray(qualificationColln) || qualificationColln.length <= 0) {
         logger.error('No qualification data found to analyze');
-        return callback({ error: 'No qualification data found to analyze' }, null);
+        return callback({
+            error: 'No qualification data found to analyze'
+        }, null);
     }
     logger.info('Proceeding to analyze qualification..!');
-
     async.map(qualificationColln, function(instance, asyncCallback) {
         analyzeQualificationInstance(profileUser, instance, asyncCallback);
     }, callback);
@@ -26,23 +27,23 @@ analyzeQualificationInstance = function(personName, qualification, analyzeResult
             // Establish relation between person and qualification
             qualificationModel.relatePersonToQualification(personName, qualification, callback);
         },
-        function(input,callback) {
+        function(input, callback) {
             // Establish relation between person and skill
             qualificationModel.relatePersonToSkill(personName, qualification, callback);
         },
-        function(input,callback) {
+        function(input, callback) {
             // Establish relation between person and institute
             qualificationModel.relatePersonToInstitute(personName, qualification, callback);
         },
-        function(input,callback) {
+        function(input, callback) {
             // Establish relation between institute and qualification
             qualificationModel.relateInstituteToQualification(qualification, callback);
         },
-        function(input,callback) {
+        function(input, callback) {
             // Establish relation between qualification and skill
             qualificationModel.relateQualificationToSkill(qualification, callback);
         },
-        function(input,callback) {
+        function(input, callback) {
             // Establish relation between qualification and skill
             qualificationModel.relateInstituteToLocation(qualification, callback);
         }

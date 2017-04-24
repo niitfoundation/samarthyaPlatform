@@ -5,13 +5,13 @@ const appConstant = require('../common/appConstants');
 const logger = require('./../../../../applogger');
 
 // authenticate the user with its credentials
-const authenticateUser = function (authObj) {
+const authenticateUser = function(authObj) {
     var userDetails = {
         username: authObj.username,
     };
     // find user
     let promise = new Promise((resolve, reject) => {
-        userModel.findOne(userDetails, function (err, data) {
+        userModel.findOne(userDetails, function(err, data) {
             if (err) {
                 logger.error('userDetails data not found' + err);
                 reject(err);
@@ -22,8 +22,8 @@ const authenticateUser = function (authObj) {
                 });
             } else {
                 logger.info(data)
-                // method to compare to authenticate users
-                data.comparePassword(authObj.password, function (err, isMatch) {
+                    // method to compare to authenticate users
+                data.comparePassword(authObj.password, function(err, isMatch) {
                     if (err) {
                         logger.error('Invalid Password' + err);
                         reject(err);
@@ -39,7 +39,7 @@ const authenticateUser = function (authObj) {
                         resolve({
                             authToken: userToken,
                             msg: 'user authenticated',
-                            role:data.role
+                            role: data.role
                         });
                     } else {
                         reject({
@@ -55,12 +55,12 @@ const authenticateUser = function (authObj) {
 
 
 // find user is already exists or not
-let checkUser = function (objEmail) {
+let checkUser = function(objEmail) {
     let userDetails = {
         username: objEmail,
     };
     return new Promise((resolve, reject) => {
-        userModel.findOne(userDetails, function (err, data) {
+        userModel.findOne(userDetails, function(err, data) {
             if (err) {
                 logger.info(err);
                 reject({
@@ -75,10 +75,10 @@ let checkUser = function (objEmail) {
 };
 
 // validate if email expired  or not
-let verifyEmailLink = function (objVerify) {
+let verifyEmailLink = function(objVerify) {
     let userToken = objVerify.token;
     return new Promise((resolve, reject) => {
-        jwt.verify(userToken, appConstant.emailDetails.emailTokenSecret, function (err, decoded) {
+        jwt.verify(userToken, appConstant.emailDetails.emailTokenSecret, function(err, decoded) {
             if (err) {
                 logger.error('Updated password data is not found');
                 reject(err);
@@ -94,7 +94,7 @@ let verifyEmailLink = function (objVerify) {
 };
 
 // password reset updation in database
-const resetPassword = function (resetObj) {
+const resetPassword = function(resetObj) {
     var userDetails = {
         username: resetObj.username,
     };
@@ -102,11 +102,10 @@ const resetPassword = function (resetObj) {
     return new Promise((resolve, reject) => {
 
         userModel.findOneAndUpdate(userDetails, {
-            password: resetObj.password,
-            updatedOn: Date.now()
-        }
-            ,
-            function (err, data) {
+                password: resetObj.password,
+                updatedOn: Date.now()
+            },
+            function(err, data) {
                 if (err) {
                     reject(err);
                 } else {
@@ -119,9 +118,9 @@ const resetPassword = function (resetObj) {
 };
 
 // verify the user token for every request
-let verifyToken = function (usertoken) {
+let verifyToken = function(usertoken) {
     return new Promise((resolve, reject) => {
-        jwt.verify(usertoken, appConstant.secret, function (err, decoded) {
+        jwt.verify(usertoken, appConstant.secret, function(err, decoded) {
             if (err) {
                 logger.error('Token not matched');
                 reject(err);
@@ -137,9 +136,9 @@ let verifyToken = function (usertoken) {
 };
 
 //get nav-menus from the resource collection based on roles
-let getMenus = function (role) {
+let getMenus = function(role) {
     return new Promise((resolve, reject) => {
-        resourcesModel.distinct('navList.' + role.toLowerCase(), function (err, data) {
+        resourcesModel.distinct('navList.' + role.toLowerCase(), function(err, data) {
             if (err) {
                 reject(err);
             } else {
