@@ -9,7 +9,7 @@ const searchCandidates = function(searchString, pageNo, pagelimit, callback) {
         let query = '';
         query = query + 'WITH {searchString} AS paramString';
         query = query + ' MATCH (n)'; //Match any node
-        query = query + ' WHERE ANY(param IN split(paramString, " ") ';
+        query = query + ' WHERE ANY(param IN split(paramString, ",") ';
         query = query + '       WHERE ANY(prop in keys(n) ';
         query = query + '           WHERE ANY(val IN n[prop] ';
         query = query + '               WHERE val =~ ("(?i).*"+ param + "(?i).*"))))';

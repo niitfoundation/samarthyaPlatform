@@ -16,11 +16,15 @@ const profileDetails = {
     IDENTITY_TYPES: ['Aadhaar', 'RegNumber', 'EmpNum']
 };
 
+const predefinedStopwords=['knows','know','person','persons','skill','skills','candidate','canidates','location','role'];
+
+
 module.exports = {
     emailDetails: emailDetails,
     userDetails: userDetails,
     secret: secret,
     expireTime: expireTime,
     profileDetails: profileDetails,
-    SALT_WORK_FACTOR: SALT_WORK_FACTOR
+    SALT_WORK_FACTOR: SALT_WORK_FACTOR,
+    predefinedSW:predefinedStopwords
 };

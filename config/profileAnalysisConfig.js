@@ -28,8 +28,15 @@ const PROCESSOR_NAME = {
     JOB_PREFRENCE: 'jobprefrencesAnalyzer',
     SKILLS: 'skillsAnalyzer'
 }
+const USER_ROLE = {
+    CANDIDATES: 'candidate',
+    COORDINATORS: 'coordinator',
+    SUPERVISORS: 'supervisor'
+
+}
 module.exports = {
     SECTION_TO_TOPIC_MAP: SECTION_TO_TOPIC_MAP,
     CONSUMER_GROUP: CONSUMER_GROUP,
-    PROCESSOR_NAME: PROCESSOR_NAME
+    PROCESSOR_NAME: PROCESSOR_NAME,
+    USER_ROLE: USER_ROLE
 };

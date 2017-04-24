@@ -3,7 +3,6 @@ const neo4jConn = require('../../api/v1/neo4jcon/neo4jcon');
 const logger = require('./../../../applogger');
 
 const relatePersonToQualification = function(personName, qualification, callback) {
-    console.log(personName + "pppppppppp");
     let relAttributes = '';
     relAttributes = relAttributes + graphConst.PROP_RESULT + ': {result}';
     relAttributes = relAttributes + ',' + graphConst.PROP_BATCH + ': {batch}';
@@ -46,7 +45,7 @@ const relatePersonToQualification = function(personName, qualification, callback
     return true;
 };
 
-const relatePersonToInstitute = function(personName, qualification, callback) {
+const relatePersonToInstitute = function (personName, qualification, callback) {
     let relAttributes = '';
     relAttributes = relAttributes + graphConst.PROP_DEGREE + ': {degree}';
     relAttributes = relAttributes + ',' + graphConst.PROP_BATCH + ': {batch}';
