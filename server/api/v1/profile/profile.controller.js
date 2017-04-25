@@ -9,9 +9,9 @@ const profileConstant = require('./../../../../config/profileAnalysisConfig');
  *
  */
 
-const getProfile = function(profileObj) {
+const getProfile = function (profileObj) {
     return new Promise((resolve, reject) => {
-        ProfileModel.find({ username: profileObj.username }, function(err, data) {
+        ProfileModel.find({ username: profileObj.username }, function (err, data) {
             if (err) {
                 logger.error('Profile data error' + err);
                 reject(err);
@@ -31,19 +31,18 @@ const getProfile = function(profileObj) {
 
 
 // Add profile details
-const createProfile = function(profileObj) {
-    // Add/modify profile model
-    let userRegData = profileDataModel.profileDataModel(profileObj);
-    let profileData = new ProfileModel(userRegData);
-
+const createProfile = function (profileObj) {
+    // Add/modify profile model    
+    let userRegData = profileObj;
+    let profileData = new ProfileModel(profileObj);
     return new Promise((resolve, reject) => {
-        profileData.save(function(err, data) {
+        profileData.save(function (err, data) {
             if (err) {
                 logger.error('profile data not added sucessfully' + err);
                 reject(err);
             } else {
-                logger.info('profile data added successfully');
-                logger.info('Graph Model Creation started');
+                logger.info('profile data added successfully'); 
+                    logger.info('Graph Model Creation started');
 
                 //Graph model creation only for candidates
                 if (profileObj.role.toLowerCase() == profileConstant.USER_ROLE.CANDIDATES) {
@@ -51,7 +50,7 @@ const createProfile = function(profileObj) {
                         userRegData,
                         // resolve({ msg: 'Profile data Added successfully' });
                         'POST', profileConstant.SECTION_TO_TOPIC_MAP.USER_REG,
-                        function(err, result) {
+                        function (err, result) {
                             if (err) {
                                 reject({ msg: 'Profile data Not Added successfully' });
                             } else {
@@ -67,11 +66,11 @@ const createProfile = function(profileObj) {
     });
 };
 
-const editProfile = function(profileData, username, sectionName) {
+const editProfile = function (profileData, username, sectionName) {
     let obj = {};
     obj[sectionName] = profileData;
     return new Promise((resolve, reject) => {
-        ProfileModel.update({ username: username }, { $set: obj }, function(err, data) {
+        ProfileModel.update({ username: username }, { $set: obj }, function (err, data) {
             if (err) {
                 logger.error('Profile data error' + err);
                 reject(err);
@@ -83,8 +82,16 @@ const editProfile = function(profileData, username, sectionName) {
                     profileData,
                     'PATCH',
                     sectionName,
-                    function(err, result) {
-                        resolve({ data: data });
+                    function (err, result) {
+                        if (err) {
+                            logger.error("error in analyser", err);
+                            reject(err);
+
+                        }
+                        else {
+                            logger.info("done in analyser");
+                            resolve({ data: data });
+                        }
                     });
 
                 // inserts profile details
@@ -95,7 +102,7 @@ const editProfile = function(profileData, username, sectionName) {
 };
 
 
-const deletePerofile = function(profileObj) {};
+const deletePerofile = function (profileObj) { };
 
 module.exports = {
     getProfile: getProfile,

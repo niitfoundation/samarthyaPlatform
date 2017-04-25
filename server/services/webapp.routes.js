@@ -18,6 +18,8 @@ const useRoutes = function(app) {
     app.use('/centres', apiBasePath.centreRoutes);
     app.use('/mongo', apiBasePath.mongoData);
     app.use('/candidates-search', apiBasePath.candidateSearchRoutes);
+    app.use('/profile-import', apiBasePath.profileImportRoutes);
+
 };
 
 module.exports = {

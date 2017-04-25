@@ -25,7 +25,10 @@ const publishToKafkaTopic = function(topicName, dataPayload, callback) {
     }, function(prevStepResult, callback) {
         publishToKafka(topicName, dataPayload, callback);
     }], function(err, publishResults) {
-        logger.debug('Finished publishToKafkaTopic with ', ' err: ', err, ' result: ', publishResults);
+        if(err){
+            logger.debug('Finished publishToKafkaTopic with ', ' err: ', err);
+        }
+        logger.debug('Finished publishToKafkaTopic with result: ', publishResults);
         callback(err, publishResults)
     });
 }

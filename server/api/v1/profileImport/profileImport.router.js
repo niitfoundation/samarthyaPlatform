@@ -6,44 +6,22 @@ const formidable = require('formidable');
 const fs = require('fs');
 
 
-router.post('/upload', function(req, res) {
+router.post('/upload', function (req, res) {
+    console.log("comminggggggg")
     let remarks = req.query.remarks;
     let username = req.query.username;
     try {
         var form = new formidable.IncomingForm();
 
-        form.parse(req, function(err, fields, files) {
+        form.parse(req, function (err, fields, files) {
             let fileName = files['uploads[]'].name;
-            fs.readFile(files['uploads[]'].path, { encoding: 'utf-8' }, function(err, data) {
+            fs.readFile(files['uploads[]'].path, { encoding: 'utf-8' }, function (err, data) {
                 if (err)
                     logger.error(err)
                 else {
 
                     profileCtrl.addProfileImport(JSON.parse(data), fileName, remarks, username).then((successResult) => {
                         logger.info('Saved successfully and return back');
-                        //kafka messaging should happen
-
-
-                        // var options = {
-                        //     host: 'localhost',
-                        //     port: 3001,
-                        //     path: '/save?datas=' + successResult.data._id,
-                        //     method: 'POST',
-                        //     headers: {
-                        //         'Content-Type': 'application/json',
-                        //     },
-                        // };
-
-                        // var requestHttp = http.request(options, function (response) {
-                        //     response.setEncoding('utf8');
-                        //     response.on('data', function (chunk) {
-                        //     });
-                        //     response.on('end', function () {
-                        //         response.send('ok')
-                        //     });
-                        // });
-
-                        // requestHttp.end();
 
                     })
                 }
@@ -58,14 +36,14 @@ router.post('/upload', function(req, res) {
 });
 
 
-router.get('/import-history', function(req, res) {
+router.get('/import-history', function (req, res) {
 
 
     try {
         profileCtrl.getImportHistory().then((successResult) => {
-                logger.info('Get successResult successfully and return back');
-                return res.status(201).send(successResult);
-            },
+            logger.info('Get successResult successfully and return back');
+            return res.status(201).send(successResult);
+        },
             (err) => {
                 logger.error('Internal error occurred' + err);
                 return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
@@ -82,13 +60,13 @@ router.get('/import-history', function(req, res) {
 
 
 
-router.get('/failure-history', function(req, res) {
+router.get('/failure-history', function (req, res) {
     let documentId = req.query.documentId;
     try {
         profileCtrl.getFailureImportHistory(documentId).then((successResult) => {
-                logger.info('Get successResult successfully and return back');
-                return res.status(201).send(successResult);
-            },
+            logger.info('Get successResult successfully and return back');
+            return res.status(201).send(successResult);
+        },
 
             (err) => {
                 logger.error('Internal error occurred' + err);
@@ -102,4 +80,6 @@ router.get('/failure-history', function(req, res) {
     }
 
 
-})
+});
+
+module.exports = router;

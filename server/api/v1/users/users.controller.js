@@ -7,7 +7,7 @@ const appConstant = require('../common/appConstants');
  *authenticate new user and adding profile details
  */
 const registerNewUser = function (userObj) {
-    logger.debug('Get userObj and store into userDetails');
+    logger.debug('Get userObj and store into userDetails',userObj);
     var userDetails = {
         username: userObj.userCredentialsData.username,
         password: userObj.userCredentialsData.password,

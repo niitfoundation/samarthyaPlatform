@@ -119,7 +119,7 @@ const relatePersonToSpecificLanguage = function(personName, personalInfo, callba
             .then(result => {
                 session.close();
                 let results = result.records.map(record => {
-                    returnrecord.get('p');
+                    return record.get('p');
                 });
                 callback(null, results);
             })

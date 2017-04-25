@@ -34,11 +34,12 @@ var profileDataModel = function (profileObj) {
                 state: profileObj.state,
                 pincode: profileObj.pincode
             },
-        },
+        }
     };
     return profileDetails;
 };
 
+
 module.exports = {
-    profileDataModel: profileDataModel
+    profileDataModel: profileDataModel,
 };

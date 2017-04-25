@@ -15,6 +15,8 @@ const neo4jConn = require('./neo4jcon/neo4jcon');
 const graphConstants = require('./common/graphConstants');
 const mongoData = require('./mongoData/index');
 const candidateSearchRoutes = require('./candidateSearch/index');
+const profileImportRoutes = require('./profileImport/index');
+
 
 module.exports = {
     authenticationRoutes: authenticationRoutes,
@@ -33,5 +35,6 @@ module.exports = {
     neo4jConn: neo4jConn,
     graphConstants: graphConstants,
     mongoData: mongoData,
-    candidateSearchRoutes: candidateSearchRoutes
+    candidateSearchRoutes: candidateSearchRoutes,
+    profileImportRoutes:profileImportRoutes
 };

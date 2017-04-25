@@ -1,50 +1,37 @@
-[2017-04-21 15:51:51.984] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-21 15:51:51.994] [DEBUG] [default] - Subscribing consumer to topic  qualifications  with consumergroup as  Samarthya_qualification
-[2017-04-21 15:51:51.997] [DEBUG] [default] - Service  qualificationAnalyzer  is now running..!
-[2017-04-21 15:51:55.886] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-21 15:51:55.895] [DEBUG] [default] - Subscribing consumer to topic  experiences  with consumergroup as  Samarthya_work_Experience
-[2017-04-21 15:51:55.898] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-04-21 15:51:58.618] [DEBUG] [default] - Registering client to host  localhost:2181
-[2017-04-21 15:51:58.624] [DEBUG] [default] - Subscribing consumer to topic  userRegistration  with consumergroup as  Samarthya_User_Registration
-[2017-04-21 15:51:58.628] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-04-21 15:51:58.908] [DEBUG] [default] - [*] Received a message in pipeline:  { topic: 'userRegistration',
-  value: '{"userName":"gowthamjeeva55@gmail.com","payload":{"username":"gowthamjeeva55@gmail.com","profession":["Full Stack Developer","Retail"],"centerCode":"NIIT","createdOn":1492770013255,"createdBy":"gowthamjeeva55@gmail.com","updatedBy":"gowthamjeeva55@gmail.com","updatedOn":1492770013255,"summary":{},"personalInfo":{"name":"Gowtham","fname":"Gowtham","lname":"M","gender":"male","email":"gowthamjeeva55@gmail.com","role":"Coordinator","dob":"1991-04-24T10:18:00.000Z","contact":{"I":"8220002829"},"identity":[{"idType":"Aadhaar","value":"123456789012"},{"idType":"RegNumber","value":"11"}],"address":{"landmark":"Salem Pension Lines S.O","district":" Salem","state":" TAMIL NADU","pincode":"636006"}}},"actionType":"POST"}',
-  offset: 4,
-  partition: 0,
-  highWaterOffset: 5,
-  key: -1 }
-[2017-04-21 15:51:59.066] [DEBUG] [default] - userRegistration data: { username: 'gowthamjeeva55@gmail.com',
-  profession: [ 'Full Stack Developer', 'Retail' ],
-  centerCode: 'NIIT',
-  createdOn: 1492770013255,
-  createdBy: 'gowthamjeeva55@gmail.com',
-  updatedBy: 'gowthamjeeva55@gmail.com',
-  updatedOn: 1492770013255,
-  summary: {},
-  personalInfo: 
-   { name: 'Gowtham',
-     fname: 'Gowtham',
-     lname: 'M',
-     gender: 'male',
-     email: 'gowthamjeeva55@gmail.com',
-     role: 'Coordinator',
-     dob: '1991-04-24T10:18:00.000Z',
-     contact: { I: '8220002829' },
-     identity: [ [Object], [Object] ],
-     address: 
-      { landmark: 'Salem Pension Lines S.O',
-        district: ' Salem',
-        state: ' TAMIL NADU',
-        pincode: '636006' } } }
-[2017-04-21 15:51:59.070] [INFO] [default] - Proceeding to analyze Personal Info and profession..!
-[2017-04-21 15:51:59.071] [DEBUG] [default] - createPerson QUERY ::: MERGE(p:Person{ name: {personName} ,gender: {gender} ,dob: {dob} ,email: {email} ,displayName: {displayName}})RETURN p
-[2017-04-21 15:51:59.267] [ERROR] [default] - Error in createPerson  TypeError: profession.toLowerCase is not a function
-    at Object.relatePersonToProfession (/home/gowtham/Desktop/samarthya/samarthyaPlatform/server/profileAnalyzer/userRegistration/userRegistration.graphmodel.js:63:32)
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/server/profileAnalyzer/userRegistration/userRegistration.analyzer.js:25:31
-    at nextTask (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/async/dist/async.js:5210:14)
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/async/dist/async.js:5204:13
-    at apply (/home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/async/dist/async.js:21:25)
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/async/dist/async.js:56:12
-    at /home/gowtham/Desktop/samarthya/samarthyaPlatform/node_modules/async/dist/async.js:944:16
-    at session.run.then.result (/home/gowtham/Desktop/samarthya/samarthyaPlatform/server/profileAnalyzer/userRegistration/userRegistration.graphmodel.js:42:13)
-    at process._tickCallback (internal/process/next_tick.js:103:7)
+[2017-04-25 17:49:49.359] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { qualifications: { '0': 31 } }
+[2017-04-25 17:49:49.359] [INFO] [default] - Done publishing, with result  { qualifications: { '0': 31 } }
+[2017-04-25 17:49:49.359] [INFO] [default] - done in analyser
+[2017-04-25 17:49:49.360] [DEBUG] [default] - Published message to messaging pipeline topic  jobPreferences  with result:  { jobPreferences: { '0': 32 } }
+[2017-04-25 17:49:49.361] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { jobPreferences: { '0': 32 } }
+[2017-04-25 17:49:49.361] [INFO] [default] - Done publishing, with result  { jobPreferences: { '0': 32 } }
+[2017-04-25 17:49:49.364] [INFO] [default] - done in analyser
+[2017-04-25 17:49:49.371] [DEBUG] [default] - Published message to messaging pipeline topic  personalInfo  with result:  { personalInfo: { '0': 31 } }
+[2017-04-25 17:49:49.371] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { personalInfo: { '0': 31 } }
+[2017-04-25 17:49:49.372] [INFO] [default] - Done publishing, with result  { personalInfo: { '0': 31 } }
+[2017-04-25 17:49:49.372] [INFO] [default] - done in analyser
+[2017-04-25 17:49:49.373] [DEBUG] [default] - Published message to messaging pipeline topic  personalInfo  with result:  { personalInfo: { '0': 32 } }
+[2017-04-25 17:49:49.374] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { personalInfo: { '0': 32 } }
+[2017-04-25 17:49:49.374] [INFO] [default] - Done publishing, with result  { personalInfo: { '0': 32 } }
+[2017-04-25 17:49:49.374] [INFO] [default] - done in analyser
+[2017-04-25 17:49:49.393] [DEBUG] [default] - Published message to messaging pipeline topic  projects  with result:  { projects: { '0': 32 } }
+[2017-04-25 17:49:49.393] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { projects: { '0': 32 } }
+[2017-04-25 17:49:49.393] [INFO] [default] - Done publishing, with result  { projects: { '0': 32 } }
+[2017-04-25 17:49:49.394] [INFO] [default] - done in analyser
+[2017-04-25 17:49:49.394] [DEBUG] [default] - Published message to messaging pipeline topic  qualifications  with result:  { qualifications: { '0': 32 } }
+[2017-04-25 17:49:49.395] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { qualifications: { '0': 32 } }
+[2017-04-25 17:49:49.395] [INFO] [default] - Done publishing, with result  { qualifications: { '0': 32 } }
+[2017-04-25 17:49:49.397] [INFO] [default] - done in analyser
+[2017-04-25 17:49:49.398] [DEBUG] [default] - Published message to messaging pipeline topic  projects  with result:  { projects: { '0': 31 } }
+[2017-04-25 17:49:49.399] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { projects: { '0': 31 } }
+[2017-04-25 17:49:49.399] [INFO] [default] - Done publishing, with result  { projects: { '0': 31 } }
+[2017-04-25 17:49:49.411] [INFO] [default] - done in analyser
+[2017-04-25 17:49:49.413] [DEBUG] [default] - Published message to messaging pipeline topic  skills  with result:  { skills: { '0': 32 } }
+[2017-04-25 17:49:49.414] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { skills: { '0': 32 } }
+[2017-04-25 17:49:49.414] [INFO] [default] - Done publishing, with result  { skills: { '0': 32 } }
+[2017-04-25 17:49:49.414] [INFO] [default] - done in analyser
+[2017-04-25 17:49:49.426] [DEBUG] [default] - Published message to messaging pipeline topic  experiences  with result:  { experiences: { '0': 32 } }
+[2017-04-25 17:49:49.427] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { experiences: { '0': 32 } }
+[2017-04-25 17:49:49.427] [INFO] [default] - Done publishing, with result  { experiences: { '0': 32 } }
+[2017-04-25 17:49:49.432] [INFO] [default] - done in analyser
+[2017-04-25 17:49:49.485] [INFO] [default] - success Status added success
+[2017-04-25 17:49:49.488] [INFO] [default] - success Status added success

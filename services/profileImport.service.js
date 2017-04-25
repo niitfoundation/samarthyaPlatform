@@ -2,22 +2,22 @@ const sectionAnalyzerBase = require('./sectionAnalysis.service');
 const config = require('./../config/profileAnalysisConfig');
 
 
-
 const analyzer = function(msgObj) {
     let promise = new Promise(function(resolve, reject) {
         const analyzerModule = require(
-            '../server/profileAnalyzer/skillSection/skills.analyzer');
-
+            '../server/profileImportModule/profileImport');
         let data = JSON.parse(msgObj.value);
+            console.log("msgObj",data);
 
         analyzerModule
-            .analyze(data.userName, data.payload,
+            .importProfile(data.payload,
                 function(err, result) {
                     if (err) {
+                        console.log("errrr")
                         reject(err);
                         return;
                     }
-
+                    console.log("no err")
                     resolve(result);
                     return;
                 });
@@ -27,10 +27,10 @@ const analyzer = function(msgObj) {
 }
 
 const execute = function() {
-    let subscribeTopic = config.SECTION_TO_TOPIC_MAP['SKILLS'];
-    let consumerGroup = config.CONSUMER_GROUP.SKILLS;
+    let subscribeTopic = config.SECTION_TO_TOPIC_MAP['PROFILE_IMPORT'];
+    let consumerGroup = config.CONSUMER_GROUP.PROFILE_IMPORT;
     const processor = {
-        name: config.PROCESSOR_NAME['SKILLS'],
+        name: config.PROCESSOR_NAME['PROFILE_IMPORT'],
         process: analyzer
     }
 

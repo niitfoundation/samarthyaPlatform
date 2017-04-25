@@ -5,7 +5,8 @@ const SECTION_TO_TOPIC_MAP = {
     QUALIFICATION: 'qualifications',
     JOB_PREFRENCE: 'jobPreferences',
     SKILLS: 'skills',
-    USER_REG: 'userRegistration'
+    USER_REG: 'userRegistration',
+    PROFILE_IMPORT: 'profileImport'
 };
 
 const CONSUMER_GROUP = {
@@ -16,7 +17,8 @@ const CONSUMER_GROUP = {
     QUALIFICATION: 'Samarthya_qualification',
     JOB_PREFRENCE: 'Samarthya_jobprefrences',
     SKILLS: 'Samarthya_skills',
-    USER_REG: 'Samarthya_User_Reg'
+    USER_REG: 'Samarthya_User_Reg',
+    PROFILE_IMPORT: 'Samarthya_Profile_Import'
 
 }
 const PROCESSOR_NAME = {
@@ -26,7 +28,9 @@ const PROCESSOR_NAME = {
     PROJECTS: 'projectAnalyzer',
     QUALIFICATION: 'qualificationAnalyzer',
     JOB_PREFRENCE: 'jobprefrencesAnalyzer',
-    SKILLS: 'skillsAnalyzer'
+    SKILLS: 'skillsAnalyzer',
+    PROFILE_IMPORT: 'Samarthya_Profile_Import'
+
 }
 const USER_ROLE = {
     CANDIDATES: 'candidate',
@@ -34,6 +38,7 @@ const USER_ROLE = {
     SUPERVISORS: 'supervisor'
 
 }
+
 module.exports = {
     SECTION_TO_TOPIC_MAP: SECTION_TO_TOPIC_MAP,
     CONSUMER_GROUP: CONSUMER_GROUP,

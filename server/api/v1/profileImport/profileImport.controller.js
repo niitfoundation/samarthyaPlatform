@@ -1,8 +1,11 @@
 const BulkModel = require('./profileImport.entity');
 const logger = require('./../../../../applogger');
+const analysisFeeder = require('./../analysisFeeder/index');
+const profileConstant = require('./../../../../config/profileAnalysisConfig');
 
 
 const addProfileImport = function (bulkData, fileName, remarks, username) {
+
     var data = {
         importData: bulkData,
         remarks: remarks,
@@ -20,12 +23,16 @@ const addProfileImport = function (bulkData, fileName, remarks, username) {
                 logger.error('userData not added sucessfully' + err);
                 reject(err);
             } else {
-
-                resolve({
-                    msg: 'in mongo added Successfully',
-                    data: data,
-                    success: true
-                });
+                   analysisFeeder.publishForProfileAnalysis("none",data['_id'],
+                        // resolve({ msg: 'Profile data Added successfully' });
+                        'POST', profileConstant.SECTION_TO_TOPIC_MAP.PROFILE_IMPORT,
+                        function(err, result) {
+                            if (err) {
+                                reject({ msg: 'Profile data Not Added successfully' });
+                            } else {
+                                resolve({ msg: 'Profile data Added successfully' });
+                            }
+                        });
             }
         });
     });
@@ -57,14 +64,14 @@ const getFailureImportHistory = function (documentId) {
             _id: 0,
             importData: {
                 $elemMatch: {
-                    importStatus: "failed"
+                    importStatus: "failure"
                 }
             }
-        }, function (err, data) {
+        }, function (err, datas) {
             if (err) {
                 reject(err);
             } else {
-                resolve(data);
+                resolve({data:datas[0].importData});
             }
         });
     });

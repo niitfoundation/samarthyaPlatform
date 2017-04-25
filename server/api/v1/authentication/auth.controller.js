@@ -126,6 +126,7 @@ let verifyToken = function(usertoken) {
                 reject(err);
             } else {
                 // if everything is good, save to request for use in other routes
+                
                 logger.debug('Token matched');
                 resolve({
                     decoded: decoded
