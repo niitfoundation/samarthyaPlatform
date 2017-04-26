@@ -1,37 +1,5 @@
-[2017-04-25 17:49:49.359] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { qualifications: { '0': 31 } }
-[2017-04-25 17:49:49.359] [INFO] [default] - Done publishing, with result  { qualifications: { '0': 31 } }
-[2017-04-25 17:49:49.359] [INFO] [default] - done in analyser
-[2017-04-25 17:49:49.360] [DEBUG] [default] - Published message to messaging pipeline topic  jobPreferences  with result:  { jobPreferences: { '0': 32 } }
-[2017-04-25 17:49:49.361] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { jobPreferences: { '0': 32 } }
-[2017-04-25 17:49:49.361] [INFO] [default] - Done publishing, with result  { jobPreferences: { '0': 32 } }
-[2017-04-25 17:49:49.364] [INFO] [default] - done in analyser
-[2017-04-25 17:49:49.371] [DEBUG] [default] - Published message to messaging pipeline topic  personalInfo  with result:  { personalInfo: { '0': 31 } }
-[2017-04-25 17:49:49.371] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { personalInfo: { '0': 31 } }
-[2017-04-25 17:49:49.372] [INFO] [default] - Done publishing, with result  { personalInfo: { '0': 31 } }
-[2017-04-25 17:49:49.372] [INFO] [default] - done in analyser
-[2017-04-25 17:49:49.373] [DEBUG] [default] - Published message to messaging pipeline topic  personalInfo  with result:  { personalInfo: { '0': 32 } }
-[2017-04-25 17:49:49.374] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { personalInfo: { '0': 32 } }
-[2017-04-25 17:49:49.374] [INFO] [default] - Done publishing, with result  { personalInfo: { '0': 32 } }
-[2017-04-25 17:49:49.374] [INFO] [default] - done in analyser
-[2017-04-25 17:49:49.393] [DEBUG] [default] - Published message to messaging pipeline topic  projects  with result:  { projects: { '0': 32 } }
-[2017-04-25 17:49:49.393] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { projects: { '0': 32 } }
-[2017-04-25 17:49:49.393] [INFO] [default] - Done publishing, with result  { projects: { '0': 32 } }
-[2017-04-25 17:49:49.394] [INFO] [default] - done in analyser
-[2017-04-25 17:49:49.394] [DEBUG] [default] - Published message to messaging pipeline topic  qualifications  with result:  { qualifications: { '0': 32 } }
-[2017-04-25 17:49:49.395] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { qualifications: { '0': 32 } }
-[2017-04-25 17:49:49.395] [INFO] [default] - Done publishing, with result  { qualifications: { '0': 32 } }
-[2017-04-25 17:49:49.397] [INFO] [default] - done in analyser
-[2017-04-25 17:49:49.398] [DEBUG] [default] - Published message to messaging pipeline topic  projects  with result:  { projects: { '0': 31 } }
-[2017-04-25 17:49:49.399] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { projects: { '0': 31 } }
-[2017-04-25 17:49:49.399] [INFO] [default] - Done publishing, with result  { projects: { '0': 31 } }
-[2017-04-25 17:49:49.411] [INFO] [default] - done in analyser
-[2017-04-25 17:49:49.413] [DEBUG] [default] - Published message to messaging pipeline topic  skills  with result:  { skills: { '0': 32 } }
-[2017-04-25 17:49:49.414] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { skills: { '0': 32 } }
-[2017-04-25 17:49:49.414] [INFO] [default] - Done publishing, with result  { skills: { '0': 32 } }
-[2017-04-25 17:49:49.414] [INFO] [default] - done in analyser
-[2017-04-25 17:49:49.426] [DEBUG] [default] - Published message to messaging pipeline topic  experiences  with result:  { experiences: { '0': 32 } }
-[2017-04-25 17:49:49.427] [DEBUG] [default] - Finished publishToKafkaTopic with result:  { experiences: { '0': 32 } }
-[2017-04-25 17:49:49.427] [INFO] [default] - Done publishing, with result  { experiences: { '0': 32 } }
-[2017-04-25 17:49:49.432] [INFO] [default] - done in analyser
-[2017-04-25 17:49:49.485] [INFO] [default] - success Status added success
-[2017-04-25 17:49:49.488] [INFO] [default] - success Status added success
+[2017-04-26 12:35:56.272] [DEBUG] [default] - [*] Done analysing Workexperience instance [ felicity1.maggio11@yahoo.com:Wipro ]
+[2017-04-26 12:35:56.274] [DEBUG] [default] - Returned data from processorMethod  [ [ [ [Object], [Object] ],
+    [ [Object], [Object] ],
+    [ [Object], [Object] ] ] ]
+[2017-04-26 12:35:56.277] [DEBUG] [default] - Subscribing consumer to topic  experiences  with consumergroup as  Samarthya_work_Experience

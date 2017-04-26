@@ -34,18 +34,18 @@ const getProfile = function (profileObj) {
 const createProfile = function (profileObj) {
     // Add/modify profile model    
     let userRegData = profileObj;
-    let profileData = new ProfileModel(profileObj);
+    let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
     return new Promise((resolve, reject) => {
         profileData.save(function (err, data) {
             if (err) {
-                logger.error('profile data not added sucessfully' + err);
+                logger.error('profile data not added sucessfullyyyy' + err);
                 reject(err);
             } else {
                 logger.info('profile data added successfully'); 
                     logger.info('Graph Model Creation started');
 
                 //Graph model creation only for candidates
-                if (profileObj.role.toLowerCase() == profileConstant.USER_ROLE.CANDIDATES) {
+                if (profileObj.personalInfo.role.toLowerCase() == profileConstant.USER_ROLE.CANDIDATES) {
                     analysisFeeder.publishForProfileAnalysis(userRegData.username,
                         userRegData,
                         // resolve({ msg: 'Profile data Added successfully' });
