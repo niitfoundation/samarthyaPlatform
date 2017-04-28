@@ -23,22 +23,30 @@ function run(subscribeTopic, consumerGroup, serverHost, processPipeLine) {
     consumerGroup = consumerGroup || '';
 
     logger.debug('Registering client to host ', serverHost);
+    let topics = [{
+        topic: subscribeTopic
+    }];
+
+    let options = {
+        groupId: consumerGroup,
+        autoCommit: true
+    };
+    //logger.debug('Subscribing consumer to topic ', subscribeTopic, ' with consumergroup as ', consumerGroup);
 
     let client = new kafka.Client(serverHost);
+    let consumer = new kafka.Consumer(client, topics, options);
+
+    process.on('SIGINT', () => {
+        consumer.close(true, () => {
+            console.log('Closing consumer connection ..!');
+            client.close(function() {
+                process.exit();
+            });
+        });
+    });
+
 
     highland(function(push, next) {
-            let topics = [{
-                topic: subscribeTopic
-            }];
-
-            let options = {
-                groupId: consumerGroup,
-                autoCommit: true
-            };
-
-            logger.debug('Subscribing consumer to topic ', subscribeTopic, ' with consumergroup as ', consumerGroup);
-            let consumer = new kafka.Consumer(client, topics, options);
-
             consumer.on('message', function(message) {
                 // logger.debug('Message received: ', message);
 

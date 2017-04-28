@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const appRoutes = require('./webapp.routes');
 const logger = require('./../../applogger');
+const config = require('./../../config/config');
 
 
 function createApp() {
@@ -52,10 +53,10 @@ function setupMiddlewares(app) {
 }
 
 function setupMongooseConnections() {
-    mongoose.connect('mongodb://localhost/SamarthyaDB');
+    mongoose.connect(config.mongoConfig.MONGO.mongoURL);
 
     mongoose.connection.on('connected', function() {
-        logger.debug('Mongoose is now connected to ', 'mongodb: //localhost/SamarthyaDB');
+        logger.debug('Mongoose is now connected to ', config.mongoConfig.MONGO.mongoURL);
     });
 
     mongoose.connection.on('error', function(err) {
