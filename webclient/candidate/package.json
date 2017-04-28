@@ -27,8 +27,8 @@
         "html2canvas": "^0.5.0-beta4",
         "md2": "0.0.16",
         "rxjs": "^5.0.1",
-        "samarthyaCandidate": "git+https://github.com/stackroute/samarthyaCandidate.git#dev-wave-16",
-        "samarthyaWebcomponent": "git+https://github.com/stackroute/samarthyaWebcomponent.git#dev-wave-16",
+        "samarthyaCandidate": "https://github.com/stackroute/samarthyaCandidate.git#dev-wave-16",
+        "samarthyaWebcomponent": "https://github.com/stackroute/samarthyaWebcomponent.git#dev-wave-16",
         "ts-helpers": "^1.1.1",
         "zone.js": "^0.7.2"
     },
@@ -47,6 +47,6 @@
         "karma-jasmine": "^1.0.2",
         "protractor": "~5.1.0",
         "ts-node": "1.2.1",
-        "typescript": "~2.0.0"
+        "typescript": "~2.2.0"
     }
 }

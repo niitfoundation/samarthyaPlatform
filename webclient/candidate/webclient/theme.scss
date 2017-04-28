@@ -1,4 +1,4 @@
-@import '~@angular/material/core/theming/all-theme';
+@import '~@angular/material/core/theming/_all-theme.scss';
 @include mat-core();
 $custom-app-primary: mat-palette($mat-deep-purple, 700);
 $custom-app-accent: mat-palette($mat-teal, 700);

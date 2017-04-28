@@ -43,7 +43,7 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
   ],
   bootstrap: [AppComponent],
   declarations: [
-    AppComponent,
-  ],
+    AppComponent
+  ]
 })
 export class AppModule { }

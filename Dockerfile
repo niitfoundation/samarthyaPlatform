@@ -21,11 +21,13 @@ RUN npm install
 
 COPY . .
 
-# Install webclient dependencies 
-RUN npm run webclients-npm-install
+# Install webclient dependencies
+RUN npm run candidate-npm-install
+RUN npm run placement-npm-install
 
 # Build webclient apps
-RUN npm run webclients-ng-build
+RUN npm run candidate-ng-build
+RUN npm run placement-ng-build
 
 EXPOSE 8080
 
