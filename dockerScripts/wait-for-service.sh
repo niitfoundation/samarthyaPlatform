@@ -17,4 +17,4 @@ done
 
 >&2 echo "Service is now up, will execute " $cmd
 
-$cmd
+exec $cmd
