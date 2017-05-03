@@ -9,7 +9,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     ports:
       - "8080:8080"
     environment:
@@ -33,7 +33,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     ports:
       - "3000:3000"
     environment:
@@ -57,7 +57,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -79,7 +79,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -101,7 +101,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -123,7 +123,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -145,7 +145,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -167,7 +167,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -189,7 +189,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
