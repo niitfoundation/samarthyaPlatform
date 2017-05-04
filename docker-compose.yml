@@ -9,7 +9,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     ports:
       - "8080:8080"
     environment:
@@ -21,9 +21,9 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
-      - "/bin/sh -c 'npm run candidate'"
+      - '0.0.0.0'
+      - '9092'
+      - candidate
 
   placement:
     image: samarthya/samarthya:v1.2.0
@@ -33,7 +33,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     ports:
       - "3000:3000"
     environment:
@@ -45,9 +45,9 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
-      - "/bin/sh -c 'npm run placement'"
+      - '0.0.0.0'
+      - '9092'
+      - placement
 
   jobpreference:
     image: samarthya/samarthya:v1.2.0
@@ -57,7 +57,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -67,9 +67,9 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
-      - "/bin/sh -c 'npm run jpref-analyzer'"
+      - '0.0.0.0'
+      - '9092'
+      - jpref-analyzer
 
   workexperience:
     image: samarthya/samarthya:v1.2.0
@@ -79,7 +79,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -89,9 +89,9 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
-      - "/bin/sh -c 'npm run wexp-analyzer'"
+      - '0.0.0.0'
+      - '9092'
+      - wexp-analyzer
 
   project:
     image: samarthya/samarthya:v1.2.0
@@ -101,7 +101,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -111,9 +111,9 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
-      - "/bin/sh -c 'npm run proj-analyzer'"
+      - '0.0.0.0'
+      - '9092'
+      - proj-analyzer
 
   qualification:
     image: samarthya/samarthya:v1.2.0
@@ -123,7 +123,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -133,9 +133,9 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
-      - "/bin/sh -c 'npm run qual-analyzer'"
+      - '0.0.0.0'
+      - '9092'
+      - qual-analyzer
 
   skill:
     image: samarthya/samarthya:v1.2.0
@@ -145,7 +145,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -155,9 +155,9 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
-      - "/bin/sh -c 'npm run skill-analyzer'"
+      - '0.0.0.0'
+      - '9092'
+      - skill-analyzer
 
   userregister:
     image: samarthya/samarthya:v1.2.0
@@ -167,7 +167,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -177,9 +177,9 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
-      - "/bin/sh -c 'npm run usrreg-analyzer'"
+      - '0.0.0.0'
+      - '9092'
+      - usrreg-analyzer
 
   profileinfo:
     image: samarthya/samarthya:v1.2.0
@@ -189,7 +189,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./dockerScripts:/temp/dockerScripts/
+      - ./dockerScripts:/temp/scripts
     environment:
       - KAFKA_HOST_IP=0.0.0.0
     depends_on:
@@ -199,9 +199,9 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
-      - "/bin/sh -c 'npm run prinfo-analyzer'"
+      - '0.0.0.0'
+      - '9092'
+      - prinfo-analyzer
 
   mongodb:
     image: mvertes/alpine-mongo
@@ -245,8 +245,8 @@ services:
     depends_on:
       - zookeeper
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: "0.0.0.0"
-      KAFKA_ADVERTISED_PORT: "9092"
+      KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0
+      KAFKA_ADVERTISED_PORT: 9092
       KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1"
       KAFKA_ZOOKEEPER_CONNECT: 0.0.0.0:2181
     volumes:

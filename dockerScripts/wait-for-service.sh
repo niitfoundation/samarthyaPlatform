@@ -6,7 +6,7 @@ set -e
 
 host="$1"
 port="$2"
-cmd="$3"
+svc="$3"
 
 echo 'Inspecting ' $host $port
 
@@ -15,6 +15,6 @@ until `telnet $host $port`; do
   sleep 5
 done
 
->&2 echo "Service is now up, will execute " $cmd
+>&2 echo "Service is now up, will execute npm run " $svc
 
-$cmd
+npm run $svc
