@@ -21,11 +21,11 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
+      - 0.0.0.0
+      - 9092
       - /bin/sh
       - -c
-      - "npm run candidate"
+      - 'npm run candidate'
 
   placement:
     image: samarthya/samarthya:v1.2.0
@@ -47,11 +47,11 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
+      - 0.0.0.0
+      - 9092
       - /bin/sh
       - -c
-      - "npm run placement"
+      - 'npm run placement'
 
   jobpreference:
     image: samarthya/samarthya:v1.2.0
@@ -71,11 +71,11 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
+      - 0.0.0.0
+      - 9092
       - /bin/sh
       - -c
-      - "npm run jpref-analyzer"
+      - 'npm run jpref-analyzer'
 
   workexperience:
     image: samarthya/samarthya:v1.2.0
@@ -95,11 +95,11 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
+      - 0.0.0.0
+      - 9092
       - /bin/sh
       - -c
-      - "npm run wexp-analyzer"
+      - 'npm run wexp-analyzer'
 
   project:
     image: samarthya/samarthya:v1.2.0
@@ -119,11 +119,11 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
+      - 0.0.0.0
+      - 9092
       - /bin/sh
       - -c
-      - "npm run proj-analyzer"
+      - 'npm run proj-analyzer'
 
   qualification:
     image: samarthya/samarthya:v1.2.0
@@ -143,11 +143,11 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
+      - 0.0.0.0
+      - 9092
       - /bin/sh
       - -c
-      - "npm run qual-analyzer"
+      - 'npm run qual-analyzer'
 
   skill:
     image: samarthya/samarthya:v1.2.0
@@ -167,11 +167,11 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
+      - 0.0.0.0
+      - 9092
       - /bin/sh
       - -c
-      - "npm run skill-analyzer"
+      - 'npm run skill-analyzer'
 
   userregister:
     image: samarthya/samarthya:v1.2.0
@@ -191,11 +191,11 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
+      - 0.0.0.0
+      - 9092
       - /bin/sh
       - -c
-      - "npm run usrreg-analyzer"
+      - 'npm run usrreg-analyzer'
 
   profileinfo:
     image: samarthya/samarthya:v1.2.0
@@ -215,11 +215,11 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - "0.0.0.0"
-      - "9092"
+      - 0.0.0.0
+      - 9092
       - /bin/sh
       - -c
-      - "npm run prinfo-analyzer"
+      - 'npm run prinfo-analyzer'
 
   mongodb:
     image: mvertes/alpine-mongo
@@ -263,8 +263,8 @@ services:
     depends_on:
       - zookeeper
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: "0.0.0.0"
-      KAFKA_ADVERTISED_PORT: "9092"
+      KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0
+      KAFKA_ADVERTISED_PORT: 9092
       KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1"
       KAFKA_ZOOKEEPER_CONNECT: 0.0.0.0:2181
     volumes:
