@@ -2,10 +2,12 @@ const router = require('express').Router();
 const authCtrl = require('./auth.controller');
 const emailCtrl = require('./../emailUtil/emailUtil.controller');
 const logger = require('./../../../../applogger');
-
+const authenticate = require('./../authenticateToken/authToken.router');
 /*
  * Authenticate the user
  */
+
+
 router.post('/', function (req, res, next) {
     let authData = req.body;
     logger.debug(authData);
@@ -188,33 +190,7 @@ router.post('/reset-password', function (req, res, next) {
 /*
  *middleware to verify user token for authentication and pass the decoded token to other request
  */
-router.use(function (req, res, next) {
-    try {
-        // check header or url parameters or post parameters for token
-        logger.debug('Authorization begin by getting token from http request');
-        const token = req.body.token || req.headers.authorization;
-        // decode token
-        if (token) {
-            authCtrl.verifyToken(token).then((successResult) => {
-                logger.info('Token verified');
-                req.decoded = successResult.decoded;
-                next();
-            }, (errResult) => {
-                logger.error('Internal error occurred');
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'UnAuthorised User' });
-            });
-        } else {
-            // if there is no token
-            // return an error
-            logger.info('Token not provided');
-            return res.status(403).send({
-                message: 'No token provided.'
-            });
-        }
-    } catch (error) {
-        return error;
-    }
-});
+router.use(authenticate);
 
 /*
  *getting the nav bar menus based on the role of user(coordinator,supervisor,admin,candidate) and returns the nav-bar menus
@@ -223,7 +199,7 @@ router.get('/nav-menus', function (req, res) {
     let role = req.decoded.role;
     try {
         authCtrl.getMenus(role).then((successResult) => {
-            return res.status(201).send({ success: true, data: successResult });
+            return res.status(201).send({ success: true, data: successResult, authToken:req.authToken });
         }, (errResult) => {
             // Log the error for internal use
             return res.status(500).send({ error: 'Internal error occurred, please try later..!' });

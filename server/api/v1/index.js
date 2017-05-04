@@ -16,10 +16,13 @@ const graphConstants = require('./common/graphConstants');
 const mongoData = require('./mongoData/index');
 const candidateSearchRoutes = require('./candidateSearch/index');
 const profileImportRoutes = require('./profileImport/index');
+const authenticationTokenRoutes = require('./authenticateToken/index');
+
 
 
 module.exports = {
     authenticationRoutes: authenticationRoutes,
+    authenticationTokenRoutes:authenticationTokenRoutes,
     userRoutes: userRoutes,
     resourcesRoutes: resourcesRoutes,
     coordinateRoutes: coordinateRoutes,

@@ -15,16 +15,16 @@ router.get('/', function (req, res) {
             throw new Error('Invalid inputs passed...!');
         }
         prflCtrl.getProfile(profileData).then((successResult) => {
-            return res.status(201).send(successResult);
+            return res.status(201).send({data:successResult,"authToken": req.authToken });
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
-            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!',"authToken": req.authToken  });
         });
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!',"authToken": req.authToken  });
         return;
     }
 });
@@ -39,16 +39,16 @@ router.post('/', function (req, res) {
             throw new Error('Invalid inputs passed...!');
         }
         prflCtrl.createProfile(profileData).then((successResult) => {
-            return res.status(201).send(successResult);
+            return res.status(201).send({msg:successResult,"authToken": req.authToken });
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
-            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!',"authToken": req.authToken  });
         });
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!',"authToken": req.authToken  });
         return;
     }
 });
@@ -66,17 +66,17 @@ router.patch('/', function (req, res) {
             throw new Error('Invalid inputs passed...!');
         }
         prflCtrl.editProfile(profileData, username, sectionName).then((successResult) => {
-            return res.status(201).send({ data: successResult, success: true });
+            return res.status(201).send({ data: successResult, success: true,"authToken": req.authToken  });
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
-            return res.status(500).send({success:false,msg:"Internal error occurred, please try later", error: 'Internal error occurred, please try later..!' });
+            return res.status(500).send({success:false,msg:"Internal error occurred, please try later", error: 'Internal error occurred, please try later..!',"authToken": req.authToken  });
         });
 
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.send({ success:false,error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ success:false,error: 'Failed to complete successfully, please check the request and try again..!',"authToken": req.authToken  });
         return;
     }
 });
@@ -90,16 +90,16 @@ router.delete('/', function (req, res) {
             throw new Error('Invalid inputs passed...!');
         }
         prflCtrl.deleteProfile(profileData).then((successResult) => {
-            return res.status(201).send(successResult);
+            return res.status(201).send({result:successResult,"authToken": req.authToken });
         }, (errResult) => {
             // Log the error for internal use
             logger.error('Internal error occurred');
-            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!' ,"authToken": req.authToken });
         });
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' ,"authToken": req.authToken });
         return;
     }
 });

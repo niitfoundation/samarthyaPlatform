@@ -5,9 +5,7 @@ const http = require('http');
 const formidable = require('formidable');
 const fs = require('fs');
 
-
 router.post('/upload', function (req, res) {
-    console.log("comminggggggg")
     let remarks = req.query.remarks;
     let username = req.query.username;
     try {
@@ -27,10 +25,10 @@ router.post('/upload', function (req, res) {
                 }
             });
         });
-        return res.status(201).send({ "msg": "Importing is in progress..Will import that soon" });
+        return res.status(201).send({ "msg": "Importing is in progress..Will import that soon" ,"authToken": req.authToken });
 
     } catch (err) {
-        return res.send({ "msg": "Error in importing please try later..." });
+        return res.send({ "msg": "Error in importing please try later..." ,"authToken": req.authToken});
 
     }
 });
@@ -42,16 +40,16 @@ router.get('/import-history', function (req, res) {
     try {
         profileCtrl.getImportHistory().then((successResult) => {
             logger.info('Get successResult successfully and return back');
-            return res.status(201).send(successResult);
+            return res.status(201).send({result:successResult,"authToken": req.authToken});
         },
             (err) => {
                 logger.error('Internal error occurred' + err);
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+                return res.status(500).send({ error: 'Internal error occurred, please try later..!',"authToken": req.authToken });
             });
     } catch (err) {
         logger.fatal('Exception occur' + err);
         // Log the Error for internal use
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!',"authToken": req.authToken });
         return;
     }
 
@@ -65,17 +63,17 @@ router.get('/failure-history', function (req, res) {
     try {
         profileCtrl.getFailureImportHistory(documentId).then((successResult) => {
             logger.info('Get successResult successfully and return back');
-            return res.status(201).send(successResult);
+            return res.status(201).send({result:successResult.data,"authToken": req.authToken});
         },
 
             (err) => {
                 logger.error('Internal error occurred' + err);
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+                return res.status(500).send({ error: 'Internal error occurred, please try later..!' ,"authToken": req.authToken});
             });
     } catch (err) {
         logger.fatal('Exception occur' + err);
         // Log the Error for internal use
-        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!',"authToken": req.authToken });
         return;
     }
 

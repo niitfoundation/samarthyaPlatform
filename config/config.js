@@ -10,7 +10,7 @@ let NEO4J = {
 };
 
 const KAFKA_HOST = (process.env.KAFKA_HOST_IP + ':9092') || '0.0.0.0:9092';
-const ZOOKPER_HOST = (process.env.KAFKA_HOST_IP + ':2181') || '0.0.0.0:2181';
+const ZOOKPER_HOST = ('localhost:2181') || '0.0.0.0:2181';
 
 const mongo = {
     host: process.env.MONGO_HOST || '127.0.0.1',

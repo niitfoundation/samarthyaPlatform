@@ -8,7 +8,7 @@ const useRoutes = function(app) {
     app.use('/auth', apiBasePath.authenticationRoutes);
     app.use('/resources', apiBasePath.resourcesRoutes);
     app.use('/coordinates', apiBasePath.coordinateRoutes);
-    app.use('/profile', apiBasePath.profileRoutes);
+    app.use('/profile',apiBasePath.authenticationTokenRoutes, apiBasePath.profileRoutes);
     app.use('/professions', apiBasePath.professionRoutes);
     app.use('/roles', apiBasePath.roleRoutes);
     app.use('/locations', apiBasePath.locationRoutes);
@@ -17,8 +17,9 @@ const useRoutes = function(app) {
     app.use('/languages', apiBasePath.languageRoutes);
     app.use('/centres', apiBasePath.centreRoutes);
     app.use('/mongo', apiBasePath.mongoData);
-    app.use('/candidates-search', apiBasePath.candidateSearchRoutes);
-    app.use('/profile-import', apiBasePath.profileImportRoutes);
+    app.use('/candidates-search',apiBasePath.authenticationTokenRoutes, apiBasePath.candidateSearchRoutes);
+    app.use('/profile-import',apiBasePath.authenticationTokenRoutes, apiBasePath.profileImportRoutes);
+    app.use('/authenticateToken',apiBasePath.authenticationTokenRoutes);
 
 };
 

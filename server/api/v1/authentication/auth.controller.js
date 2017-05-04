@@ -16,7 +16,7 @@ const authenticateUser = function(authObj) {
                 logger.error('userDetails data not found' + err);
                 reject(err);
             } else if (!data) {
-                logger.debug('Invalid Credentials');
+                logger.debug('Invalid Credentials',data);
                 reject({
                     msg: 'Invalid Credentials'
                 });
@@ -117,25 +117,6 @@ const resetPassword = function(resetObj) {
     });
 };
 
-// verify the user token for every request
-let verifyToken = function(usertoken) {
-    return new Promise((resolve, reject) => {
-        jwt.verify(usertoken, appConstant.secret, function(err, decoded) {
-            if (err) {
-                logger.error('Token not matched');
-                reject(err);
-            } else {
-                // if everything is good, save to request for use in other routes
-                
-                logger.debug('Token matched');
-                resolve({
-                    decoded: decoded
-                });
-            }
-        });
-    });
-};
-
 //get nav-menus from the resource collection based on roles
 let getMenus = function(role) {
     return new Promise((resolve, reject) => {
@@ -154,6 +135,5 @@ module.exports = {
     checkUser: checkUser,
     verifyEmailLink: verifyEmailLink,
     resetPassword: resetPassword,
-    verifyToken: verifyToken,
     getMenus: getMenus
 };

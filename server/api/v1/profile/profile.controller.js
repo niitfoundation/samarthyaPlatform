@@ -18,17 +18,11 @@ const getProfile = function (profileObj) {
             } else {
                 logger.debug('Got Profile Data' + err);
                 // inserts profile details
-                resolve({ data: data });
+                resolve(data);
             }
         });
     });
 };
-// const multipleProfileCardDetails = function (profileObj) {
-//     return new Promise((resolve, reject) => {
-//         //  Neo4j code
-//     });
-// };
-
 
 // Add profile details
 const createProfile = function (profileObj) {
