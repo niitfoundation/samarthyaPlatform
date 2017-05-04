@@ -21,8 +21,8 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - 0.0.0.0
-      - 9092
+      - '0.0.0.0'
+      - '9092'
       - /bin/sh
       - -c
       - 'npm run candidate'
@@ -47,8 +47,8 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - 0.0.0.0
-      - 9092
+      - '0.0.0.0'
+      - '9092'
       - /bin/sh
       - -c
       - 'npm run placement'
@@ -71,8 +71,8 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - 0.0.0.0
-      - 9092
+      - '0.0.0.0'
+      - '9092'
       - /bin/sh
       - -c
       - 'npm run jpref-analyzer'
@@ -95,8 +95,8 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - 0.0.0.0
-      - 9092
+      - '0.0.0.0'
+      - '9092'
       - /bin/sh
       - -c
       - 'npm run wexp-analyzer'
@@ -119,8 +119,8 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - 0.0.0.0
-      - 9092
+      - '0.0.0.0'
+      - '9092'
       - /bin/sh
       - -c
       - 'npm run proj-analyzer'
@@ -143,8 +143,8 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - 0.0.0.0
-      - 9092
+      - '0.0.0.0'
+      - '9092'
       - /bin/sh
       - -c
       - 'npm run qual-analyzer'
@@ -167,8 +167,8 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - 0.0.0.0
-      - 9092
+      - '0.0.0.0'
+      - '9092'
       - /bin/sh
       - -c
       - 'npm run skill-analyzer'
@@ -191,8 +191,8 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - 0.0.0.0
-      - 9092
+      - '0.0.0.0'
+      - '9092'
       - /bin/sh
       - -c
       - 'npm run usrreg-analyzer'
@@ -215,8 +215,8 @@ services:
       - kafka
     entrypoint:
       - /temp/scripts/wait-for-service.sh
-      - 0.0.0.0
-      - 9092
+      - '0.0.0.0'
+      - '9092'
       - /bin/sh
       - -c
       - 'npm run prinfo-analyzer'
