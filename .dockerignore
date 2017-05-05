@@ -7,3 +7,11 @@ logs/*
 Dockerfile*
 docker-compose.yml
 *.md
+*.yml
+
+# Project specific files & folders, which are not needed inside docker image
+kafka-docker
+dockerScripts
+bin
+webclient/candidate/node_modules
+webclient/placement/node_modules
