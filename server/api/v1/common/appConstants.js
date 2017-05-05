@@ -10,7 +10,7 @@ const userDetails = {
     USER_ROLE: ['Admin', 'Supervisor', 'Coordinator'],
 };
 const secret = 'somethinghere';
-const expireTime = 60 * 30;
+const expireTime = 60 * 2;
 const SALT_WORK_FACTOR = 10;
 const profileDetails = {
     IDENTITY_TYPES: ['Aadhaar', 'RegNumber', 'EmpNum']
