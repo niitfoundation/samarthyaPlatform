@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
-const smptp = require('smtp-server');
 const smtpTransport = require('nodemailer-smtp-transport');
 const appConstant = require('./../common/appConstants');
 const userModel = require('./../users/users.entity');
@@ -8,9 +7,6 @@ const logger = require('./../../../../applogger');
 
 const transporter = nodemailer.createTransport(smtpTransport({
     service: appConstant.emailDetails.serviceProvide,
-    // host: "smtp.gmail.com",
-    // port: 465,
-    // secure: true,
     auth: {
         user: appConstant.emailDetails.user,
         pass: appConstant.emailDetails.password

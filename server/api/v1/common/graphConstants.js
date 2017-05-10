@@ -9,6 +9,8 @@ module.exports = {
   NODE_SKILL: 'Skills',
   NODE_CENTRE: 'Centre',
   NODE_PROPERTY_NAME: 'name',
+  NODE_PROPERTY_LANG_NATIVENAME: 'nativeName',
+  NODE_PROPERTY_LANG_CODE: 'code',
   NODE_WORKPLACE: 'WorkPlace',
   NODE_DESG: 'Designation',
   NODE_PROJECT: 'Project',

@@ -1,20 +1,13 @@
 const neo4jConn = require('../neo4jcon/neo4jcon');
 const graphConst = require('../common/graphConstants');
 
-// Function to find the centres
-const findCentres = function (name, limit) {
+// Function to find centres
+const findAllCentres = function () {
   let promise = new Promise((resolve, reject) => {
     const session = neo4jConn.connection();
     let query = '';
-    limit = limit || '10';
-
-    query = query + 'MATCH (c:' + graphConst.NODE_CENTRE + ')';
-
-    if (name !== 'undefined' && name.length > 0) {
-      query = query + 'WHERE c.' + graphConst.NODE_PROPERTY_NAME + '= "' + name.toLowerCase() + '"';
-    }
-
-    query = query + ' RETURN c LIMIT ' + limit;
+    query = query + 'MATCH (la:' + graphConst.NODE_CENTRE + ')';
+    query = query + ' RETURN la';
     session
       .run(query)
       .then(function (result) {
@@ -22,7 +15,7 @@ const findCentres = function (name, limit) {
         result.records.forEach(function (record) {
           data.push(record._fields[0].properties);
         });
-        if (data.length === 0) { resolve('Centre not found'); }
+        if (data.length === 0) { resolve('centre not found'); }
         resolve(data);
       })
       .catch(function (err) {
@@ -33,31 +26,72 @@ const findCentres = function (name, limit) {
 };
 
 // Function to add a centre
-const addCentre = function (name) {
+const addCentre = function (centre) {
   let promise = new Promise((resolve, reject) => {
     const session = neo4jConn.connection();
 
-    name.forEach(function (name) {
-      let query = '';
-      if (name !== 'undefined' && name.length > 0 && name !== '') {
-        query = query + 'MERGE (c:' + graphConst.NODE_CENTRE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
-        query = query + ' RETURN c';
-      } else {
-        reject('Centre not found');
-      }
+    let query = '';
+    query = query + 'MERGE (p:' + graphConst.NODE_CENTRE + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + centre.newName.toLowerCase() + '"})';
+    query = query + ' RETURN p';
 
-      session
-        .run(query)
-        .catch(function (err) {
-          reject(err);
+    session
+      .run(query)
+      .catch(function (err) {
+        reject(err);
+      });
+    resolve({ success: true });
+  });
+  return promise;
+};
+
+// Function to edit centre
+const editCentre = function (centreData) {
+  let promise = new Promise((resolve, reject) => {
+    const session = neo4jConn.connection();
+    let query = '';
+    query = query + 'MATCH (p:' + graphConst.NODE_CENTRE + ' {' + graphConst.NODE_PROPERTY_NAME + ':"' + centreData.oldName.toLowerCase() + '"})';
+    query = query + 'set p.' + graphConst.NODE_PROPERTY_NAME + '="' + centreData.newName.toLowerCase();
+    query = query + '" RETURN p';
+    session
+      .run(query)
+      .then(function (result) {
+        var data = [];
+        result.records.forEach(function (record) {
+          data.push(record._fields[0].properties);
         });
-    });
-    resolve('centre added successful');
+        if (data.length === 0) { resolve('centre not found'); }
+        resolve({ data: data, success: true });
+      })
+      .catch(function (err) {
+        reject(err);
+      });
+  });
+  return promise;
+};
+
+
+// Function to delete languages
+const deleteCentre = function (name) {
+  let promise = new Promise((resolve, reject) => {
+    const session = neo4jConn.connection();
+    let query = '';
+    query = query + 'MATCH (p:' + graphConst.NODE_CENTRE + ' {' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
+    query = query + 'delete(p)';
+    session
+      .run(query)
+      .then(function (result) {
+        resolve({ data: null, success: true });
+      })
+      .catch(function (err) {
+        reject(err);
+      });
   });
   return promise;
 };
 
 module.exports = {
-  findCentres: findCentres,
-  addCentre: addCentre
+  findAllCentres: findAllCentres,
+  addCentre: addCentre,
+  editCentre:editCentre,
+  deleteCentre:deleteCentre
 };
