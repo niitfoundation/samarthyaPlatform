@@ -2,19 +2,12 @@ const neo4jConn = require('../neo4jcon/neo4jcon');
 const graphConst = require('../common/graphConstants');
 
 // Function to find skills
-const findSkills = function (name, limit) {
+const findAllSkills = function () {
   let promise = new Promise((resolve, reject) => {
     const session = neo4jConn.connection();
     let query = '';
-    limit = limit || '10';
-
-    query = query + 'MATCH (s:' + graphConst.NODE_SKILL + ')';
-
-    if (name !== 'undefined' && name.length > 0) {
-      query = query + 'WHERE s.' + graphConst.NODE_PROPERTY_NAME + '= "' + name.toLowerCase() + '"';
-    }
-
-    query = query + ' RETURN s LIMIT ' + limit;
+    query = query + 'MATCH (la:' + graphConst.NODE_SKILL + ')';
+    query = query + ' RETURN la';
     session
       .run(query)
       .then(function (result) {
@@ -22,7 +15,7 @@ const findSkills = function (name, limit) {
         result.records.forEach(function (record) {
           data.push(record._fields[0].properties);
         });
-        if (data.length === 0) { resolve('Skill not found'); }
+        if (data.length === 0) { resolve('skill not found'); }
         resolve(data);
       })
       .catch(function (err) {
@@ -33,31 +26,72 @@ const findSkills = function (name, limit) {
 };
 
 // Function to add a skill
-const addSkill = function (name) {
+const addSkill = function (skill) {
   let promise = new Promise((resolve, reject) => {
     const session = neo4jConn.connection();
 
-    name.forEach(function (name) {
-      let query = '';
-      if (name !== 'undefined' && name.length > 0 && name !== '') {
-        query = query + 'MERGE (s:' + graphConst.NODE_SKILL + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
-        query = query + ' RETURN s';
-      } else {
-        reject('Skill not found');
-      }
+    let query = '';
+    query = query + 'MERGE (p:' + graphConst.NODE_SKILL + '{' + graphConst.NODE_PROPERTY_NAME + ':"' + skill.newName.toLowerCase() + '"})';
+    query = query + ' RETURN p';
 
-      session
-        .run(query)
-        .catch(function (err) {
-          reject(err);
+    session
+      .run(query)
+      .catch(function (err) {
+        reject(err);
+      });
+    resolve({ success: true });
+  });
+  return promise;
+};
+
+// Function to edit skill
+const editSkill = function (skillData) {
+  let promise = new Promise((resolve, reject) => {
+    const session = neo4jConn.connection();
+    let query = '';
+    query = query + 'MATCH (p:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ':"' + skillData.oldName.toLowerCase() + '"})';
+    query = query + 'set p.' + graphConst.NODE_PROPERTY_NAME + '="' + skillData.newName.toLowerCase();
+    query = query + '" RETURN p';
+    session
+      .run(query)
+      .then(function (result) {
+        var data = [];
+        result.records.forEach(function (record) {
+          data.push(record._fields[0].properties);
         });
-    });
-    resolve('Skill added successful');
+        if (data.length === 0) { resolve('skill not found'); }
+        resolve({ data: data, success: true });
+      })
+      .catch(function (err) {
+        reject(err);
+      });
+  });
+  return promise;
+};
+
+
+// Function to delete skills
+const deleteSkill = function (name) {
+  let promise = new Promise((resolve, reject) => {
+    const session = neo4jConn.connection();
+    let query = '';
+    query = query + 'MATCH (p:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ':"' + name.toLowerCase() + '"})';
+    query = query + 'delete(p)';
+    session
+      .run(query)
+      .then(function (result) {
+        resolve({ data: null, success: true });
+      })
+      .catch(function (err) {
+        reject(err);
+      });
   });
   return promise;
 };
 
 module.exports = {
-  findSkills: findSkills,
-  addSkill: addSkill
+  findAllSkills: findAllSkills,
+  addSkill: addSkill,
+  editSkill:editSkill,
+  deleteSkill:deleteSkill
 };

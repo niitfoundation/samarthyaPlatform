@@ -1,43 +1,78 @@
 const router = require('express').Router();
-const roleCtrl = require('./jobRole.controller');
+const jobRoleCtrl = require('./jobRole.controller');
 const logger = require('../../../../applogger');
 
-// GET route '/roles'
+// get the jobRoles
 router.get('/', function (req, res) {
     try {
-        let param = req.query;
-        roleCtrl.findRoles(param.name, param.limit)
-            .then((successResult) => {
-                return res.status(201).send(successResult);
-            }, (errResult) => {
-                // Log the error for internal use
-                logger.error(errResult);
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
-            });
+        jobRoleCtrl.findAllJobRoles().then((successResult) => {
+            return res.status(201).send(successResult);
+        }, (errResult) => {
+            // Log the error for internal use
+            logger.error('Internal error occurred');
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+        });
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.status(500).send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
         return;
     }
 });
 
-// POST route '/roles'
+// add the jobRole
 router.post('/', function (req, res) {
+    let jobRole = req.body;
     try {
-        let param = req.body;
-        roleCtrl.addRole(param.name)
-            .then((successResult) => {
-                return res.status(201).send(successResult);
-            }, (errResult) => {
-                // Log the error for internal use
-                logger.error(errResult);
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
-            });
+        jobRoleCtrl.addJobRole(jobRole).then((successResult) => {
+            return res.status(201).send(successResult);
+        }, (errResult) => {
+            // Log the error for internal use
+            logger.error('Internal error occurred',errResult);
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+        });
     } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
-        res.status(500).send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        return;
+    }
+});
+
+// edit the jobRole
+router.patch('/', function (req, res) {
+    let jobRole = req.body;
+    try {
+        jobRoleCtrl.editJobRole(jobRole).then((successResult) => {
+            return res.status(201).send(successResult);
+        }, (errResult) => {
+            // Log the error for internal use
+            logger.error('Internal error occurred',errResult);
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+        });
+    } catch (err) {
+        // Log the Error for internal use
+        logger.fatal('Exception occurred' + err);
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
+        return;
+    }
+});
+
+// delete the jobRole
+router.delete('/', function (req, res) {
+    let jobRoleName = req.query.name;
+    try {
+        jobRoleCtrl.deleteJobRole(jobRoleName).then((successResult) => {
+            return res.status(201).send(successResult);
+        }, (errResult) => {
+            // Log the error for internal use
+            logger.error('Internal error occurred',errResult);
+            return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+        });
+    } catch (err) {
+        // Log the Error for internal use
+        logger.fatal('Exception occurred' + err);
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!' });
         return;
     }
 });

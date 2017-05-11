@@ -6,10 +6,6 @@ const mongoose = require('mongoose');
  */
 const uiSchema = new mongoose.Schema({
     navList: {type: Object},
-    languages: {type: Array},
-    profession: {type: Array},
-    locations: {type: Array},
-    placementCenter: {type: Array},
     profileSectionViewConfig: {type: Object}
 
 }, { collection: 'resources' });
