@@ -3,11 +3,10 @@ const authCtrl = require('./auth.controller');
 const emailCtrl = require('./../emailUtil/emailUtil.controller');
 const logger = require('./../../../../applogger');
 const authenticate = require('./../authenticateToken/authToken.router');
+
 /*
  * Authenticate the user
  */
-
-
 router.post('/', function (req, res, next) {
     let authData = req.body;
     logger.debug(authData);
@@ -177,7 +176,7 @@ router.post('/reset-password', function (req, res, next) {
         },
             (err) => {
                 logger.error('Internal error occurred');
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!' });
+                return res.status(500).send(err);
             });
     } catch (err) {
         logger.fatal('Exception occur' + err);
@@ -191,6 +190,29 @@ router.post('/reset-password', function (req, res, next) {
  *middleware to verify user token for authentication and pass the decoded token to other request
  */
 router.use(authenticate);
+
+router.post('/check-password', function(req,res){
+     let resetPassword = req.body;
+    try {
+        if (!resetPassword) {
+            logger.error('resetPassword is null');
+            throw new Error('Invalid inputs passed...!');
+        }
+        authCtrl.checkOldPassword(resetPassword).then((successResult) => {
+            logger.info('Get successResult successfully and return back');
+            return res.status(201).send(successResult);
+        },
+            (err) => {  
+                logger.error('Internal error occurred',err);
+                return res.status(500).send(err);
+            });
+    } catch (err) {
+        logger.fatal('Exception occur' + err);
+        // Log the Error for internal use
+        res.send(err);
+        return;
+    } 
+});
 
 /*
  *getting the nav bar menus based on the role of user(coordinator,supervisor,admin,candidate) and returns the nav-bar menus
