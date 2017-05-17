@@ -87,7 +87,7 @@ router.post('/register-email', function (req, res) {
                     });
             } else {
                 return res.status(201).send({
-                    msg: 'user already exist',success:false
+                    msg: 'User already exist..Please Login',success:false
                 });
             }
         },
@@ -134,7 +134,7 @@ router.post('/verify-reset-email', function (req, res) {
             if (!data) {
                 // if user is does not exit send mail
                 return res.status(201).send({
-                    msg: 'user does not exist'
+                    msg: 'User does not exist..Please signup'
                 });
             }
             param.host = req.get('host');
