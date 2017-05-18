@@ -9,9 +9,9 @@ ENV TZ=Asia/Kolkata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Create app directory
-RUN mkdir -p /usr/src
-RUN mkdir -p /usr/src/webclient/candidate/
-RUN mkdir -p /usr/src/webclient/placement/
+RUN sudo mkdir -p /usr/src
+RUN sudo mkdir -p /usr/src/webclient/candidate/
+RUN sudo mkdir -p /usr/src/webclient/placement/
 
 WORKDIR /usr/src
 
