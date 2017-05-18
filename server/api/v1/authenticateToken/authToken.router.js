@@ -20,16 +20,15 @@ router.use(function (req, res, next) {
                 next();
             }, (errResult) => {
                 logger.error('Internal error occurred');
-                                next();
-
-               return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'UnAuthorised User' });
+               return res.status(500).send({ error: 'Internal error occurred, please try later..!',success:false, message: 'UnAuthorised User' });
             });
         } else {
             // if there is no token
             // return an error
             logger.info('Token not provided');
             return res.status(403).send({
-                message: 'No token provided.'
+                message: 'No token provided.',
+                success: false
             });
         }
     } catch (error) {
