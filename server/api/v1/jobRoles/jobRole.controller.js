@@ -15,7 +15,6 @@ const findAllJobRoles = function () {
         result.records.forEach(function (record) {
           data.push(record._fields[0].properties);
         });
-        if (data.length === 0) { resolve('jobRole not found'); }
         resolve(data);
       })
       .catch(function (err) {
@@ -59,7 +58,7 @@ const editJobRole = function (jobRoleData) {
         result.records.forEach(function (record) {
           data.push(record._fields[0].properties);
         });
-        if (data.length === 0) { resolve('jobRole not found'); }
+        if (data.length === 0) { resolve({data:data,success:false}); }
         resolve({ data: data, success: true });
       })
       .catch(function (err) {

@@ -15,7 +15,6 @@ const findAllCentres = function () {
         result.records.forEach(function (record) {
           data.push(record._fields[0].properties);
         });
-        if (data.length === 0) { resolve('centre not found'); }
         resolve(data);
       })
       .catch(function (err) {
@@ -59,7 +58,7 @@ const editCentre = function (centreData) {
         result.records.forEach(function (record) {
           data.push(record._fields[0].properties);
         });
-        if (data.length === 0) { resolve('centre not found'); }
+        if (data.length === 0) { resolve({data:data,success:false}); }
         resolve({ data: data, success: true });
       })
       .catch(function (err) {
