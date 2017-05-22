@@ -27,7 +27,8 @@ router.use(function(req, res, next) {
             // return an error
             logger.info('Token not provided');
             return res.status(403).send({
-                message: 'No token provided.'
+                message: 'No token provided.',
+                success: false
             });
         }
     } catch (error) {

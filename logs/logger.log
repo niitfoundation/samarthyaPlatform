@@ -14,3 +14,17 @@
 [2017-05-12 15:31:58.156] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
 [2017-05-12 15:32:08.281] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
 [2017-05-12 15:33:49.681] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
+[2017-05-19 14:33:41.703] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-05-19 14:33:49.045] [DEBUG] [default] - Service  qualificationAnalyzer  is now running..!
+[2017-05-19 14:34:03.113] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
+[2017-05-19 14:34:24.205] [DEBUG] [default] - Service  Samarthya_Profile_Import  is now running..!
+[2017-05-19 14:34:37.489] [DEBUG] [default] - Service  projectAnalyzer  is now running..!
+[2017-05-19 14:35:10.867] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-05-19 14:35:24.186] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
+[2017-05-19 14:37:22.314] [DEBUG] [default] - Service  skillsAnalyzer  is now running..!
+[2017-05-19 14:37:36.146] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
+[2017-05-19 14:37:45.053] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
+[2017-05-19 14:37:51.956] [DEBUG] [default] - Service  Samarthya_Profile_Import  is now running..!
+[2017-05-19 14:38:02.749] [DEBUG] [default] - Service  projectAnalyzer  is now running..!
+[2017-05-19 14:38:08.797] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
+[2017-05-19 14:38:19.520] [DEBUG] [default] - Service  skillsAnalyzer  is now running..!

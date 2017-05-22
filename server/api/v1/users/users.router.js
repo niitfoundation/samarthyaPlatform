@@ -13,7 +13,7 @@ router.post('/', function(req, res) {
             throw new Error('Invalid inputs passed...!');
         }
 
-        usrCtrl.registerNewUser(userData).then((successResult) => {
+        usrCtrl.registerNewUser(userData, 'profile').then((successResult) => {
             logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);
         }, (errResult) => {

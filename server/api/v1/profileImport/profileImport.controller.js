@@ -2,9 +2,10 @@ const BulkModel = require('./profileImport.entity');
 const logger = require('./../../../../applogger');
 const analysisFeeder = require('./../analysisFeeder/index');
 const profileConstant = require('./../../../../config/profileAnalysisConfig');
+const ProfileModel = require('./../profile/profile.controller');
 
 
-const addProfileImport = function (bulkData, fileName, remarks, username) {
+const addProfileImport = function(bulkData, fileName, remarks, username) {
 
     var data = {
         importData: bulkData,
@@ -18,27 +19,27 @@ const addProfileImport = function (bulkData, fileName, remarks, username) {
 
     // insert the data into db using promise
     return new Promise((resolve, reject) => {
-        bulk.save(function (err, data) {
+        bulk.save(function(err, data) {
             if (err) {
                 logger.error('userData not added sucessfully' + err);
                 reject(err);
             } else {
-                   analysisFeeder.publishForProfileAnalysis("none",data['_id'],
-                        // resolve({ msg: 'Profile data Added successfully' });
-                        'POST', profileConstant.SECTION_TO_TOPIC_MAP.PROFILE_IMPORT,
-                        function(err, result) {
-                            if (err) {
-                                reject({ msg: 'Profile data Not Added successfully' });
-                            } else {
-                                resolve({ msg: 'Profile data Added successfully' });
-                            }
-                        });
+                analysisFeeder.publishForProfileAnalysis("none", data['_id'],
+                    // resolve({ msg: 'Profile data Added successfully' });
+                    'POST', profileConstant.SECTION_TO_TOPIC_MAP.PROFILE_IMPORT,
+                    function(err, result) {
+                        if (err) {
+                            reject({ msg: 'Profile data Not Added successfully' });
+                        } else {
+                            resolve({ msg: 'Profile data Added successfully' });
+                        }
+                    });
             }
         });
     });
 }
 
-const getImportHistory = function () {
+const getImportHistory = function() {
 
     return new Promise((resolve, reject) => {
         BulkModel.find({}, {
@@ -46,7 +47,7 @@ const getImportHistory = function () {
             "remarks": 1,
             "importResult": 1,
             "requestedOn": 1
-        }, function (err, data) {
+        }, function(err, data) {
             if (err) {
                 reject(err);
             } else {
@@ -56,7 +57,7 @@ const getImportHistory = function () {
     });
 };
 
-const getFailureImportHistory = function (documentId) {
+const getFailureImportHistory = function(documentId) {
     return new Promise((resolve, reject) => {
         BulkModel.find({
             "_id": documentId
@@ -67,21 +68,41 @@ const getFailureImportHistory = function (documentId) {
                     importStatus: "failure"
                 }
             }
-        }, function (err, datas) {
+        }, function(err, datas) {
             if (err) {
                 reject(err);
             } else {
-                resolve({data:datas[0].importData});
+                resolve({ data: datas[0].importData });
             }
         });
     });
 };
-
-
-
+const createFullProfile = function(profileObj) {
+    //create full profile from bulkImport
+    let profileData = new ProfileModel(profileObj);
+    return new Promise((resolve, reject) => {
+        profileData.save(function(err, data) {
+            if (err) {
+                logger.error('profile Import data not added sucessfullyyyy' + err);
+                reject(err);
+            } else {
+                logger.info('profile Import data added successfully');
+                logger.info('Graph Model Creation started');
+                //Graph model creation only for candidates
+                if (profileObj.personalInfo.role.toLowerCase() == profileConstant.USER_ROLE.CANDIDATES) {
+                    resolve({ msg: 'Profile Import data Added successfully' });
+                } else {
+                    // inserts profile details
+                    reject({ msg: 'Profile Import data not Added successfully' });
+                }
+            }
+        });
+    });
+}
 module.exports = {
     getImportHistory: getImportHistory,
     getFailureImportHistory: getFailureImportHistory,
-    addProfileImport: addProfileImport
+    addProfileImport: addProfileImport,
+    createFullProfile: createFullProfile
 
 };

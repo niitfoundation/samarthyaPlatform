@@ -5,11 +5,11 @@ const userCtrl = require('./../api/v1/users/users.controller');
 const profileCtrl = require('./../api/v1/profile/profile.controller');
 require('../../server/services/webapp.service').setupMongooseConnections();
 
-const importProfile = function (documentId, importCallback) {
+const importProfile = function(documentId, importCallback) {
 
     ProfileImportModel.findOne({
         "_id": documentId
-    }, function (err, datas) {
+    }, function(err, datas) {
         if (err) {
             logger.error(err);
         } else {
@@ -20,30 +20,30 @@ const importProfile = function (documentId, importCallback) {
 
 }
 
-const importDatas = function (profileArray, documentId, importCallback) {
+const importDatas = function(profileArray, documentId, importCallback) {
 
     ProfileImportModel.update({
         '_id': documentId
     }, {
-            $set: {
-                'importResult.total': profileArray.length
-            }
-        }, function (err, data) {
-            if (err) {
-                logger.error(err);
-            } else {
-                logger.info('updted total profiles');
-            }
-        });
+        $set: {
+            'importResult.total': profileArray.length
+        }
+    }, function(err, data) {
+        if (err) {
+            logger.error(err);
+        } else {
+            logger.info('updted total profiles');
+        }
+    });
 
-    async.map(profileArray, function (instance, asyncCallback) {
+    async.map(profileArray, function(instance, asyncCallback) {
         importDataInstance(instance, documentId, asyncCallback);
     }, importCallback);
 }
 
-const importDataInstance = function (instance, documentId, asyncCallback) {
+const importDataInstance = function(instance, documentId, asyncCallback) {
     async.waterfall([
-        function (callback) {
+        function(callback) {
             let profileImportData = {
                 userCredentialsData: {
                     username: instance.username,
@@ -52,28 +52,27 @@ const importDataInstance = function (instance, documentId, asyncCallback) {
                 },
                 profileData: instance
             }
-
-            userCtrl.registerNewUser(profileImportData).then((data) => {
+            userCtrl.registerNewUser(profileImportData, 'profileImport').then((data) => {
                 callback(null, data);
             }, (err) => {
                 callback(err, null)
             });
         },
-        function (prevStepResult, callback) {
+        function(prevStepResult, callback) {
 
             let sectionName = ['jobPreferences', 'experiences', 'skills', 'projects', 'qualifications', 'personalInfo'];
-            async.map(sectionName, function (section, sectionCallback) {
+            async.map(sectionName, function(section, sectionCallback) {
                 profileCtrl.editProfile(instance[section], instance.username, section).then((data) => {
                     sectionCallback(null, "success");
                 }, (err) => {
                     callback(err, null);
                     return;
                 });
-            }, function (err, result) {
+            }, function(err, result) {
                 callback(err, result);
             })
         }
-    ], function (err, result) {
+    ], function(err, result) {
         if (err) {
             logger.error('Error in profile import ', err);
 
@@ -81,41 +80,40 @@ const importDataInstance = function (instance, documentId, asyncCallback) {
                 '_id': documentId,
                 'importData.personalInfo.contact.I': instance.personalInfo.contact.I
             }, {
-                    $set: {
-                        'importData.$.importStatus': 'failure',
-                    },
-                    $inc: {
-                        'importResult.failed': 1
-                    }
-                }, function (err, data) {
-                    if (err) {
-                        logger.error('Error in adding import Failed status');
-                    } else {
-                        logger.info('failure Status added success');
-                    }
-                });
+                $set: {
+                    'importData.$.importStatus': 'failure',
+                },
+                $inc: {
+                    'importResult.failed': 1
+                }
+            }, function(err, data) {
+                if (err) {
+                    logger.error('Error in adding import Failed status');
+                } else {
+                    logger.info('failure Status added success');
+                }
+            });
 
 
             asyncCallback(err, null);
-        }
-        else {
+        } else {
             ProfileImportModel.update({
                 '_id': documentId,
                 'importData.personalInfo.contact.I': instance.personalInfo.contact.I
             }, {
-                    $set: {
-                        'importData.$.importStatus': 'success',
-                    },
-                    $inc: {
-                        'importResult.success': 1
-                    }
-                }, function (err, data) {
-                    if (err) {
-                        logger.error('Error in adding import Failed status');
-                    } else {
-                        logger.info('success Status added success');
-                    }
-                });
+                $set: {
+                    'importData.$.importStatus': 'success',
+                },
+                $inc: {
+                    'importResult.success': 1
+                }
+            }, function(err, data) {
+                if (err) {
+                    logger.error('Error in adding import Failed status');
+                } else {
+                    logger.info('success Status added success');
+                }
+            });
 
             asyncCallback(null, result);
         }
