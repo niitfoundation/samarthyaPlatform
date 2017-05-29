@@ -12,6 +12,7 @@ const analyze = function(profileUser, workExperienceColln, callback) {
         logger.error('No data found to analyze');
         return callback({ error: 'No data found to analyze' }, null);
     }
+
     logger.info('Proceeding to analyze work experience..!');
     async.map(workExperienceColln, function(instance, asyncCallback) {
         analyzeWorkExperienceInstance(profileUser, instance, asyncCallback);
@@ -22,7 +23,7 @@ const analyze = function(profileUser, workExperienceColln, callback) {
 
 analyzeWorkExperienceInstance = function(personName, workExperience, analyzeResultCallback) {
     logger.debug('[*] Starting to analyze Workexperience instance [', personName + ':' + workExperience.workplace, ']');
-    console.log("Work Experience",workExperience,"Person name:",personName);
+    console.log("Work Experience", workExperience, "Person name:", personName);
     async.parallel([
         function(callback) {
             // Establish relation between organization and person ROLE AND DURATION

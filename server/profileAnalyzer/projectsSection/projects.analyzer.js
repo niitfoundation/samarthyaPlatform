@@ -10,7 +10,6 @@ const analyze = function(profileUser, projectColln, callback) {
     }
 
     logger.info('Proceeding to analyze!');
-
     async.mapSeries(projectColln, function(instance, asyncCallback) {
         analyzeprojectInstance(profileUser, instance, asyncCallback);
     }, callback);
@@ -30,11 +29,11 @@ const analyzeprojectInstance = function(personName, project, analyzeResultCallba
                 // Establish relation between Person and Skills
                 projectModel.relatePersonToSkills(personName, project.skills, callback);
             },
-            function(newStepResult,callback) {
+            function(newStepResult, callback) {
                 // Establish relation between Project and Skills
-                        projectModel.relateProjectToSkills(project.name, project.skills, callback);
-                   
-                
+                projectModel.relateProjectToSkills(project.name, project.skills, callback);
+
+
             }
         ],
         function(err, result) {

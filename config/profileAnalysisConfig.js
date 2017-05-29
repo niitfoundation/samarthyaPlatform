@@ -38,10 +38,11 @@ const USER_ROLE = {
     SUPERVISORS: 'supervisor'
 
 }
-
+const SECTION_NAMES = ['jobPreferences', 'experiences', 'skills', 'projects', 'qualifications', 'personalInfo'];
 module.exports = {
     SECTION_TO_TOPIC_MAP: SECTION_TO_TOPIC_MAP,
     CONSUMER_GROUP: CONSUMER_GROUP,
     PROCESSOR_NAME: PROCESSOR_NAME,
-    USER_ROLE: USER_ROLE
+    USER_ROLE: USER_ROLE,
+    SECTION_NAMES: SECTION_NAMES
 };

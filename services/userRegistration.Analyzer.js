@@ -27,7 +27,6 @@ const analyzer = function(msgObj) {
 }
 
 const execute = function() {
-    console.log("UserRegistration Caalled");
     let subscribeTopic = config.SECTION_TO_TOPIC_MAP['USER_REG'];
     let consumerGroup = config.CONSUMER_GROUP.USER_REGISTRATION;
     const processor = {

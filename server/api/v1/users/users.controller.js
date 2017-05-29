@@ -30,7 +30,7 @@ const registerNewUser = function(userObj, insertType) {
                 // if user added his/her details
                 if (insertType == 'profile') {
                     // after successful enter the credentials data inserts profile details
-                    profileCtrl.createProfile(userObj.profileData).then((successResult) => {
+                    profileCtrl.createProfile(userDetails.username, userObj.profileData).then((successResult) => {
                         resolve({ success: true, msg: 'Successfully Registered' });
                     }, (errresult) => {
                         logger.error('profile data not added Successfully' + err);
@@ -47,7 +47,7 @@ const registerNewUser = function(userObj, insertType) {
                     });
                 } else {
                     //if profile data inserted from profile Import
-                    profileImportCtrl.createFullProfile(userObj.profileData).then((successResult) => {
+                    profileImportCtrl.createFullProfile(userDetails.username, userObj.profileData).then((successResult) => {
                         resolve({ success: true, msg: ' Successfully Registered' });
                     }, (errresult) => {
                         logger.error('profile data not added Successfully' + err);

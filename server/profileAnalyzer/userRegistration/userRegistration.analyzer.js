@@ -20,7 +20,7 @@ const analyze = function(profileUser, profileData, callback) {
             // Establish relation between person and profession
             personalInfoModel.createPerson(profileUser, profileData, callback);
         },
-        function(data,callback) {
+        function(data, callback) {
             // Establish relation between person and profession
             personalInfoModel.relatePersonToProfession(profileUser, profileData.profession, callback);
         }

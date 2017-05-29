@@ -7,6 +7,7 @@ const async = require('async');
 // this is to relate a person with its living location
 const relatePersonToLocation = function(personName, personalInfo, callback) {
     logger.debug('Personal Info', personalInfo);
+    logger.debug('Person Name Info', personName);
     let query = '';
     query = query + 'MATCH(p:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + 'MERGE(l:' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':{locationName}})';

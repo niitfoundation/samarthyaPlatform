@@ -3,6 +3,8 @@ const logger = require('./../../applogger');
 const async = require('async');
 const userCtrl = require('./../api/v1/users/users.controller');
 const profileCtrl = require('./../api/v1/profile/profile.controller');
+const analysisFeeder = require('./../api/v1/analysisFeeder/index');
+const config = require('./../../config/profileAnalysisConfig')
 require('../../server/services/webapp.service').setupMongooseConnections();
 
 const importProfile = function(documentId, importCallback) {
@@ -35,8 +37,7 @@ const importDatas = function(profileArray, documentId, importCallback) {
             logger.info('updted total profiles');
         }
     });
-
-    async.map(profileArray, function(instance, asyncCallback) {
+    async.mapSeries(profileArray, function(instance, asyncCallback) {
         importDataInstance(instance, documentId, asyncCallback);
     }, importCallback);
 }
@@ -60,17 +61,23 @@ const importDataInstance = function(instance, documentId, asyncCallback) {
         },
         function(prevStepResult, callback) {
 
-            let sectionName = ['jobPreferences', 'experiences', 'skills', 'projects', 'qualifications', 'personalInfo'];
-            async.map(sectionName, function(section, sectionCallback) {
-                profileCtrl.editProfile(instance[section], instance.username, section).then((data) => {
-                    sectionCallback(null, "success");
-                }, (err) => {
+            let sectionNames = config.SECTION_NAMES;
+            analysisFeeder.publishForMultipleProfileAnalysis(instance.username, instance, 'POST', sectionNames, function(err, result) {
+                if (err)
                     callback(err, null);
-                    return;
-                });
-            }, function(err, result) {
-                callback(err, result);
-            })
+                else
+                    callback(null, result);
+            });
+            // async.series(sectionName, function(section, sectionCallback) {
+            //     profileCtrl.editProfile(instance[section], instance.username, section).then((data) => {
+            //         sectionCallback(null, "success");
+            //     }, (err) => {
+            //         callback(err, null);
+            //         return;
+            //     });
+            // }, function(err, result) {
+            //     callback(err, result);
+            // })
         }
     ], function(err, result) {
         if (err) {
@@ -93,8 +100,6 @@ const importDataInstance = function(instance, documentId, asyncCallback) {
                     logger.info('failure Status added success');
                 }
             });
-
-
             asyncCallback(err, null);
         } else {
             ProfileImportModel.update({

@@ -15,7 +15,6 @@ const analyzer = function(msgObj) {
                         reject(err);
                         return;
                     }
-
                     resolve(result);
                     return;
                 });
