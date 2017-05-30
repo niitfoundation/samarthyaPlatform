@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const logger = require('./../../../../applogger');
 const usrCtrl = require('./users.controller');
+const appConstant = require('../common/appConstants');
 /*
  * Actual URI will be HTTP POST /users/
  */
@@ -13,7 +14,7 @@ router.post('/', function(req, res) {
             throw new Error('Invalid inputs passed...!');
         }
 
-        usrCtrl.registerNewUser(userData, 'profile').then((successResult) => {
+        usrCtrl.registerNewUser(userData, appConstant.INSERT_TYPE.PROFILES).then((successResult) => {
             logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);
         }, (errResult) => {

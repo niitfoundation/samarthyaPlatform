@@ -28,7 +28,7 @@ const registerNewUser = function(userObj, insertType) {
                 reject(err);
             } else {
                 // if user added his/her details
-                if (insertType == 'profile') {
+                if (insertType == appConstant.INSERT_TYPE.PROFILES) {
                     // after successful enter the credentials data inserts profile details
                     profileCtrl.createProfile(userDetails.username, userObj.profileData).then((successResult) => {
                         resolve({ success: true, msg: 'Successfully Registered' });

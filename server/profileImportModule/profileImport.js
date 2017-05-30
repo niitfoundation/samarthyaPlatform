@@ -4,7 +4,8 @@ const async = require('async');
 const userCtrl = require('./../api/v1/users/users.controller');
 const profileCtrl = require('./../api/v1/profile/profile.controller');
 const analysisFeeder = require('./../api/v1/analysisFeeder/index');
-const config = require('./../../config/profileAnalysisConfig')
+const config = require('./../../config/profileAnalysisConfig');
+const appConstants = require('./../api/v1/common/appConstants');
 require('../../server/services/webapp.service').setupMongooseConnections();
 
 const importProfile = function(documentId, importCallback) {
@@ -53,7 +54,7 @@ const importDataInstance = function(instance, documentId, asyncCallback) {
                 },
                 profileData: instance
             }
-            userCtrl.registerNewUser(profileImportData, 'profileImport').then((data) => {
+            userCtrl.registerNewUser(profileImportData, appConstants.INSERT_TYPE.PROFILE_IMPORT).then((data) => {
                 callback(null, data);
             }, (err) => {
                 callback(err, null)
