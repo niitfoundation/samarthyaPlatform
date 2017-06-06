@@ -2,6 +2,8 @@ const kafka = require('kafka-node');
 const config = require('../../../../config/profileAnalysisConfig');
 const logger = require('./../../../../applogger');
 const async = require('async');
+const kakfaConfig = require('./../../../../config/config');
+const kafkaClient = require('./../core/kafkaConnection');
 
 
 const publishToAnalyze = function(userName, dataToPublish, actionType,
@@ -55,43 +57,46 @@ const multiplePublishToAnalyze = function(userName, dataToPublish, actionType, a
 
 // publish multiple topic to kafka
 const publishToKafkaMultipleTopic = function(topics, payloads, callback) {
+    async.waterfall([function(callback) {
+        multipleUpsertKafkaTopic(topics, callback);
+    }, function(prevStepResult, callback) {
+        publishToKafka(topics, payloads, callback);
+    }], function(err, publishResults) {
+        if (err) {
+            logger.debug('Finished publishToKafkaTopic with ', ' err: ', err);
+        }
+        logger.debug('Finished publishToKafkaTopic with result: ', publishResults);
+        callback(err, publishResults);
+    });
 
-    // async.waterfall([function(callback) {
-    //     multipleUpsertKafkaTopic(topics, callback);
-    // }, function(prevStepResult, callback) {
-    //     publishToKafka(topics, payloads, callback);
-    // }], function(err, publishResults) {
-    //     if (err) {
-    //         logger.debug('Finished publishToKafkaTopic with ', ' err: ', err);
-    //     }
-    //     logger.debug('Finished publishToKafkaTopic with result: ', publishResults);
-    //     callback(err, publishResults);
-    // });
-    publishToKafka(topics, payloads, callback);
+    // publishToKafka(topics, payloads, callback);
 };
 
 // checking multiple kafka clients instances
 const multipleUpsertKafkaTopic = function(topics, callback) {
-    let callupsertKafkaTopic = [];
     logger.debug('Topics are :', topics);
     async.map(topics, function(topicName, upsertCallback) {
         upsertKafkaTopic(topicName, upsertCallback);
     }, callback);
 };
 const upsertKafkaTopic = function(topicName, callback) {
-    let client = new kafka.Client(config.ZOOKPER_HOST);
+    let client = new kafka.Client(kakfaConfig.ZOOKPER_HOST);
     client.once('connect', function() {
         client.loadMetadataForTopics([topicName], (err, resp) => {
             logger.debug('Topic upsert result:', JSON.stringify(resp));
+            client.close();
             callback(err, resp);
         });
     });
-};
 
+};
+// publish one or multiple topic to kafka
 const publishToKafka = function(topicName, dataPayload, callback) {
     logger.debug('Publishing to topic ', topicName, ' with data: ', dataPayload);
-    let client = new kafka.Client(config.ZOOKPER_HOST);
+    let client = new kafka.Client(kakfaConfig.ZOOKPER_HOST);
     let producer = new kafka.Producer(client);
+
+
     producer.on('ready', function() {
         let payloads = dataPayload;
         producer.send(payloads, function(err, data) {
@@ -104,12 +109,23 @@ const publishToKafka = function(topicName, dataPayload, callback) {
             }
 
             logger.debug('Published message to messaging pipeline topic ', topicName, ' with result: ', data);
-
+            producer.close();
+            client.close();
             callback(null, data);
+
             return;
         });
     });
+
+    producer.on('error', function(err) {
+        logger.error(
+            'Error in publishing message to messaging pipeline ', err
+        );
+        producer.close();
+    });
+
 };
+
 
 module.exports = {
     publishForProfileAnalysis: publishToAnalyze,

@@ -50,7 +50,7 @@ const importDataInstance = function(instance, documentId, asyncCallback) {
                 userCredentialsData: {
                     username: instance.username,
                     password: instance.password,
-                    role: instance.role,
+                    role: instance.personalInfo.role,
                 },
                 profileData: instance
             }

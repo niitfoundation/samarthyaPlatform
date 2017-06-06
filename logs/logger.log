@@ -1,30 +1,72 @@
-[2017-05-12 15:21:25.275] [INFO] [default] - Proceeding to analyze Personal Info and profession..!
-[2017-05-12 15:21:25.276] [DEBUG] [default] - createPerson QUERY ::: MERGE(p:Person{ name: {personName} ,gender: {gender} ,dob: {dob} ,email: {email} ,displayName: {displayName}})RETURN p
-[2017-05-12 15:21:25.477] [DEBUG] [default] - relatePersonToProfession QUERY ::: MATCH(p:Person{name:{personName}})MERGE(pro:Profession{name:{profession}})MERGE(p)-[ppro:Profession_Is]->(pro)RETURN p,ppro,pro
-[2017-05-12 15:21:25.791] [DEBUG] [default] - [*] Done analysing profileData instance [ greenehopper@gmail.com:Testing ]
-[2017-05-12 15:21:25.792] [DEBUG] [default] - Returned data from processorMethod  [ { person: Node { identity: [Object], labels: [Object], properties: [Object] } } ]
-[2017-05-12 15:24:48.681] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:24:58.662] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:25:00.928] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:25:10.191] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:27:52.605] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:28:35.217] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:28:49.931] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:31:56.390] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:31:58.156] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:32:08.281] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-12 15:33:49.681] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-19 14:33:41.703] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-05-19 14:33:49.045] [DEBUG] [default] - Service  qualificationAnalyzer  is now running..!
-[2017-05-19 14:34:03.113] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-05-19 14:34:24.205] [DEBUG] [default] - Service  Samarthya_Profile_Import  is now running..!
-[2017-05-19 14:34:37.489] [DEBUG] [default] - Service  projectAnalyzer  is now running..!
-[2017-05-19 14:35:10.867] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-05-19 14:35:24.186] [DEBUG] [default] - Service  jobprefrencesAnalyzer  is now running..!
-[2017-05-19 14:37:22.314] [DEBUG] [default] - Service  skillsAnalyzer  is now running..!
-[2017-05-19 14:37:36.146] [DEBUG] [default] - Service  workExperienceAnalyzer  is now running..!
-[2017-05-19 14:37:45.053] [DEBUG] [default] - Service  PersonalInfoAnalyzer  is now running..!
-[2017-05-19 14:37:51.956] [DEBUG] [default] - Service  Samarthya_Profile_Import  is now running..!
-[2017-05-19 14:38:02.749] [DEBUG] [default] - Service  projectAnalyzer  is now running..!
-[2017-05-19 14:38:08.797] [DEBUG] [default] - Service  Samarthya_User_Registration  is now running..!
-[2017-05-19 14:38:19.520] [DEBUG] [default] - Service  skillsAnalyzer  is now running..!
+[2017-06-06 11:53:24.193] [ERROR] [default] - Error in relatePersonToSkill  { Error: An unexpected failure occurred, see details in the database logs, reference number f482e088-3573-42f7-b030-99ae27be9951.
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
+    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
+    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
+    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
+    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
+    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
+    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
+[2017-06-06 11:53:24.194] [ERROR] [default] - Error in analyzing jobPreference instance  { Error: An unexpected failure occurred, see details in the database logs, reference number f482e088-3573-42f7-b030-99ae27be9951.
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
+    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
+    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
+    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
+    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
+    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
+    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
+[2017-06-06 11:53:24.195] [DEBUG] [default] - [*] Done analysing jobPreference instance [ charlotterichards@gmail.com:undefined ]
+[2017-06-06 11:53:24.202] [DEBUG] [default] - Returned data from processorMethod  { Error: An unexpected failure occurred, see details in the database logs, reference number f482e088-3573-42f7-b030-99ae27be9951.
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
+    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
+    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
+    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
+    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
+    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
+    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
+[2017-06-06 11:53:24.206] [INFO] [default] - Proceeding to analyze Job preference..!
+[2017-06-06 11:53:24.206] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ batesjoyner@gmail.com:undefined ]
+[2017-06-06 11:53:24.206] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
+[2017-06-06 11:53:24.207] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
+[2017-06-06 11:53:24.208] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
+[2017-06-06 11:53:24.209] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
+[2017-06-06 11:53:24.213] [ERROR] [default] - Error in relatePersonToHimself  { Error: An unexpected failure occurred, see details in the database logs, reference number 2f1b00ba-73ca-44c7-a9f3-8979dd8097ed.
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
+    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
+    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
+    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
+    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
+    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
+    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
+[2017-06-06 11:53:24.217] [ERROR] [default] - Error in relatePersonToPreferredLocation  { Error: An unexpected failure occurred, see details in the database logs, reference number ec52f643-8359-42ce-b64a-a9bfa2189e62.
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
+    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
+    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
+    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
+    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
+    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
+    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
