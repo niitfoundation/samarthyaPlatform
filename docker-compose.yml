@@ -203,6 +203,28 @@ services:
       - '9092'
       - prinfo-analyzer
 
+  profileimport:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - primport-analyzer
+
   mongodb:
     image: mvertes/alpine-mongo
     network_mode: host
@@ -218,6 +240,8 @@ services:
     restart: always
     environment:
       - NEO4J_AUTH=neo4j/password
+      - dbms.memory.heap.initial_size=4096
+      - DBMS_MEMORY_HEAP_INITIAL_SIZE=4096
     cap_add:
       - SYS_RESOURCE
     volumes:
@@ -247,9 +271,9 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0
       KAFKA_ADVERTISED_PORT: 9092
-      KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1"
+      KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1,profileImport:1:1"
       KAFKA_ZOOKEEPER_CONNECT: 0.0.0.0:2181
-      
+
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 

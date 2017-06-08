@@ -1,72 +1,123 @@
-[2017-06-06 11:53:24.193] [ERROR] [default] - Error in relatePersonToSkill  { Error: An unexpected failure occurred, see details in the database logs, reference number f482e088-3573-42f7-b030-99ae27be9951.
+[2017-06-07 18:07:53.497] [DEBUG] [default] - relatePersonToMultiLanguage QUERY ::: MATCH(p:Person{name:{personName}})MERGE(lang:Language{name:{langName}})MERGE(p)-[read:Can_Read]->(lang)MERGE(p)-[write:Can_Write]->(lang)MERGE(p)-[speak:Can_Speak]->(lang)RETURN p
+[2017-06-07 18:07:53.500] [ERROR] [default] - Error in relatePersonToLocation  { Error: connect ECONNREFUSED 127.0.0.1:7687
     at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
     at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
-    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
-    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
-    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
-    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
-    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
-    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
-    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
     at emitOne (events.js:96:13)
     at TLSSocket.emit (events.js:191:7)
-  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
-[2017-06-06 11:53:24.194] [ERROR] [default] - Error in analyzing jobPreference instance  { Error: An unexpected failure occurred, see details in the database logs, reference number f482e088-3573-42f7-b030-99ae27be9951.
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
+[2017-06-07 18:07:53.501] [ERROR] [default] - Error in analyzing personalInfo instance  { Error: connect ECONNREFUSED 127.0.0.1:7687
     at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
     at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
-    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
-    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
-    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
-    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
-    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
-    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
-    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
     at emitOne (events.js:96:13)
     at TLSSocket.emit (events.js:191:7)
-  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
-[2017-06-06 11:53:24.195] [DEBUG] [default] - [*] Done analysing jobPreference instance [ charlotterichards@gmail.com:undefined ]
-[2017-06-06 11:53:24.202] [DEBUG] [default] - Returned data from processorMethod  { Error: An unexpected failure occurred, see details in the database logs, reference number f482e088-3573-42f7-b030-99ae27be9951.
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
+[2017-06-07 18:07:53.501] [DEBUG] [default] - [*] Done analysing personalInfo instance [ patelmcdowell@gmail.com:undefined ]
+[2017-06-07 18:07:53.501] [ERROR] [default] - Error in relatePersonToLanguage  { Error: connect ECONNREFUSED 127.0.0.1:7687
     at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
     at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
-    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
-    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
-    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
-    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
-    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
-    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
-    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
     at emitOne (events.js:96:13)
     at TLSSocket.emit (events.js:191:7)
-  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
-[2017-06-06 11:53:24.206] [INFO] [default] - Proceeding to analyze Job preference..!
-[2017-06-06 11:53:24.206] [DEBUG] [default] - [*] Starting to analyze Job preference instance [ batesjoyner@gmail.com:undefined ]
-[2017-06-06 11:53:24.206] [DEBUG] [default] - relatePersonToHimself::Query  MATCH (p:Person {name:{personName}}) MERGE (p1:Person {name:{personName}}) MERGE (p)-[ppr:Looking_For_Job {lookingForJob: {looking}} ]->(p1) RETURN p,ppr,p1
-[2017-06-06 11:53:24.207] [DEBUG] [default] - relatePersonTojobRole::Query  MATCH (p:Person {name:{personName}}) MERGE (j:JobRole {name:{jobRole}}) MERGE (p)-[pjr:Expected_JobRole ]->(j) RETURN p,pjr,j
-[2017-06-06 11:53:24.208] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) FOREACH(sk in {skillColl} | MERGE(s:Skills {name:sk}) MERGE (p)-[psr:Preffered_JobRole_Skill ]->(s)) RETURN p
-[2017-06-06 11:53:24.209] [DEBUG] [default] - relatePersonToPreferredLocation::Query  MATCH (p:Person {name:{personName}}) FOREACH(loc in {locationColl} | MERGE(l:Location {name:loc}) MERGE (p)-[plr:Prefferd_Job_Location ]->(l)) RETURN p
-[2017-06-06 11:53:24.213] [ERROR] [default] - Error in relatePersonToHimself  { Error: An unexpected failure occurred, see details in the database logs, reference number 2f1b00ba-73ca-44c7-a9f3-8979dd8097ed.
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
+[2017-06-07 18:07:53.502] [ERROR] [default] - Error in relatePersonToMultiLanguage  { Error: connect ECONNREFUSED 127.0.0.1:7687
     at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
     at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
-    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
-    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
-    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
-    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
-    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
-    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
-    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
     at emitOne (events.js:96:13)
     at TLSSocket.emit (events.js:191:7)
-  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
-[2017-06-06 11:53:24.217] [ERROR] [default] - Error in relatePersonToPreferredLocation  { Error: An unexpected failure occurred, see details in the database logs, reference number ec52f643-8359-42ce-b64a-a9bfa2189e62.
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
+[2017-06-07 18:07:53.502] [DEBUG] [default] - Returned data from processorMethod  { Error: connect ECONNREFUSED 127.0.0.1:7687
     at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
     at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
-    at Connection._handleMessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:354:56)
-    at Dechunker.Connection._dechunker.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:285:12)
-    at Dechunker._onHeader (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:246:14)
-    at Dechunker.AWAITING_CHUNK (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:199:21)
-    at Dechunker.write (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/chunking.js:257:28)
-    at NodeChannel.self._ch.onmessage (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/connector.js:258:27)
-    at TLSSocket.<anonymous> (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:308:16)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
     at emitOne (events.js:96:13)
     at TLSSocket.emit (events.js:191:7)
-  code: 'Neo.DatabaseError.Transaction.TransactionStartFailed' }
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
+[2017-06-07 18:07:53.504] [INFO] [default] - Proceeding to analyze Personal Info..!
+[2017-06-07 18:07:53.504] [DEBUG] [default] - [*] Starting to analyze Personal Info instance [ gainesgibbs@gmail.com:undefined ]
+[2017-06-07 18:07:53.504] [DEBUG] [default] - Personal Info { identity: 
+   [ { value: 198823560820, idType: 'Aadhaar' },
+     { value: 513070, idType: 'RegNumber' } ],
+  address: 
+   { pincode: 685329,
+     state: ' Arkansas',
+     district: 'Kimmell',
+     landmark: 'Greenpoint Avenue',
+     address2: '',
+     address1: '' },
+  lang: [ { s: true, w: true, r: false, name: 'Telugu' } ],
+  nativeLang: 'Hindi',
+  prefLang: 'English',
+  married: true,
+  contact: { I: 9940954911 },
+  altemail: 'gibbs77@gmail.com',
+  age: 36,
+  gender: 'male',
+  role: 'candidate',
+  email: 'gainesgibbs@gmail.com',
+  dob: 'Sat Mar 25 1995 21:15:33 GMT+0530 (IST)',
+  lname: 'Gibbs',
+  fname: 'Gaines',
+  name: 'Gaines' }
+[2017-06-07 18:07:53.506] [DEBUG] [default] - Person Name Info gainesgibbs@gmail.com
+[2017-06-07 18:07:53.506] [DEBUG] [default] - relatePersonToLocation QUERY ::: MATCH(p:Person{name:{personName}})MERGE(l:Location{name:{locationName}})MERGE(p)-[plr:Lives_In]->(l)RETURN p,plr,l
+[2017-06-07 18:07:53.507] [DEBUG] [default] - relatePersonToLanguage QUERY ::: MATCH(p:Person{name:{personName}})MERGE(pref:Language{name:{prefLang}})MERGE(native:Language{name:{nativeLang}})MERGE(p)-[ppref:Pref_Lang]->(pref)MERGE(p)-[pnative:Nativ_Lang]->(native)RETURN p,pref,native,ppref,pnative
+[2017-06-07 18:07:53.509] [DEBUG] [default] - relatePersonToMultiLanguage QUERY ::: MATCH(p:Person{name:{personName}})MERGE(lang:Language{name:{langName}})MERGE(p)-[write:Can_Write]->(lang)MERGE(p)-[speak:Can_Speak]->(lang)RETURN p
+[2017-06-07 18:07:53.513] [ERROR] [default] - Error in relatePersonToLocation  { Error: connect ECONNREFUSED 127.0.0.1:7687
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
+[2017-06-07 18:07:53.515] [ERROR] [default] - Error in analyzing personalInfo instance  { Error: connect ECONNREFUSED 127.0.0.1:7687
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
+[2017-06-07 18:07:53.515] [DEBUG] [default] - [*] Done analysing personalInfo instance [ gainesgibbs@gmail.com:undefined ]
+[2017-06-07 18:07:53.516] [ERROR] [default] - Error in relatePersonToLanguage  { Error: connect ECONNREFUSED 127.0.0.1:7687
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
+[2017-06-07 18:07:53.517] [ERROR] [default] - Error in relatePersonToMultiLanguage  { Error: connect ECONNREFUSED 127.0.0.1:7687
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
+[2017-06-07 18:07:53.517] [DEBUG] [default] - Returned data from processorMethod  { Error: connect ECONNREFUSED 127.0.0.1:7687
+    at new Neo4jError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/pankush/workspace/samarthyaNew/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at emitErrorNT (net.js:1289:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9) code: 'ServiceUnavailable' }
