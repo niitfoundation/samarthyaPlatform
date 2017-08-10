@@ -1,0 +1,279 @@
+version: '2'
+services:
+
+  candidate:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    ports:
+      - "8080:8080"
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - candidate
+
+  placement:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    ports:
+      - "3000:3000"
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - placement
+
+  jobpreference:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - jpref-analyzer
+
+  workexperience:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - wexp-analyzer
+
+  project:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - proj-analyzer
+
+  qualification:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - qual-analyzer
+
+  skill:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - skill-analyzer
+
+  userregister:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - usrreg-analyzer
+
+  profileinfo:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - prinfo-analyzer
+
+  profileimport:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - primport-analyzer
+
+  mongodb:
+    image: mvertes/alpine-mongo
+    network_mode: host
+    restart: always
+    volumes:
+      - /data:/data/db
+    expose:
+      - 27017
+
+  neo4j:
+    image: neo4j:3.0.7
+    network_mode: host
+    restart: always
+    environment:
+      - NEO4J_AUTH=neo4j/password
+      - dbms.memory.heap.initial_size=4096
+      - DBMS_MEMORY_HEAP_INITIAL_SIZE=4096
+    cap_add:
+      - SYS_RESOURCE
+    volumes:
+      - ./neo4j/data:/data
+    expose:
+      - 7474
+      - 7687
+      - 1337
+    ports:
+      - "7474:7474"
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    network_mode: host
+    restart: always
+    expose:
+      - 2181
+
+  kafka:
+    image: wurstmeister/kafka
+    network_mode: host
+    restart: always
+    expose:
+      - 9092
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1,profileImport:1:1"
+      KAFKA_ZOOKEEPER_CONNECT: 0.0.0.0:2181
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+

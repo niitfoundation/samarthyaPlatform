@@ -1,7 +1,8 @@
 # Logs
-*.log*
+logs
+*.log
+*logger.log*
 npm-debug.log*
-yarn.lock
 
 # Runtime data
 pids
@@ -28,6 +29,14 @@ build/Release
 
 # Dependency directories
 node_modules
+webclient/node_modules
+webclient/candidate/node_modules
+webclient/candidate/dist
+
+
+webclient/placement/node_modules
+webclient/placement/dist
+
 jspm_packages
 
 # Optional npm cache directory
@@ -39,3 +48,6 @@ jspm_packages
 
 # Ignore distribution folder
 dist
+
+# Ignore neo4j data folder
+neo4j/data

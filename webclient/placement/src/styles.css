@@ -1,0 +1,32 @@
+/*Theme Files for material design*/
+
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+
+.myFont {
+    font-family: 'Noto Serif', serif;
+}
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Roboto","Helvetica Neue",sans-serif;
+     background-color: #EEEEEE;
+}
+
+/*userIcon and notification menus*/
+.mat-menu-panel{
+   
+   top: 40px;
+    right: 10px;
+    position: absolute;
+    
+}
+md-input-container{
+    bottom: 0;
+     margin: 0;
+    padding: 0;
+}
+small{
+    margin: 0;
+    padding: 0;
+    top: 0;
+}

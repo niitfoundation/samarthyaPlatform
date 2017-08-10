@@ -1,0 +1,9 @@
+[2017-06-13 16:47:54.498] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Qualified_In]->(s) RETURN p,psr,s
+[2017-06-13 16:47:54.516] [DEBUG] [default] - relatePersonToInstitute::Query  MATCH (p:Person {name:{personName}}) MERGE (in:Institute {name:{instituteName}}) MERGE (p)-[pinr:Qualified_From {degree: {degree},qualifiedBatch: {batch}} ]->(in) RETURN p,pinr,in
+[2017-06-13 16:47:54.638] [DEBUG] [default] - relateInstituteToQualification::Query  MATCH (in:Institute {name:{instituteName}}) MERGE (q:Qualification {name:{qualificationName}}) MERGE (in)-[inqr:Offers]->(q) RETURN in,inqr,q
+[2017-06-13 16:47:54.774] [DEBUG] [default] - relateQualificationToSkill::Query  MATCH (q:Qualification {name:{qualificationName}}) MERGE (s:Skills {name:{skillName}}) MERGE (q)-[qsr:Major_Subject_As]->(s) RETURN q,qsr,s
+[2017-06-13 16:47:54.783] [DEBUG] [default] - relateInstituteToLocation::Query  MATCH (in:Institute {name:{instituteName}}) MERGE (l:Location {name:{locationName}}) MERGE (in)-[inlr:Done_From]->(l) RETURN in,inlr,l
+[2017-06-13 16:47:55.243] [DEBUG] [default] - [*] Done analysing qualification instance [ gainesgibbs@gmail.com:College ]
+[2017-06-13 16:47:55.243] [DEBUG] [default] - Returned data from processorMethod  [ [ { institite: [Object],
+      relation: [Object],
+      qualification: [Object] } ] ]

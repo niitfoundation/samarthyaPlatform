@@ -1,0 +1,16 @@
+.git
+.gitignore
+.editorconfig
+node_modules
+logs/*
+*.log
+Dockerfile*
+docker-compose.yml
+*.md
+*.yml
+
+# Project specific files & folders, which are not needed inside docker image
+kafka-docker
+dockerScripts
+webclient/candidate/node_modules
+webclient/placement/node_modules
