@@ -16,10 +16,12 @@ module.exports = function(appName) {
 
     let app = service.createApp();
 
-    app.use(express.static(path.resolve(__dirname, '../../', 'webclient', appName + '/dist')));
-
-
     app = service.setupMiddlewares(app);
+
+    let staticPath = path.resolve(__dirname, '..', '..', 'webclient', appName, 'dist');
+    process.stdout.write("Mounting static folder [" + staticPath + " ]");
+
+    app.use(express.static(staticPath));
 
     app = service.setupRestRoutes(app);
 
