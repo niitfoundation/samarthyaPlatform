@@ -80,10 +80,11 @@ const getFailureImportHistory = function(documentId) {
 const createFullProfile = function(username, profileObj) {
     //create full profile from bulkImport
     let profileData = new ProfileModel(profileObj);
+    console.log("About to create the full profile ", profileData);
     return new Promise((resolve, reject) => {
         profileData.save(function(err, data) {
             if (err) {
-                logger.error('profile Import data not added sucessfullyyyy' + err);
+                logger.error('profile Import data not added successfully, error: ', err);
                 reject(err);
             } else {
                 logger.info('profile Import data added successfully');

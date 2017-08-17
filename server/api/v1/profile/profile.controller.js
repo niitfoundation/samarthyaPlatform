@@ -29,10 +29,11 @@ const createProfile = function(username, profileObj) {
     // Add/modify profile model
     let userRegData = profileObj;
     let profileData = new ProfileModel(profileDataModel.profileDataModel(profileObj));
+    console.log("About to create profile with details: ", profileData);
     return new Promise((resolve, reject) => {
         profileData.save(function(err, data) {
             if (err) {
-                logger.error('profile data not added sucessfullyyyy' + err);
+                logger.error('Failed to save profile, error: ', err);
                 reject(err);
             } else {
                 logger.info('profile data added successfully');

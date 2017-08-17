@@ -24,16 +24,17 @@ const registerNewUser = function(userObj, insertType) {
     return new Promise((resolve, reject) => {
         userData.save(function(err, data) {
             if (err) {
-                logger.error('userData not added sucessfully' + err);
+                logger.error('userData not added successfully' + err);
                 reject(err);
             } else {
                 // if user added his/her details
-                if (insertType == appConstant.INSERT_TYPE.PROFILES) {
+                if (!insertType || insertType == appConstant.INSERT_TYPE.PROFILES) {
                     // after successful enter the credentials data inserts profile details
-                    profileCtrl.createProfile(userDetails.username, userObj.profileData).then((successResult) => {
+                    profileCtrl.createProfile(userDetails.username, userObj.profileData)
+                    .then((successResult) => {
                         resolve({ success: true, msg: 'Successfully Registered' });
-                    }, (errresult) => {
-                        logger.error('profile data not added Successfully' + err);
+                    }, (errResult) => {
+                        logger.error('profile data not added successfully, error: ', errResult);
                         // if profile data not inserted delete the credentials data
                         userData.remove(function(err, data) {
                             if (err) {
@@ -45,12 +46,13 @@ const registerNewUser = function(userObj, insertType) {
                             }
                         });
                     });
-                } else {
+                } else if (insertType == appConstant.INSERT_TYPE.PROFILE_IMPORT) {
                     //if profile data inserted from profile Import
-                    profileImportCtrl.createFullProfile(userDetails.username, userObj.profileData).then((successResult) => {
+                    profileImportCtrl.createFullProfile(userDetails.username, userObj.profileData)
+                    .then((successResult) => {
                         resolve({ success: true, msg: ' Successfully Registered' });
-                    }, (errresult) => {
-                        logger.error('profile data not added Successfully' + err);
+                    }, (errResult) => {
+                        logger.error('profile data not added successfully, error: ', errResult);
                         // if profile data not inserted delete the credentials data
                         userData.remove(function(err, data) {
                             if (err) {
