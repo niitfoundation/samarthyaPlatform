@@ -28,6 +28,7 @@ RUN npm install
 RUN npm run candidate-npm-install
 
 RUN npm run placement-npm-install
+RUN npm rebuild bcrypt --build-from-source
 
 COPY . .
 
