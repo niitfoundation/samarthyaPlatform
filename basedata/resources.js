@@ -1,4 +1,4 @@
-module.exports = {
+const data = {
   "navList": {
     "Admin": [{
         "name": "Coordinators",
@@ -460,3 +460,6 @@ module.exports = {
     }
   }
 }
+module.exports = {
+  data: data
+};
