@@ -26,9 +26,12 @@ const publishToAnalyze = function(userName, dataToPublish, actionType,
 };
 
 const publishToKafkaTopic = function(topicName, payloads, callback) {
+    logger.debug("Inside publishToKafkaTopic");
     async.waterfall([function(callback) {
+        logger.debug("inside async.waterfall in publishToKafkaTopic");
         upsertKafkaTopic(topicName, callback);
     }, function(prevStepResult, callback) {
+        logger.debug("Inside callback of upserKafkaTopic");
         publishToKafka(topicName, payloads, callback);
     }], function(err, publishResults) {
         if (err) {
@@ -80,8 +83,10 @@ const multipleUpsertKafkaTopic = function(topics, callback) {
     }, callback);
 };
 const upsertKafkaTopic = function(topicName, callback) {
+    logger.debug("Connect to kafka zookeeper ", kakfaConfig.ZOOKPER_HOST);    
     let client = new kafka.Client(kakfaConfig.ZOOKPER_HOST);
     client.once('connect', function() {
+        logger.debug("inside upsertKafkaTopic");
         client.loadMetadataForTopics([topicName], (err, resp) => {
             logger.debug('Topic upsert result:', JSON.stringify(resp));
             client.close();
