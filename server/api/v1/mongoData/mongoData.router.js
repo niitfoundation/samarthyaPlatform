@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const logger = require('./../../../../applogger');
 const mongoDataCtrl = require('./mongoData.controller');
-const mongoData = require('./mongoData').data;
+const mongoData = require('../../../../basedata/resources').data;
 /*
  * Actual URI will be HTTP POST /users/
  */
