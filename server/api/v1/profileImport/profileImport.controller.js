@@ -79,6 +79,7 @@ const getFailureImportHistory = function(documentId) {
 };
 const createFullProfile = function(username, profileObj) {
     //create full profile from bulkImport
+    logger.info('Inside createFullProfile in profileImportcontrollerfile');
     let profileData = new ProfileModel(profileObj);
     console.log("About to create the full profile ", profileData);
     return new Promise((resolve, reject) => {
@@ -87,8 +88,9 @@ const createFullProfile = function(username, profileObj) {
                 logger.error('profile Import data not added successfully, error: ', err);
                 reject(err);
             } else {
+                logger.info('Inside promise of createFullProfile in profileImportcontrollerfile');
                 logger.info('profile Import data added successfully');
-                logger.info('Graph Model Creation started')
+                logger.info('Graph Model Creation started');
                     //Graph model creation only for candidates
                 if (profileObj.personalInfo.role.toLowerCase() == profileConstant.USER_ROLE.CANDIDATES) {
                     analysisFeeder.publishForProfileAnalysis(username,
