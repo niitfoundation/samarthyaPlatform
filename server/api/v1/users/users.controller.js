@@ -9,6 +9,7 @@ const profileImportCtrl = require('./../profileImport/profileImport.controller')
  */
 const registerNewUser = function(userObj, insertType) {
     logger.debug('Get userObj and store into userDetails', userObj);
+    logger.info('inside registerNewUser insertType', insertType);
     var userDetails = {
         username: userObj.userCredentialsData.username,
         password: userObj.userCredentialsData.password,
@@ -50,6 +51,7 @@ const registerNewUser = function(userObj, insertType) {
                     //if profile data inserted from profile Import
                     profileImportCtrl.createFullProfile(userDetails.username, userObj.profileData)
                     .then((successResult) => {
+                        logger.info('inside createFullProfile in user.controller');
                         resolve({ success: true, msg: ' Successfully Registered' });
                     }, (errResult) => {
                         logger.error('profile data not added successfully, error: ', errResult);
