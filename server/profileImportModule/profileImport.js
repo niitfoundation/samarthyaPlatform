@@ -35,12 +35,14 @@ const importDatas = function(profileArray, documentId, importCallback) {
         if (err) {
             logger.error(err);
         } else {
-            logger.info('updted total profiles');
+            logger.info('updted total profiles ', data);
+            async.mapSeries(profileArray, function(instance, asyncCallback) {
+                instance.createdBy = 'svc.profileimport';
+                instance.updatedBy = 'svc.profileimport';
+                importDataInstance(instance, documentId, asyncCallback);
+            }, importCallback);
         }
     });
-    async.mapSeries(profileArray, function(instance, asyncCallback) {
-        importDataInstance(instance, documentId, asyncCallback);
-    }, importCallback);
 }
 
 const importDataInstance = function(instance, documentId, asyncCallback) {
@@ -55,6 +57,7 @@ const importDataInstance = function(instance, documentId, asyncCallback) {
                 profileData: instance
             }
             userCtrl.registerNewUser(profileImportData, appConstants.INSERT_TYPE.PROFILE_IMPORT).then((data) => {
+                logger.info('Inside registerNewUser in profileImportjsfile');
                 callback(null, data);
             }, (err) => {
                 callback(err, null)
