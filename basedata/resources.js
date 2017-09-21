@@ -72,7 +72,7 @@ const data = {
         "icon": "work"
       },
       {
-        "name": "Qulification",
+        "name": "Qualification",
         "path": "/home/qualifications",
         "icon": "feedback"
       },
