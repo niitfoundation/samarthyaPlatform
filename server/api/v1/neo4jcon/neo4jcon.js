@@ -8,7 +8,7 @@ function singleton() {
     let instance = undefined;
     this.connection = function() {
         if (!this.instance) {
-            this.instance = neo4j.driver('bolt://localhost', neo4j.auth.basic(neo4jconfig.NEO4J.USERNAME, neo4jconfig.NEO4J.PASSWORD)).session();
+            this.instance = neo4j.driver('bolt://' + neo4jconfig.NEO4J.HOST, neo4j.auth.basic(neo4jconfig.NEO4J.USERNAME, neo4jconfig.NEO4J.PASSWORD)).session();
         }
         return this.instance;
     };
