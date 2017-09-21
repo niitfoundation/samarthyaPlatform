@@ -5,6 +5,7 @@ let SAMARTHYA = {
 };
 
 let NEO4J = {
+    HOST: process.env.NEO4J_HOST || 'localhost',
     USERNAME: 'neo4j',
     PASSWORD: 'password'
 };
