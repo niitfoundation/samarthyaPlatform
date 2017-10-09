@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "indexers": "sudo docker-compose up -d jobpreference workexperience project qualification skill userregister profileinfo profileimport",
+        "mservices": "sudo docker-compose up -d mongodb neo4j zookeeper kafka",
+        "indexers": "sudo docker-compose up -d jobpreference workexperience project qualification skill userregister profileinfo profileimport placementHistory",
         "test": " \"Error: no test specified\" && exit 1",
         "candidate-npm-install": "cd webclient/candidate && npm install",
         "placement-npm-install": "cd webclient/placement && npm install",
@@ -24,7 +25,8 @@
         "skill-analyzer": "cd services && node skills.Analyzer.js",
         "usrreg-analyzer": "cd services && node userRegistration.Analyzer.js",
         "prinfo-analyzer": "cd services && node personalInfo.Analyzer.js",
-        "primport-analyzer": "cd services && node profileImport.service.js"
+        "primport-analyzer": "cd services && node profileImport.service.js",
+        "plcmntHistory-analyzer": "cd services && node placementHistory.Analyzer.js"
     },
     "repository": {
         "type": "git",
@@ -38,6 +40,7 @@
     },
     "homepage": "https://github.com/stackroute/samarthyaPlatform#readme",
     "dependencies": {
+        "@angular/common": "^4.4.3",
         "angular2-infinite-scroll": "^0.3.4",
         "async": "^2.2.0",
         "bcrypt": "^1.0.2",
@@ -67,7 +70,7 @@
         "chai-as-promised": "^6.0.0",
         "eslint": "^3.17.1",
         "log4js": "^1.1.1",
-        "mocha": "^3.2.0",
+        "mocha": "^3.5.3",
         "nodemon": "^1.11.0",
         "supertest": "^3.0.0"
     }

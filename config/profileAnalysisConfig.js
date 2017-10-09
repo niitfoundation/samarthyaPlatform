@@ -6,7 +6,8 @@ const SECTION_TO_TOPIC_MAP = {
     JOB_PREFRENCE: 'jobPreferences',
     SKILLS: 'skills',
     USER_REG: 'userRegistration',
-    PROFILE_IMPORT: 'profileImport'
+    PROFILE_IMPORT: 'profileImport',
+    PLACEMENT_HISTORY: 'placementHistory'
 };
 
 const CONSUMER_GROUP = {
@@ -18,7 +19,8 @@ const CONSUMER_GROUP = {
     JOB_PREFRENCE: 'Samarthya_jobprefrences',
     SKILLS: 'Samarthya_skills',
     USER_REG: 'Samarthya_User_Reg',
-    PROFILE_IMPORT: 'Samarthya_Profile_Import'
+    PROFILE_IMPORT: 'Samarthya_Profile_Import',
+    PLACEMENT_HISTORY: 'Samarthya_Placement_History'
 
 }
 const PROCESSOR_NAME = {
@@ -29,6 +31,7 @@ const PROCESSOR_NAME = {
     QUALIFICATION: 'qualificationAnalyzer',
     JOB_PREFRENCE: 'jobprefrencesAnalyzer',
     SKILLS: 'skillsAnalyzer',
+    PLACEMENT_HISTORY: 'placementHistoryAnalyzer',
     PROFILE_IMPORT: 'Samarthya_Profile_Import'
 
 }
@@ -38,7 +41,7 @@ const USER_ROLE = {
     SUPERVISORS: 'supervisor'
 
 }
-const SECTION_NAMES = ['jobPreferences', 'experiences', 'skills', 'projects', 'qualifications', 'personalInfo'];
+const SECTION_NAMES = ['jobPreferences', 'experiences', 'skills', 'projects', 'qualifications', 'personalInfo','placementHistory'];
 module.exports = {
     SECTION_TO_TOPIC_MAP: SECTION_TO_TOPIC_MAP,
     CONSUMER_GROUP: CONSUMER_GROUP,

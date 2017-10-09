@@ -36,3 +36,4 @@ const execute = function() {
 }
 
 execute();
+module.exports = analyzer;

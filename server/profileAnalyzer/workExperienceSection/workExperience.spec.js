@@ -36,9 +36,9 @@ describe('Test work experience section data analysis', function() {
         });
 
         it('Pass a actual data and check if data model is returned', function(done) {
-            const workExpModule = require('./');
+            const workExpModule = require('./workExperience.analyzer');
 
-            const profileUser = { username: 'Dheeren' };
+            const profileUser = 'Dheeren';
             const workExperience = [{
                 workplace: 'Wipro',
                 jobRole: 'Developer',

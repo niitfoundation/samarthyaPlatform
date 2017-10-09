@@ -113,6 +113,27 @@ const profileSchema = mongoose.Schema({
         title: { type: String },
         url: { type: String },
         desc: { type: String }
+    }],
+    // placement history
+    placementHistory: [{
+        isCurrent: { type: Boolean },
+        workplace: { type: String },
+        designation: { type: String },
+        jobRole: { type: String },
+        location: { type: String },
+        salary: { type: Number },
+        duration: {
+            start: { type: Date},
+            end: { type: Date }
+        },
+        placementType: { type: String }, // self, assisted, other, unknown
+        placementStatus: { type: String }, // inprogress, accepted, rejected, candidateRejected, other
+        placementRemarks: { type: String }, 
+        coordinatorName: { type: String },
+        coordinatorContact: { type: String },
+        employerName: { type: String },
+        employerContact: { type: String },
+        employerFeedback: { type: String }
     }]
 }, { collection: 'profiles' });
 

@@ -185,7 +185,7 @@ const data = {
         "elemOrder": 1,
         "dataDescriptor": {
           "dataFieldName": "summaryText",
-          "backupText": "Add Somthing about yourself..............."
+          "backupText": "Add Something about yourself..............."
         }
       }]
     },
@@ -346,8 +346,7 @@ const data = {
               ]
             }
           }
-        }
-      ]
+        }]
     },
     "jobPreferences": {
       "fields": [{
@@ -453,6 +452,32 @@ const data = {
               "skill",
               "location",
               "jobRole"
+            ]
+          }
+        }
+      }]
+    },
+    "placementHistory": {
+      "fields": [{
+        "elemType": "listColl",
+        "elemName": "name1",
+        "elemLabel": "Placement History",
+        "elemOrder": 1,
+        "dataDescriptor": {
+          "dataFieldName": {
+            "type": "collArray",
+            "fields": [
+              "workplace",
+              "designation",
+              "role",
+              "location",
+              "salary",
+              "placementType",
+              "placementStatus",
+              "placementRemarks",
+              "coordinatorContact",
+              "employerContact",
+              "employerFeedback"
             ]
           }
         }

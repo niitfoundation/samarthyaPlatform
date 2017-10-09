@@ -70,7 +70,7 @@ services:
       - '0.0.0.0'
       - '9092'
       - jpref-analyzer
-
+  
   workexperience:
     image: samarthya/samarthya:v1.3.0
     build:
@@ -92,6 +92,29 @@ services:
       - '0.0.0.0'
       - '9092'
       - wexp-analyzer
+  
+  placementHistory:
+    image: samarthya/samarthya:v1.3.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    network_mode: host
+    restart: always
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    environment:
+      - KAFKA_HOST_IP=0.0.0.0
+      - NEO4J_HOST=0.0.0.0
+    depends_on:
+      - mongodb
+      - neo4j
+      - zookeeper
+      - kafka
+    entrypoint:
+      - /temp/scripts/wait-for-service.sh
+      - '0.0.0.0'
+      - '9092'
+      - plcmntHistory-analyzer
 
   project:
     image: samarthya/samarthya:v1.3.0
@@ -271,7 +294,7 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0
       KAFKA_ADVERTISED_PORT: 9092
-      KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1,profileImport:1:1"
+      KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,placementHistory:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1,profileImport:1:1"
       KAFKA_ZOOKEEPER_CONNECT: 0.0.0.0:2181
 
     volumes:

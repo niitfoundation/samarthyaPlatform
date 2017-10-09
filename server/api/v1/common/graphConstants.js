@@ -39,6 +39,9 @@ module.exports = {
   REL_PREFFERED_LOCATION: 'Prefferd_Job_Location',
   REL_JOB_LOOKING: 'Looking_For_Job',
   REL_USED: 'Used',
+  REL_ASSISSTED_PLACEMENT_AT: 'Assissted_Placement_At',
+  REL_SELF_PLACED_AT: 'Self_Placed_At',
+  REL_APPLIED_AT: 'Applied_At',
   PROP_JOB_LOOKING: 'lookingForJob',
   PROP_LOCATION: 'Location',
   PROP_DEGREE: 'degree',
@@ -55,6 +58,9 @@ module.exports = {
   PROP_DURATION_IN_YEARS: 'durationinyears',
   PROP_ISCURRENT: 'isCurrent',
   PROP_ORGANISATION: 'organisation',
+  PROP_PLACEMENT_TYPE: 'placement_type',
+  PROP_ASSISSTED_BY: 'assissted_by',
+  PROP_EMPLOYER_NAME: 'employer_name',
   PROP_EXPERTISE: 'expertise',
   PROP_EXPERIENCE: 'experience',
   PROP_EMAIL: 'email',
@@ -62,5 +68,6 @@ module.exports = {
   PROP_NAME: 'displayName',
   PROP_GENDER: 'gender',
   PROP_AADHAAR: 'aadhaar',
+  PROP_PLACEMENT_STATUS: 'status'
 
 };
