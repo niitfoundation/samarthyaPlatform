@@ -30,7 +30,7 @@
     "md2": "0.0.16",
     "samarthyaCandidate": "https://github.com/niitfoundation/samarthyaCandidate.git#placementSec",
     "samarthyaWebcomponent": "https://github.com/niitfoundation/samarthyaWebcomponent.git#uat-1",
-    "placementmodule": "https://github.com/niitfoundation/samarthyaPlacement.git#uat-1",
+    "placementmodule": "https://github.com/niitfoundation/samarthyaPlacement.git#placementSec",
     "rxjs": "^5.0.1",
     "systemjs": "^0.20.9",
     "ts-helpers": "^1.1.1",
