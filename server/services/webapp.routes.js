@@ -20,6 +20,7 @@ const useRoutes = function(app) {
     app.use('/candidates-search',apiBasePath.authenticationTokenRoutes, apiBasePath.candidateSearchRoutes);
     app.use('/profile-import',apiBasePath.authenticationTokenRoutes, apiBasePath.profileImportRoutes);
     app.use('/authenticateToken',apiBasePath.authenticationTokenRoutes);
+    app.use('/profileDetail/:username',apiBasePath.authenticationTokenRoutes);
 
 };
 
