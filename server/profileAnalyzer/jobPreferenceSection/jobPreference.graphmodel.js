@@ -12,7 +12,7 @@ const relatePersonToHimself = function (personName, looking, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (p1:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
-    query = query + ' MERGE (p)-[ppr:' + graphConst.REL_JOB_LOOKING + ' {' + relAttributes + '} ]->(p1)';
+    query = query + ' CREATE UNIQUE (p)-[ppr:' + graphConst.REL_JOB_LOOKING + ' {' + relAttributes + '} ]->(p1)';
     query = query + ' RETURN p,ppr,p1';
 
     let params = {
@@ -49,7 +49,7 @@ const relatePersonTojobRole = function (personName, jobRole, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (j:' + graphConst.NODE_JOBROLE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{jobRole}})';
-    query = query + ' MERGE (p)-[pjr:' + graphConst.REL_JOB_ROLE + ' ]->(j)';
+    query = query + ' CREATE UNIQUE (p)-[pjr:' + graphConst.REL_JOB_ROLE + ' ]->(j)';
     query = query + ' RETURN p,pjr,j';
 
     let params = {
@@ -87,7 +87,7 @@ const relatePersonToSkill = function (personName, skills, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' FOREACH(sk in {skillColl} | MERGE(s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ':sk})';
-    query = query + ' MERGE (p)-[psr:' + graphConst.REL_SKILL + ' ]->(s))';
+    query = query + ' CREATE UNIQUE (p)-[psr:' + graphConst.REL_SKILL + ' ]->(s))';
     query = query + ' RETURN p';
 
     const session = neo4jConn.connection();
@@ -129,7 +129,7 @@ const relatePersonToPreferredLocation = function (personName, locations, callbac
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' FOREACH(loc in {locationColl} | MERGE(l:' + graphConst.NODE_LOCATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':loc})';
-    query = query + ' MERGE (p)-[plr:' + graphConst.REL_PREFFERED_LOCATION + ' ]->(l))';
+    query = query + ' CREATE UNIQUE (p)-[plr:' + graphConst.REL_PREFFERED_LOCATION + ' ]->(l))';
     query = query + ' RETURN p';
 
     const session = neo4jConn.connection();

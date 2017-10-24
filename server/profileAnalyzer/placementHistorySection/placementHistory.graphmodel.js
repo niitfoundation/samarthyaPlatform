@@ -18,7 +18,7 @@ const relatePersonToOrganisation = function(personName, placementHistoryInstance
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (o:' + graphConst.NODE_ORGANISATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{organizationName}})';
-    query = query + ' MERGE (p)-[por:' + graphConst.REL_APPLIED_AT + ' {' + relAttributes + '} ]->(o)';
+    query = query + ' CREATE UNIQUE (p)-[por:' + graphConst.REL_APPLIED_AT + ' {' + relAttributes + '} ]->(o)';
     query = query + ' RETURN p,por,o';
 
     let exactDuration = Math.abs(new Date(placementHistoryInstance.duration.start) - new Date(placementHistoryInstance.duration.end));
@@ -62,10 +62,10 @@ const relatePersonToOrganisation = function(personName, placementHistoryInstance
 const relatePersonToOrganisationForAssisstedPlacement = function(personName, placementHistoryInstance, callback) {
     // Establish relation between (:Person)-[:WORKED_WITH {role: '', duration: '', isCurrent: ''}]-(:Organization)
 
-    logger.info('Inside relatePersonToOrganisationForAssisstedPlacement');
-    if(placementHistoryInstance.placementType == 'NIIT COORDINATOR' 
-        || placementHistoryInstance.placementType == 'niit coordinator'){
-        logger.info('Inside relatePersonToOrganisationForAssisstedPlacement for check');
+    logger.debug('Inside relatePersonToOrganisationForAssisstedPlacement');
+    if(placementHistoryInstance['placementType'] == 'NIIT COORDINATOR' 
+        || placementHistoryInstance['placementType'] == "niit coordinator"){
+        logger.debug('Inside relatePersonToOrganisationForAssisstedPlacement for check');
 
         let relAttributes = '';
         relAttributes = relAttributes + ' ' + graphConst.PROP_ASSISSTED_BY + ': {coordinatorName}';
@@ -73,7 +73,7 @@ const relatePersonToOrganisationForAssisstedPlacement = function(personName, pla
         let query = '';
         query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
         query = query + ' MERGE (o:' + graphConst.NODE_ORGANISATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{organizationName}})';
-        query = query + ' MERGE (p)-[por:' + graphConst.REL_ASSISSTED_PLACEMENT_AT + ' {' + relAttributes + '} ]->(o)';
+        query = query + ' CREATE UNIQUE (p)-[por:' + graphConst.REL_ASSISSTED_PLACEMENT_AT + ' {' + relAttributes + '} ]->(o)';
         query = query + ' RETURN p,por,o';
 
         let params = {
@@ -110,9 +110,9 @@ const relatePersonToOrganisationForAssisstedPlacement = function(personName, pla
 
 const relatePersonToOrganisationForSelfPlacement = function(personName, placementHistoryInstance, callback) {
     // Establish relation between (:Person)-[:WORKED_WITH {role: '', duration: '', isCurrent: ''}]-(:Organization)
-    logger.info('Inside relatePersonToOrganisationForAssisstedPlacement',placementHistoryInstance.placementType);
-    if(placementHistoryInstance.placementType == 'SELF' || placementHistoryInstance.placementType == 'self'){
-        logger.info('Inside relatePersonToOrganisationForAssisstedPlacement for check');
+    logger.debug('Inside relatePersonToOrganisationForSelfPlacement',placementHistoryInstance.placementType);
+    if(placementHistoryInstance['placementType'] == 'SELF' || placementHistoryInstance['placementType'] == "self"){
+        logger.debug('Inside relatePersonToOrganisationForSelfPlacement for check');
 
         let relAttributes = '';
         relAttributes = relAttributes + ' ' + graphConst.PROP_PLACEMENT_STATUS + ': {placementStatus}';
@@ -120,7 +120,7 @@ const relatePersonToOrganisationForSelfPlacement = function(personName, placemen
         let query = '';
         query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
         query = query + ' MERGE (o:' + graphConst.NODE_ORGANISATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{organizationName}})';
-        query = query + ' MERGE (p)-[por:' + graphConst.REL_SELF_PLACED_AT + ' {' + relAttributes + '} ]->(o)';
+        query = query + ' CREATE UNIQUE (p)-[por:' + graphConst.REL_SELF_PLACED_AT + ' {' + relAttributes + '} ]->(o)';
         query = query + ' RETURN p,por,o';
 
         let params = {

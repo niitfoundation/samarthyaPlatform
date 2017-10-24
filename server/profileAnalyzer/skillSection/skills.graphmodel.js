@@ -10,7 +10,7 @@ const relatePersonToSkills = function(personName, skills, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ':{skillName}})';
-    query = query + ' MERGE (p)-[psr:' + graphConst.REL_KNOWS + ' {' + relAttributes + '} ]->(s)';
+    query = query + ' CREATE UNIQUE (p)-[psr:' + graphConst.REL_KNOWS + ' {' + relAttributes + '} ]->(s)';
     query = query + ' RETURN p,psr,s';
 
     let params = {

@@ -13,7 +13,7 @@ const relatePersonToProject = function(person, project, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (proj:' + graphConst.NODE_PROJECT + ' {' + graphConst.NODE_PROPERTY_NAME + ':{projectName}})';
-    query = query + ' MERGE (p)-[pproj:' + graphConst.REL_WORKED_ON + ' {' + relAttributes + '} ]->(proj)';
+    query = query + ' CREATE UNIQUE (p)-[pproj:' + graphConst.REL_WORKED_ON + ' {' + relAttributes + '} ]->(proj)';
     query = query + ' RETURN p,pproj,proj';
 
     let params = {
@@ -53,12 +53,12 @@ const relatePersonToProject = function(person, project, callback) {
 const relatePersonToSkills = function(person, skills, callback) {
     // We are using array based relationship creation, an Cypher example is as below
     // match (p:Person {name: 'murugavel'})
-    // FOREACH (sk in ['s1', 's2', 's3'] | merge (s:Skill {name:sk}) merge (p)-[:WORKED_ON]->(s));
+    // FOREACH (sk in ['s1', 's2', 's3'] | merge (s:Skill {name:sk}) CREATE UNIQUE (p)-[:WORKED_ON]->(s));
     // async.map(skills, function (skillOne) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' FOREACH (sk in {skillOne} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; // continued to next line
-    query = query + ' MERGE (p)-[ps:' + graphConst.REL_WORKED_ON + ']->(s) )';
+    query = query + ' CREATE UNIQUE (p)-[ps:' + graphConst.REL_WORKED_ON + ']->(s) )';
     query = query + ' RETURN p';
 
     const session = neo4jConn.connection();
@@ -98,7 +98,7 @@ const relateProjectToSkills = function(projectName, skills, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PROJECT + ' {' + graphConst.NODE_PROPERTY_NAME + ':{projectName}})';
     query = query + ' FOREACH (sk in {skillOne} | MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ': sk}) '; // continued to next line
-    query = query + ' MERGE (p)-[ps:' + graphConst.REL_USED + ']->(s) )';
+    query = query + ' CREATE UNIQUE (p)-[ps:' + graphConst.REL_USED + ']->(s) )';
     query = query + ' RETURN p';
     const session = neo4jConn.connection();
     let skillOne = [];

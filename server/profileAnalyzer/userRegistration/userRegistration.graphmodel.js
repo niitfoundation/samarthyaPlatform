@@ -55,7 +55,7 @@ const relatePersonToProfession = function(personName, profession, callback) {
     let query = '';
     query = query + 'MATCH(p:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + 'MERGE(pro:' + graphConst.NODE_PROFESSION + '{' + graphConst.NODE_PROPERTY_NAME + ':{profession}})';
-    query = query + 'MERGE(p)-[ppro:' + graphConst.REL_PROFESSION_IS + ']->(pro)';
+    query = query + 'CREATE UNIQUE (p)-[ppro:' + graphConst.REL_PROFESSION_IS + ']->(pro)';
     query = query + 'RETURN p,ppro,pro';
 
     let params = {

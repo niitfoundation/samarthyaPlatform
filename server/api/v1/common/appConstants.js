@@ -15,6 +15,10 @@ const SALT_WORK_FACTOR = 10;
 const profileDetails = {
     IDENTITY_TYPES: ['Aadhaar', 'RegNumber', 'EmpNum']
 };
+const placementHistoryDetails = {
+    PLACEMENT_TYPES: ['Self','NFAssissted','Others','Unknown'],
+    PLACEMENT_STATUS: ['InProgress','Accepted','Rejected','CandidateRejected','Other'],
+};
 
 const predefinedStopwords = ['knows', 'know', 'person', 'persons', 'skill', 'skills', 'candidate', 'canidates', 'location', 'role'];
 

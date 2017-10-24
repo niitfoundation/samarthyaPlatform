@@ -14,7 +14,7 @@ const relatePersonToOrganisation = function(personName, workExpInstance, callbac
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (o:' + graphConst.NODE_ORGANISATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{organizationName}})';
-    query = query + ' MERGE (p)-[por:' + graphConst.REL_WORKED_WITH + ' {' + relAttributes + '} ]->(o)';
+    query = query + ' CREATE UNIQUE (p)-[por:' + graphConst.REL_WORKED_WITH + ' {' + relAttributes + '} ]->(o)';
     query = query + ' RETURN p,por,o';
 
     let exactDuration = Math.abs(new Date(workExpInstance.duration.start) - new Date(workExpInstance.duration.end));
@@ -61,7 +61,7 @@ const releatePersonToJobRole = function(personName, jobRoleInstance, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (jr:' + graphConst.NODE_JOBROLE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{jobRole}})';
-    query = query + ' MERGE (p)-[pjr:' + graphConst.REL_WORKED_AS + ' {' + relAttributes + '} ]->(jr)';
+    query = query + ' CREATE UNIQUE (p)-[pjr:' + graphConst.REL_WORKED_AS + ' {' + relAttributes + '} ]->(jr)';
     query = query + ' RETURN p,pjr,jr';
 
     let exactDuration = Math.abs(new Date(jobRoleInstance.duration.start) - new Date(jobRoleInstance.duration.end));
@@ -108,7 +108,7 @@ const releatePersonToWorkingLocation = function(personName, workinglocInstance, 
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (loc:' + graphConst.NODE_LOCATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{locationName}})';
-    query = query + ' MERGE (p)-[ploc:' + graphConst.REL_WORKED_IN + ' {' + relAttributes + '} ]->(loc)';
+    query = query + ' CREATE UNIQUE (p)-[ploc:' + graphConst.REL_WORKED_IN + ' {' + relAttributes + '} ]->(loc)';
     query = query + ' RETURN p,ploc,loc';
 
     let params = {

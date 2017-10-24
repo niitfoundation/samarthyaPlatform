@@ -11,7 +11,7 @@ const relatePersonToLocation = function(personName, personalInfo, callback) {
     let query = '';
     query = query + 'MATCH(p:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + 'MERGE(l:' + graphConst.NODE_LOCATION + '{' + graphConst.NODE_PROPERTY_NAME + ':{locationName}})';
-    query = query + 'MERGE(p)-[plr:' + graphConst.REL_LIVES_IN + ']->(l)';
+    query = query + 'CREATE UNIQUE (p)-[plr:' + graphConst.REL_LIVES_IN + ']->(l)';
     query = query + 'RETURN p,plr,l';
 
     let params = {
@@ -49,8 +49,8 @@ const relatePersonToLanguage = function(personName, personalInfo, callback) {
     query = query + 'MATCH(p:' + graphConst.NODE_PERSON + '{' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + 'MERGE(pref:' + graphConst.NODE_LANGUAGE + '{' + graphConst.NODE_PROPERTY_NAME + ':{prefLang}})';
     query = query + 'MERGE(native:' + graphConst.NODE_LANGUAGE + '{' + graphConst.NODE_PROPERTY_NAME + ':{nativeLang}})';
-    query = query + 'MERGE(p)-[ppref:' + graphConst.REL_PREF_LANG + ']->(pref)';
-    query = query + 'MERGE(p)-[pnative:' + graphConst.REL_NATIV_LANG + ']->(native)';
+    query = query + 'CREATE UNIQUE (p)-[ppref:' + graphConst.REL_PREF_LANG + ']->(pref)';
+    query = query + 'CREATE UNIQUE (p)-[pnative:' + graphConst.REL_NATIV_LANG + ']->(native)';
     query = query + 'RETURN p,pref,native,ppref,pnative';
 
     let params = {
@@ -95,13 +95,13 @@ const relatePersonToSpecificLanguage = function(personName, personalInfo, callba
 
         // conditions to check which relations we need to create
         if (lang.r) {
-            query = query + 'MERGE(p)-[read:' + graphConst.REL_CAN_READ + ']->(lang)';
+            query = query + 'CREATE UNIQUE (p)-[read:' + graphConst.REL_CAN_READ + ']->(lang)';
         }
         if (lang.w) {
-            query = query + 'MERGE(p)-[write:' + graphConst.REL_CAN_WRITE + ']->(lang)';
+            query = query + 'CREATE UNIQUE (p)-[write:' + graphConst.REL_CAN_WRITE + ']->(lang)';
         }
         if (lang.s) {
-            query = query + 'MERGE(p)-[speak:' + graphConst.REL_CAN_SPEAK + ']->(lang)';
+            query = query + 'CREATE UNIQUE (p)-[speak:' + graphConst.REL_CAN_SPEAK + ']->(lang)';
         }
 
         query = query + 'RETURN p';

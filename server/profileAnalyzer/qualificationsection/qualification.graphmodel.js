@@ -10,7 +10,7 @@ const relatePersonToQualification = function(personName, qualification, callback
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (q:' + graphConst.NODE_QUALIFICATION + ' {' + graphConst.NODE_PROPERTY_NAME + ':{qualificationName}})';
-    query = query + ' MERGE (p)-[pqr:' + graphConst.REL_QUALIFIED_AS + ' {' + relAttributes + '} ]->(q)';
+    query = query + ' CREATE UNIQUE (p)-[pqr:' + graphConst.REL_QUALIFIED_AS + ' {' + relAttributes + '} ]->(q)';
     query = query + ' RETURN p,pqr,q';
 
     let params = {
@@ -54,7 +54,7 @@ const relatePersonToInstitute = function (personName, qualification, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (in:' + graphConst.NODE_INSTITUTE + ' {' + graphConst.NODE_PROPERTY_NAME + ':{instituteName}})';
-    query = query + ' MERGE (p)-[pinr:' + graphConst.REL_QUALIFIED_FROM + ' {' + relAttributes + '} ]->(in)';
+    query = query + ' CREATE UNIQUE (p)-[pinr:' + graphConst.REL_QUALIFIED_FROM + ' {' + relAttributes + '} ]->(in)';
     query = query + ' RETURN p,pinr,in';
 
     let params = {
@@ -94,7 +94,7 @@ const relatePersonToSkill = function(personName, qualification, callback) {
     let query = '';
     query = query + ' MATCH (p:' + graphConst.NODE_PERSON + ' {' + graphConst.NODE_PROPERTY_NAME + ':{personName}})';
     query = query + ' MERGE (s:' + graphConst.NODE_SKILL + ' {' + graphConst.NODE_PROPERTY_NAME + ':{skillName}})';
-    query = query + ' MERGE (p)-[psr:' + graphConst.REL_QUALIFIED_IN + ']->(s)';
+    query = query + ' CREATE UNIQUE (p)-[psr:' + graphConst.REL_QUALIFIED_IN + ']->(s)';
     query = query + ' RETURN p,psr,s';
 
     let params = {
