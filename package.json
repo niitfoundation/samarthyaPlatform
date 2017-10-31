@@ -41,6 +41,7 @@
     "homepage": "https://github.com/stackroute/samarthyaPlatform#readme",
     "dependencies": {
         "@angular/common": "^4.4.3",
+        "@types/lodash": "^4.14.80",
         "angular2-infinite-scroll": "^0.3.4",
         "async": "^2.2.0",
         "bcrypt": "^1.0.2",
@@ -54,6 +55,7 @@
         "jsonwebtoken": "^7.3.0",
         "jsonwebtoken-refresh": "^5.7.0",
         "kafka-node": "^1.6.0",
+        "lodash": "^4.17.4",
         "mongoose": "^4.8.6",
         "morgan": "^1.8.1",
         "neo4j-driver": "^1.2.0",
