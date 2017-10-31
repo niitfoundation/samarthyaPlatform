@@ -38,7 +38,7 @@ router.post('/', function (req, res) {
 router.post('/thumbnail-view', function (req, res) {
     let searchIntent = req.query;
     try {
-    
+
         coordinateCtrl.getUsers(searchIntent).then((successResult) => {
             logger.info('Get successResult successfully and return back');
             return res.status(201).send(successResult);
@@ -59,6 +59,20 @@ router.post('/thumbnail-view', function (req, res) {
     }
 });
 
+router.get('/', function(req, res) {
+    let role = req.query.role;
+    let professionArray = req.query.professionArray;
+    let page = req.query.page;
+    let limit = req.query.limit;
+    logger.debug('role'+role+'profession'+professionArray+'page'+page+'limit '+limit);
+    coordinateCtrl.getCoordinators(role, professionArray, page, limit, function(err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
 
 
 module.exports = router;
