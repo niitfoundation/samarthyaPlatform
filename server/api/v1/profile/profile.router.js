@@ -29,6 +29,35 @@ router.get('/', function(req, res) {
     }
 });
 
+// to find coordinators belonging to a particular profession
+
+// router.get('/findCoordinator', function(req, res) {
+//     // let profileData = req.query;
+//     let userNameArray = ['shakthivvbhss@gmail.com','junk@unjunk.com'];
+//     let professionArray = ['bpo','BPO','retail','Testing','testing'];
+//     let page = 1;
+//     let limit = 5;
+
+//     try {
+//         // if (!profileData) {
+//         //     logger.error('Invalid inputs passed');
+//         //     throw new Error('Invalid inputs passed...!');
+//         // }
+//         prflCtrl.findProfiles(userNameArray, {professionArray, page, limit}).then((successResult) => {
+//             return res.status(201).send({ data: successResult, "authToken": req.authToken });
+//         }, (errResult) => {
+//             // Log the error for internal use
+//             logger.error('Internal error occurred');
+//             return res.status(500).send({ error: 'Internal error occurred, please try later..!', "authToken": req.authToken });
+//         });
+//     } catch (err) {
+//         // Log the Error for internal use
+//         logger.fatal('Exception occurred' + err);
+//         res.send({ error: 'Failed to complete successfully, please check the request and try again..!', "authToken": req.authToken });
+//         return;
+//     }
+// });
+
 // api to create new profile
 router.post('/', function(req, res) {
     let profileData = req.body;

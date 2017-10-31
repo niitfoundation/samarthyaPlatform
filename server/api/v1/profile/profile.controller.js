@@ -4,7 +4,8 @@ const ProfileModel = require('./profile.entity');
 const profileDataModel = require('./profile.model');
 const analysisFeeder = require('./../analysisFeeder/index');
 const profileConstant = require('./../../../../config/profileAnalysisConfig');
-
+const userCtrl = require('../users/users.controller');
+const lodash = require('lodash');
 /*
  *
  */
@@ -16,13 +17,42 @@ const getProfile = function(profileObj) {
                 logger.error('Profile data error' + err);
                 reject(err);
             } else {
-                logger.debug('Got Profile Data' + err);
+                logger.debug('Got Profile Data' + data);
                 // inserts profile details
                 resolve(data);
             }
         });
     });
 };
+
+const findProfiles = function(userNameArray, {professionArray, page, limit}, done) {
+    let query = {};
+
+    lodash.set(query,["username","$in"],userNameArray);
+    lodash.set(query,["profession","$in"],professionArray);
+
+    let fields = {
+      _id: 0,
+      username:1,
+      profession:1,
+      'personalInfo.name':1
+    };
+
+    // console.log(query);
+    return new Promise((resolve, reject) => {
+        ProfileModel.find(query,fields, function(err, data) {
+                        if (err) {
+                            logger.error('Profile data error' + err);
+                            reject(err);
+                        } else {
+                            logger.debug('Got Profile Data' + data);
+                            // inserts profile details
+                            resolve(data);
+                        }
+                        done(null, data);
+                    });
+    });  
+}
 
 // Add profile details
 const createProfile = function(username, profileObj) {
@@ -64,10 +94,11 @@ const createProfile = function(username, profileObj) {
 const editProfile = function(profileData, username, sectionName) {
     let obj = {};
     obj[sectionName] = profileData;
+    console.log("Trying to update ", obj);
     return new Promise((resolve, reject) => {
         ProfileModel.update({ username: username }, { $set: obj }, function(err, data) {
             if (err) {
-                logger.error('Profile data error' + err);
+                logger.error('Error in edit Profile ', err);
                 reject(err);
             } else {
                 logger.debug('Got Profile Data');
@@ -100,6 +131,7 @@ const deletePerofile = function(profileObj) {};
 
 module.exports = {
     getProfile: getProfile,
+    findProfiles: findProfiles,
     createProfile: createProfile,
     editProfile: editProfile,
     deletePerofile: deletePerofile
