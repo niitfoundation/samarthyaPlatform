@@ -14,7 +14,7 @@ const registerNewUser = function(userObj, insertType) {
         username: userObj.userCredentialsData.username,
         password: userObj.userCredentialsData.password,
         role: userObj.userCredentialsData.role,
-        status: appConstant.userDetails.USER_STATUS[0], //Ststus=Active
+        status: appConstant.userDetails.USER_STATUS[0], //Status=Active
         lastLoginOn: Date.now(),
         createdOn: Date.now(),
         updatedOn: Date.now()
@@ -73,8 +73,30 @@ const registerNewUser = function(userObj, insertType) {
     });
 };
 
+const getUserOnRole = function(role,callback) {
+    let data = [];
+    return new Promise((resolve, reject) => {
+        UserModel.find({ role: role }, function(err, result) {
+            if (err) {
+                logger.error('User data error' + err);
+                reject(err);
+            } else {
+                logger.debug('Got User Data' + result);
+                // inserts profile details
+                
+                result.forEach(function(record){
+                    data.push(record.username);
+                });
+                resolve(data);
+                console.log(data);
+            }
+            callback(null, data);
+        });
+    });
+};
 
 
 module.exports = {
     registerNewUser: registerNewUser,
+    getUserOnRole: getUserOnRole
 };
