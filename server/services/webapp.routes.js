@@ -8,7 +8,7 @@ const useRoutes = function(app) {
     app.use('/auth', apiBasePath.authenticationRoutes);
     app.use('/resources', apiBasePath.resourcesRoutes);
     app.use('/coordinates', apiBasePath.coordinateRoutes);
-    app.use('/profile',apiBasePath.authenticationTokenRoutes, apiBasePath.profileRoutes);
+    app.use('/profile', apiBasePath.authenticationTokenRoutes, apiBasePath.profileRoutes); // added authenticateTokenRoute so as make it simple
     app.use('/professions', apiBasePath.professionRoutes);
     app.use('/roles', apiBasePath.roleRoutes);
     app.use('/locations', apiBasePath.locationRoutes);
@@ -21,6 +21,7 @@ const useRoutes = function(app) {
     app.use('/profile-import',apiBasePath.authenticationTokenRoutes, apiBasePath.profileImportRoutes);
     app.use('/authenticateToken',apiBasePath.authenticationTokenRoutes);
     app.use('/profileDetail/:username',apiBasePath.authenticationTokenRoutes);
+    app.use('/samarthReport',apiBasePath.samarthReportsRoutes);
 
 };
 
