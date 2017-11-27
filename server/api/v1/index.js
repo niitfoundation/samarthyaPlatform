@@ -16,6 +16,7 @@ const graphConstants = require('./common/graphConstants');
 const mongoData = require('./mongoData/index');
 const candidateSearchRoutes = require('./candidateSearch/index');
 const profileImportRoutes = require('./profileImport/index');
+const samarthReportsRoutes = require('./samarthReports/index');
 const authenticationTokenRoutes = require('./authenticateToken/index');
 
 
@@ -39,5 +40,6 @@ module.exports = {
     graphConstants: graphConstants,
     mongoData: mongoData,
     candidateSearchRoutes: candidateSearchRoutes,
-    profileImportRoutes:profileImportRoutes
+    profileImportRoutes:profileImportRoutes,
+    samarthReportsRoutes: samarthReportsRoutes
 };
