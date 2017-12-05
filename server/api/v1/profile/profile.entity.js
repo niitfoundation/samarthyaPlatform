@@ -68,6 +68,7 @@ const profileSchema = mongoose.Schema({
         jobRoles: [{
             name: { type: String },
             engagement: { type: String },
+            shift: { type: String },
             expectedSal: {
                 min: { type: Number, default: 0 },
                 max: { type: Number, default: 0 },
@@ -82,6 +83,7 @@ const profileSchema = mongoose.Schema({
         workplace: { type: String },
         designation: { type: String },
         jobRole: { type: String },
+        lastSalary: {type: Number },
         location: { type: String },
         duration: {
             start: { type: Date},
