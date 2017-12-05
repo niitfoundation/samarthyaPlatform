@@ -1,5 +1,7 @@
 const neo4jConn = require('../neo4jcon/neo4jcon');
 const graphConst = require('../common/graphConstants');
+const ProfileModel = require('../profile/profile.entity');
+const logger = require('./../../../../applogger');
 
 // Function to find qualifications
 const findAllQualifications = function () {
@@ -24,6 +26,36 @@ const findAllQualifications = function () {
   });
   return promise;
 };
+
+// Function to find all academic types in qualifications
+const findAcademicTypes = function () {
+  return new Promise((resolve,reject) => {
+    ProfileModel.distinct("qualifications.academictype",function(err,result){
+            if (err) {
+                logger.error('Error in Fetching academictypes' + err);
+                reject(err);
+            } else {
+                logger.debug('Fetched Academictypes ' + result);
+                resolve(result);
+            }
+    });
+  });
+}
+
+// Function to find all subjects in qualifications
+const findSubjects = function () {
+  return new Promise((resolve,reject) => {
+    ProfileModel.distinct("qualifications.subject",function(err,result){
+            if (err) {
+                logger.error('Error in Fetching subjects' + err);
+                reject(err);
+            } else {
+                logger.debug('Fetched subjects ' + result);
+                resolve(result);
+            }
+    });
+  });
+}
 
 // Function to add a qualification
 const addQualification = function (qualification) {
@@ -91,6 +123,8 @@ const deleteQualification = function (name) {
 
 module.exports = {
   findAllQualifications: findAllQualifications,
+  findAcademicTypes: findAcademicTypes,
+  findSubjects: findSubjects,
   addQualification: addQualification,
   editQualification:editQualification,
   deleteQualification:deleteQualification
