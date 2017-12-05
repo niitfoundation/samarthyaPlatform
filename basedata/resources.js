@@ -372,6 +372,7 @@ const data = {
               "fields": [
                 "name",
                 "engagement",
+                "shift",
                 "availablefrom"
               ]
             }
@@ -431,6 +432,7 @@ const data = {
               "workplace",
               "designation",
               "role",
+              "lastSalary",
               "location"
             ]
           }
