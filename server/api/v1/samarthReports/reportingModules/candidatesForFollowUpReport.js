@@ -2,7 +2,7 @@ const ProfileModel = require('../../profile/profile.entity');
 const logger = require('../../../../../applogger');
 const lodash = require('lodash');
 
-const countOfCandidatesForFollowUp = function(){
+const countOfCandidatesForFollowUp = function(profession){
 	logger.info("Inside countOfCandidatesForFollowUp");
 	let followUpDate = new Date()-1000*86400*30;
 	let query = {};
