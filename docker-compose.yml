@@ -13,7 +13,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - KAFKA_HOST_IP=0.0.0.0
+      - KAFKA_HOST_IP=127.0.0.1
     depends_on:
       - mongodb
       - neo4j
@@ -37,7 +37,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - KAFKA_HOST_IP=0.0.0.0
+      - KAFKA_HOST_IP=127.0.0.1
     depends_on:
       - mongodb
       - neo4j
@@ -292,7 +292,7 @@ services:
     depends_on:
       - zookeeper
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
       KAFKA_ADVERTISED_PORT: 9092
       KAFKA_CREATE_TOPICS: "personalInfo:1:1,userRegistration:1:1,experiences:1:1,projects:1:1,placementHistory:1:1,qualifications:1:1,jobPreferences:1:1,skills:1:1,profileImport:1:1"
       KAFKA_ZOOKEEPER_CONNECT: 0.0.0.0:2181
