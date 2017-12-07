@@ -19,8 +19,18 @@ module.exports = function(appName) {
     app = service.setupMiddlewares(app);
 
     let staticPath = path.resolve(__dirname, '..', '..', 'webclient', appName, 'dist');
+
+    let candidateImgPath = path.resolve(__dirname, '..', '..', 'webclient', 'candidate' , 'webclient/assets/img');
+
+    let placementImgPath = path.resolve(__dirname, '..', '..', 'webclient', 'placement' , 'src/assets/img');
+
     process.stdout.write('\n       Mounting static path    ' + staticPath + '\n');
+    process.stdout.write('\n       Mounting static path of images  ' + candidateImgPath + '\n');
+    process.stdout.write('\n       Mounting static path of images  ' + placementImgPath + '\n');
+
     app.use(express.static(staticPath));
+    app.use(express.static(candidateImgPath));
+    app.use(express.static(placementImgPath));
 
     app = service.setupRestRoutes(app);
 
