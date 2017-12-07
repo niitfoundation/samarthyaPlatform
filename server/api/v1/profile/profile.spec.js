@@ -19,6 +19,7 @@ describe('Profile', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 expect(Promise.resolve(res.body.message)).to.eventually.equal('save successfully');
+                // expect (res.body).toBe(
                 done();
             });
     });

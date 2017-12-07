@@ -79,6 +79,7 @@ function onError(error) {
     }
 }
 
+
 /**
  * Event listener for HTTP server "listening" event.
  */
@@ -90,3 +91,4 @@ function onListening() {
         'port ' + addr.port;
     debug('Listening on ' + bind);
 }
+module.exports = server

@@ -28,6 +28,10 @@
             "prod": "environments/environment.prod.ts"
         }
     }],
+    "styles": [
+    "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+    "styles.css"
+    ],
     "e2e": {
         "protractor": {
             "config": "./protractor.conf.js"

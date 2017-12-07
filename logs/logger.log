@@ -1,9 +1,72 @@
-[2017-06-13 16:47:54.498] [DEBUG] [default] - relatePersonToSkill::Query  MATCH (p:Person {name:{personName}}) MERGE (s:Skills {name:{skillName}}) MERGE (p)-[psr:Qualified_In]->(s) RETURN p,psr,s
-[2017-06-13 16:47:54.516] [DEBUG] [default] - relatePersonToInstitute::Query  MATCH (p:Person {name:{personName}}) MERGE (in:Institute {name:{instituteName}}) MERGE (p)-[pinr:Qualified_From {degree: {degree},qualifiedBatch: {batch}} ]->(in) RETURN p,pinr,in
-[2017-06-13 16:47:54.638] [DEBUG] [default] - relateInstituteToQualification::Query  MATCH (in:Institute {name:{instituteName}}) MERGE (q:Qualification {name:{qualificationName}}) MERGE (in)-[inqr:Offers]->(q) RETURN in,inqr,q
-[2017-06-13 16:47:54.774] [DEBUG] [default] - relateQualificationToSkill::Query  MATCH (q:Qualification {name:{qualificationName}}) MERGE (s:Skills {name:{skillName}}) MERGE (q)-[qsr:Major_Subject_As]->(s) RETURN q,qsr,s
-[2017-06-13 16:47:54.783] [DEBUG] [default] - relateInstituteToLocation::Query  MATCH (in:Institute {name:{instituteName}}) MERGE (l:Location {name:{locationName}}) MERGE (in)-[inlr:Done_From]->(l) RETURN in,inlr,l
-[2017-06-13 16:47:55.243] [DEBUG] [default] - [*] Done analysing qualification instance [ gainesgibbs@gmail.com:College ]
-[2017-06-13 16:47:55.243] [DEBUG] [default] - Returned data from processorMethod  [ [ { institite: [Object],
-      relation: [Object],
-      qualification: [Object] } ] ]
+[2017-10-06 12:09:34.694] [DEBUG] [default] - [*] Done analysing placementHistory instance [ shahb2311@gmail.com:Philips ]
+[2017-10-06 12:09:34.695] [ERROR] [default] - Error in relatePersonToOrganisationForSelfPlacement  { Neo4jError: getaddrinfo ENOTFOUND localhost localhost:7687
+    at new Neo4jError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9) code: 'ServiceUnavailable', name: 'Neo4jError' }
+[2017-10-06 12:09:34.696] [DEBUG] [default] - Returned data from processorMethod  { Neo4jError: getaddrinfo ENOTFOUND localhost localhost:7687
+    at new Neo4jError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9) code: 'ServiceUnavailable', name: 'Neo4jError' }
+[2017-10-06 12:10:00.633] [DEBUG] [default] - Service  placementHistoryAnalyzer  is now running..!
+[2017-10-06 12:10:11.273] [INFO] [default] - Proceeding to analyze placement history..!
+[2017-10-06 12:10:11.274] [DEBUG] [default] - [*] Starting to analyze PlacementHistory instance [ shahb2311@gmail.com:Philips ]
+[2017-10-06 12:10:11.279] [DEBUG] [default] - relatePersonToOrganisation::Query  MATCH (p:Person {name:{personName}}) MERGE (o:Organisation {name:{organizationName}}) MERGE (p)-[por:Applied_At { role: {role}, durationinmonths: {durationinmonths}, durationinyears: {durationinyears}, Location: {location}, placement_type: {placementType}, status: {placementStatus}, employer_name: {employerName}, isCurrent: {isCurrent}} ]->(o) RETURN p,por,o
+[2017-10-06 12:10:11.299] [INFO] [default] - Inside relatePersonToOrganisationForAssisstedPlacement
+[2017-10-06 12:10:11.300] [INFO] [default] - Inside relatePersonToOrganisationForAssisstedPlacement self
+[2017-10-06 12:10:11.300] [INFO] [default] - Inside relatePersonToOrganisationForAssisstedPlacement for check
+[2017-10-06 12:10:11.300] [DEBUG] [default] - relatePersonToOrganisationForSelfPlacement::Query  MATCH (p:Person {name:{personName}}) MERGE (o:Organisation {name:{organizationName}}) MERGE (p)-[por:Self_Placed_At { status: {placementStatus}} ]->(o) RETURN p,por,o
+[2017-10-06 12:10:11.458] [ERROR] [default] - Error in relatePersonToOrganisation  { Neo4jError: getaddrinfo ENOTFOUND localhost localhost:7687
+    at new Neo4jError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9) code: 'ServiceUnavailable', name: 'Neo4jError' }
+[2017-10-06 12:10:11.462] [ERROR] [default] - Error in analyzing placementHistory instance  { Neo4jError: getaddrinfo ENOTFOUND localhost localhost:7687
+    at new Neo4jError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9) code: 'ServiceUnavailable', name: 'Neo4jError' }
+[2017-10-06 12:10:11.462] [DEBUG] [default] - [*] Done analysing placementHistory instance [ shahb2311@gmail.com:Philips ]
+[2017-10-06 12:10:11.463] [ERROR] [default] - Error in relatePersonToOrganisationForSelfPlacement  { Neo4jError: getaddrinfo ENOTFOUND localhost localhost:7687
+    at new Neo4jError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9) code: 'ServiceUnavailable', name: 'Neo4jError' }
+[2017-10-06 12:10:11.465] [DEBUG] [default] - Returned data from processorMethod  { Neo4jError: getaddrinfo ENOTFOUND localhost localhost:7687
+    at new Neo4jError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:76:132)
+    at newError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/error.js:66:10)
+    at NodeChannel._handleConnectionError (/home/shakthi/niitfoundation/samarthyaPlatform/node_modules/neo4j-driver/lib/v1/internal/ch-node.js:328:41)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9) code: 'ServiceUnavailable', name: 'Neo4jError' }
+[2017-10-06 12:12:35.110] [DEBUG] [default] - Service  placementHistoryAnalyzer  is now running..!
+[2017-10-06 12:14:17.658] [INFO] [default] - Proceeding to analyze placement history..!
+[2017-10-06 12:14:17.661] [DEBUG] [default] - [*] Starting to analyze PlacementHistory instance [ shahb2311@gmail.com:Philips ]
+[2017-10-06 12:14:17.665] [DEBUG] [default] - relatePersonToOrganisation::Query  MATCH (p:Person {name:{personName}}) MERGE (o:Organisation {name:{organizationName}}) MERGE (p)-[por:Applied_At { role: {role}, durationinmonths: {durationinmonths}, durationinyears: {durationinyears}, Location: {location}, placement_type: {placementType}, status: {placementStatus}, employer_name: {employerName}, isCurrent: {isCurrent}} ]->(o) RETURN p,por,o
+[2017-10-06 12:14:17.682] [INFO] [default] - Inside relatePersonToOrganisationForAssisstedPlacement
+[2017-10-06 12:14:17.682] [INFO] [default] - Inside relatePersonToOrganisationForAssisstedPlacement self
+[2017-10-06 12:14:17.682] [INFO] [default] - Inside relatePersonToOrganisationForAssisstedPlacement for check
+[2017-10-06 12:14:17.682] [DEBUG] [default] - relatePersonToOrganisationForSelfPlacement::Query  MATCH (p:Person {name:{personName}}) MERGE (o:Organisation {name:{organizationName}}) MERGE (p)-[por:Self_Placed_At { status: {placementStatus}} ]->(o) RETURN p,por,o

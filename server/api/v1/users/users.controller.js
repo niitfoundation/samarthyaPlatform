@@ -81,14 +81,11 @@ const getUserOnRole = function(role,callback) {
                 logger.error('User data error' + err);
                 reject(err);
             } else {
-                logger.debug('Got User Data' + result);
                 // inserts profile details
-                
                 result.forEach(function(record){
                     data.push(record.username);
                 });
                 resolve(data);
-                console.log(data);
             }
             callback(null, data);
         });
