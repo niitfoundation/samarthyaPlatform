@@ -110,6 +110,30 @@ router.patch('/', function(req, res) {
     }
 });
 
+router.patch('/profilePic', function(req, res) {
+    let pictureUrl = req.body.data;
+    let username = req.body.username;
+    try {
+        if (!pictureUrl) {
+            logger.error('Invalid inputs passed');
+            throw new Error('Invalid inputs passed...!');
+        }
+        prflCtrl.editProfilePic(pictureUrl, username).then((successResult) => {
+            return res.status(201).send({ data: successResult, success: true, "authToken": req.authToken });
+        }, (errResult) => {
+            // Log the error for internal use
+            logger.error('Internal error occurred');
+            return res.status(500).send({ success: false, msg: "Internal error occurred, please try later", error: 'Internal error occurred, please try later..!', "authToken": req.authToken });
+        });
+
+    } catch (err) {
+        // Log the Error for internal use
+        logger.fatal('Exception occurred' + err);
+        res.send({ success: false, error: 'Failed to complete successfully, please check the request and try again..!', "authToken": req.authToken });
+        return;
+    }
+});
+
 // api to delete  profile
 router.delete('/', function(req, res) {
     let profileData = req.body;
