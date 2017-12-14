@@ -126,6 +126,20 @@ const editProfile = function(profileData, username, sectionName) {
     });
 };
 
+const editProfilePic = function(pictureUrl, username) {
+    console.log("Trying to update profile picture");
+    return new Promise((resolve, reject) => {
+        ProfileModel.update({ username: username }, { $set: {profilePic: pictureUrl} }, function(err, data) {
+            if (err) {
+                logger.error('Error in edit Profile Picture', err);
+                reject(err);
+            } else {
+               logger.info('successfully edited the Profile Picture as ', pictureUrl);
+            }
+        });
+    });
+};
+
 
 const deletePerofile = function(profileObj) {};
 
@@ -134,5 +148,6 @@ module.exports = {
     findProfiles: findProfiles,
     createProfile: createProfile,
     editProfile: editProfile,
+    editProfilePic:editProfilePic,
     deletePerofile: deletePerofile
 };
