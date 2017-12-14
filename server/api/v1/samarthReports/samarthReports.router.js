@@ -10,7 +10,7 @@ router.get('/', function(req,res){
 			logger.error('Invalid inputs passed');
             throw new Error('Invalid inputs passed...!');
 		}
-		samarthReportsCtrl.resultArray(professionArray, function(err,results){
+		samarthReportsCtrl.resultArray(function(err,results){
             if(err){
                 logger.error('Internal Error Occurred');
                 return res.status(500).send({ error: 'Internal error occurred, please try later..!'});
@@ -20,6 +20,31 @@ router.get('/', function(req,res){
             }
         })
 	} catch (err) {
+        // Log the Error for internal use
+        logger.fatal('Exception occurred' + err);
+        res.send({ error: 'Failed to complete successfully, please check the request and try again..!'});
+        return;
+    }
+});
+
+router.get('/cards', function(req,res){
+    let role = 'candidate';
+    
+    try{
+        if(!role){
+            logger.error('Invalid inputs passed');
+            throw new Error('Invalid inputs passed...!');
+        }
+        samarthReportsCtrl.getReport(role, function(err,results){
+            if(err){
+                logger.error('Internal Error Occurred');
+                return res.status(500).send({ error: 'Internal error occurred, please try later..!'});
+            }
+            else{
+                return res.status(201).send(results);
+            }
+        })
+    } catch (err) {
         // Log the Error for internal use
         logger.fatal('Exception occurred' + err);
         res.send({ error: 'Failed to complete successfully, please check the request and try again..!'});
