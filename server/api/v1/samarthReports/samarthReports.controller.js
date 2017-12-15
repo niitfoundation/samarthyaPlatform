@@ -7,6 +7,9 @@ const candidatesRejectedReport = require('./reportingModules/candidatesRejectedR
 const coordinatorsByProfessionsReport = require('./reportingModules/coordinatorsByProfessionsReport');
 const async = require('async');
 const ProfileModel = require('../profile/profile.entity');
+const lodash = require('lodash');
+const userCtrl = require('../users/users.controller');
+const logger = require('./../../../../applogger');
 
 const getReport = function(role,callback){
 		async.series({
@@ -55,18 +58,29 @@ const getReportsForGraph = function(profession, callback){
 
 const resultArray = function(callback){
 	let professionArray = [];
-	ProfileModel.distinct('profession', function(err,result){
-		if(err){
-			logger.error('Error in finding professions in samarthya reports');
-		}
-		professionArray = result;
-		async.map(professionArray, getReportsForGraph, function(err,result){
-			if(err){
-				callback(null, err);
-			}
+	let role = 'candidate';
+	async.waterfall([function(callback){
+				userCtrl.getUserOnRole(role,callback)
+			},function(prevResult,callback){
+				let usernames = prevResult;
+				let query = {};
+				lodash.set(query,["username","$in"],usernames);	
+				ProfileModel.distinct('profession',query,callback);
+				}],function(err,resultCount){
+				if(err){
+					logger.error('Error in fetching professions');
+					callback(null,err);
+				}
+				else{
+					professionArray = resultCount;
+					async.map(professionArray, getReportsForGraph, function(err,result){
+					if(err){
+						callback(null, err);
+				}
 			callback(null, result);
-		})
-	})
+			})
+		}	
+	});
 }
 
 module.exports = {
