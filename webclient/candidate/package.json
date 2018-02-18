@@ -27,8 +27,8 @@
         "html2canvas": "^0.5.0-beta4",
         "md2": "0.0.16",
         "rxjs": "^5.0.1",
-        "samarthyaCandidate": "https://github.com/niitfoundation/samarthyaCandidate.git#placementSec",
-        "samarthyaWebcomponent": "https://github.com/niitfoundation/samarthyaWebcomponent.git#placementSec",
+        "samarthyaCandidate": "git+https://github.com/niitfoundation/samarthyaCandidate.git#placementSec",
+        "samarthyaWebcomponent": "git+https://github.com/niitfoundation/samarthyaWebcomponent.git#placementSec",
         "ts-helpers": "^1.1.1",
         "zone.js": "^0.7.2"
     },
