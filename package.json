@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "indexers": "sudo docker-compose up -d jobpreference workexperience project qualification skill userregister profileinfo profileimport",
         "test": " \"Error: no test specified\" && exit 1",
         "candidate-npm-install": "cd webclient/candidate && npm install",
         "placement-npm-install": "cd webclient/placement && npm install",

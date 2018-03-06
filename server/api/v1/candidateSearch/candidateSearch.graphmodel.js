@@ -7,18 +7,18 @@ const searchCandidates = function(searchString, pageNo, pagelimit, callback) {
 
     try {
         let query = '';
-        query = query + 'WITH {searchString} AS paramString';
-        query = query + ' MATCH (n)'; //Match any node
-        query = query + ' WHERE ANY(param IN split(paramString, ",") ';
-        query = query + '       WHERE ANY(prop in keys(n) ';
-        query = query + '           WHERE ANY(val IN n[prop] ';
-        query = query + '               WHERE val =~ ("(?i).*"+ param + "(?i).*"))))';
-        query = query + ' WITH n';
-        query = query + ' MATCH (n)-[*]-(p:Person)';
-        query = query + ' MATCH (p)-[:' + graphConst.REL_PROFESSION_IS + '] - (pfn:' + graphConst.NODE_PROFESSION + ')';
-        query = query + ' RETURN DISTINCT p, pfn';
+        // query = query + 'WITH {searchString} AS paramString';
+        // query = query + ' MATCH (n)'; //Match any node
+        // query = query + ' WHERE ANY(param IN split(paramString, ",") ';
+        // query = query + '       WHERE ANY(prop in keys(n) ';
+        // query = query + '           WHERE ANY(val IN n[prop] ';
+        // query = query + '               WHERE val =~ ("(?i).*"+ param + "(?i).*"))))';
+        // query = query + ' WITH n';
+        // query = query + ' MATCH (n)-[*]-(p:Person)';
+        // query = query + ' MATCH (p)-[:' + graphConst.REL_PROFESSION_IS + '] - (pfn:' + graphConst.NODE_PROFESSION + ')';
+        // query = query + ' RETURN DISTINCT p, pfn';
 
-        query = query + ' UNION ';
+        // query = query + ' UNION ';
 
         query = query + ' WITH {searchString} AS paramString';
         query = query + ' MATCH (p:Person)'; //Match only person

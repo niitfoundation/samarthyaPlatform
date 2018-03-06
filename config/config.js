@@ -5,12 +5,14 @@ let SAMARTHYA = {
 };
 
 let NEO4J = {
+    HOST: process.env.NEO4J_HOST || 'localhost',
     USERNAME: 'neo4j',
     PASSWORD: 'password'
 };
 
 const KAFKA_HOST = (process.env.KAFKA_HOST_IP + ':9092') || '0.0.0.0:9092';
-const ZOOKPER_HOST = (process.env.KAFKA_HOST_IP + ':2181') || '0.0.0.0:2181';
+// const ZOOKPER_HOST = (process.env.KAFKA_HOST_IP + ':2181') || '0.0.0.0:2181';
+const ZOOKPER_HOST = (process.env.KAFKA_HOST_IP || '0.0.0.0' ) + ':2181';
 
 const mongo = {
     host: process.env.MONGO_HOST || '127.0.0.1',

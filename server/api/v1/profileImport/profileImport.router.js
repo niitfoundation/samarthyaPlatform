@@ -17,20 +17,22 @@ router.post('/upload', function (req, res) {
                 if (err)
                     logger.error(err)
                 else {
-
-                    profileCtrl.addProfileImport(JSON.parse(data), fileName, remarks, username).then((successResult) => {
+                    profileCtrl.addProfileImport(JSON.parse(data), fileName, remarks, username)
+                    .then((successResult) => {
                         logger.info('Saved successfully and return back');
-
-                    })
+                        res.status(201).send({ "msg": "Importing is in progress..Will import that soon" ,"authToken": req.authToken });
+                    }, function(err) {
+                        logger.error("Error in importing profiles ", err);
+                        res.status(400).send({ "error": "Error occurred in importing " ,"authToken": req.authToken });
+                    });
                 }
             });
         });
-        return res.status(201).send({ "msg": "Importing is in progress..Will import that soon" ,"authToken": req.authToken });
-
+        // return res.status(201).send({ "msg": "Importing is in progress..Will import that soon" ,"authToken": req.authToken });
     } catch (err) {
         return res.send({ "msg": "Error in importing please try later..." ,"authToken": req.authToken});
 
-    }
+    }                                                             
 });
 
 
