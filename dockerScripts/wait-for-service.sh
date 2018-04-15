@@ -10,10 +10,7 @@ svc="$3"
 
 echo 'Inspecting ' $host $port
 
-until `telnet $host $port`; do
-  >&2 echo "Service is unavailable - sleeping"
-  sleep 10s
-done
+while ! nc -z $host $port; do sleep 3; done
 
 # Additional time to wait till all topics are up
 sleep 20s
