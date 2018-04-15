@@ -10,7 +10,7 @@ svc="$3"
 
 echo 'Inspecting ' $host $port
 
-while ! nc -z $host $port; do sleep 3; done
+while ! nc -z $host $port; do sleep 3; done;
 
 # Additional time to wait till all topics are up
 sleep 20s
