@@ -20,7 +20,7 @@ let sendEmail = function (jsonobj) {
         logger.debug('sendEmail function is invoke');
         let tokenPaylod = { username: jsonobj.username, title: jsonobj.title };
         const token = jwt.sign(tokenPaylod, appConstant.emailDetails.emailTokenSecret, { expiresIn: appConstant.expireTime });
-        const link = 'http://' + jsonobj.host;
+        const link = 'https://' + jsonobj.host;
         // ----------verify------------------
         const mailOptions = {
             from: appConstant.emailDetails.user,
