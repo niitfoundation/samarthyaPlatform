@@ -46,7 +46,7 @@
         "@types/lodash": "^4.14.80",
         "angular2-infinite-scroll": "^0.3.4",
         "async": "^2.2.0",
-        "bcrypt": "^1.0.3",
+        "bcrypt": "^2.0.0",
         "body-parser": "^1.17.1",
         "compression": "^1.6.2",
         "concurrently": "^3.4.0",
