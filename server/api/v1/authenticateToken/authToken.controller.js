@@ -40,7 +40,7 @@ let generateToken = function(authObj){
                 let userToken = jwt.sign(userDetails, appConstant.secret, {
                     expiresIn: appConstant.expireTime
                 });
-                return userToken;  // secret is defined in the environment variable JWT_SECRET
+                resolve(userToken);  // secret is defined in the environment variable JWT_SECRET
             }
         });
     });
