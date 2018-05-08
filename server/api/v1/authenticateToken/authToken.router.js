@@ -10,7 +10,13 @@ router.use(function(req, res, next) {
     try {
         // check header or url parameters or post parameters for token
         logger.debug('Authorization begin by getting token from http request');
-        const token = req.body.token || req.headers.authorization || req.query.token;
+        let authData = req.body;
+        authCtrl.generateToken(authData).then((successResult) => {
+            let usrtoken = successResult;
+            console.log('inside authctrl '+ usrtoken);
+        })
+        console.log('outside authctrl '+ usrtoken);
+        const token = req.body.token || req.headers.authorization || req.query.token || usrtoken;
         // decode token
         if (token) {
             authCtrl.verifyToken(token).then((successResult) => {
