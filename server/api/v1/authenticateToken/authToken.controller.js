@@ -27,7 +27,7 @@ let generateToken = function(authObj){
     var userDetails = {
         username: authObj.username,
     };
-  let promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
         userModel.findOne(userDetails, function (err, data) {
             if (err) {
                 logger.error('userDetails data not found' + err);
@@ -38,9 +38,9 @@ let generateToken = function(authObj){
                     role: data.role
                 };
                 let userToken = jwt.sign(userDetails, appConstant.secret, {
-                    expiresIn: appConstant.expireTime
+                expiresIn: appConstant.expireTime
                 });
-                resolve(userToken);  // secret is defined in the environment variable JWT_SECRET
+                resolve(userToken); // secret is defined in the environment variable JWT_SECRET
             }
         });
     });
