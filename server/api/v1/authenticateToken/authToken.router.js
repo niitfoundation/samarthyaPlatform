@@ -10,16 +10,7 @@ router.use(function(req, res, next) {
     try {
         // check header or url parameters or post parameters for token
         logger.debug('Authorization begin by getting token from http request');
-        let authData = req.body;
-        authCtrl.generateToken(authData).then((successResult) => {
-            let usrtoken = successResult;
-            console.log('inside authctrl '+ usrtoken);
-            next();
-        }, (errResult) => {
-                logger.error('Internal error occurred');
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'UnAuthorised User' });
-        });
-        console.log('outside authctrl '+ usrtoken);
+        
         const token = req.body.token || req.headers.authorization || req.query.token || usrtoken;
         // decode token
         if (token) {
