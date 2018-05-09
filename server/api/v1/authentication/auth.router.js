@@ -2,7 +2,7 @@ const router = require('express').Router();
 const authCtrl = require('./auth.controller');
 const emailCtrl = require('./../emailUtil/emailUtil.controller');
 const logger = require('./../../../../applogger');
-const authCtrl = require('../authenticateToken/authToken.controller');
+const authTokenCtrl = require('../authenticateToken/authToken.controller');
 
 /*
  * Authenticate the user
@@ -196,7 +196,7 @@ router.use(function(req, res, next) {
         const token = req.body.token || req.headers.authorization || req.query.token;
         // decode token
         if (token) {
-            authCtrl.verifyToken(token).then((successResult) => {
+            authTokenCtrl.verifyToken(token).then((successResult) => {
                 logger.info('Token verified');
                 req.decoded = successResult.decoded;
                 req.authToken = successResult.authToken;
