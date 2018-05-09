@@ -5,7 +5,7 @@ const apiBasePath = require(path.resolve(__dirname, '../', 'api', 'v1/index.js')
 const useRoutes = function(app) {
     app.use('/users', apiBasePath.userRoutes);
     app.use('/candidates', apiBasePath.candidateRoutes);
-    app.use('/auth', apiBasePath.authenticationTokenRoutes, apiBasePath.authenticationRoutes);
+    app.use('/auth', apiBasePath.authenticationRoutes);
     app.use('/resources', apiBasePath.resourcesRoutes);
     app.use('/coordinates', apiBasePath.coordinateRoutes);
     app.use('/profile', apiBasePath.authenticationTokenRoutes, apiBasePath.profileRoutes); // added authenticateTokenRoute so as make it simple
