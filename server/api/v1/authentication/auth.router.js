@@ -189,35 +189,7 @@ router.post('/reset-password', function (req, res, next) {
 /*
  *middleware to verify user token for authentication and pass the decoded token to other request
  */
-router.use(function(req, res, next) {
-    try {
-        // check header or url parameters or post parameters for token
-        logger.debug('Authorization begin by getting token from http request');
-        const token = req.body.token || req.headers.authorization || req.query.token;
-        // decode token
-        if (token) {
-            authTokenCtrl.verifyToken(token).then((successResult) => {
-                logger.info('Token verified');
-                req.decoded = successResult.decoded;
-                req.authToken = successResult.authToken;
-                next();
-            }, (errResult) => {
-                logger.error('Internal error occurred');
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'UnAuthorised User' });
-            });
-        } else {
-            // if there is no token
-            // return an error
-            logger.info('Token not provided');
-            return res.status(403).send({
-                message: 'No token provided.',
-                success: false
-            });
-        }
-    } catch (error) {
-        return error;
-    }
-});
+
 
 router.post('/check-password', function(req,res){
      let resetPassword = req.body;
@@ -246,6 +218,33 @@ router.post('/check-password', function(req,res){
  *getting the nav bar menus based on the role of user(coordinator,supervisor,admin,candidate) and returns the nav-bar menus
  */
 router.get('/nav-menus', function (req, res) {
+    try {
+        // check header or url parameters or post parameters for token
+        logger.debug('Authorization begin by getting token from http request');
+        const token = req.body.token || req.headers.authorization || req.query.token;
+        // decode token
+        if (token) {
+            authTokenCtrl.verifyToken(token).then((successResult) => {
+                logger.info('Token verified');
+                req.decoded = successResult.decoded;
+                req.authToken = successResult.authToken;
+                next();
+            }, (errResult) => {
+                logger.error('Internal error occurred');
+                return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'UnAuthorised User' });
+            });
+        } else {
+            // if there is no token
+            // return an error
+            logger.info('Token not provided');
+            return res.status(403).send({
+                message: 'No token provided.',
+                success: false
+            });
+        }
+    } catch (error) {
+        return error;
+    }
     let role = req.decoded.role;
     logger.info('nav-menus entered');
     try {
