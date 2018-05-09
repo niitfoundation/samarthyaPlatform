@@ -10,7 +10,6 @@ router.use(function(req, res, next) {
     try {
         // check header or url parameters or post parameters for token
         logger.debug('Authorization begin by getting token from http request');
-        logger.info('checking payload for token' + req.payload.token);
         const token = req.body.token || req.headers.authorization || req.query.token;
         // decode token
         if (token) {
