@@ -87,7 +87,7 @@ router.post('/register-email', function (req, res) {
                     });
             } else {
                 return res.status(201).send({
-                    msg: 'User already exist..Please Login',success:false
+                    msg: 'User already exist..Please Login',success:true
                 });
             }
         },
@@ -217,7 +217,7 @@ router.post('/check-password', function(req,res){
 /*
  *getting the nav bar menus based on the role of user(coordinator,supervisor,admin,candidate) and returns the nav-bar menus
  */
-router.get('/nav-menus', function (req, res) {
+router.get('/nav-menus', function (req, res, next) {
     try {
         // check header or url parameters or post parameters for token
         logger.debug('Authorization begin by getting token from http request');
@@ -225,13 +225,13 @@ router.get('/nav-menus', function (req, res) {
         // decode token
         if (token) {
             authTokenCtrl.verifyToken(token).then((successResult) => {
-                logger.info('Token verified');
+                logger.info('Token verified', successResult.decoded);
                 req.decoded = successResult.decoded;
                 req.authToken = successResult.authToken;
-                next();
+                 next();
             }, (errResult) => {
                 logger.error('Internal error occurred');
-                return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'UnAuthorised User' });
+                return; //res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'UnAuthorised User' });
             });
         } else {
             // if there is no token
@@ -243,11 +243,16 @@ router.get('/nav-menus', function (req, res) {
             });
         }
     } catch (error) {
+        logger.error(" error in setting role", error);
         return error;
     }
-    let role = req.decoded.role;
-    logger.info('nav-menus entered');
-    try {
+}, function(req, res, next){ 
+    try {  
+       logger.info(" inside checking for role", req.decoded.role);
+        let role = req.decoded.role;
+        logger.info('nav-menus entered')
+    
+        logger.info('role is ', role);
         authCtrl.getMenus(role).then((successResult) => {
             logger.info('auth token in nav-menus ' + req.authToken);
             return res.status(201).send({ success: true, data: successResult, authToken:req.authToken });
