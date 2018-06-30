@@ -17,7 +17,7 @@ const getProfile = function(profileObj) {
                 logger.error('Profile data error' + err);
                 reject(err);
             } else {
-                logger.debug('Got Profile Data' + data);
+                logger.debug('Got Profile Data');
                 // inserts profile details
                 resolve(data);
             }
@@ -78,13 +78,14 @@ const createProfile = function(username, profileObj) {
                         function(err, result) {
                             if (err) {
                                 reject({ msg: 'Profile data Not Added successfully' });
-                            } else {
-                                resolve({ msg: 'Profile data Added successfully' });
                             }
+                            //  else {
+                            //     resolve({ msg: 'Profile data Added successfully', success: true });
+                            // }
                         });
                 } else {
                     // inserts profile details
-                    resolve({ msg: 'Profile data Added successfully' });
+                    resolve({ msg: 'Profile data Added successfully', success: true });
                 }
             }
         });
